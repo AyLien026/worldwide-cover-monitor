@@ -1,7 +1,9 @@
 {
-  "last_attempt": null,
-  "active_sources": 0,
-  "new_items": 0,
-  "source_errors": {},
-  "setup_note": "Noch kein produktiver Abruf erfolgt; dieser leere Initialstatus wird vom ersten Lauf überschrieben."
+  "last_attempt": "2026-11-16T22:57:16+00:00",
+  "active_sources": 10,
+  "new_items": 14,
+  "source_errors": {
+    "usps-postal-bulletin": "HTTP Error 403: Forbidden",
+    "swiss-lupe": "Keine passenden Dokumentlinks gefunden; Seitenstruktur oder Selektor prüfen"
+  }
 }
