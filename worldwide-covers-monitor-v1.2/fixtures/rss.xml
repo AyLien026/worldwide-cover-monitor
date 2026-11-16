@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Demo-Feed</title>
+<item><title>New Antarctic postal cover – specimen announcement</title><link>https://example.org/test-polarpost-cover</link><description>Demo eines philatelic cover, keine echte Meldung.</description><pubDate>Mon, 16 Nov 2026 10:00:00 GMT</pubDate></item>
+<item><title>Weather conditions in summer</title><link>https://example.org/not-relevant</link><description>Just the weather.</description></item>
+</channel></rss>
