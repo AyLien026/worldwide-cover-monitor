@@ -72,6 +72,29 @@
   function save(){try{localStorage.setItem('worldwide-covers-monitor-v1',JSON.stringify(db))}catch(e){}}
   function e(tag,cls,content){var n=document.createElement(tag);if(cls)n.className=cls;if(content!==undefined)n.textContent=content;return n}
   function date(s){if(!s)return '';var d=new Date(s);return isNaN(d.getTime())?s:d.toLocaleDateString('de-DE')}
+  // Flaggen nach Herausgeberland, nicht zwingend nach Thema der Meldung.
+  var SOURCE_FLAGS={
+    'deutsche-post-stempel':'🇩🇪',
+    'usps-postal-bulletin':'🇺🇸',
+    'royal-mail-postmarks':'🇬🇧',
+    'swiss-philanews':'🇨🇭',
+    'swiss-lupe':'🇨🇭',
+    'austria-sonderpostaemter':'🇦🇹',
+    'austria-philatelietage':'🇦🇹',
+    'auspost-stamp-bulletin':'🇦🇺',
+    'aland-cancellations':'🇦🇽',
+    'canada-details':'🇨🇦',
+    'canadian-stamp-news':'🇨🇦',
+    'new-zealand-collectables':'🇳🇿',
+    'ireland-stamp-programme':'🇮🇪',
+    'sweden-stamp-programme':'🇸🇪',
+    'british-antarctic-survey':'🇬🇧',
+    'stamp-collecting-blog':'🌍'
+  };
+  function sourceLabel(obj){
+    var sourceName=obj.source||obj.name||obj.id||'Unbekannte Quelle';
+    return (SOURCE_FLAGS[obj.source_id||obj.id]||'🌍')+' '+sourceName;
+  }
   function update(){
     var val=$('q').value.toLocaleLowerCase('de').trim(),cat=$('category').value,mode=$('view').value;
     var filtered=items.filter(function(i){var x=db[i.id]||{};return(!cat||i.category===cat)&&(!val||[i.title,i.summary,i.source,i.category].join(' ').toLocaleLowerCase('de').includes(val))&&(mode==='all'||mode==='saved'&&x.saved||mode==='unread'&&!x.read)});
@@ -83,7 +106,7 @@
     if(!filtered.length){out.append(e('div','empty','Keine Meldungen passen zu deinen Filtern.'));return}
     filtered.forEach(function(i){
       var status=db[i.id]||{},card=e('article','item'),meta=e('div','meta'),tag=e('span','tag',i.category||'Sonstiges');
-      meta.append(tag,e('span','',i.source||''));if(i.published)meta.append(e('span','', '· '+date(i.published)));
+      meta.append(tag,e('span','',sourceLabel(i)));if(i.published)meta.append(e('span','', '· '+date(i.published)));
       card.append(meta,e('h2','',i.title),e('p','',i.summary||'Zum Originalbeitrag wechseln, um Details zu prüfen.'));
       var controls=e('div','controls'),link=e('a','', 'Originalquelle öffnen');link.href=i.url;link.target='_blank';link.rel='noopener noreferrer';controls.append(link);
       function action(caption,key){var b=e('button','',caption);b.type='button';b.setAttribute('aria-pressed',String(!!status[key]));b.addEventListener('click',function(){status[key]=!status[key];db[i.id]=status;save();update()});return b}
@@ -92,7 +115,7 @@
     })
   }
   var sc=$('sourceList');(Array.isArray(window.WCM_SOURCES)?window.WCM_SOURCES:[]).forEach(function(s){
-    var item=e('div','source'),a=e('a','',s.name||s.id);a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';item.append(a,e('small','',(s.enabled?'Automatische Erfassung':'Referenz / noch ohne Parser')+' · '+(s.category||'Philatelie')));sc.append(item);
+    var item=e('div','source'),a=e('a','',sourceLabel(s));a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';item.append(a,e('small','',(s.enabled?'Automatische Erfassung':'Referenz / noch ohne Parser')+' · '+(s.category||'Philatelie')));sc.append(item);
   });
   Array.from(new Set(items.map(function(i){return i.category||'Sonstiges'}))).sort().forEach(function(t){var o=e('option','',t);o.value=t;$('category').append(o)});
   $('q').addEventListener('input',update);$('category').addEventListener('change',update);$('view').addEventListener('change',update);
