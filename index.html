@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Worldwide Covers Monitor — Philatelistische Fundstücke</title>
+  <style>
+    :root{--olive:#aab123;--olive-dark:#687321;--cream:#f9f7f0;--line:#e6e3d7;--ink:#24281f;--soft:#687064;--white:#fff}
+    *{box-sizing:border-box}body{margin:0;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f6f6f1;color:var(--ink)}
+    .container{max-width:1020px;margin:0 auto;padding:0 22px}.topline{height:6px;background:var(--olive)}
+    header{background:var(--cream);border-bottom:1px solid var(--line);padding:35px 0 28px}
+    .eyebrow{text-transform:uppercase;letter-spacing:3px;font-weight:700;color:var(--olive-dark);font-size:11px}
+    h1{font-family:Georgia,serif;font-size:clamp(27px,4vw,43px);font-weight:500;line-height:1.14;margin:10px 0}
+    header p{margin:0;max-width:650px;color:#5c6658}.row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:23px 0}
+    .stat{background:white;border:1px solid var(--line);border-radius:9px;padding:15px 18px}
+    .stat strong{display:block;font-size:23px;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--soft)}
+    .toolbar{background:white;border:1px solid var(--line);border-radius:11px;padding:17px;display:grid;grid-template-columns:1fr 180px 170px;gap:12px}
+    input,select{min-width:0;width:100%;border:1px solid #d4d8cf;padding:11px 12px;background:#fff;border-radius:6px;font:inherit;color:var(--ink)}
+    input:focus,select:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--olive-dark);outline-offset:2px}
+    .help{font-size:12px;color:var(--soft);margin-top:9px}.list{margin:18px 0 40px;display:grid;gap:11px}
+    .item{border:1px solid var(--line);border-left:4px solid var(--olive);background:white;border-radius:8px;padding:17px 20px}
+    .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--soft);margin-bottom:8px}
+    .tag{background:#f0f3db;color:#59621a;font-weight:650;border-radius:30px;padding:2px 10px;font-size:11px}
+    .item h2{font-family:Georgia,serif;font-weight:500;font-size:20px;line-height:1.3;margin:0 0 7px}
+    .item p{color:#485047;margin:0 0 12px;font-size:14px}.item .controls{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+    a{color:#5f6d0e;text-decoration:underline;text-underline-offset:2px}
+    button{border:1px solid #d7dacc;background:#fff;color:#3d4b23;border-radius:5px;padding:7px 12px;cursor:pointer;font:inherit;font-size:12px}
+    button[aria-pressed="true"]{background:#edf1d6;border-color:#a8ba49}
+    .empty{padding:48px 20px;text-align:center;background:white;border:1px dashed #bbc2b7;border-radius:11px;color:#5c6658}
+    .info{padding:12px 16px;background:var(--cream);border-left:4px solid var(--olive);font-size:13px;color:#4f5946;margin:20px 0}
+    .sources{background:#fff;border:1px solid var(--line);border-radius:11px;margin:28px 0 36px;padding:18px}
+    .sources h2{font:500 24px Georgia,serif;margin:0 0 6px}.source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+    .source{border:1px solid var(--line);border-radius:7px;padding:11px 13px}.source small{display:block;color:var(--soft);margin-top:3px}
+    @media(max-width:720px){.source-grid{grid-template-columns:1fr}}
+    footer{border-top:1px solid var(--line);padding:22px 0 36px;color:var(--soft);font-size:12px}
+    @media(max-width:720px){.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:11px}.stat strong{font-size:20px}.toolbar{grid-template-columns:1fr}.item{padding:14px}}
+  </style>
+</head>
+<body>
+<div class="topline"></div>
+<header><div class="container">
+  <div class="eyebrow">Worldwide Covers · Sammlernotizen</div>
+  <h1>Philatelistische Fundstücke</h1>
+  <p>Ein unabhängiger Monitor für Sonderstempel, internationale Poststellen, Polarpost und neue philatelistische Ereignisse.</p>
+</div></header>
+<main class="container">
+  <div class="stats">
+    <div class="stat"><strong id="countAll">0</strong><span>Gesammelte Meldungen</span></div>
+    <div class="stat"><strong id="countSaved">0</strong><span>Vorgemerkt</span></div>
+    <div class="stat"><strong id="countSources">0</strong><span>Quellen im Archiv</span></div>
+  </div>
+  <div class="toolbar">
+    <input type="search" id="q" placeholder="Stempel, Poststelle, Ort, Station ..." aria-label="Meldungen durchsuchen">
+    <select id="category" aria-label="Kategorie wählen"><option value="">Alle Kategorien</option></select>
+    <select id="view" aria-label="Ansicht wählen"><option value="all">Alle Meldungen</option><option value="saved">Nur Merkliste</option><option value="unread">Noch ungelesen</option></select>
+  </div>
+  <p class="help" id="status">Die Daten werden aus einer lokal gespeicherten Datei geladen. Die Merkliste bleibt nur in diesem Browser gespeichert.</p>
+  <section id="results" class="list" aria-live="polite"></section>
+  <section class="sources"><h2>Offizielle Quellen</h2><p class="help">Automatisch erfasste Bulletins und ergänzende Referenzen. „Referenz“ bedeutet: Noch kein automatischer Parser im Webarchiv; die ChatGPT-Recherche kann die Quelle trotzdem prüfen.</p><div class="source-grid" id="sourceList"></div></section>
+  <div class="info"><strong>Hinweis zur Verlässlichkeit:</strong> Eine automatisch entdeckte Nachricht ist noch keine bestätigte Möglichkeit, Sammlerpost einzusenden. Prüfe Details wie Stempeldatum, Adresse und Fristen immer bei der Originalquelle. Keine personenbezogenen Adressen oder Zugangsdaten im öffentlichen Archiv veröffentlichen.</div>
+</main>
+<footer><div class="container">Worldwide Covers Monitor · Lokales Archiv · Quellennachrichten bleiben bei ihren Urhebern · <span id="dataDate">Noch kein Datenlauf</span></div></footer>
+<script src="data/items.js"></script>
+<script src="data/sources.js"></script>
+<script>
+(function(){'use strict';
+  var items=Array.isArray(window.WCM_DATA)?window.WCM_DATA:[];
+  var $=function(id){return document.getElementById(id)};
+  var db={};try{db=JSON.parse(localStorage.getItem('worldwide-covers-monitor-v1')||'{}')||{}}catch(e){db={}}
+  function save(){try{localStorage.setItem('worldwide-covers-monitor-v1',JSON.stringify(db))}catch(e){}}
+  function e(tag,cls,content){var n=document.createElement(tag);if(cls)n.className=cls;if(content!==undefined)n.textContent=content;return n}
+  function date(s){if(!s)return '';var d=new Date(s);return isNaN(d.getTime())?s:d.toLocaleDateString('de-DE')}
+  function update(){
+    var val=$('q').value.toLocaleLowerCase('de').trim(),cat=$('category').value,mode=$('view').value;
+    var filtered=items.filter(function(i){var x=db[i.id]||{};return(!cat||i.category===cat)&&(!val||[i.title,i.summary,i.source,i.category].join(' ').toLocaleLowerCase('de').includes(val))&&(mode==='all'||mode==='saved'&&x.saved||mode==='unread'&&!x.read)});
+    $('countAll').textContent=items.length;$('countSources').textContent=new Set(items.map(function(i){return i.source_id||i.source})).size;
+    $('countSaved').textContent=items.filter(function(i){return db[i.id]&&db[i.id].saved}).length;
+    $('status').textContent=filtered.length+' Treffer · Lokale Markierungen bleiben nur in diesem Browser gespeichert.';
+    var out=$('results');out.replaceChildren();
+    if(!items.length){var msg=e('div','empty');msg.append(e('strong','', 'Noch kein automatischer Quellenabruf gespeichert.'),e('p','', 'Nach dem ersten erfolgreichen Lauf erscheinen hier die neuen Fundstücke. Starte dafür monitor.py oder aktiviere GitHub Actions.'));out.append(msg);return}
+    if(!filtered.length){out.append(e('div','empty','Keine Meldungen passen zu deinen Filtern.'));return}
+    filtered.forEach(function(i){
+      var status=db[i.id]||{},card=e('article','item'),meta=e('div','meta'),tag=e('span','tag',i.category||'Sonstiges');
+      meta.append(tag,e('span','',i.source||''));if(i.published)meta.append(e('span','', '· '+date(i.published)));
+      card.append(meta,e('h2','',i.title),e('p','',i.summary||'Zum Originalbeitrag wechseln, um Details zu prüfen.'));
+      var controls=e('div','controls'),link=e('a','', 'Originalquelle öffnen');link.href=i.url;link.target='_blank';link.rel='noopener noreferrer';controls.append(link);
+      function action(caption,key){var b=e('button','',caption);b.type='button';b.setAttribute('aria-pressed',String(!!status[key]));b.addEventListener('click',function(){status[key]=!status[key];db[i.id]=status;save();update()});return b}
+      controls.append(action(status.saved?'★ Vorgemerkt':'☆ Vormerken','saved'),action(status.read?'✓ Gelesen':'Als gelesen markieren','read'));
+      card.append(controls);out.append(card)
+    })
+  }
+  var sc=$('sourceList');(Array.isArray(window.WCM_SOURCES)?window.WCM_SOURCES:[]).forEach(function(s){
+    var item=e('div','source'),a=e('a','',s.name||s.id);a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';item.append(a,e('small','',(s.enabled?'Automatische Erfassung':'Referenz / noch ohne Parser')+' · '+(s.category||'Philatelie')));sc.append(item);
+  });
+  Array.from(new Set(items.map(function(i){return i.category||'Sonstiges'}))).sort().forEach(function(t){var o=e('option','',t);o.value=t;$('category').append(o)});
+  $('q').addEventListener('input',update);$('category').addEventListener('change',update);$('view').addEventListener('change',update);
+  if(items.length){$('dataDate').textContent='Letzter Archivneuzugang: '+date(items.map(function(x){return x.first_seen}).filter(Boolean).sort().reverse()[0])}
+  update();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.WCM_DATA = [];
