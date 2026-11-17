@@ -1,6 +1,6 @@
 {
   "title": "Worldwide Covers – International Postage Rates",
-  "updated_at": "2026-11-17",
+  "updated_at": "2026-11-18",
   "purpose": "International standard letters from origin to Germany; most collector figures are unverified.",
   "disclaimer": "Indicative information; do not frank without confirming the current official tariff. Source watcher checks price text, not tariff applicability.",
   "rates": [
@@ -734,23 +734,42 @@
       }
     },
     {
-      "id": "liechtenstein",
-      "country": "Liechtenstein",
       "flag": "🇱🇮",
       "region": "Europe",
-      "standard": "2.50 CHF",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
+      "weight_g": 20,
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://post.li/versenden/dokumente-ausland/",
       "check": {
         "state": "not_configured",
         "checked_at": null
-      }
+      },
+      "id": "liechtenstein-europe",
+      "country": "Liechtenstein – Europe",
+      "standard": "1.90 CHF",
+      "notes": "Official Liechtensteinische Post 2026 Documents International, Zone 1 = Europe (including Germany), Standardbrief 1–20 g. Service comparable to international Priority, not Priority Plus; no extra service fee included.",
+      "watch_token": "1.90"
+    },
+    {
+      "flag": "🇱🇮",
+      "region": "Europe",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://post.li/versenden/dokumente-ausland/",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      },
+      "id": "liechtenstein-world",
+      "country": "Liechtenstein – Rest of World",
+      "standard": "2.50 CHF",
+      "notes": "Official Liechtensteinische Post 2026 Documents International, Zone 2 = rest of world (outside Europe), Standardbrief 1–20 g. This entry is for non-European destinations, not Germany. No extra service fee included.",
+      "watch_token": "2.50"
     },
     {
       "id": "lithuania",
