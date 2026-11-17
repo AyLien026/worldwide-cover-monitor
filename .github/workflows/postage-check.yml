@@ -1,0 +1,27 @@
+name: Monthly Postage Rate Source Check
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 7 1 * *' # UTC
+permissions:
+  contents: write
+jobs:
+  postage-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check official rate sources
+        run: python postage/check_postage.py
+      - name: Commit the check results
+        run: |
+          git config user.name 'worldwide-covers-monitor[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add postage/rates.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Monthly postage source scan'
+            git push
+          fi

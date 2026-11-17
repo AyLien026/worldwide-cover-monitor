@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>International Postage Rates · Worldwide Covers</title>
+<meta name="description" content="Country-by-country international letter postage reference with flags, source links and monthly source-check alerts.">
+<style>
+:root{--olive:#aab123;--dark:#788714;--ink:#293027;--muted:#697065;--line:#e5e2d6;--cream:#f9f7f0}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:#fff;font:15px/1.5 'Source Sans 3',Arial,sans-serif}
+a{color:#758610;text-decoration:underline;text-underline-offset:2px}
+.wrap{max-width:1180px;margin:auto;padding:12px 10px 32px}
+.hero{background:var(--cream);border:1px solid #ede8d8;border-left:5px solid var(--olive);padding:18px 20px}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:#839519}
+h1{font-size:clamp(24px,3vw,33px);line-height:1.2;margin:6px 0 8px}
+p{margin:8px 0}.muted{color:var(--muted)}.small{font-size:12px}
+.cards{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}
+.metric{background:white;border:1px solid var(--line);padding:7px 11px;min-width:120px}
+.metric strong{display:block;font-size:19px}.metric small{display:block;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 9px}
+input,select{font:inherit;min-height:42px;padding:9px 11px;border:1px solid #d8d7cb;background:white;color:var(--ink)}
+input{flex:1 1 230px;min-width:155px}select{flex:1 1 170px;max-width:235px}
+input:focus-visible,select:focus-visible{outline:2px solid var(--olive)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 11px;color:var(--muted);font-size:12px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line)}
+table{width:100%;min-width:750px;border-collapse:collapse}
+th{background:var(--cream);color:#596348;font-size:11px;text-transform:uppercase;letter-spacing:.8px;text-align:left;padding:11px 10px;border-bottom:2px solid #ddd9c8}
+td{padding:11px 10px;border-bottom:1px dotted var(--line);vertical-align:top}
+tbody tr:hover{background:#fafbf4}
+.country{font-weight:700;min-width:202px}
+.flag{font-size:22px;vertical-align:middle;display:inline-block;width:33px}
+.region{display:block;margin-left:33px;font-size:11px;font-weight:400;color:var(--muted)}
+.rate{white-space:nowrap;font-weight:700}
+.weight{display:block;font-size:11px;color:var(--muted);font-weight:400}
+.pill{display:inline-block;padding:3px 7px;font-size:10px;font-weight:700;background:#f3f1e9;color:#666856;white-space:nowrap}
+.pill.ok{background:#ecf1d8;color:#506117}
+.pill.warn{background:#fae8df;color:#913d33}
+.notes{max-width:240px;color:var(--muted);font-size:11px;line-height:1.38;margin-top:5px}
+.source{font-size:12px;white-space:nowrap}
+.foot{background:var(--cream);border:1px solid var(--line);color:#626a5f;padding:12px 14px;margin-top:12px;font-size:12px}
+.blank{color:#aaa}
+@media(max-width:620px){.wrap{padding:6px}.hero{padding:13px}.metric{flex:1;min-width:90px}.filters{gap:5px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+<div class="eyebrow">Worldwide Covers · Philatelic reference</div>
+<h1>International Postage Rates</h1>
+<p>International letter rates from countries and postal territories worldwide, with flags, separate Economy and Priority columns and official references wherever available.</p>
+<p class="small muted">Target: an ordinary international letter to Germany. Rates depend on the destination, format, weight and service. Most collector-supplied figures have not yet been independently confirmed.</p>
+<div class="cards">
+<div class="metric"><strong id="total">–</strong><small>countries &amp; territories</small></div>
+<div class="metric"><strong id="verified">–</strong><small>source-reviewed entries</small></div>
+<div class="metric"><strong id="watched">–</strong><small>sources monitored</small></div>
+<div class="metric"><strong id="alerts">–</strong><small>check alerts</small></div>
+</div>
+<p class="small muted" id="scan">Loading database…</p>
+</header>
+<div class="filters" role="search" aria-label="Filter postage database">
+<input type="search" id="search" aria-label="Search countries" placeholder="Search country or territory…">
+<select id="region" aria-label="Region"><option value="">All regions</option></select>
+<select id="status" aria-label="Verification status">
+<option value="">All verification statuses</option>
+<option value="verified">Source reviewed</option>
+<option value="unverified">Unverified</option>
+<option value="alert">Source check alerts</option>
+</select>
+</div>
+<div class="legend">
+<span><span class="pill ok">SOURCE REVIEWED</span> manual review against official website</span>
+<span><span class="pill">UNVERIFIED</span> collector's original figure</span>
+<span><span class="pill warn">REVIEW NEEDED</span> possible issue in automated check</span>
+</div>
+<div class="tablewrap">
+<table aria-label="International postage rates">
+<thead><tr><th>Country / Territory</th><th>Standard</th><th>Economy</th><th>Priority</th><th>Verification</th><th>Official source</th></tr></thead>
+<tbody id="rows"><tr><td colspan="6">Loading…</td></tr></tbody>
+</table>
+</div>
+<p id="shown" class="small muted" aria-live="polite"></p>
+<footer class="foot"><strong>Verification notice.</strong> An automated source scan tests whether a linked postal website is accessible and still contains the expected price text. It does <strong>not</strong> prove that the price applies to the same destination, service or weight. Tariffs are never silently overwritten. For actual franking, always check the postal operator's current tariff. "Source reviewed" records a past manual inspection, not a guarantee of ongoing validity.</footer>
+</main>
+<script>
+(function(){
+'use strict';
+var $=function(x){return document.getElementById(x)}, db=[];
+function el(tag,cls,text){var a=document.createElement(tag);if(cls)a.className=cls;if(text!==undefined)a.textContent=text;return a}
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function cell(tr,cls,text){var a=el('td',cls,text);tr.appendChild(a);return a}
+function price(tr,r,k){var a=cell(tr,'',undefined);a.appendChild(el('span',r[k]?'rate':'blank',r[k]||'—'));if(k==='standard'&&r.weight_g)a.appendChild(el('span','weight','up to '+r.weight_g+' g'))}
+function alert(r){return ['review','unavailable'].indexOf((r.check||{}).state)>=0}
+function draw(){
+var q=norm($('search').value),region=$('region').value,status=$('status').value;
+var rows=db.filter(function(r){return (!region||r.region===region)&&(!status||(status==='alert'?alert(r):r.status===status))&&norm(r.country+' '+r.region+' '+r.notes).indexOf(q)>=0});
+rows.sort(function(a,b){return a.country.localeCompare(b.country,'en',{sensitivity:'base'})});
+var body=$('rows');body.replaceChildren();var frag=document.createDocumentFragment();
+rows.forEach(function(r){
+var tr=el('tr'),name=cell(tr,'country',undefined);
+name.appendChild(el('span','flag',r.flag||'🌐'));
+name.appendChild(el('span','',r.country));
+name.appendChild(el('span','region',r.region));
+price(tr,r,'standard');price(tr,r,'economy');price(tr,r,'priority');
+var statuscell=cell(tr,'',undefined),bad=alert(r),lab=bad?'REVIEW NEEDED':r.status==='verified'?'SOURCE REVIEWED':'UNVERIFIED';
+statuscell.appendChild(el('span','pill '+(bad?'warn':r.status==='verified'?'ok':''),lab));
+if(r.notes)statuscell.appendChild(el('div','notes',r.notes));
+if(r.manual_verified_at)statuscell.appendChild(el('div','notes','Reviewed: '+r.manual_verified_at));
+if(r.check&&r.check.checked_at)statuscell.appendChild(el('div','notes','Source scan: '+r.check.checked_at));
+if(bad&&r.check.detail)statuscell.appendChild(el('div','notes',r.check.detail));
+var source=cell(tr,'source',undefined);
+if(r.source_url){var a=el('a','', 'Official rates ↗');a.href=r.source_url;a.target='_blank';a.rel='noopener noreferrer';source.appendChild(a)}
+else source.appendChild(el('span','blank','Not linked'));
+frag.appendChild(tr)
+});
+if(!rows.length){var tr=el('tr'),td=cell(tr,'','No matching entries.');td.colSpan=6;frag.appendChild(tr)}
+body.appendChild(frag);$('shown').textContent='Showing '+rows.length+' of '+db.length+' entries.'
+}
+function init(d){
+db=Array.isArray(d.rates)?d.rates:[];
+Array.from(new Set(db.map(function(x){return x.region}))).sort().forEach(function(x){var a=el('option','',x);a.value=x;$('region').appendChild(a)});
+$('total').textContent=db.length;
+$('verified').textContent=db.filter(function(x){return x.status==='verified'}).length;
+$('watched').textContent=db.filter(function(x){return !!x.source_url}).length;
+$('alerts').textContent=db.filter(alert).length;
+$('scan').textContent='Last edited: '+(d.updated_at||'unknown')+' · Last automated source scan: '+(d.last_scan_at||'not yet run');
+draw()
+}
+['search','region','status'].forEach(function(x){$(x).addEventListener(x==='search'?'input':'change',draw)});
+fetch('./rates.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(init).catch(function(e){var body=$('rows');body.replaceChildren();var tr=el('tr'),td=cell(tr,'','Database could not be loaded: '+e.message);td.colSpan=6;body.appendChild(tr);$('scan').textContent='Database unavailable'});
+})();
+</script>
+</body>
+</html>

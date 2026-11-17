@@ -1,0 +1,1262 @@
+{
+  "title": "Worldwide Covers – International Postage Rates",
+  "updated_at": "2026-11-17",
+  "purpose": "International standard letters from origin to Germany; most collector figures are unverified.",
+  "disclaimer": "Indicative information; do not frank without confirming the current official tariff. Source watcher checks price text, not tariff applicability.",
+  "rates": [
+    {
+      "id": "aland",
+      "country": "Åland Islands",
+      "flag": "🇦🇽",
+      "region": "Europe",
+      "standard": null,
+      "economy": "3.60 EUR",
+      "priority": "4.20 EUR",
+      "weight_g": null,
+      "notes": "Collector-supplied Economy/Priority figures; weight and destination unknown.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "egypt",
+      "country": "Egypt",
+      "flag": "🇪🇬",
+      "region": "Africa",
+      "standard": "150 P",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Unit P ambiguous: verify whether Egyptian pounds or piastres.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "algeria",
+      "country": "Algeria",
+      "flag": "🇩🇿",
+      "region": "Africa",
+      "standard": "32 DH",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Unit DH does not match Algerian dinar (DZD). Verify.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "andorra",
+      "country": "Andorra",
+      "flag": "🇦🇩",
+      "region": "Europe",
+      "standard": "1.30 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "argentina",
+      "country": "Argentina",
+      "flag": "🇦🇷",
+      "region": "Americas",
+      "standard": "1440 ARS",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "ascension-island",
+      "country": "Ascension Island",
+      "flag": "🇦🇨",
+      "region": "Islands & Polar",
+      "standard": "0.50 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "australia",
+      "country": "Australia",
+      "flag": "🇦🇺",
+      "region": "Oceania",
+      "standard": "4.10 AUD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "aat",
+      "country": "Australian Antarctic Territory",
+      "flag": "🇦🇶",
+      "region": "Islands & Polar",
+      "standard": "4.00 AUD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "azores",
+      "country": "Azores",
+      "flag": "🇵🇹",
+      "region": "Islands & Polar",
+      "standard": "0.95 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "bahamas",
+      "country": "Bahamas",
+      "flag": "🇧🇸",
+      "region": "Americas",
+      "standard": "0.80 BSD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "bat",
+      "country": "British Antarctic Territory",
+      "flag": "🇦🇶",
+      "region": "Islands & Polar",
+      "standard": "0.86 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "belgium",
+      "country": "Belgium",
+      "flag": "🇧🇪",
+      "region": "Europe",
+      "standard": "3.07 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "brazil",
+      "country": "Brazil",
+      "flag": "🇧🇷",
+      "region": "Americas",
+      "standard": "8.95 BRL",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "20g international letter, Group 4; original 540 BRL was erroneous.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://www.correios.com.br/enviar/correspondencia/tarifas",
+      "watch_token": "8,95",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "bulgaria",
+      "country": "Bulgaria",
+      "flag": "🇧🇬",
+      "region": "Europe",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Original 2.70 BGN obsolete; Bulgaria adopted EUR in 2026. New tariff not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "canada",
+      "country": "Canada",
+      "flag": "🇨🇦",
+      "region": "Americas",
+      "standard": "3.65 CAD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 30,
+      "notes": "International standard-sized letter, up to 30g; prices exclude taxes.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://www.canadapost-postescanada.ca/cpc/en/personal/stamp-prices.page",
+      "watch_token": "3.65",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "chile",
+      "country": "Chile",
+      "flag": "🇨🇱",
+      "region": "Americas",
+      "standard": "1000 CLP",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "china",
+      "country": "China",
+      "flag": "🇨🇳",
+      "region": "Asia",
+      "standard": "6 CNY",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "cuba",
+      "country": "Cuba",
+      "flag": "🇨🇺",
+      "region": "Americas",
+      "standard": "0.75 CUP",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "denmark",
+      "country": "Denmark",
+      "flag": "🇩🇰",
+      "region": "Europe",
+      "standard": "From 46 DKK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "dao lists international letters from 46 DKK; exact weight/destination price not independently confirmed.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://dao.as/en/private-letters/",
+      "watch_token": "46",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "ecuador",
+      "country": "Ecuador",
+      "flag": "🇪🇨",
+      "region": "Americas",
+      "standard": "3.30 USD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "estonia",
+      "country": "Estonia",
+      "flag": "🇪🇪",
+      "region": "Europe",
+      "standard": "3.90 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "falkland-islands",
+      "country": "Falkland Islands",
+      "flag": "🇫🇰",
+      "region": "Islands & Polar",
+      "standard": "1.70 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "faroe-islands",
+      "country": "Faroe Islands",
+      "flag": "🇫🇴",
+      "region": "Islands & Polar",
+      "standard": "35 DKK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "finland",
+      "country": "Finland",
+      "flag": "🇫🇮",
+      "region": "Europe",
+      "standard": null,
+      "economy": "3.00 EUR",
+      "priority": "3.35 EUR",
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "france",
+      "country": "France",
+      "flag": "🇫🇷",
+      "region": "Europe",
+      "standard": "2.25 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "2026 International Letter, up to 20g.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://www.laposte.fr/tarifs-postaux-etranger",
+      "watch_token": "2,25",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "greenland",
+      "country": "Greenland",
+      "flag": "🇬🇱",
+      "region": "Islands & Polar",
+      "standard": "25 DKK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector additionally lists worldwide 26.50 DKK; verify destination zoning.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "united-kingdom",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "region": "Europe",
+      "standard": "3.60 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Royal Mail International Standard, up to 100g. Collector mentioned Economy 3.50 GBP, not confirmed.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://www.royalmail.com/sending/international/international-standard",
+      "watch_token": "3.60",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "guernsey",
+      "country": "Guernsey",
+      "flag": "🇬🇬",
+      "region": "Islands & Polar",
+      "standard": "1.00 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "hong-kong",
+      "country": "Hong Kong",
+      "flag": "🇭🇰",
+      "region": "Asia",
+      "standard": "5.00 HKD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "india",
+      "country": "India",
+      "flag": "🇮🇳",
+      "region": "Asia",
+      "standard": "30 INR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "ireland",
+      "country": "Ireland",
+      "flag": "🇮🇪",
+      "region": "Europe",
+      "standard": "2.20 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "iceland",
+      "country": "Iceland",
+      "flag": "🇮🇸",
+      "region": "Europe",
+      "standard": "415 ISK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "israel",
+      "country": "Israel",
+      "flag": "🇮🇱",
+      "region": "Asia",
+      "standard": "7.40 ILS",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "italy",
+      "country": "Italy",
+      "flag": "🇮🇹",
+      "region": "Europe",
+      "standard": "1.35 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "japan",
+      "country": "Japan",
+      "flag": "🇯🇵",
+      "region": "Asia",
+      "standard": "140 JPY",
+      "economy": null,
+      "priority": null,
+      "weight_g": 25,
+      "notes": "Air letter to Europe, Zone 3, up to 25g. Postcards 100 JPY are a different class.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://www.post.japanpost.jp/send/oversea/charge/list-normal/zone3_en.html",
+      "watch_token": "140",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "south-korea",
+      "country": "South Korea",
+      "flag": "🇰🇷",
+      "region": "Asia",
+      "standard": "700 KRW",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "latvia",
+      "country": "Latvia",
+      "flag": "🇱🇻",
+      "region": "Europe",
+      "standard": "2.54 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "liechtenstein",
+      "country": "Liechtenstein",
+      "flag": "🇱🇮",
+      "region": "Europe",
+      "standard": "2.50 CHF",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "lithuania",
+      "country": "Lithuania",
+      "flag": "🇱🇹",
+      "region": "Europe",
+      "standard": "1.70 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "malta",
+      "country": "Malta",
+      "flag": "🇲🇹",
+      "region": "Europe",
+      "standard": "1.91 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "morocco",
+      "country": "Morocco",
+      "flag": "🇲🇦",
+      "region": "Africa",
+      "standard": "7.80 MAD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "mexico",
+      "country": "Mexico",
+      "flag": "🇲🇽",
+      "region": "Americas",
+      "standard": "13.50 MXN",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "monaco",
+      "country": "Monaco",
+      "flag": "🇲🇨",
+      "region": "Europe",
+      "standard": "2.10 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "new-zealand",
+      "country": "New Zealand",
+      "flag": "🇳🇿",
+      "region": "Oceania",
+      "standard": "4.20 NZD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "netherlands",
+      "country": "Netherlands",
+      "flag": "🇳🇱",
+      "region": "Europe",
+      "standard": "2.00 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "norway",
+      "country": "Norway",
+      "flag": "🇳🇴",
+      "region": "Europe",
+      "standard": "37 NOK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "austria",
+      "country": "Austria",
+      "flag": "🇦🇹",
+      "region": "Europe",
+      "standard": "1.45 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "peru",
+      "country": "Peru",
+      "flag": "🇵🇪",
+      "region": "Americas",
+      "standard": "10.20 PEN",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "poland",
+      "country": "Poland",
+      "flag": "🇵🇱",
+      "region": "Europe",
+      "standard": "10 PLN",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "portugal",
+      "country": "Portugal",
+      "flag": "🇵🇹",
+      "region": "Europe",
+      "standard": "0.95 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "romania",
+      "country": "Romania",
+      "flag": "🇷🇴",
+      "region": "Europe",
+      "standard": "10 RON",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "ross",
+      "country": "Ross Dependency",
+      "flag": "🇦🇶",
+      "region": "Islands & Polar",
+      "standard": "4.20 NZD",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "saint-pierre-and-miquelon",
+      "country": "Saint Pierre and Miquelon",
+      "flag": "🇵🇲",
+      "region": "Islands & Polar",
+      "standard": "2.10 (unit unclear)",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Original '2.10 cents' has ambiguous currency/scale.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "sweden",
+      "country": "Sweden",
+      "flag": "🇸🇪",
+      "region": "Europe",
+      "standard": "44 SEK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "switzerland",
+      "country": "Switzerland",
+      "flag": "🇨🇭",
+      "region": "Europe",
+      "standard": "1.90 CHF",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "south-georgia",
+      "country": "South Georgia & South Sandwich Islands",
+      "flag": "🇬🇸",
+      "region": "Islands & Polar",
+      "standard": "1.25 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "slovakia",
+      "country": "Slovakia",
+      "flag": "🇸🇰",
+      "region": "Europe",
+      "standard": "3.20 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "spain",
+      "country": "Spain",
+      "flag": "🇪🇸",
+      "region": "Europe",
+      "standard": "2.00 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "south-africa",
+      "country": "South Africa",
+      "flag": "🇿🇦",
+      "region": "Africa",
+      "standard": "14.90 ZAR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "taaf",
+      "country": "French Southern and Antarctic Lands (TAAF)",
+      "flag": "🇹🇫",
+      "region": "Islands & Polar",
+      "standard": "2.00 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "tristan-da-cunha",
+      "country": "Tristan da Cunha",
+      "flag": "🇹🇦",
+      "region": "Islands & Polar",
+      "standard": "0.75 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "czechia",
+      "country": "Czechia",
+      "flag": "🇨🇿",
+      "region": "Europe",
+      "standard": "39 CZK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "uruguay",
+      "country": "Uruguay",
+      "flag": "🇺🇾",
+      "region": "Americas",
+      "standard": "90 UYU",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "ukraine",
+      "country": "Ukraine",
+      "flag": "🇺🇦",
+      "region": "Europe",
+      "standard": "5.40 UAH",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "united-states",
+      "country": "United States",
+      "flag": "🇺🇸",
+      "region": "Americas",
+      "standard": "1.75 USD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 28.35,
+      "notes": "USPS Global Forever international 1 oz. Domestic Forever stamps excluded.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://www.usps.com/international/letters.htm",
+      "watch_token": "1.75",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "cyprus",
+      "country": "Cyprus",
+      "flag": "🇨🇾",
+      "region": "Europe",
+      "standard": "0.66 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Collector reports 0.64 EUR + 0.02 EUR mandatory surcharge; verify applicability.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    }
+  ]
+}
