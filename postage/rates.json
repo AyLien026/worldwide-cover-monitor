@@ -1,7 +1,7 @@
 {
   "title": "Worldwide Covers – International Postage Rates",
   "updated_at": "2026-11-18",
-  "purpose": "International standard letters from origin to Germany; most collector figures are unverified.",
+  "purpose": "International standard letters from the listed origin to Germany, except entries explicitly labeled for Europe or the rest of the world. Germany's rate is worldwide.",
   "disclaimer": "Indicative information; do not frank without confirming the current official tariff. Source watcher checks price text, not tariff applicability.",
   "rates": [
     {
@@ -1299,6 +1299,25 @@
       "manual_verified_at": null,
       "source_url": null,
       "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "germany",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "region": "Europe",
+      "standard": "1.25 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "2026 Deutsche Post Brief International (standard letter, documents only), same price for Europe and all other worldwide destinations. Up to 20 g; maximum 235 × 125 × 5 mm. Priority handling is included; no separate Economy tariff.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.deutschepost.de/de/b/briefe-ins-ausland/brief-postkarte-international.html",
+      "watch_token": "1,25",
       "check": {
         "state": "not_configured",
         "checked_at": null
