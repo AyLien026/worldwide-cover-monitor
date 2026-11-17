@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Worldwide Covers Monitor — Philatelistische Fundstücke</title>
+  <title>Worldwide Covers Monitor — International Philatelic News</title>
   <style>
     :root{--olive:#aab123;--olive-dark:#687321;--cream:#f9f7f0;--line:#e6e3d7;--ink:#24281f;--soft:#687064;--white:#fff}
     *{box-sizing:border-box}body{margin:0;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f6f6f1;color:var(--ink)}
@@ -16,7 +16,7 @@
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:23px 0}
     .stat{background:white;border:1px solid var(--line);border-radius:9px;padding:15px 18px}
     .stat strong{display:block;font-size:23px;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--soft)}
-    .toolbar{background:white;border:1px solid var(--line);border-radius:11px;padding:17px;display:grid;grid-template-columns:1fr 180px 170px;gap:12px}
+    .toolbar{background:white;border:1px solid var(--line);border-radius:11px;padding:17px;display:grid;grid-template-columns:minmax(160px,1fr) 160px 160px 155px;gap:12px}
     input,select{min-width:0;width:100%;border:1px solid #d4d8cf;padding:11px 12px;background:#fff;border-radius:6px;font:inherit;color:var(--ink)}
     input:focus,select:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--olive-dark);outline-offset:2px}
     .help{font-size:12px;color:var(--soft);margin-top:9px}.list{margin:18px 0 40px;display:grid;gap:11px}
@@ -41,27 +41,28 @@
 <body>
 <div class="topline"></div>
 <header><div class="container">
-  <div class="eyebrow">Worldwide Covers · Sammlernotizen</div>
-  <h1>Philatelistische Fundstücke</h1>
-  <p>Ein unabhängiger Monitor für Sonderstempel, internationale Poststellen, Polarpost und neue philatelistische Ereignisse.</p>
+  <div class="eyebrow">Worldwide Covers · Collector's Notes</div>
+  <h1>Philatelic Bulletin Monitor</h1>
+  <p>An independent monitor for special postmarks, postal services, polar mail and philatelic announcements worldwide.</p>
 </div></header>
 <main class="container">
   <div class="stats">
-    <div class="stat"><strong id="countAll">0</strong><span>Gesammelte Meldungen</span></div>
-    <div class="stat"><strong id="countSaved">0</strong><span>Vorgemerkt</span></div>
-    <div class="stat"><strong id="countSources">0</strong><span>Quellen im Archiv</span></div>
+    <div class="stat"><strong id="countAll">0</strong><span>Collected updates</span></div>
+    <div class="stat"><strong id="countSaved">0</strong><span>Bookmarked</span></div>
+    <div class="stat"><strong id="countSources">0</strong><span>Sources in archive</span></div>
   </div>
   <div class="toolbar">
-    <input type="search" id="q" placeholder="Stempel, Poststelle, Ort, Station ..." aria-label="Meldungen durchsuchen">
-    <select id="category" aria-label="Kategorie wählen"><option value="">Alle Kategorien</option></select>
-    <select id="view" aria-label="Ansicht wählen"><option value="all">Alle Meldungen</option><option value="saved">Nur Merkliste</option><option value="unread">Noch ungelesen</option></select>
+    <input type="search" id="q" placeholder="Search postmarks, post offices, places, stations..." aria-label="Search updates">
+    <select id="country" aria-label="Select country or postal territory"><option value="">All countries</option></select>
+    <select id="category" aria-label="Select category"><option value="">All categories</option></select>
+    <select id="view" aria-label="Select view"><option value="all">All updates</option><option value="saved">Bookmarked only</option><option value="unread">Unread only</option></select>
   </div>
-  <p class="help" id="status">Die Daten werden aus einer lokal gespeicherten Datei geladen. Die Merkliste bleibt nur in diesem Browser gespeichert.</p>
+  <p class="help" id="status">Updates are loaded from the monitor archive. Bookmarks and read markers are stored only in this browser.</p>
   <section id="results" class="list" aria-live="polite"></section>
-  <section class="sources"><h2>Offizielle Quellen</h2><p class="help">Automatisch erfasste Bulletins und ergänzende Referenzen. „Referenz“ bedeutet: Noch kein automatischer Parser im Webarchiv; die ChatGPT-Recherche kann die Quelle trotzdem prüfen.</p><div class="source-grid" id="sourceList"></div></section>
-  <div class="info"><strong>Hinweis zur Verlässlichkeit:</strong> Eine automatisch entdeckte Nachricht ist noch keine bestätigte Möglichkeit, Sammlerpost einzusenden. Prüfe Details wie Stempeldatum, Adresse und Fristen immer bei der Originalquelle. Keine personenbezogenen Adressen oder Zugangsdaten im öffentlichen Archiv veröffentlichen.</div>
+  <section class="sources"><h2>Sources and bulletins</h2><p class="help">Official postal administrations, specialist news feeds and additional reference sources. Only sources with a configured parser are monitored automatically. “Reference” means no automated importer is available yet.</p><div class="source-grid" id="sourceList"></div></section>
+  <div class="info"><strong>Important:</strong> An automatically detected announcement does not confirm that a postmark or mail-in service is available. Always check dates, addresses and submission deadlines with the original source. Do not publish personal addresses or access credentials in this public archive.</div>
 </main>
-<footer><div class="container">Worldwide Covers Monitor · Lokales Archiv · Quellennachrichten bleiben bei ihren Urhebern · <span id="dataDate">Noch kein Datenlauf</span></div></footer>
+<footer><div class="container">Worldwide Covers Monitor · Public source archive · Original content remains with its publishers · <span id="dataDate">No monitoring run yet</span></div></footer>
 <script src="data/items.js"></script>
 <script src="data/sources.js"></script>
 <script>
@@ -71,55 +72,102 @@
   var db={};try{db=JSON.parse(localStorage.getItem('worldwide-covers-monitor-v1')||'{}')||{}}catch(e){db={}}
   function save(){try{localStorage.setItem('worldwide-covers-monitor-v1',JSON.stringify(db))}catch(e){}}
   function e(tag,cls,content){var n=document.createElement(tag);if(cls)n.className=cls;if(content!==undefined)n.textContent=content;return n}
-  function date(s){if(!s)return '';var d=new Date(s);return isNaN(d.getTime())?s:d.toLocaleDateString('de-DE')}
-  // Flaggen nach Herausgeberland, nicht zwingend nach Thema der Meldung.
-  var SOURCE_FLAGS={
-    'deutsche-post-stempel':'🇩🇪',
-    'usps-postal-bulletin':'🇺🇸',
-    'royal-mail-postmarks':'🇬🇧',
-    'swiss-philanews':'🇨🇭',
-    'swiss-lupe':'🇨🇭',
-    'austria-sonderpostaemter':'🇦🇹',
-    'austria-philatelietage':'🇦🇹',
-    'auspost-stamp-bulletin':'🇦🇺',
-    'aland-cancellations':'🇦🇽',
-    'canada-details':'🇨🇦',
-    'canadian-stamp-news':'🇨🇦',
-    'new-zealand-collectables':'🇳🇿',
-    'ireland-stamp-programme':'🇮🇪',
-    'sweden-stamp-programme':'🇸🇪',
-    'british-antarctic-survey':'🇬🇧',
-    'stamp-collecting-blog':'🌍'
+  function date(s){if(!s)return '';var m=/^Ausgabe\s+(\d+-\d{4})$/i.exec(s);if(m)return 'Issue '+m[1];var d=new Date(s);return isNaN(d.getTime())?s:d.toLocaleDateString('en-GB')}
+  var SOURCE_COUNTRIES={
+    'deutsche-post-stempel':'DE','usps-postal-bulletin':'US','royal-mail-postmarks':'GB',
+    'swiss-philanews':'CH','swiss-lupe':'CH','austria-sonderpostaemter':'AT',
+    'austria-philatelietage':'AT','auspost-stamp-bulletin':'AU',
+    'aland-cancellations':'AX','canada-details':'CA','canadian-stamp-news':'CA',
+    'new-zealand-collectables':'NZ','ireland-stamp-programme':'IE',
+    'sweden-stamp-programme':'SE','british-antarctic-survey':'GB',
+    'stamp-collecting-blog':'INT'
   };
-  function sourceLabel(obj){
-    var sourceName=obj.source||obj.name||obj.id||'Unbekannte Quelle';
-    return (SOURCE_FLAGS[obj.source_id||obj.id]||'🌍')+' '+sourceName;
+  var COUNTRY_NAMES={DE:'Germany',US:'United States',GB:'United Kingdom',CH:'Switzerland',AT:'Austria',AU:'Australia',AX:'Åland Islands',CA:'Canada',NZ:'New Zealand',IE:'Ireland',SE:'Sweden',NO:'Norway',FO:'Faroe Islands',NL:'Netherlands',JE:'Jersey',IT:'Italy',ES:'Spain',BE:'Belgium',LU:'Luxembourg',LI:'Liechtenstein',GL:'Greenland',FR:'France',HK:'Hong Kong',JP:'Japan',GG:'Guernsey',TF:'French Southern and Antarctic Lands',FK:'Falkland Islands',INT:'International'};
+  var catalog=Array.isArray(window.WCM_SOURCES)?window.WCM_SOURCES:[];
+  var sourceMap={};catalog.forEach(function(s){sourceMap[s.id]=s});
+  function countryFor(x){
+    var id=x.source_id||x.id,source=sourceMap[id]||{};
+    return (x.country||source.country||SOURCE_COUNTRIES[id]||'INT').toUpperCase();
   }
+  function flagFor(x){
+    var code=countryFor(x);
+    if(!/^[A-Z]{2}$/.test(code))return '🌍';
+    return String.fromCodePoint(127397+code.charCodeAt(0),127397+code.charCodeAt(1));
+  }
+  function sourceLabel(x){var name=SOURCE_NAMES[x.source_id||x.id]||x.source||x.name||x.id||'Unknown source';return flagFor(x)+' '+name}
+
+  // English display labels; internal source IDs and category values remain unchanged.
+  var SOURCE_NAMES={
+    'swiss-philanews':'Swiss Post – PhilaNews',
+    'swiss-lupe':'Swiss Post – Die Lupe',
+    'austria-sonderpostaemter':'Austrian Post – Special Post Offices',
+    'austria-philatelietage':'Austrian Post – Philately Days',
+    'aland-cancellations':'Åland Post – Pictorial and Special Postmarks',
+    'ireland-stamp-programme':'An Post – Stamp Programme',
+    'new-zealand-collectables':'NZ Post – Collectables / Ross Dependency'
+  };
+  var CATEGORY_NAMES={
+    'Sonderstempel':'Special postmarks',
+    'Philatelie':'Philately',
+    'Polarpost':'Polar mail',
+    'Poststellen':'Post offices',
+    'Sonstiges':'Other'
+  };
+  function categoryLabel(category){return CATEGORY_NAMES[category]||category||'Other'}
+  function titleLabel(title){
+    var match=/^Neue Ausgabe ['“](.+?)['”]:\s*(.+)$/.exec(title||'');
+    return match?'New issue of '+match[1]+': '+match[2]:(title||'Untitled update');
+  }
+  var SUMMARY_EN={
+    'deutsche-post-stempel':'Official Deutsche Post bulletin. Check individual postmarks and dates in the original publication.',
+    'royal-mail-postmarks':'Official Royal Mail postmark bulletin. Verify the postmark date, address and overseas submission deadline in the PDF.',
+    'swiss-philanews':'Official Swiss Post PhilaNews. Check special, first-day and last-day cancellations and deadlines in the PDF.',
+    'swiss-lupe':'Official Swiss Post philatelic magazine. Review the original issue for details.',
+    'austria-sonderpostaemter':'Official Austrian Post PDF, new or updated. Check individual events and submission deadlines in the source document.',
+    'austria-philatelietage':'Official Austrian Post PDF, new or updated. Check individual dates and available services in the source document.',
+    'auspost-stamp-bulletin':'Official Australia Post Stamp Bulletin. Check the PDF for first-day covers and postmark information.',
+    'usps-postal-bulletin':'Official USPS Postal Bulletin. Check the issue for pictorial postmark announcements and individual instructions.'
+  };
+  function summaryLabel(item){
+    var summary=item.summary||'';
+    if(!summary)return 'Open the original source for further details.';
+    // Known German auto-generated boilerplate may be shown in English.
+    if(/^(Offizielle[rs]?|Offizielles|Neue Ausgabe|Offizielles PDF|Offizielles Stamp|Offizielle PhilaNews|Offizielle Deutsche|Offizielles Handstamp|Offizielles PDF neu)/.test(summary) || /(?:im PDF nachlesen|im Heft prüfen|Stempeltermine bitte|Dokumentlinks prüfen|inhaltlich geändert)/.test(summary)){
+      return SUMMARY_EN[item.source_id]||'Official source update. Please review the original publication for details and deadlines.';
+    }
+    // Titles and substantive text from external publishers remain in their original language.
+    return summary;
+  }
+
   function update(){
-    var val=$('q').value.toLocaleLowerCase('de').trim(),cat=$('category').value,mode=$('view').value;
-    var filtered=items.filter(function(i){var x=db[i.id]||{};return(!cat||i.category===cat)&&(!val||[i.title,i.summary,i.source,i.category].join(' ').toLocaleLowerCase('de').includes(val))&&(mode==='all'||mode==='saved'&&x.saved||mode==='unread'&&!x.read)});
+    var val=$('q').value.toLocaleLowerCase('en').trim(),cat=$('category').value,mode=$('view').value,country=$('country').value;
+    var filtered=items.filter(function(i){var x=db[i.id]||{};return(!country||countryFor(i)===country)&&(!cat||i.category===cat)&&(!val||[i.title,titleLabel(i.title),i.summary,summaryLabel(i),i.source,sourceLabel(i),i.category,categoryLabel(i.category)].join(' ').toLocaleLowerCase('en').includes(val))&&(mode==='all'||mode==='saved'&&x.saved||mode==='unread'&&!x.read)});
     $('countAll').textContent=items.length;$('countSources').textContent=new Set(items.map(function(i){return i.source_id||i.source})).size;
     $('countSaved').textContent=items.filter(function(i){return db[i.id]&&db[i.id].saved}).length;
-    $('status').textContent=filtered.length+' Treffer · Lokale Markierungen bleiben nur in diesem Browser gespeichert.';
+    $('status').textContent=filtered.length+' results · Bookmarks and read markers are stored in this browser only.';
     var out=$('results');out.replaceChildren();
-    if(!items.length){var msg=e('div','empty');msg.append(e('strong','', 'Noch kein automatischer Quellenabruf gespeichert.'),e('p','', 'Nach dem ersten erfolgreichen Lauf erscheinen hier die neuen Fundstücke. Starte dafür monitor.py oder aktiviere GitHub Actions.'));out.append(msg);return}
-    if(!filtered.length){out.append(e('div','empty','Keine Meldungen passen zu deinen Filtern.'));return}
+    Array.prototype.forEach.call($('sourceList').children,function(node){node.hidden=!!country&&node.getAttribute('data-country')!==country});
+    if(!items.length){var msg=e('div','empty');msg.append(e('strong','', 'No monitored updates have been stored yet.'),e('p','', 'Updates will appear after the first successful monitoring run. Run monitor.py or start the GitHub Actions workflow.'));out.append(msg);return}
+    if(!filtered.length){out.append(e('div','empty','No updates match your filters.'));return}
     filtered.forEach(function(i){
-      var status=db[i.id]||{},card=e('article','item'),meta=e('div','meta'),tag=e('span','tag',i.category||'Sonstiges');
+      var status=db[i.id]||{},card=e('article','item'),meta=e('div','meta'),tag=e('span','tag',categoryLabel(i.category||'Other'));
       meta.append(tag,e('span','',sourceLabel(i)));if(i.published)meta.append(e('span','', '· '+date(i.published)));
-      card.append(meta,e('h2','',i.title),e('p','',i.summary||'Zum Originalbeitrag wechseln, um Details zu prüfen.'));
-      var controls=e('div','controls'),link=e('a','', 'Originalquelle öffnen');link.href=i.url;link.target='_blank';link.rel='noopener noreferrer';controls.append(link);
+      card.append(meta,e('h2','',titleLabel(i.title)),e('p','',summaryLabel(i)));
+      var controls=e('div','controls'),link=e('a','', 'View original source');link.href=i.url;link.target='_blank';link.rel='noopener noreferrer';controls.append(link);
       function action(caption,key){var b=e('button','',caption);b.type='button';b.setAttribute('aria-pressed',String(!!status[key]));b.addEventListener('click',function(){status[key]=!status[key];db[i.id]=status;save();update()});return b}
-      controls.append(action(status.saved?'★ Vorgemerkt':'☆ Vormerken','saved'),action(status.read?'✓ Gelesen':'Als gelesen markieren','read'));
+      controls.append(action(status.saved?'★ Bookmarked':'☆ Bookmark','saved'),action(status.read?'✓ Read':'Mark as read','read'));
       card.append(controls);out.append(card)
     })
   }
   var sc=$('sourceList');(Array.isArray(window.WCM_SOURCES)?window.WCM_SOURCES:[]).forEach(function(s){
-    var item=e('div','source'),a=e('a','',sourceLabel(s));a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';item.append(a,e('small','',(s.enabled?'Automatische Erfassung':'Referenz / noch ohne Parser')+' · '+(s.category||'Philatelie')));sc.append(item);
+    var item=e('div','source'),a=e('a','',sourceLabel(s));item.setAttribute('data-country',countryFor(s));a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';item.append(a,e('small','',(s.enabled?'Automatic monitoring configured':'Reference only · no importer yet')+' · '+categoryLabel(s.category||'Philately')));sc.append(item);
   });
-  Array.from(new Set(items.map(function(i){return i.category||'Sonstiges'}))).sort().forEach(function(t){var o=e('option','',t);o.value=t;$('category').append(o)});
-  $('q').addEventListener('input',update);$('category').addEventListener('change',update);$('view').addEventListener('change',update);
-  if(items.length){$('dataDate').textContent='Letzter Archivneuzugang: '+date(items.map(function(x){return x.first_seen}).filter(Boolean).sort().reverse()[0])}
+  Array.from(new Set(catalog.map(countryFor).concat(items.map(countryFor)))).filter(function(c){return COUNTRY_NAMES[c]}).sort(function(a,b){return COUNTRY_NAMES[a].localeCompare(COUNTRY_NAMES[b],'en')}).forEach(function(c){
+    var option=e('option','',flagFor({country:c})+' '+COUNTRY_NAMES[c]);option.value=c;$('country').append(option);
+  });
+  Array.from(new Set(items.map(function(i){return i.category||'Other'}))).sort().forEach(function(t){var o=e('option','',categoryLabel(t));o.value=t;$('category').append(o)});
+  $('q').addEventListener('input',update);$('country').addEventListener('change',update);$('category').addEventListener('change',update);$('view').addEventListener('change',update);
+  if(items.length){$('dataDate').textContent='Latest archive update: '+date(items.map(function(x){return x.first_seen}).filter(Boolean).sort().reverse()[0])}
   update();
 })();
 </script>
