@@ -1,10 +1,9 @@
 {
-  "last_attempt": "2026-11-17T08:38:58+00:00",
+  "last_attempt": "2026-11-17T15:24:51+00:00",
   "active_sources": 10,
   "new_items": 0,
   "source_errors": {
     "usps-postal-bulletin": "HTTP Error 403: Forbidden",
-    "swiss-lupe": "Keine passenden Dokumentlinks gefunden; Seitenstruktur oder Selektor prüfen",
-    "canadian-stamp-news": "HTTP Error 415: Unsupported Media Type"
+    "swiss-lupe": "Keine passenden Dokumentlinks gefunden; Seitenstruktur oder Selektor prüfen"
   }
 }
