@@ -125,7 +125,7 @@ db=Array.isArray(d.rates)?d.rates:[];
 Array.from(new Set(db.map(function(x){return x.region}))).sort().forEach(function(x){var a=el('option','',x);a.value=x;$('region').appendChild(a)});
 $('total').textContent=db.length;
 $('verified').textContent=db.filter(function(x){return x.status==='verified'}).length;
-$('watched').textContent=db.filter(function(x){return !!x.source_url}).length;
+$('watched').textContent=db.filter(function(x){return !!(x.source_url&&x.watch_token)}).length;
 $('alerts').textContent=db.filter(alert).length;
 $('scan').textContent='Last edited: '+(d.updated_at||'unknown')+' · Last automated source scan: '+(d.last_scan_at||'not yet run');
 draw()
