@@ -247,8 +247,9 @@
       "source_url": "https://www.correios.com.br/enviar/correspondencia/tarifas",
       "watch_token": "8,95",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-17",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -285,8 +286,9 @@
       "source_url": "https://www.canadapost-postescanada.ca/cpc/en/personal/stamp-prices.page",
       "watch_token": "3.65",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-17",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -361,8 +363,9 @@
       "source_url": "https://dao.as/en/private-letters/",
       "watch_token": "46",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-17",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -475,8 +478,9 @@
       "source_url": "https://www.laposte.fr/tarifs-postaux-etranger",
       "watch_token": "2,25",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-17",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -513,8 +517,9 @@
       "source_url": "https://www.royalmail.com/sending/international/international-standard",
       "watch_token": "3.60",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "unavailable",
+        "checked_at": "2026-11-17",
+        "detail": "Source could not be read (HTTPError); review manually."
       }
     },
     {
@@ -665,8 +670,9 @@
       "source_url": "https://www.post.japanpost.jp/send/oversea/charge/list-normal/zone3_en.html",
       "watch_token": "140",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-17",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -1235,8 +1241,9 @@
       "source_url": "https://www.usps.com/international/letters.htm",
       "watch_token": "1.75",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-17",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -1258,5 +1265,6 @@
         "checked_at": null
       }
     }
-  ]
+  ],
+  "last_scan_at": "2026-11-17"
 }
