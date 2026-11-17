@@ -62,23 +62,42 @@
       }
     },
     {
-      "id": "andorra",
-      "country": "Andorra",
       "flag": "🇦🇩",
       "region": "Europe",
-      "standard": "1.30 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
+      "weight_g": 20,
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
       "check": {
         "state": "not_configured",
         "checked_at": null
-      }
+      },
+      "id": "andorra-correos",
+      "country": "Andorra – Spanish Post (Correos)",
+      "standard": "2.00 EUR",
+      "notes": "Ordinary normalized international letter from Andorra to Germany (Europe, Zone 1), up to 20 g. 2026 Tarifa B; Andorran Correos stamps. Original unsourced 1.30 EUR entry replaced.",
+      "source_url": "https://www.correos.es/es/es/particulares/filatelia/productos-filatelicos/matasellos/primer-dia-andorra/2025/andorra1",
+      "watch_token": "2,00"
+    },
+    {
+      "flag": "🇦🇩",
+      "region": "Europe",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      },
+      "id": "andorra-laposte",
+      "country": "Andorra – French Post (La Poste)",
+      "standard": "2.25 EUR",
+      "notes": "International letter from Andorra to Germany, up to 20 g, using La Poste's Andorran international stamp (Blason International, issued June 2026, valid for posting from Andorra).",
+      "source_url": "https://www.laposte.fr/pp/timbre-andorre-blason-international/p/1426001",
+      "watch_token": "2,25"
     },
     {
       "id": "argentina",
