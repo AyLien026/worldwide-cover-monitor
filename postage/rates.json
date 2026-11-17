@@ -488,18 +488,19 @@
       "country": "Greenland",
       "flag": "🇬🇱",
       "region": "Islands & Polar",
-      "standard": "25 DKK",
+      "standard": "28.00 DKK",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector additionally lists worldwide 26.50 DKK; verify destination zoning.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "2026 Tusass official airmail tariff: Europe (including Germany) 28.00 DKK up to 20 g; rest of world 37.00 DKK; domestic 25.00 DKK. Source is a PDF manually checked; automatic PDF source monitoring is not configured.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-17",
+      "source_url": "https://www.stamps.gl/Fil?fileId=190605",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "PDF source reviewed manually; automated source checking is not configured for PDF files."
       }
     },
     {
