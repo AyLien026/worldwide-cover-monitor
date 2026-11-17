@@ -40,8 +40,12 @@ tbody tr:hover{background:#fafbf4}
 .source{font-size:12px;white-space:nowrap}
 .foot{background:var(--cream);border:1px solid var(--line);color:#626a5f;padding:12px 14px;margin-top:12px;font-size:12px}
 .blank{color:#aaa}
+/* The host Blogger page already includes an introduction. Do not repeat it inside its iframe. */
+html.embedded .hero{background:transparent;border:0;padding:0}
+html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#scan){display:none}
 @media(max-width:620px){.wrap{padding:6px}.hero{padding:13px}.metric{flex:1;min-width:90px}.filters{gap:5px}}
 </style>
+<script>if(window.self!==window.top){document.documentElement.classList.add('embedded');}</script>
 </head>
 <body>
 <main class="wrap">
