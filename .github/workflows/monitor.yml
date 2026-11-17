@@ -2,6 +2,12 @@ name: Worldwide Covers Monitor
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'postage/**'
+      - '.github/workflows/monitor.yml'
   schedule:
     - cron: '37 8 * * *'
       timezone: 'Europe/Berlin'
