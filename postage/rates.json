@@ -905,22 +905,83 @@
       }
     },
     {
-      "id": "poland",
-      "country": "Poland",
+      "id": "poland-europe",
+      "country": "Poland – Europe (Zone A)",
       "flag": "🇵🇱",
       "region": "Europe",
-      "standard": "10 PLN",
+      "standard": "10.00 PLN",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 50,
+      "notes": "Poczta Polska ordinary unregistered PRIORITY international letter, up to 50 g, Europe incl. Cyprus, Russia and Israel. Official universal postal service price list effective 1 March 2025; still linked as general postal tariff on the operator's price-list page checked 18 Nov 2026. No separate international Economy rate is quoted. PDF source manually checked; automatic PDF verification not yet configured.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.poczta-polska.pl/wp-content/uploads/2024/05/cennik_uslug_powszechnych_w_obrocie_krajowym_i_zagranicznym_022025.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official PDF manually checked. Automated rate check not configured for PDF tariffs."
+      }
+    },
+    {
+      "id": "poland-north-america-africa",
+      "country": "Poland – North America & Africa (Zone B)",
+      "flag": "🇵🇱",
+      "region": "Europe",
+      "standard": "11.00 PLN",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "Poczta Polska ordinary unregistered PRIORITY international letter, up to 50 g, North America and Africa. Official universal postal service price list effective 1 March 2025; still linked as general postal tariff on the operator's price-list page checked 18 Nov 2026. No separate international Economy rate is quoted. PDF source manually checked; automatic PDF verification not yet configured.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.poczta-polska.pl/wp-content/uploads/2024/05/cennik_uslug_powszechnych_w_obrocie_krajowym_i_zagranicznym_022025.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official PDF manually checked. Automated rate check not configured for PDF tariffs."
+      }
+    },
+    {
+      "id": "poland-americas-asia",
+      "country": "Poland – Central/South America & Asia (Zone C)",
+      "flag": "🇵🇱",
+      "region": "Europe",
+      "standard": "12.00 PLN",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "Poczta Polska ordinary unregistered PRIORITY international letter, up to 50 g, South America, Central America and Asia. Official universal postal service price list effective 1 March 2025; still linked as general postal tariff on the operator's price-list page checked 18 Nov 2026. No separate international Economy rate is quoted. PDF source manually checked; automatic PDF verification not yet configured.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.poczta-polska.pl/wp-content/uploads/2024/05/cennik_uslug_powszechnych_w_obrocie_krajowym_i_zagranicznym_022025.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official PDF manually checked. Automated rate check not configured for PDF tariffs."
+      }
+    },
+    {
+      "id": "poland-oceania",
+      "country": "Poland – Australia & Oceania (Zone D)",
+      "flag": "🇵🇱",
+      "region": "Europe",
+      "standard": "13.00 PLN",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "Poczta Polska ordinary unregistered PRIORITY international letter, up to 50 g, Australia and Oceania. Official universal postal service price list effective 1 March 2025; still linked as general postal tariff on the operator's price-list page checked 18 Nov 2026. No separate international Economy rate is quoted. PDF source manually checked; automatic PDF verification not yet configured.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.poczta-polska.pl/wp-content/uploads/2024/05/cennik_uslug_powszechnych_w_obrocie_krajowym_i_zagranicznym_022025.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official PDF manually checked. Automated rate check not configured for PDF tariffs."
       }
     },
     {
