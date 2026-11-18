@@ -151,12 +151,16 @@ var europe=g.rates.find(function(r){return / – (?:UK & )?Europe\b/i.test(r.cou
 return [europe||g.rates[0]]
 }
 function localDate(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
-function scheduledActive(r){return !!(r.scheduled_standard&&r.scheduled_from&&localDate()>=r.scheduled_from)}
-function activeStandard(r){return scheduledActive(r)?r.scheduled_standard:r.standard}
+function hasScheduled(r){return !!(r.scheduled_from&&(r.scheduled_standard||r.scheduled_economy||r.scheduled_priority))}
+function scheduledActive(r){return hasScheduled(r)&&localDate()>=r.scheduled_from}
+function activeStandard(r){return scheduledActive(r)&&r.scheduled_standard?r.scheduled_standard:r.standard}
+function activeEconomy(r){return scheduledActive(r)&&r.scheduled_economy?r.scheduled_economy:r.economy}
+function activePriority(r){return scheduledActive(r)&&r.scheduled_priority?r.scheduled_priority:r.priority}
 function quote(r){
 if(activeStandard(r))return activeStandard(r);
-if(r.economy&&r.priority)return 'Eco '+r.economy+' / Prio '+r.priority;
-return r.economy||r.priority||'Rate unavailable'
+var economy=activeEconomy(r),priority=activePriority(r);
+if(economy&&priority)return 'Eco '+economy+' / Prio '+priority;
+return economy||priority||'Rate unavailable'
 }
 function mainPrice(g){
 var prefs=preferred(g);
@@ -177,7 +181,7 @@ else if(/\bPRIORITY\b/i.test(r.notes||''))parts.push('Priority');
 if(r.weight_g)parts.push('up to '+r.weight_g+' g');
 else if(g.name==='Norway')parts.push('small-letter format');
 if(g.name==='Germany')parts.unshift('Worldwide');
-if(r.scheduled_standard)parts.push(scheduledActive(r)?'2027 tariff in effect':'From 2027: '+r.scheduled_standard);
+if(hasScheduled(r))parts.push(scheduledActive(r)?'2027 tariff in effect':'New tariff from '+r.scheduled_from);
 return parts.join(' · ')||'International letter'
 }
 function addSource(parent,r){
@@ -205,7 +209,7 @@ rates.forEach(function(r){
  if(r.check&&r.check.checked_at)left.appendChild(el('div','zone-meta','Source scan: '+r.check.checked_at));
  if(hasAlert(r)&&r.check.detail)left.appendChild(el('div','zone-meta','Attention: '+r.check.detail));
  addSource(left,r);
- if(r.scheduled_standard && r.scheduled_source_url && /^https?:\/\//i.test(r.scheduled_source_url)){
+ if(hasScheduled(r) && r.scheduled_source_url && /^https?:\/\//i.test(r.scheduled_source_url)){
   var futureLink=el('a','zone-source','Official '+r.scheduled_from.slice(0,4)+' tariff ↗');
   futureLink.href=r.scheduled_source_url;futureLink.target='_blank';futureLink.rel='noopener noreferrer';
   left.appendChild(el('div','zone-meta','Scheduled tariff effective '+r.scheduled_from));
@@ -215,9 +219,15 @@ rates.forEach(function(r){
  if(r.scheduled_standard){
   right.appendChild(el('span','zone-meta',scheduledActive(r)?'Previous (2026): '+r.standard:'From '+r.scheduled_from+': '+r.scheduled_standard));
  }
- if(r.economy)right.appendChild(el('span','','Economy · '+r.economy));
- if(r.priority)right.appendChild(el('span','','Priority · '+r.priority));
- if(!r.standard&&!r.economy&&!r.priority)right.appendChild(el('span','blank','—'));
+ if(activeEconomy(r))right.appendChild(el('span','','Economy · '+activeEconomy(r)));
+ if(activePriority(r))right.appendChild(el('span','','Priority · '+activePriority(r)));
+ if(r.scheduled_economy||r.scheduled_priority){
+  var changes=(r.scheduled_economy?'Eco '+(scheduledActive(r)?r.economy:r.scheduled_economy):'')+
+              (r.scheduled_economy&&r.scheduled_priority?' / ':'')+
+              (r.scheduled_priority?'Prio '+(scheduledActive(r)?r.priority:r.scheduled_priority):'');
+  right.appendChild(el('span','zone-meta',(scheduledActive(r)?'Previous (2026): ':'From '+r.scheduled_from+': ')+changes));
+ }
+ if(!activeStandard(r)&&!activeEconomy(r)&&!activePriority(r))right.appendChild(el('span','blank','—'));
  if(r.weight_g)right.appendChild(el('div','zone-meta','up to '+r.weight_g+' g'));
  zone.appendChild(left);zone.appendChild(right);container.appendChild(zone)
 });
@@ -261,7 +271,8 @@ if(twoZonePreview(g)){
   line.appendChild(el('span','price-label',destLabel(r,g)));
   line.appendChild(el('strong','',quote(r)));
   right.appendChild(line)
- })
+ });
+ if(shown.some(hasScheduled))right.appendChild(el('span','other-zone',shown.some(scheduledActive)?'2027 rates now in effect':'New rates from 2027 ↓'));
 }else{
  right.appendChild(el('span','price-label',g.name==='Germany'?'All destinations':'To Germany'));
  right.appendChild(el('strong','',mainPrice(g)));
