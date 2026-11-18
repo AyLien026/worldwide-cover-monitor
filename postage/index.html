@@ -23,21 +23,48 @@ input,select{font:inherit;min-height:42px;padding:9px 11px;border:1px solid #d8d
 input{flex:1 1 230px;min-width:155px}select{flex:1 1 170px;max-width:235px}
 input:focus-visible,select:focus-visible{outline:2px solid var(--olive)}
 .legend{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 11px;color:var(--muted);font-size:12px}
-.tablewrap{overflow-x:auto;border:1px solid var(--line)}
-table{width:100%;min-width:750px;border-collapse:collapse}
-th{background:var(--cream);color:#596348;font-size:11px;text-transform:uppercase;letter-spacing:.8px;text-align:left;padding:11px 10px;border-bottom:2px solid #ddd9c8}
-td{padding:11px 10px;border-bottom:1px dotted var(--line);vertical-align:top}
-tbody tr:hover{background:#fafbf4}
-.country{font-weight:700;min-width:202px}
-.flag{font-size:22px;vertical-align:middle;display:inline-block;width:33px}
-.region{display:block;margin-left:33px;font-size:11px;font-weight:400;color:var(--muted)}
-.rate{white-space:nowrap;font-weight:700}
-.weight{display:block;font-size:11px;color:var(--muted);font-weight:400}
-.pill{display:inline-block;padding:3px 7px;font-size:10px;font-weight:700;background:#f3f1e9;color:#666856;white-space:nowrap}
+.directory{border:1px solid var(--line);background:white}
+.directory-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(136px,190px) 22px;gap:12px;padding:11px 16px;background:var(--cream);color:#596348;font-size:11px;letter-spacing:.9px;text-transform:uppercase;font-weight:700}
+.directory-head span:nth-child(2){text-align:right}
+.entry{border-top:1px solid var(--line)}
+.entry:first-child{border-top:0}
+.entry-toggle{width:100%;padding:13px 15px;background:white;border:0;display:grid;grid-template-columns:36px minmax(0,1fr) minmax(136px,190px) 22px;align-items:center;gap:10px;text-align:left;color:inherit;font:inherit;cursor:pointer}
+.entry-toggle:hover,.entry-toggle[aria-expanded="true"]{background:#fafbf4}
+.entry-toggle:focus-visible{outline:2px solid #788714;outline-offset:-2px}
+.entry-flag{font-size:24px;line-height:1}
+.entry-name{font-size:15px;font-weight:700;display:block}
+.entry-meta{font-size:11px;color:var(--muted);display:block;margin-top:2px}
+.entry-price{text-align:right;min-width:0}
+.entry-price strong{font-size:15px;font-weight:700;white-space:normal;font-variant-numeric:tabular-nums}
+.entry-price small{color:var(--muted);font-size:11px;display:block}
+.chevron{text-align:right;font-size:17px;color:#7d892c;transition:transform .15s}
+.entry-toggle[aria-expanded="true"] .chevron{transform:rotate(180deg)}
+.pill{display:inline-block;padding:2px 6px;font-size:10px;font-weight:700;background:#f3f1e9;color:#666856;white-space:nowrap}
 .pill.ok{background:#ecf1d8;color:#506117}
 .pill.warn{background:#fae8df;color:#913d33}
-.notes{max-width:240px;color:var(--muted);font-size:11px;line-height:1.38;margin-top:5px}
-.source{font-size:12px;white-space:nowrap}
+.pill.partial{background:#f7f0db;color:#795e13}
+.entry-details{padding:12px 18px 16px 61px;background:#fafaf6;border-top:1px dotted var(--line)}
+.entry-details[hidden]{display:none}
+.details-intro{color:var(--muted);font-size:12px;margin:0 0 8px}
+.zone{border-top:1px dotted #dedcca;padding:10px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,225px);gap:10px}
+.zone:first-of-type{border-top:0}
+.zone-name{font-weight:700;font-size:13px}
+.zone-notes{font-size:11px;color:#646c60;line-height:1.5;margin:4px 0;overflow-wrap:anywhere}
+.zone-meta{font-size:11px;color:#646c60;margin-top:5px}
+.zone-prices{text-align:right;font-size:13px;font-variant-numeric:tabular-nums}
+.zone-prices span{display:block}
+.zone-prices strong{font-weight:700}
+.zone-source{font-size:12px;display:inline-block;margin-top:6px}
+.blank{color:#999}
+.empty{padding:25px 16px;color:var(--muted)}
+@media(max-width:620px){
+.directory-head{grid-template-columns:minmax(0,1fr) minmax(104px,135px) 15px;padding:9px 10px;gap:6px}
+.entry-toggle{grid-template-columns:29px minmax(0,1fr) minmax(104px,135px) 15px;padding:12px 9px;gap:6px}
+.entry-flag{font-size:21px}
+.entry-name,.entry-price strong{font-size:13px}
+.entry-details{padding:10px}
+.zone{grid-template-columns:minmax(0,1fr) minmax(94px,135px)}
+}
 .foot{background:var(--cream);border:1px solid var(--line);color:#626a5f;padding:12px 14px;margin-top:12px;font-size:12px}
 .blank{color:#aaa}
 /* The host Blogger page already includes an introduction. Do not repeat it inside its iframe. */
@@ -52,13 +79,13 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 <header class="hero">
 <div class="eyebrow">Worldwide Covers · Philatelic reference</div>
 <h1>International Postage Rates</h1>
-<p>International letter rates from countries and postal territories worldwide, with flags, separate Economy and Priority columns and official references wherever available.</p>
+<p>Browse international letter rates by country or postal territory. The usual rate to Germany is shown first; expand any entry for other destination zones, services and official sources.</p>
 <p class="small muted">Most rates are for ordinary international letters to Germany. Entries explicitly labeled Europe or Rest of World, as well as Germany's worldwide rate, use the stated destination zone. Tariffs depend on the destination, size, weight and service; many collector-supplied figures remain unverified.</p>
 <div class="cards">
 <div class="metric"><strong id="total">–</strong><small>countries &amp; territories</small></div>
-<div class="metric"><strong id="verified">–</strong><small>source-reviewed entries</small></div>
-<div class="metric"><strong id="watched">–</strong><small>sources monitored</small></div>
-<div class="metric"><strong id="alerts">–</strong><small>check alerts</small></div>
+<div class="metric"><strong id="tariffs">–</strong><small>postage rate entries</small></div>
+<div class="metric"><strong id="verified">–</strong><small>source-reviewed rates</small></div>
+<div class="metric"><strong id="alerts">–</strong><small>source-check alerts</small></div>
 </div>
 <p class="small muted" id="scan">Loading database…</p>
 </header>
@@ -73,15 +100,13 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 </select>
 </div>
 <div class="legend">
-<span><span class="pill ok">SOURCE REVIEWED</span> manual review against official website</span>
-<span><span class="pill">UNVERIFIED</span> collector's original figure</span>
-<span><span class="pill warn">REVIEW NEEDED</span> possible issue in automated check</span>
+<span><span class="pill ok">SOURCE REVIEWED</span> manually inspected official source</span>
+<span><span class="pill">UNVERIFIED</span> collector-supplied rate</span>
+<span><span class="pill warn">REVIEW NEEDED</span> automated source alert</span>
 </div>
-<div class="tablewrap">
-<table aria-label="International postage rates">
-<thead><tr><th>Country / Territory</th><th>Standard</th><th>Economy</th><th>Priority</th><th>Verification</th><th>Official source</th></tr></thead>
-<tbody id="rows"><tr><td colspan="6">Loading…</td></tr></tbody>
-</table>
+<div class="directory" aria-label="International postage by country">
+<div class="directory-head"><span>Country / Territory</span><span>To Germany</span><span></span></div>
+<div id="country-list"><p class="empty">Loading…</p></div>
 </div>
 <p id="shown" class="small muted" aria-live="polite"></p>
 <section class="foot" aria-label="Reader feedback"><strong>Corrections or new postage information?</strong> If you spot an outdated rate or have additional information, please get in touch by email: <strong>jens.84(at)gmx.net</strong> (replace <em>(at)</em> with <em>@</em>). Your contributions help keep this reference useful for collectors.</section>
@@ -90,49 +115,152 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 <script>
 (function(){
 'use strict';
-var $=function(x){return document.getElementById(x)}, db=[];
-function el(tag,cls,text){var a=document.createElement(tag);if(cls)a.className=cls;if(text!==undefined)a.textContent=text;return a}
-function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
-function cell(tr,cls,text){var a=el('td',cls,text);tr.appendChild(a);return a}
-function price(tr,r,k){var a=cell(tr,'',undefined);a.appendChild(el('span',r[k]?'rate':'blank',r[k]||'—'));if(k==='standard'&&r.weight_g)a.appendChild(el('span','weight','up to '+r.weight_g+' g'))}
-function alert(r){return ['review','unavailable'].indexOf((r.check||{}).state)>=0}
-function draw(){
-var q=norm($('search').value),region=$('region').value,status=$('status').value;
-var rows=db.filter(function(r){return (!region||r.region===region)&&(!status||(status==='alert'?alert(r):r.status===status))&&norm(r.country+' '+r.region+' '+r.notes).indexOf(q)>=0});
-rows.sort(function(a,b){return a.country.localeCompare(b.country,'en',{sensitivity:'base'})});
-var body=$('rows');body.replaceChildren();var frag=document.createDocumentFragment();
-rows.forEach(function(r){
-var tr=el('tr'),name=cell(tr,'country',undefined);
-name.appendChild(el('span','flag',r.flag||'🌐'));
-name.appendChild(el('span','',r.country));
-name.appendChild(el('span','region',r.region));
-price(tr,r,'standard');price(tr,r,'economy');price(tr,r,'priority');
-var statuscell=cell(tr,'',undefined),bad=alert(r),lab=bad?'REVIEW NEEDED':r.status==='verified'?'SOURCE REVIEWED':'UNVERIFIED';
-statuscell.appendChild(el('span','pill '+(bad?'warn':r.status==='verified'?'ok':''),lab));
-if(r.notes)statuscell.appendChild(el('div','notes',r.notes));
-if(r.manual_verified_at)statuscell.appendChild(el('div','notes','Reviewed: '+r.manual_verified_at));
-if(r.check&&r.check.checked_at)statuscell.appendChild(el('div','notes','Source scan: '+r.check.checked_at));
-if(bad&&r.check.detail)statuscell.appendChild(el('div','notes',r.check.detail));
-var source=cell(tr,'source',undefined);
-if(r.source_url){var a=el('a','', 'Official rates ↗');a.href=r.source_url;a.target='_blank';a.rel='noopener noreferrer';source.appendChild(a)}
-else source.appendChild(el('span','blank','Not linked'));
-frag.appendChild(tr)
-});
-if(!rows.length){var tr=el('tr'),td=cell(tr,'','No matching entries.');td.colSpan=6;frag.appendChild(tr)}
-body.appendChild(frag);$('shown').textContent='Showing '+rows.length+' of '+db.length+' entries.'
+var $=function(id){return document.getElementById(id)};
+var db=[],groups=[],expanded=new Set();
+function el(tag,cls,content){var node=document.createElement(tag);if(cls)node.className=cls;if(content!==undefined)node.textContent=content;return node}
+function norm(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function groupName(record){return String(record.country||'').split(' – ')[0]}
+function flag(record){return record.flag||'🌐'}
+function hasAlert(r){return ['review','unavailable'].indexOf((r.check||{}).state)>=0}
+function displayStatus(rows){
+if(rows.some(hasAlert))return ['REVIEW NEEDED','warn'];
+if(rows.every(function(r){return r.status==='verified'}))return ['SOURCE REVIEWED','ok'];
+if(rows.some(function(r){return r.status==='verified'}))return ['PARTLY REVIEWED','partial'];
+return ['UNVERIFIED','']
 }
-function init(d){
-db=Array.isArray(d.rates)?d.rates:[];
-Array.from(new Set(db.map(function(x){return x.region}))).sort().forEach(function(x){var a=el('option','',x);a.value=x;$('region').appendChild(a)});
-$('total').textContent=db.length;
-$('verified').textContent=db.filter(function(x){return x.status==='verified'}).length;
-$('watched').textContent=db.filter(function(x){return !!(x.source_url&&x.watch_token)}).length;
-$('alerts').textContent=db.filter(alert).length;
-$('scan').textContent='Last edited: '+(d.updated_at||'unknown')+' · Last automated source scan: '+(d.last_scan_at||'not yet run');
+function groupRates(rows){
+var map=new Map();
+rows.forEach(function(record){
+ var name=groupName(record);
+ if(!map.has(name))map.set(name,{name:name,region:record.region,flag:flag(record),rates:[]});
+ map.get(name).rates.push(record);
+});
+return Array.from(map.values()).sort(function(a,b){return a.name.localeCompare(b.name,'en',{sensitivity:'base'})})
+}
+function preferred(g){
+if(g.name==='Andorra')return g.rates;
+var europe=g.rates.find(function(r){return / – (?:UK & )?Europe\b/i.test(r.country)});
+return [europe||g.rates[0]]
+}
+function quote(r){
+if(r.standard)return r.standard;
+if(r.economy&&r.priority)return 'Eco '+r.economy+' / Prio '+r.priority;
+return r.economy||r.priority||'Rate unavailable'
+}
+function mainPrice(g){
+var prefs=preferred(g);
+if(g.name==='Andorra'&&prefs.length>1){
+ var amounts=prefs.map(function(r){return r.standard||r.economy||r.priority||'—'});
+ var spl=amounts.map(function(a){return a.trim().split(/\s+/)});
+ if(spl.every(function(x){return x.length===2&&x[1]===spl[0][1]}))return spl.map(function(x){return x[0]}).join(' / ')+' '+spl[0][1];
+ return amounts.join(' / ')
+}
+return quote(prefs[0])
+}
+function shortMeta(g){
+if(g.name==='Andorra')return 'Spanish / French postal operators';
+var r=preferred(g)[0], parts=[];
+if(r.economy)parts.push(r.priority?'Economy / Priority':'Economy');
+else if(r.priority)parts.push('Priority');
+else if(/\bPRIORITY\b/i.test(r.notes||''))parts.push('Priority');
+if(r.weight_g)parts.push('up to '+r.weight_g+' g');
+else if(g.name==='Norway')parts.push('small-letter format');
+if(g.name==='Germany')parts.unshift('Worldwide');
+return parts.join(' · ')||'International letter'
+}
+function addSource(parent,r){
+if(r.source_url&&/^https?:\/\//i.test(r.source_url)){
+ var a=el('a','zone-source','Official postal source ↗');
+ a.href=r.source_url;a.target='_blank';a.rel='noopener noreferrer';parent.appendChild(a);
+}else parent.appendChild(el('span','zone-meta','Official source not linked'))
+}
+function details(g){
+var container=el('div','entry-details');
+container.id='rates-'+g.rates[0].id;
+container.hidden=!expanded.has(g.name);
+container.appendChild(el('p','details-intro','All recorded postal services and destination zones. Rates are indicative; use the linked operator’s current tariff before mailing.'));
+var rates=g.rates.slice().sort(function(a,b){
+ var best=preferred(g);return best.indexOf(b)-best.indexOf(a)
+});
+rates.forEach(function(r){
+ var zone=el('div','zone');
+ var left=el('div',''),right=el('div','zone-prices');
+ var name=r.country===g.name?(g.name==='Germany'?'Europe & worldwide':'International standard letter'):r.country.slice(g.name.length+3);
+ left.appendChild(el('div','zone-name',name));
+ var badge=displayStatus([r]);left.appendChild(el('span','pill '+badge[1],badge[0]));
+ if(r.notes)left.appendChild(el('p','zone-notes',r.notes));
+ if(r.manual_verified_at)left.appendChild(el('div','zone-meta','Source reviewed: '+r.manual_verified_at));
+ if(r.check&&r.check.checked_at)left.appendChild(el('div','zone-meta','Source scan: '+r.check.checked_at));
+ if(hasAlert(r)&&r.check.detail)left.appendChild(el('div','zone-meta','Attention: '+r.check.detail));
+ addSource(left,r);
+ if(r.standard)right.appendChild(el('span','','Letter · '+r.standard));
+ if(r.economy)right.appendChild(el('span','','Economy · '+r.economy));
+ if(r.priority)right.appendChild(el('span','','Priority · '+r.priority));
+ if(!r.standard&&!r.economy&&!r.priority)right.appendChild(el('span','blank','—'));
+ if(r.weight_g)right.appendChild(el('div','zone-meta','up to '+r.weight_g+' g'));
+ zone.appendChild(left);zone.appendChild(right);container.appendChild(zone)
+});
+return container
+}
+function renderGroup(g){
+var item=el('section','entry');
+var button=el('button','entry-toggle');
+button.type='button';
+button.setAttribute('aria-expanded',String(expanded.has(g.name)));
+button.setAttribute('aria-controls','rates-'+g.rates[0].id);
+button.setAttribute('aria-label',g.name+': '+mainPrice(g)+'. '+(expanded.has(g.name)?'Hide':'Show')+' detailed postage rates');
+button.appendChild(el('span','entry-flag',g.flag));
+var left=el('span','');
+left.appendChild(el('strong','entry-name',g.name));
+var meta=el('span','entry-meta',g.region+' · '+(g.rates.length>1?g.rates.length+' rates':'1 rate'));
+left.appendChild(meta);
+var st=displayStatus(g.rates);
+left.appendChild(el('span','pill '+st[1],st[0]));
+button.appendChild(left);
+var right=el('span','entry-price');
+right.appendChild(el('strong','',mainPrice(g)));
+right.appendChild(el('small','',shortMeta(g)));
+button.appendChild(right);
+button.appendChild(el('span','chevron','⌄'));
+var body=details(g);
+button.addEventListener('click',function(){
+ var open=!expanded.has(g.name);
+ if(open)expanded.add(g.name);else expanded.delete(g.name);
+ body.hidden=!open;button.setAttribute('aria-expanded',String(open));
+ button.setAttribute('aria-label',g.name+': '+mainPrice(g)+'. '+(open?'Hide':'Show')+' detailed postage rates');
+});
+item.appendChild(button);item.appendChild(body);return item
+}
+function draw(){
+var query=norm($('search').value),region=$('region').value,status=$('status').value;
+var shown=groups.filter(function(g){
+ if(region&&region!==g.region)return false;
+ if(status&&!(status==='alert'?g.rates.some(hasAlert):g.rates.some(function(r){return r.status===status})))return false;
+ if(query&&!g.rates.some(function(r){return norm(g.name+' '+g.region+' '+r.country+' '+r.notes).indexOf(query)>=0}))return false;
+ return true
+});
+var list=$('country-list');list.replaceChildren();
+var fragment=document.createDocumentFragment();
+shown.forEach(function(g){fragment.appendChild(renderGroup(g))});
+if(!shown.length)fragment.appendChild(el('p','empty','No matching countries or territories.'));
+list.appendChild(fragment);
+$('shown').textContent='Showing '+shown.length+' of '+groups.length+' countries and territories · '+db.length+' individual postage entries in the database.'
+}
+function init(data){
+db=Array.isArray(data.rates)?data.rates:[];
+groups=groupRates(db);
+Array.from(new Set(groups.map(function(g){return g.region}))).sort().forEach(function(x){var opt=el('option','',x);opt.value=x;$('region').appendChild(opt)});
+$('total').textContent=groups.length;
+$('tariffs').textContent=db.length;
+$('verified').textContent=db.filter(function(r){return r.status==='verified'}).length;
+$('alerts').textContent=db.filter(hasAlert).length;
+$('scan').textContent='Last edited: '+(data.updated_at||'unknown')+' · Last automated source scan: '+(data.last_scan_at||'not yet run');
 draw()
 }
-['search','region','status'].forEach(function(x){$(x).addEventListener(x==='search'?'input':'change',draw)});
-fetch('./rates.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(init).catch(function(e){var body=$('rows');body.replaceChildren();var tr=el('tr'),td=cell(tr,'','Database could not be loaded: '+e.message);td.colSpan=6;body.appendChild(tr);$('scan').textContent='Database unavailable'});
+['search','region','status'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',draw)});
+fetch('./rates.json',{cache:'no-store'}).then(function(response){if(!response.ok)throw Error('HTTP '+response.status);return response.json()}).then(init).catch(function(err){
+var list=$('country-list');list.replaceChildren();list.appendChild(el('p','empty','Database could not be loaded: '+err.message));$('scan').textContent='Database unavailable'
+});
 })();
 </script>
 </body>
