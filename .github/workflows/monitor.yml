@@ -15,6 +15,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: worldwide-covers-site-deployment
+  cancel-in-progress: false
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
@@ -27,10 +31,13 @@ jobs:
         with:
           python-version: '3.12'
 
+      # A postage-only commit should deploy the current database without running the bulletin scraper.
       - name: Quellen pruefen
+        if: github.event_name != 'push'
         run: python monitor.py
 
       - name: Archiv aktualisieren
+        if: github.event_name != 'push'
         run: |
           git config user.name "worldwide-covers-monitor[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
