@@ -117,7 +117,7 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 <p class="small muted" id="scan">Loading database…</p>
 </header>
 <section class="upcoming" id="upcoming" aria-labelledby="upcoming-title" hidden>
-<h2 id="upcoming-title">Upcoming postage changes</h2>
+<h2 id="upcoming-title">Upcoming &amp; announced postage changes</h2>
 <p class="upcoming-intro" id="upcoming-intro"></p>
 <details><summary id="upcoming-summary">Show scheduled tariff changes</summary>
 <div id="upcoming-list"></div>
@@ -195,7 +195,7 @@ return [europe||g.rates[0]]
 }
 function localDate(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function hasScheduled(r){return !!(r.scheduled_from&&(r.scheduled_standard||r.scheduled_economy||r.scheduled_priority))}
-function scheduledActive(r){return hasScheduled(r)&&localDate()>=r.scheduled_from}
+function scheduledActive(r){return hasScheduled(r)&&r.scheduled_status!=='pending_approval'&&localDate()>=r.scheduled_from}
 function activeStandard(r){return scheduledActive(r)&&r.scheduled_standard?r.scheduled_standard:r.standard}
 function activeEconomy(r){return scheduledActive(r)&&r.scheduled_economy?r.scheduled_economy:r.economy}
 function activePriority(r){return scheduledActive(r)&&r.scheduled_priority?r.scheduled_priority:r.priority}
@@ -218,7 +218,7 @@ return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',
 }
 function renderUpcoming(){
 var future=db.filter(function(r){
-return r.status==='verified' && hasScheduled(r) && r.scheduled_from>localDate() &&
+return r.status==='verified' && hasScheduled(r) && (r.scheduled_from>localDate() || r.scheduled_status==='pending_approval') &&
  !!r.scheduled_source_url && scheduleChanges(r).length>0
 }).sort(function(a,b){return a.scheduled_from.localeCompare(b.scheduled_from)||a.country.localeCompare(b.country,'en')});
 var panel=$('upcoming');
@@ -227,15 +227,18 @@ if(!future.length)return;
 var places=Array.from(new Set(future.map(groupName)));
 var dates=Array.from(new Set(future.map(function(r){return r.scheduled_from})));
 var placeText=places.length===1?places[0]:(places.length===2?places.join(' & '):places.slice(0,2).join(', ')+' + '+(places.length-2)+' more');
-$('upcoming-intro').textContent=(dates.length===1?'Effective '+friendlyDate(dates[0]):dates.length+' announced effective dates')+
- ' · '+placeText+'. Officially published rates; current prices remain in force until their effective dates.';
+var pending=future.filter(function(r){return r.scheduled_status==='pending_approval'});
+$('upcoming-intro').textContent=(dates.length===1?'Announced for '+friendlyDate(dates[0]):dates.length+' announced effective dates')+
+ ' · '+placeText+'. Prices are based on official announcements.'+
+ (pending.length?' '+pending.length+' change'+(pending.length===1?'':'s')+' still require'+(pending.length===1?'s':'')+' final regulatory approval.':'')+
+ ' Existing rates stay in force until the applicable change takes effect.';
 $('upcoming-summary').textContent='View '+future.length+' scheduled zone '+(future.length===1?'change':'changes')+' & official sources';
 var list=$('upcoming-list');list.replaceChildren();
 var frag=document.createDocumentFragment();
 future.forEach(function(r){
  var row=el('div','upcoming-row'),left=el('div',''),right=el('div','upcoming-prices');
  left.appendChild(el('div','upcoming-name',r.flag+' '+r.country));
- left.appendChild(el('div','upcoming-date','From '+friendlyDate(r.scheduled_from)));
+ left.appendChild(el('div','upcoming-date',(r.scheduled_status==='pending_approval'?'Planned for ':'From ')+friendlyDate(r.scheduled_from)+(r.scheduled_status==='pending_approval'?' · Approval pending':'')));
  scheduleChanges(r).forEach(function(part){right.appendChild(el('span','',part.name+': '+part.old+' → '+part.next))});
  if(/^https?:\/\//i.test(r.scheduled_source_url)){
   var link=el('a','upcoming-source','Official announcement ↗');
@@ -264,7 +267,7 @@ else if(/\bPRIORITY\b/i.test(r.notes||''))parts.push('Priority');
 if(r.weight_g)parts.push('up to '+r.weight_g+' g');
 else if(g.name==='Norway')parts.push('small-letter format');
 if(g.name==='Germany')parts.unshift('Worldwide');
-if(hasScheduled(r))parts.push(scheduledActive(r)?'2027 tariff in effect':'New tariff from '+r.scheduled_from);
+if(hasScheduled(r))parts.push(scheduledActive(r)?'New tariff in effect':r.scheduled_status==='pending_approval'?'2027 increase announced · approval pending':'New tariff from '+r.scheduled_from);
 return parts.join(' · ')||'International letter'
 }
 function addSource(parent,r){
@@ -295,12 +298,12 @@ rates.forEach(function(r){
  if(hasScheduled(r) && r.scheduled_source_url && /^https?:\/\//i.test(r.scheduled_source_url)){
   var futureLink=el('a','zone-source','Official '+r.scheduled_from.slice(0,4)+' tariff ↗');
   futureLink.href=r.scheduled_source_url;futureLink.target='_blank';futureLink.rel='noopener noreferrer';
-  left.appendChild(el('div','zone-meta','Scheduled tariff effective '+r.scheduled_from));
+  left.appendChild(el('div','zone-meta',(r.scheduled_status==='pending_approval'?'Announced for ':'Scheduled tariff effective ')+r.scheduled_from+(r.scheduled_status==='pending_approval'?' · awaiting final approval':'')));
   left.appendChild(el('div',''));left.lastChild.appendChild(futureLink);
  }
  if(activeStandard(r))right.appendChild(el('span','','Letter · '+activeStandard(r)));
  if(r.scheduled_standard){
-  right.appendChild(el('span','zone-meta',scheduledActive(r)?'Previous (2026): '+r.standard:'From '+r.scheduled_from+': '+r.scheduled_standard));
+  right.appendChild(el('span','zone-meta',scheduledActive(r)?'Previous (2026): '+r.standard:(r.scheduled_status==='pending_approval'?'Proposed from ':'From ')+r.scheduled_from+': '+r.scheduled_standard));
  }
  if(activeEconomy(r))right.appendChild(el('span','','Economy · '+activeEconomy(r)));
  if(activePriority(r))right.appendChild(el('span','','Priority · '+activePriority(r)));
