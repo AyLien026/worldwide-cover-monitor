@@ -1341,19 +1341,23 @@
       "country": "French Southern and Antarctic Lands (TAAF)",
       "flag": "🇹🇫",
       "region": "Islands & Polar",
-      "standard": "2.00 EUR",
+      "standard": "2.10 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "TAAF Arrêté n° 2025-111: ordinary international letter or postcard up to 20 g to Germany and most world destinations costs 2.10 EUR from 1 January 2026. Arrêté n° 2026-94 sets the same international 20 g tariff at 2.25 EUR from 1 January 2027 (pre-published, not yet in force on 18 Nov 2026). Separate preferential / internal tariff to mainland France and French territories: 1.39 EUR in 2026, 1.52 EUR in 2027 (up to 20 g). The 2027 order replaces the 2026 order effective 1 Jan 2027. Both official documents are hosted by taaf.fr; see scheduled_source_url for the 2027 PDF. Ordinary letters only, not registered.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://taaf.fr/content/uploads/2025/12/A-2025-111-fixant-tarifs-postaux-TAAF-au-1er-janv-2026.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
-      }
+        "checked_at": null,
+        "detail": "Official 2026 and 2027 tariff regulations reviewed manually. PDF text watcher unavailable."
+      },
+      "scheduled_standard": "2.25 EUR",
+      "scheduled_from": "2027-01-01",
+      "scheduled_source_url": "https://taaf.fr/content/uploads/2026/11/A-2026-94-fixant-tarifs-postaux-TAAF-au-1er-janv-2027.pdf"
     },
     {
       "id": "tristan-da-cunha",
