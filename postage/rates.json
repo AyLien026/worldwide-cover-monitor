@@ -1258,22 +1258,63 @@
       }
     },
     {
-      "id": "spain",
-      "country": "Spain",
+      "id": "spain-europe",
+      "country": "Spain – Europe (Zone 1)",
       "flag": "🇪🇸",
       "region": "Europe",
       "standard": "2.00 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Correos 2026 ordinary international letter/postcard (cartas y tarjetas postales), up to 20 g normalised size; Europe including Germany and Greenland; excluding Albania, Armenia, Bosnia and Herzegovina, Cyprus, Georgia, Malta, Moldova and Russia. Published tariff applies to Spain's mainland and Balearic Islands (Península y Baleares); consult separate tariffs for Canary Islands and other territories. Official 2026 tariff PDF, printed page 6. Price excludes registered mail and other additional services.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correos.es/content/dam/correos/documentos/atc/tarifas/2026/Tarifas_Correos_2026_Peninsula_y_Baleares.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official tariff PDF manually reviewed; monthly text-token source checker cannot parse PDF documents."
+      }
+    },
+    {
+      "id": "spain-zone-2",
+      "country": "Spain – Other Destinations (Zone 2)",
+      "flag": "🇪🇸",
+      "region": "Europe",
+      "standard": "2.10 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correos 2026 ordinary international letter/postcard (cartas y tarjetas postales), up to 20 g normalised size; All countries not in Zone 1 or Zone 3, including China and several European countries excluded from Zone 1. Published tariff applies to Spain's mainland and Balearic Islands (Península y Baleares); consult separate tariffs for Canary Islands and other territories. Official 2026 tariff PDF, printed page 6. Price excludes registered mail and other additional services.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correos.es/content/dam/correos/documentos/atc/tarifas/2026/Tarifas_Correos_2026_Peninsula_y_Baleares.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official tariff PDF manually reviewed; monthly text-token source checker cannot parse PDF documents."
+      }
+    },
+    {
+      "id": "spain-zone-3",
+      "country": "Spain – USA, Canada, Russia & Pacific (Zone 3)",
+      "flag": "🇪🇸",
+      "region": "Europe",
+      "standard": "2.65 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correos 2026 ordinary international letter/postcard (cartas y tarjetas postales), up to 20 g normalised size; Australia, Canada, United States, Japan, New Zealand and Russia. Published tariff applies to Spain's mainland and Balearic Islands (Península y Baleares); consult separate tariffs for Canary Islands and other territories. Official 2026 tariff PDF, printed page 6. Price excludes registered mail and other additional services.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correos.es/content/dam/correos/documentos/atc/tarifas/2026/Tarifas_Correos_2026_Peninsula_y_Baleares.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official tariff PDF manually reviewed; monthly text-token source checker cannot parse PDF documents."
       }
     },
     {
