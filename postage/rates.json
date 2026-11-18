@@ -1656,7 +1656,7 @@
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "2026 Deutsche Post Brief International (standard letter, documents only), same price for Europe and all other worldwide destinations. Up to 20 g; maximum 235 × 125 × 5 mm. Priority handling is included; no separate Economy tariff.",
+      "notes": "2026 Deutsche Post Brief International (standard letter, documents only), same price for Europe and all other worldwide destinations: 1.25 EUR up to 20 g; max 235 × 125 × 5 mm. Announced change to 1.45 EUR for 1 Jan 2027 is still subject to final Bundesnetzagentur approval; see the official 2027 page under scheduled_source_url. No separate international Economy tariff.",
       "status": "verified",
       "manual_verified_at": "2026-11-18",
       "source_url": "https://www.deutschepost.de/de/b/briefe-ins-ausland/brief-postkarte-international.html",
@@ -1665,7 +1665,12 @@
         "state": "seen",
         "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
-      }
+      },
+      "scheduled_standard": "1.45 EUR",
+      "scheduled_from": "2027-01-01",
+      "scheduled_source_url": "https://www.deutschepost.de/de/a/aenderungen2027.html",
+      "scheduled_status": "pending_approval",
+      "scheduled_note": "Germany's 2027 international Standardbrief (up to 20 g) has been announced at 1.45 EUR, rising from 1.25 EUR, effective 1 January 2027, pending final Bundesnetzagentur approval. Do not switch the displayed current rate automatically until approval is confirmed. The 2027 standard-letter size/weight limits remain unchanged. International postcard rate likewise 1.25 -> 1.45 EUR; Kompaktbrief 1.80 -> 2.10 EUR (not separate entries in this database)."
     },
     {
       "id": "guernsey-europe",
