@@ -136,7 +136,7 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 </div>
 <div class="modebar">
 <button type="button" id="polar-toggle" aria-pressed="false">❄ Polar &amp; remote territories</button>
-<span class="mode-help" id="polar-help">Explore Antarctic, Arctic-linked and remote island postal territories. Not all have separate polar-mail tariffs.</span>
+<span class="mode-help" id="polar-help">Selected Antarctic, Arctic-linked and remote postal territories. Some share national rates; no special expedition tariffs are implied.</span>
 </div>
 <div class="legend">
 <span><span class="pill ok">SOURCE REVIEWED</span> manually inspected official source</span>
@@ -160,8 +160,17 @@ function el(tag,cls,content){var node=document.createElement(tag);if(cls)node.cl
 function norm(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
 function groupName(record){return String(record.country||'').split(' – ')[0]}
 function flag(record){return record.flag||'🌐'}
+// Deliberately curated: the broad "Islands & Polar" database region also
+// includes Channel Islands and the Azores, which are not polar-mail areas.
+var POLAR_REMOTE=new Set([
+'Australian Antarctic Territory','British Antarctic Territory',
+'French Southern and Antarctic Lands (TAAF)','Ross Dependency',
+'Falkland Islands','South Georgia & South Sandwich Islands',
+'Greenland','Faroe Islands','Iceland','Norway',
+'Saint Pierre and Miquelon','Ascension Island','Tristan da Cunha'
+]);
 function isPolarRelated(g){
-return g.region==='Islands & Polar'||g.name==='Iceland'||g.name==='Norway';
+return POLAR_REMOTE.has(g.name)
 }
 function hasAlert(r){return ['review','unavailable'].indexOf((r.check||{}).state)>=0}
 function displayStatus(rows){
