@@ -70,8 +70,9 @@
       "status": "verified",
       "manual_verified_at": "2026-11-17",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       },
       "id": "andorra-correos",
       "country": "Andorra – Spanish Post (Correos)",
@@ -89,8 +90,9 @@
       "status": "verified",
       "manual_verified_at": "2026-11-17",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       },
       "id": "andorra-laposte",
       "country": "Andorra – French Post (La Poste)",
@@ -267,7 +269,7 @@
       "watch_token": "8,95",
       "check": {
         "state": "seen",
-        "checked_at": "2026-11-17",
+        "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
@@ -306,7 +308,7 @@
       "watch_token": "3.65",
       "check": {
         "state": "seen",
-        "checked_at": "2026-11-17",
+        "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
@@ -383,7 +385,7 @@
       "watch_token": "46",
       "check": {
         "state": "seen",
-        "checked_at": "2026-11-17",
+        "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
@@ -498,7 +500,7 @@
       "watch_token": "2,25",
       "check": {
         "state": "seen",
-        "checked_at": "2026-11-17",
+        "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
@@ -538,7 +540,7 @@
       "watch_token": "3.60",
       "check": {
         "state": "unavailable",
-        "checked_at": "2026-11-17",
+        "checked_at": "2026-11-18",
         "detail": "Source could not be read (HTTPError); review manually."
       }
     },
@@ -653,7 +655,7 @@
       "watch_token": "140",
       "check": {
         "state": "seen",
-        "checked_at": "2026-11-17",
+        "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
@@ -705,8 +707,9 @@
       "manual_verified_at": "2026-11-18",
       "source_url": "https://post.li/versenden/dokumente-ausland/",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       },
       "id": "liechtenstein-europe",
       "country": "Liechtenstein – Europe",
@@ -724,8 +727,9 @@
       "manual_verified_at": "2026-11-18",
       "source_url": "https://post.li/versenden/dokumente-ausland/",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       },
       "id": "liechtenstein-world",
       "country": "Liechtenstein – Rest of World",
@@ -1285,7 +1289,7 @@
       "watch_token": "1.75",
       "check": {
         "state": "seen",
-        "checked_at": "2026-11-17",
+        "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
@@ -1323,8 +1327,9 @@
       "source_url": "https://www.deutschepost.de/de/b/briefe-ins-ausland/brief-postkarte-international.html",
       "watch_token": "1,25",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -1342,8 +1347,9 @@
       "source_url": "https://www.guernseypost.com/letters",
       "watch_token": "2.96",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -1361,8 +1367,9 @@
       "source_url": "https://www.guernseypost.com/letters",
       "watch_token": "4.86",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -1418,8 +1425,9 @@
       "source_url": "https://www.jerseypost.com/letters-and-parcels/sending/letters/",
       "watch_token": "2.35",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "unavailable",
+        "checked_at": "2026-11-18",
+        "detail": "Source could not be read (URLError); review manually."
       }
     },
     {
@@ -1437,8 +1445,9 @@
       "source_url": "https://www.jerseypost.com/letters-and-parcels/sending/letters/",
       "watch_token": "3.10",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "unavailable",
+        "checked_at": "2026-11-18",
+        "detail": "Source could not be read (URLError); review manually."
       }
     },
     {
@@ -1494,8 +1503,9 @@
       "source_url": "https://www.posten.no/sende/i-norge/brev",
       "watch_token": "37,–",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     },
     {
@@ -1513,10 +1523,11 @@
       "source_url": "https://www.posten.no/sende/i-norge/brev",
       "watch_token": "44,–",
       "check": {
-        "state": "not_configured",
-        "checked_at": null
+        "state": "seen",
+        "checked_at": "2026-11-18",
+        "detail": "Listed number found on official page (not full tariff confirmation)."
       }
     }
   ],
-  "last_scan_at": "2026-11-17"
+  "last_scan_at": "2026-11-18"
 }
