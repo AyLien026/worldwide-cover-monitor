@@ -222,7 +222,7 @@ return 'Other destination'
 function twoZonePreview(g){return g.rates.length===2 && (g.name==='Andorra'||g.rates.every(function(r){return / – (?:UK & )?Europe\b| – Rest of World/i.test(r.country)}))}
 function accessibleSummary(g){
  if(twoZonePreview(g))return preferred(g).concat(g.rates.filter(function(r){return preferred(g).indexOf(r)===-1})).map(function(r){return destLabel(r,g)+': '+quote(r)}).join('; ');
- return 'To Germany: '+mainPrice(g)+(g.rates.length>1?'; '+(g.rates.length-1)+' other postal zones available':'')
+ return (g.name==='Germany'?'All destinations: ':'To Germany: ')+mainPrice(g)+(g.rates.length>1?'; '+(g.rates.length-1)+' other postal zones available':'')
 }
 function renderGroup(g){
 var item=el('section','entry');
