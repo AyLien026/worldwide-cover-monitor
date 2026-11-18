@@ -140,19 +140,95 @@
       }
     },
     {
-      "id": "australia",
-      "country": "Australia",
+      "id": "australia-new-zealand",
+      "country": "Australia – New Zealand (Zone 1)",
       "flag": "🇦🇺",
       "region": "Oceania",
-      "standard": "4.10 AUD",
-      "economy": null,
+      "standard": null,
+      "economy": "3.45 AUD",
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
+      "weight_g": 250,
+      "notes": "Official Australia Post International Economy Air small letter to New Zealand, tariff effective 1 July 2026. Small letter up to 250 g with dimensions no larger than 240 × 130 × 5 mm. Printed material only; no tracking. Zone names are postal classifications rather than strict geographical boundaries.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://auspost.com.au/personal/sending/stamps/stamp-prices",
+      "watch_token": "3.45",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "australia-asia-pacific",
+      "country": "Australia – Asia Pacific (Zone 2)",
+      "flag": "🇦🇺",
+      "region": "Oceania",
+      "standard": null,
+      "economy": "3.75 AUD",
+      "priority": null,
+      "weight_g": 250,
+      "notes": "Official Australia Post International Economy Air small letter to Asia Pacific, tariff effective 1 July 2026. Small letter up to 250 g with dimensions no larger than 240 × 130 × 5 mm. Printed material only; no tracking. Zone names are postal classifications rather than strict geographical boundaries.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://auspost.com.au/personal/sending/stamps/stamp-prices",
+      "watch_token": "3.75",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "australia-us-canada",
+      "country": "Australia – USA & Canada (Zone 3)",
+      "flag": "🇦🇺",
+      "region": "Oceania",
+      "standard": null,
+      "economy": "4.40 AUD",
+      "priority": null,
+      "weight_g": 250,
+      "notes": "Official Australia Post International Economy Air small letter to United States and Canada, tariff effective 1 July 2026. Small letter up to 250 g with dimensions no larger than 240 × 130 × 5 mm. Printed material only; no tracking. Zone names are postal classifications rather than strict geographical boundaries.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://auspost.com.au/personal/sending/stamps/stamp-prices",
+      "watch_token": "4.40",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "australia-europe",
+      "country": "Australia – UK & Europe (Zone 4)",
+      "flag": "🇦🇺",
+      "region": "Oceania",
+      "standard": null,
+      "economy": "4.70 AUD",
+      "priority": null,
+      "weight_g": 250,
+      "notes": "Official Australia Post International Economy Air small letter to United Kingdom and Europe including Germany, tariff effective 1 July 2026. Small letter up to 250 g with dimensions no larger than 240 × 130 × 5 mm. Printed material only; no tracking. Zone names are postal classifications rather than strict geographical boundaries.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://auspost.com.au/personal/sending/stamps/stamp-prices",
+      "watch_token": "4.70",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "australia-world",
+      "country": "Australia – Rest of World (Zone 5)",
+      "flag": "🇦🇺",
+      "region": "Oceania",
+      "standard": null,
+      "economy": "5.15 AUD",
+      "priority": null,
+      "weight_g": 250,
+      "notes": "Official Australia Post International Economy Air small letter to remaining destinations assigned to Zone 5, tariff effective 1 July 2026. Small letter up to 250 g with dimensions no larger than 240 × 130 × 5 mm. Printed material only; no tracking. Zone names are postal classifications rather than strict geographical boundaries.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://auspost.com.au/personal/sending/stamps/stamp-prices",
+      "watch_token": "5.15",
       "check": {
         "state": "not_configured",
         "checked_at": null
