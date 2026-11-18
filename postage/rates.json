@@ -1049,23 +1049,52 @@
       }
     },
     {
-      "id": "austria",
-      "country": "Austria",
+      "id": "austria-europe",
+      "country": "Austria – Europe (EU & Rest of Europe)",
       "flag": "🇦🇹",
       "region": "Europe",
-      "standard": "1.45 EUR",
-      "economy": null,
-      "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
+      "standard": null,
+      "economy": "1.25 EUR",
+      "priority": "1.45 EUR",
+      "weight_g": 20,
+      "notes": "Österreichische Post Brief International S, ordinary machine-processable letter to European Union and Rest of Europe, including Germany, 20 g or less, 235 × 162 × 5 mm maximum. 2026 Economy 1.25 EUR; Priority 1.45 EUR. The operator has published prices effective from 1 January 2027: Economy 1.30 EUR; Priority 1.50 EUR. Check non-machinable format and postal-zone exceptions; no additional services included.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.post.at/p/c/tarife-brief-und-paket",
+      "watch_token": "1,45",
       "check": {
         "state": "not_configured",
-        "checked_at": null
-      }
+        "checked_at": null,
+        "detail": "Official HTML tariff table manually checked; the text-token watcher does not prove tariff applicability."
+      },
+      "scheduled_from": "2027-01-01",
+      "scheduled_economy": "1.30 EUR",
+      "scheduled_priority": "1.50 EUR",
+      "scheduled_source_url": "https://www.post.at/g/c/agb2027"
+    },
+    {
+      "id": "austria-world",
+      "country": "Austria – Rest of World",
+      "flag": "🇦🇹",
+      "region": "Europe",
+      "standard": null,
+      "economy": "2.00 EUR",
+      "priority": "2.20 EUR",
+      "weight_g": 20,
+      "notes": "Österreichische Post Brief International S, ordinary machine-processable letter to countries outside EU and Rest of Europe, including China, 20 g or less, 235 × 162 × 5 mm maximum. 2026 Economy 2.00 EUR; Priority 2.20 EUR. The operator has published prices effective from 1 January 2027: Economy 2.05 EUR; Priority 2.25 EUR. Check non-machinable format and postal-zone exceptions; no additional services included.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.post.at/p/c/tarife-brief-und-paket",
+      "watch_token": "2,20",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official HTML tariff table manually checked; the text-token watcher does not prove tariff applicability."
+      },
+      "scheduled_from": "2027-01-01",
+      "scheduled_economy": "2.05 EUR",
+      "scheduled_priority": "2.25 EUR",
+      "scheduled_source_url": "https://www.post.at/g/c/agb2027"
     },
     {
       "id": "peru",
