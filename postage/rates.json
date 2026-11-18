@@ -350,22 +350,63 @@
       }
     },
     {
-      "id": "bulgaria",
-      "country": "Bulgaria",
+      "id": "bulgaria-eu",
+      "country": "Bulgaria – Europe (EU; including Germany)",
       "flag": "🇧🇬",
       "region": "Europe",
       "standard": null,
-      "economy": null,
-      "priority": null,
-      "weight_g": null,
-      "notes": "Original 2.70 BGN obsolete; Bulgaria adopted EUR in 2026. New tariff not verified.",
+      "economy": "1.15 EUR",
+      "priority": "1.65 EUR",
+      "weight_g": 20,
+      "notes": "PROVISIONAL, NOT INDEPENDENTLY CONFIRMED: Bulgarian Posts ordinary non-registered small international letter up to 20 g to EU destination including Germany. Amounts reported by bTV Business on 9 June 2026 (https://businessnovinite.bg/bg-biznes/kolko-struva-da-izpratite-pismo-ot-balgarija-do-drug-kontinent.html); the Bulgarian Posts price calculator has not been independently checked for this route and the distinction between 'neighbouring countries' and EU/outside-EU may overlap. The user-supplied Econt PDF concerns DOMESTIC Bulgarian letters only and does not substantiate these rates.",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://www.bgpost.bg/en/prices",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "2026 secondary-source rates, official destination-specific letter tariff not independently verified. No automated price monitoring."
+      }
+    },
+    {
+      "id": "bulgaria-neighbours",
+      "country": "Bulgaria – Neighbouring Countries",
+      "flag": "🇧🇬",
+      "region": "Europe",
+      "standard": null,
+      "economy": "0.95 EUR",
+      "priority": "1.35 EUR",
+      "weight_g": 20,
+      "notes": "PROVISIONAL, NOT INDEPENDENTLY CONFIRMED: Bulgarian Posts ordinary non-registered small international letter up to 20 g to neighbouring destination countries. Amounts reported by bTV Business on 9 June 2026 (https://businessnovinite.bg/bg-biznes/kolko-struva-da-izpratite-pismo-ot-balgarija-do-drug-kontinent.html); the Bulgarian Posts price calculator has not been independently checked for this route and the distinction between 'neighbouring countries' and EU/outside-EU may overlap. The user-supplied Econt PDF concerns DOMESTIC Bulgarian letters only and does not substantiate these rates.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.bgpost.bg/en/prices",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 secondary-source rates, official destination-specific letter tariff not independently verified. No automated price monitoring."
+      }
+    },
+    {
+      "id": "bulgaria-non-eu",
+      "country": "Bulgaria – Outside EU",
+      "flag": "🇧🇬",
+      "region": "Europe",
+      "standard": null,
+      "economy": "1.45 EUR",
+      "priority": "1.85 EUR",
+      "weight_g": 20,
+      "notes": "PROVISIONAL, NOT INDEPENDENTLY CONFIRMED: Bulgarian Posts ordinary non-registered small international letter up to 20 g to destinations outside the EU; not synonymous with outside Europe. Amounts reported by bTV Business on 9 June 2026 (https://businessnovinite.bg/bg-biznes/kolko-struva-da-izpratite-pismo-ot-balgarija-do-drug-kontinent.html); the Bulgarian Posts price calculator has not been independently checked for this route and the distinction between 'neighbouring countries' and EU/outside-EU may overlap. The user-supplied Econt PDF concerns DOMESTIC Bulgarian letters only and does not substantiate these rates.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.bgpost.bg/en/prices",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 secondary-source rates, official destination-specific letter tariff not independently verified. No automated price monitoring."
       }
     },
     {
