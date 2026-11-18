@@ -950,22 +950,83 @@
       }
     },
     {
-      "id": "new-zealand",
-      "country": "New Zealand",
+      "id": "new-zealand-europe-world",
+      "country": "New Zealand – Europe & Other Destinations",
       "flag": "🇳🇿",
       "region": "Oceania",
-      "standard": "4.20 NZD",
-      "economy": null,
+      "standard": null,
+      "economy": "4.90 NZD",
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "weight_g": 100,
+      "notes": "NZ Post Economy Letters, medium letter from New Zealand to Germany, Europe and all destinations except Australia/South Pacific: 4.90 NZD, incl. GST. Max 130 × 235 × 5 mm and 100 g. Official price effective 1 May 2026. Standard postcard/aerogramme up to 10 g costs 2.90 NZD worldwide; not the medium-letter rate.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.nzpost.co.nz/personal/sending-internationally/letters",
+      "watch_token": "4.90",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official NZ Post consumer letter page; watcher only looks for price text, not applicable destination or service."
+      }
+    },
+    {
+      "id": "new-zealand-pacific",
+      "country": "New Zealand – Australia & South Pacific",
+      "flag": "🇳🇿",
+      "region": "Oceania",
+      "standard": null,
+      "economy": "4.20 NZD",
+      "priority": null,
+      "weight_g": 100,
+      "notes": "NZ Post Economy Letters, medium international letter addressed to Australia or South Pacific: 4.20 NZD, incl. GST. Max 130 × 235 × 5 mm and 100 g. Official price effective 1 May 2026; NOT the rate for Germany. Postcard/aerogramme up to 10 g is 2.90 NZD.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.nzpost.co.nz/personal/sending-internationally/letters",
+      "watch_token": "4.20",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official NZ Post consumer letter page; watcher only looks for price text, not applicable destination or service."
+      }
+    },
+    {
+      "id": "ross-europe-world",
+      "country": "Ross Dependency – Europe & Other Destinations",
+      "flag": "🇦🇶",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": "4.90 NZD",
+      "priority": null,
+      "weight_g": 100,
+      "notes": "PROVISIONAL / INFERRED, not an independently confirmed Ross Dependency tariff: NZ Post Economy medium-letter rate to Europe/other world destinations (4.90 NZD), consistent with NZ Post's 2026 Ross Dependency $4.90 postage stamp issued 4 Nov 2026. Ross Dependency stamps are valid only for Ross Dependency-origin mail, not for mailing within/from New Zealand. Verify Scott Base / Ross Dependency Agency acceptance and route rules before franking. NZ Post economy tariff: https://www.nzpost.co.nz/personal/sending-internationally/letters",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://collectables.nzpost.co.nz/shop-collectables/stamps/ross-dependency-stamps/",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Ross Dependency-specific rate is inferred, not independently published as a complete international tariff."
+      }
+    },
+    {
+      "id": "ross-pacific",
+      "country": "Ross Dependency – Australia & South Pacific",
+      "flag": "🇦🇶",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": "4.20 NZD",
+      "priority": null,
+      "weight_g": 100,
+      "notes": "PROVISIONAL / INFERRED: NZ Post Economy medium-letter rate to Australia/South Pacific (4.20 NZD), which corresponds to a 2026 Ross Dependency postage-stamp denomination. No independent official Ross Dependency-specific dispatch-rate table found. Ross Dependency stamps cannot be used for postage from New Zealand. Verify Scott Base / Ross Dependency Agency rules; NZ Post rates: https://www.nzpost.co.nz/personal/sending-internationally/letters",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://collectables.nzpost.co.nz/shop-collectables/stamps/ross-dependency-stamps/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Ross Dependency-specific rate is inferred, not independently published as a complete international tariff."
       }
     },
     {
@@ -1130,25 +1191,6 @@
       "flag": "🇷🇴",
       "region": "Europe",
       "standard": "10 RON",
-      "economy": null,
-      "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
-      "check": {
-        "state": "not_configured",
-        "checked_at": null
-      }
-    },
-    {
-      "id": "ross",
-      "country": "Ross Dependency",
-      "flag": "🇦🇶",
-      "region": "Islands & Polar",
-      "standard": "4.20 NZD",
       "economy": null,
       "priority": null,
       "weight_g": null,
