@@ -102,22 +102,103 @@
       "watch_token": "2,25"
     },
     {
-      "id": "argentina",
-      "country": "Argentina",
+      "id": "argentina-neighbours",
+      "country": "Argentina – Neighbouring Countries",
       "flag": "🇦🇷",
       "region": "Americas",
-      "standard": "1440 ARS",
+      "standard": "8600 ARS",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
+      "weight_g": 20,
+      "notes": "Correo Argentino Carta Simple internacional, ordinary unregistered letter up to 20 g, neighbouring countries; official tariff table zone \"Limítrofes\". Not Carta Certificada (registered mail): registered 20 g to Europe costs 24,900 ARS on https://www.correoargentino.com.ar/servicios/postales/carta-certificada-0 . Official website checked 18 November 2026; effective date is not stated on the product page. Mail transit quoted as 7–15 days; no tracking.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correoargentino.com.ar/servicios/postales/carta-simple-2",
+      "watch_token": "8.600",
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Manually reviewed official Correo Argentino Carta Simple pricing. Automated check matches the posted number only, not eligibility or effective date."
+      }
+    },
+    {
+      "id": "argentina-south-america",
+      "country": "Argentina – Rest of South America",
+      "flag": "🇦🇷",
+      "region": "Americas",
+      "standard": "9100 ARS",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correo Argentino Carta Simple internacional, ordinary unregistered letter up to 20 g, South American destinations outside the neighbouring-country zone; official tariff table zone \"Resto de Sudamérica\". Not Carta Certificada (registered mail): registered 20 g to Europe costs 24,900 ARS on https://www.correoargentino.com.ar/servicios/postales/carta-certificada-0 . Official website checked 18 November 2026; effective date is not stated on the product page. Mail transit quoted as 7–15 days; no tracking.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correoargentino.com.ar/servicios/postales/carta-simple-2",
+      "watch_token": "9.100",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Manually reviewed official Correo Argentino Carta Simple pricing. Automated check matches the posted number only, not eligibility or effective date."
+      }
+    },
+    {
+      "id": "argentina-americas",
+      "country": "Argentina – Rest of Americas",
+      "flag": "🇦🇷",
+      "region": "Americas",
+      "standard": "9500 ARS",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correo Argentino Carta Simple internacional, ordinary unregistered letter up to 20 g, American destinations outside the two preceding zones; official tariff table zone \"Resto de América\". Not Carta Certificada (registered mail): registered 20 g to Europe costs 24,900 ARS on https://www.correoargentino.com.ar/servicios/postales/carta-certificada-0 . Official website checked 18 November 2026; effective date is not stated on the product page. Mail transit quoted as 7–15 days; no tracking.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correoargentino.com.ar/servicios/postales/carta-simple-2",
+      "watch_token": "9.500",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Manually reviewed official Correo Argentino Carta Simple pricing. Automated check matches the posted number only, not eligibility or effective date."
+      }
+    },
+    {
+      "id": "argentina-europe",
+      "country": "Argentina – Europe",
+      "flag": "🇦🇷",
+      "region": "Americas",
+      "standard": "10900 ARS",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correo Argentino Carta Simple internacional, ordinary unregistered letter up to 20 g, Europe including Germany; official tariff table zone \"Europa\". Not Carta Certificada (registered mail): registered 20 g to Europe costs 24,900 ARS on https://www.correoargentino.com.ar/servicios/postales/carta-certificada-0 . Official website checked 18 November 2026; effective date is not stated on the product page. Mail transit quoted as 7–15 days; no tracking.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correoargentino.com.ar/servicios/postales/carta-simple-2",
+      "watch_token": "10.900",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Manually reviewed official Correo Argentino Carta Simple pricing. Automated check matches the posted number only, not eligibility or effective date."
+      }
+    },
+    {
+      "id": "argentina-world",
+      "country": "Argentina – Rest of World",
+      "flag": "🇦🇷",
+      "region": "Americas",
+      "standard": "11600 ARS",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correo Argentino Carta Simple internacional, ordinary unregistered letter up to 20 g, destinations not covered by preceding postal zones; official tariff table zone \"Resto del Mundo\". Not Carta Certificada (registered mail): registered 20 g to Europe costs 24,900 ARS on https://www.correoargentino.com.ar/servicios/postales/carta-certificada-0 . Official website checked 18 November 2026; effective date is not stated on the product page. Mail transit quoted as 7–15 days; no tracking.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.correoargentino.com.ar/servicios/postales/carta-simple-2",
+      "watch_token": "11.600",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Manually reviewed official Correo Argentino Carta Simple pricing. Automated check matches the posted number only, not eligibility or effective date."
       }
     },
     {
