@@ -24,9 +24,10 @@ input{flex:1 1 230px;min-width:155px}select{flex:1 1 170px;max-width:235px}
 input:focus-visible,select:focus-visible{outline:2px solid var(--olive)}
 .legend{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 11px;color:var(--muted);font-size:12px}
 .modebar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:7px 0 14px}
-.modebar button{min-height:40px;padding:8px 13px;border:1px solid #aab795;border-radius:4px;color:#4d5b24;background:white;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
-.modebar button:hover,.modebar button:focus-visible{border-color:#77852a;outline-offset:2px}
-.modebar button[aria-pressed="true"]{background:#edf2d8;border-color:#8da02b}
+.modebar button{min-height:40px;padding:8px 13px;border:1px solid #b2d9ec;border-radius:4px;color:#235a75;background:#eaf7ff;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:background-color .15s,border-color .15s}
+.modebar button:hover{background:#daf1ff;border-color:#69b9db}
+.modebar button:focus-visible{outline:2px solid #3889b4;outline-offset:2px}
+.modebar button[aria-pressed="true"]{background:#cceeff;border-color:#58a9d0;color:#164c6b}
 .mode-help{font-size:12px;color:var(--muted);flex:1;min-width:200px}
 .upcoming{border:1px solid var(--line);border-left:4px solid var(--olive);padding:12px 15px;margin:13px 0 14px;background:#fcfcf8}
 .upcoming[hidden]{display:none}
