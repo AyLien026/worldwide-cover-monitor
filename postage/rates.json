@@ -341,18 +341,19 @@
       "country": "Australian Antarctic Territory",
       "flag": "🇦🇶",
       "region": "Islands & Polar",
-      "standard": "4.00 AUD",
-      "economy": null,
+      "standard": null,
+      "economy": "4.70 AUD",
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "weight_g": 250,
+      "notes": "PROVISIONAL INFERENCE, NOT AN AAT-SPECIFIC VERIFIED INTERNATIONAL RATE. Australia Post's official Post Charges guide (effective 1 September 2026) p. 2 identifies Australian Antarctic Territory as Tasmania (TAS) 7151 for postal charging and explicitly states domestic ordinary-letter charges apply to mail to/from the territory within Australia: small regular letter 1.85 AUD (p. 4, up to 250 g). The same guide p. 31 lists International Economy Air Small Letter up to 250 g to Germany (Zone 4, UK & Europe) at 4.70 AUD. The PDF does NOT explicitly confirm that letters lodged at Antarctic stations for overseas delivery are charged that international rate. The earlier collector-supplied 4.00 AUD was unsupported. The guide also cautions that using domestic stamps to frank international mail may require 10% additional postage for GST (p. 30); confirm station-specific acceptance and stamp treatment before franking. Australian Antarctic Division confirms station postmasters may cancel letters for Australia Post and recommends a prepaid domestic return envelope for collector covers (https://www.antarctica.gov.au/news/stations/casey/2024/31-may/).",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://auspost.com.au/content/dam/auspost_corp/media/documents/post-guides/post-charges-guide-ms11.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Australia Post official guide confirms AAT domestic treatment and international Australia Zone 4 rate, but does not verify that 4.70 AUD applies directly to AAT-origin overseas station mail; PDF manual review only."
       }
     },
     {
