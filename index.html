@@ -167,8 +167,41 @@
   });
   Array.from(new Set(items.map(function(i){return i.category||'Other'}))).sort().forEach(function(t){var o=e('option','',categoryLabel(t));o.value=t;$('category').append(o)});
   $('q').addEventListener('input',update);$('country').addEventListener('change',update);$('category').addEventListener('change',update);$('view').addEventListener('change',update);
-  if(items.length){$('dataDate').textContent='Latest archive update: '+date(items.map(function(x){return x.first_seen}).filter(Boolean).sort().reverse()[0])}
+  function updateArchiveDate(){
+    if(items.length){$('dataDate').textContent='Latest archive update: '+date(items.map(function(x){return x.first_seen}).filter(Boolean).sort().reverse()[0])}
+  }
+  function loadFreshArchive(){
+    // Use a cache-bypassing JSON request: the original items.js remains a working fallback
+    // when GitHub Pages or a browser temporarily cannot serve the current JSON archive.
+    fetch('data/items.json?fresh='+Date.now(),{cache:'no-store'})
+      .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
+      .then(function(fresh){
+        if(!Array.isArray(fresh))throw new Error('Unexpected archive format');
+        if(JSON.stringify(fresh)===JSON.stringify(items))return;
+        items=fresh;
+        var selectedCountry=$('country').value, selectedCategory=$('category').value;
+        var countrySelect=$('country'), categorySelect=$('category');
+        var countries=Array.from(new Set(catalog.map(countryFor).concat(items.map(countryFor))))
+          .filter(function(c){return COUNTRY_NAMES[c]})
+          .sort(function(a,b){return COUNTRY_NAMES[a].localeCompare(COUNTRY_NAMES[b],'en')});
+        Array.prototype.slice.call(countrySelect.options,1).forEach(function(option){option.remove()});
+        countries.forEach(function(c){var opt=e('option','',flagFor({country:c})+' '+COUNTRY_NAMES[c]);opt.value=c;countrySelect.append(opt)});
+        countrySelect.value=countries.indexOf(selectedCountry)>=0?selectedCountry:'';
+        Array.prototype.slice.call(categorySelect.options,1).forEach(function(option){option.remove()});
+        var categories=Array.from(new Set(items.map(function(i){return i.category||'Other'}))).sort();
+        categories.forEach(function(t){var opt=e('option','',categoryLabel(t));opt.value=t;categorySelect.append(opt)});
+        categorySelect.value=categories.indexOf(selectedCategory)>=0?selectedCategory:'';
+        updateArchiveDate();
+        update();
+      })
+      .catch(function(err){
+        // The bundled items.js remains visible; never present a failed refresh as a successful update.
+        console.warn('Fresh monitor archive unavailable, using bundled data:',err);
+      });
+  }
+  updateArchiveDate();
   update();
+  loadFreshArchive();
 })();
 </script>
 </body>
