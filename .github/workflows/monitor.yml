@@ -7,6 +7,9 @@ on:
       - main
     paths:
       - 'postage/**'
+      - 'data/items.js'
+      - 'data/sources.js'
+      - 'index.html'
       - '.github/workflows/monitor.yml'
   schedule:
     - cron: '37 8 * * *'
@@ -31,7 +34,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      # A postage-only commit should deploy the current database without running the bulletin scraper.
+      # Data, site, or postage changes deploy the current archive without running the full bulletin scraper.
       - name: Quellen pruefen
         if: github.event_name != 'push'
         run: python monitor.py
