@@ -543,25 +543,6 @@
       }
     },
     {
-      "id": "guernsey",
-      "country": "Guernsey",
-      "flag": "🇬🇬",
-      "region": "Islands & Polar",
-      "standard": "1.00 GBP",
-      "economy": null,
-      "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
-      "check": {
-        "state": "not_configured",
-        "checked_at": null
-      }
-    },
-    {
       "id": "hong-kong",
       "country": "Hong Kong",
       "flag": "🇭🇰",
@@ -605,25 +586,6 @@
       "flag": "🇮🇪",
       "region": "Europe",
       "standard": "2.20 EUR",
-      "economy": null,
-      "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
-      "check": {
-        "state": "not_configured",
-        "checked_at": null
-      }
-    },
-    {
-      "id": "iceland",
-      "country": "Iceland",
-      "flag": "🇮🇸",
-      "region": "Europe",
-      "standard": "415 ISK",
       "economy": null,
       "priority": null,
       "weight_g": null,
@@ -891,25 +853,6 @@
       "flag": "🇳🇱",
       "region": "Europe",
       "standard": "2.00 EUR",
-      "economy": null,
-      "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
-      "check": {
-        "state": "not_configured",
-        "checked_at": null
-      }
-    },
-    {
-      "id": "norway",
-      "country": "Norway",
-      "flag": "🇳🇴",
-      "region": "Europe",
-      "standard": "37 NOK",
       "economy": null,
       "priority": null,
       "weight_g": null,
@@ -1318,6 +1261,196 @@
       "manual_verified_at": "2026-11-18",
       "source_url": "https://www.deutschepost.de/de/b/briefe-ins-ausland/brief-postkarte-international.html",
       "watch_token": "1,25",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "guernsey-europe",
+      "country": "Guernsey – Europe",
+      "flag": "🇬🇬",
+      "region": "Islands & Polar",
+      "standard": "2.96 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Guernsey Post standard letter, Europe (including Germany), up to 100g, tariff effective 1 April 2026. The £1.54 Europe price is for a POSTCARD up to 20g, not a letter.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.guernseypost.com/letters",
+      "watch_token": "2.96",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "guernsey-world",
+      "country": "Guernsey – Rest of World",
+      "flag": "🇬🇬",
+      "region": "Islands & Polar",
+      "standard": "4.86 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Guernsey Post standard letter to destinations outside Europe, up to 100g, effective 1 April 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.guernseypost.com/letters",
+      "watch_token": "4.86",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "alderney-europe",
+      "country": "Alderney – Europe",
+      "flag": "🇬🇬",
+      "region": "Islands & Polar",
+      "standard": "2.96 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Provisional: Guernsey Post serves Alderney as part of the Bailiwick. Same 2026 international letter rate as Guernsey is inferred; no separately stated Alderney-origin tariff was found. 🇬🇬 is the Bailiwick flag, not a separate Alderney emoji.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.guernseypost.com/letters",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "alderney-world",
+      "country": "Alderney – Rest of World",
+      "flag": "🇬🇬",
+      "region": "Islands & Polar",
+      "standard": "4.86 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Provisional: Guernsey Post serves Alderney as part of the Bailiwick. The standard 2026 world rate is inferred from Guernsey Post's published tariff, not separately confirmed for Alderney. 🇬🇬 is the Bailiwick flag.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.guernseypost.com/letters",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "jersey-europe",
+      "country": "Jersey – Europe",
+      "flag": "🇯🇪",
+      "region": "Islands & Polar",
+      "standard": "2.35 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Jersey Post ordinary letter up to 100g to Europe (including Germany), 2026 consumer tariff; no tracking, signed service or surcharge included.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.jerseypost.com/letters-and-parcels/sending/letters/",
+      "watch_token": "2.35",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "jersey-world",
+      "country": "Jersey – Rest of World",
+      "flag": "🇯🇪",
+      "region": "Islands & Polar",
+      "standard": "3.10 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Jersey Post ordinary letter up to 100g to destinations outside Europe, 2026 consumer tariff; no additional services.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.jerseypost.com/letters-and-parcels/sending/letters/",
+      "watch_token": "3.10",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "iceland-europe",
+      "country": "Iceland – Europe",
+      "flag": "🇮🇸",
+      "region": "Europe",
+      "standard": "435 ISK",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "Pósturinn ordinary unregistered international letter 0–50g to Europe (including Germany), effective 1 August 2026. Raised from 415 ISK. The official rates page needs JavaScript; therefore automatic source-text checking is not enabled.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://posturinn.is/frettir/almennar-frettir/2026/breytingar-a-verdskra-1-agust/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "iceland-world",
+      "country": "Iceland – Rest of World",
+      "flag": "🇮🇸",
+      "region": "Europe",
+      "standard": "555 ISK",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "Pósturinn ordinary unregistered international letter 0–50g outside Europe, effective 1 August 2026. Raised from 530 ISK. Automatic text check unavailable for this dynamic official source.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://posturinn.is/frettir/almennar-frettir/2026/breytingar-a-verdskra-1-agust/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "norway-europe",
+      "country": "Norway – Europe",
+      "flag": "🇳🇴",
+      "region": "Europe",
+      "standard": "37 NOK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Posten 'Lite' letter format (maximum 25 × 17.6 × 0.5 cm), to Europe including Germany, effective 1 February 2026. Price is size-based, not a 20g/50g weight bracket. Posten's separate 2027 price list is provisional until 1 December 2026: https://www.posten.no/en/price-list-2027",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.posten.no/sende/i-norge/brev",
+      "watch_token": "37,–",
+      "check": {
+        "state": "not_configured",
+        "checked_at": null
+      }
+    },
+    {
+      "id": "norway-world",
+      "country": "Norway – Rest of World",
+      "flag": "🇳🇴",
+      "region": "Europe",
+      "standard": "44 NOK",
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Posten 'Lite' letter format (maximum 25 × 17.6 × 0.5 cm), worldwide outside Europe, effective 1 February 2026. Price is size-based. 2027 prices are not yet valid and the 2027 list may still change: https://www.posten.no/en/price-list-2027",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.posten.no/sende/i-norge/brev",
+      "watch_token": "44,–",
       "check": {
         "state": "not_configured",
         "checked_at": null
