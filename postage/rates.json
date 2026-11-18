@@ -403,14 +403,15 @@
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "notes": "Falklands Post Service's official published postal-rates image dated 1 August 2025 has a separate BAT column. BAT Airmail 'Letters up to 20g' is £0.86 to international destinations (no destination zone distinction in the image); each additional 10g costs £0.32. BAT surface mail letter up to 20g: £0.58; airmail postcard: £0.80; registration surcharge: £3.90. Source table is dated 2025 and is still shown on the operator website as of 18 November 2026; no newer BAT-specific tariff notice was confirmed in this review. CAUTION: Falkland Islands' separate Finance Ordinance 2026 doubled their own airmail letter charge to £1.70 effective 1 July 2026; this change must NOT be assumed to apply to BAT. Falkland rates on the operator's shared 2025 image are therefore out of date; BAT retains 2025 source-date caveat. Supporting official territory Gazette: https://www.britishantarcticterritory.org.uk/about/gazette/gazette-2025/ (Postal Rates Notice 2025 listed but its linked ODT could not be opened).",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.falklandstamps.com/postal-rates.irs",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Manually reviewed the operator's embedded postage rate image (dated 1 Aug 2025). The image is not parsed by the HTML token checker. A 2026 BAT-specific replacement rate has not been ruled out."
       }
     },
     {
@@ -656,14 +657,15 @@
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "notes": "Falkland Islands airmail letter up to 20 g to all countries (incl. Germany): £1.70. Official Finance Ordinance 2026, Schedule Part B, amendment to Post Office Order 2006 Schedule 1, effective 1 July 2026 (default commencement section 2). Each additional 10 g: £0.35; airmail postcard £1.60; surface letter up to 20 g £1.15. IMPORTANT: the joint Falklands Post Service webpage still displays a chart dated 1 Aug 2025 with the superseded £0.86 Falklands rate, so the 2026 government legislation supersedes it for FAL. This ordinance does not itself establish the BAT or South Georgia rates.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.gov.fk/legalservices/wp-content/uploads/sites/31/2026/10/Falkland-Islands-Gazette-Supplement-No-9-dated-12-June-2026.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Manually checked 2026 government Gazette (PDF); automatic HTML token source checker cannot verify PDF pricing."
       }
     },
     {
