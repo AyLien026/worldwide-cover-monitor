@@ -56,7 +56,7 @@ jobs:
           cp index.html site/index.html
           mkdir -p site/postage
           cp postage/index.html postage/rates.json site/postage/
-          cp data/items.js data/sources.js site/data/
+          cp data/items.js data/items.json data/sources.js site/data/
 
       - uses: actions/upload-pages-artifact@v4
         with:
