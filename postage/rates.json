@@ -1344,18 +1344,19 @@
       "country": "Saint Pierre and Miquelon",
       "flag": "🇵🇲",
       "region": "Islands & Polar",
-      "standard": "2.10 (unit unclear)",
+      "standard": "2.30 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Original '2.10 cents' has ambiguous currency/scale.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "La Poste Groupe official Universal Postal Service 2026 catalogue, dated 15 April 2026, printed p. 10 (PDF page 10), section 'Lettre internationale – départ de l’Outre-mer': standard international letter 0–20 g, stamps / counter tariff 2.30 EUR, and online-printed 'Mon Timbre en Ligne' discounted rate 2.25 EUR. The official La Poste MTEL rates page explicitly includes Saint-Pierre-et-Miquelon in Outre-Mer 1 origin zone (https://www.laposte.fr/mon-timbre-en-ligne/tarifs#5) and quotes 2.25 EUR for online franking, so 2.30 EUR is taken as the corresponding ordinary physical stamp/counter rate. Applicable to ordinary international letters to Germany; international destination zones 1 and 2 share the same basic rate. The locally published SPM 2026 PDF (https://www.lapostespm.net/files/file/2026/Tarifs%20spe%CC%81cifiques%20SPM%202026.pdf) lists ONLY internal archipelago tariffs (0.80 EUR local letter up to 20 g), not international rates. SPM's official website refers users to laposte.fr for other rates. Historical SPM-specific 2025 international PDF stated 2.10 EUR up to 20 g; it is NOT the 2026 rate. No independently published SPM-specific 2026 physical-counter international tariff table was located. Do not confuse internal, international online-franking and regular stamped-letter rates.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://www.lapostegroupe.com/assets/media/le-groupe-laposte/ad-EsJ1ZCF7ETNk2_Catalogue_du_SU_15_avril_2026.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official national La Poste 2026 overseas tariff catalogue manually reviewed (printed page 10), and SPM inclusion in overseas origin zone crosschecked on La Poste online tariff page. A dedicated local SPM 2026 international physical-franking PDF was not found. Automated HTML token watcher cannot parse the cited official PDF."
       }
     },
     {
