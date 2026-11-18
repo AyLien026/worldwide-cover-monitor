@@ -37,6 +37,13 @@ input:focus-visible,select:focus-visible{outline:2px solid var(--olive)}
 .entry-price{text-align:right;min-width:0}
 .entry-price strong{font-size:15px;font-weight:700;white-space:normal;font-variant-numeric:tabular-nums}
 .entry-price small{color:var(--muted);font-size:11px;display:block}
+.entry-price .price-line{display:block;margin-bottom:5px}
+.entry-price .price-label{display:block;font-size:11px;font-weight:500;color:#66705d;line-height:1.25}
+.entry-price .price-line strong{display:block;line-height:1.25}
+.entry-price .other-zone{display:block;margin-top:4px;padding:3px 6px;background:#eff2df;color:#5d6c1e;border-radius:3px;font-size:11px;font-weight:700}
+.destination-note{background:#f9f7f0;border-left:4px solid var(--olive);padding:10px 13px;font-size:13px;color:#424c35;margin:12px 0}
+.destination-note strong{color:#4f5d1f}
+
 .chevron{text-align:right;font-size:17px;color:#7d892c;transition:transform .15s}
 .entry-toggle[aria-expanded="true"] .chevron{transform:rotate(180deg)}
 .pill{display:inline-block;padding:2px 6px;font-size:10px;font-weight:700;background:#f3f1e9;color:#666856;white-space:nowrap}
@@ -89,6 +96,7 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 </div>
 <p class="small muted" id="scan">Loading database…</p>
 </header>
+<div class="destination-note"><strong>Important: postage depends on the destination.</strong> The main rate is usually for a letter sent to Germany. If a postal operator has different destination zones, check the additional rates shown or expand the country. For example, a letter from Liechtenstein to China uses the <strong>Rest of World</strong> rate, not the Europe rate. A single listed rate does not necessarily mean worldwide postage is the same.</div>
 <div class="filters" role="search" aria-label="Filter postage database">
 <input type="search" id="search" aria-label="Search countries" placeholder="Search country or territory…">
 <select id="region" aria-label="Region"><option value="">All regions</option></select>
@@ -105,7 +113,7 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 <span><span class="pill warn">REVIEW NEEDED</span> automated source alert</span>
 </div>
 <div class="directory" aria-label="International postage by country">
-<div class="directory-head"><span>Country / Territory</span><span>To Germany</span><span></span></div>
+<div class="directory-head"><span>Country / Territory</span><span>Destination &amp; postage</span><span></span></div>
 <div id="country-list"><p class="empty">Loading…</p></div>
 </div>
 <p id="shown" class="small muted" aria-live="polite"></p>
@@ -202,13 +210,27 @@ rates.forEach(function(r){
 });
 return container
 }
+function destLabel(r,g){
+if(g.name==='Andorra'){
+ if(r.id==='andorra-correos')return 'To Germany · Spanish Post';
+ if(r.id==='andorra-laposte')return 'To Germany · French Post';
+}
+if(/ – (?:UK & )?Europe\b/i.test(r.country))return 'Europe (incl. Germany)';
+if(/ – Rest of World/i.test(r.country))return 'Rest of World (incl. China)';
+return 'Other destination'
+}
+function twoZonePreview(g){return g.rates.length===2 && (g.name==='Andorra'||g.rates.every(function(r){return / – (?:UK & )?Europe\b| – Rest of World/i.test(r.country)}))}
+function accessibleSummary(g){
+ if(twoZonePreview(g))return preferred(g).concat(g.rates.filter(function(r){return preferred(g).indexOf(r)===-1})).map(function(r){return destLabel(r,g)+': '+quote(r)}).join('; ');
+ return 'To Germany: '+mainPrice(g)+(g.rates.length>1?'; '+(g.rates.length-1)+' other postal zones available':'')
+}
 function renderGroup(g){
 var item=el('section','entry');
 var button=el('button','entry-toggle');
 button.type='button';
 button.setAttribute('aria-expanded',String(expanded.has(g.name)));
 button.setAttribute('aria-controls','rates-'+g.rates[0].id);
-button.setAttribute('aria-label',g.name+': '+mainPrice(g)+'. '+(expanded.has(g.name)?'Hide':'Show')+' detailed postage rates');
+button.setAttribute('aria-label',g.name+'. '+accessibleSummary(g)+'. '+(expanded.has(g.name)?'Hide':'Show')+' detailed postage rates');
 button.appendChild(el('span','entry-flag',g.flag));
 var left=el('span','');
 left.appendChild(el('strong','entry-name',g.name));
@@ -218,8 +240,20 @@ var st=displayStatus(g.rates);
 left.appendChild(el('span','pill '+st[1],st[0]));
 button.appendChild(left);
 var right=el('span','entry-price');
-right.appendChild(el('strong','',mainPrice(g)));
-right.appendChild(el('small','',shortMeta(g)));
+if(twoZonePreview(g)){
+ var shown=preferred(g).concat(g.rates.filter(function(r){return preferred(g).indexOf(r)===-1}));
+ shown.forEach(function(r){
+  var line=el('span','price-line');
+  line.appendChild(el('span','price-label',destLabel(r,g)));
+  line.appendChild(el('strong','',quote(r)));
+  right.appendChild(line)
+ })
+}else{
+ right.appendChild(el('span','price-label',g.name==='Germany'?'All destinations':'To Germany'));
+ right.appendChild(el('strong','',mainPrice(g)));
+ right.appendChild(el('small','',shortMeta(g)));
+ if(g.rates.length>1)right.appendChild(el('span','other-zone','+'+(g.rates.length-1)+' other destination zones ↓'))
+}
 button.appendChild(right);
 button.appendChild(el('span','chevron','⌄'));
 var body=details(g);
@@ -227,7 +261,7 @@ button.addEventListener('click',function(){
  var open=!expanded.has(g.name);
  if(open)expanded.add(g.name);else expanded.delete(g.name);
  body.hidden=!open;button.setAttribute('aria-expanded',String(open));
- button.setAttribute('aria-label',g.name+': '+mainPrice(g)+'. '+(open?'Hide':'Show')+' detailed postage rates');
+ button.setAttribute('aria-label',g.name+'. '+accessibleSummary(g)+'. '+(open?'Hide':'Show')+' detailed postage rates');
 });
 item.appendChild(button);item.appendChild(body);return item
 }
