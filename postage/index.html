@@ -23,6 +23,26 @@ input,select{font:inherit;min-height:42px;padding:9px 11px;border:1px solid #d8d
 input{flex:1 1 230px;min-width:155px}select{flex:1 1 170px;max-width:235px}
 input:focus-visible,select:focus-visible{outline:2px solid var(--olive)}
 .legend{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 11px;color:var(--muted);font-size:12px}
+.modebar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:7px 0 14px}
+.modebar button{min-height:40px;padding:8px 13px;border:1px solid #aab795;border-radius:4px;color:#4d5b24;background:white;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.modebar button:hover,.modebar button:focus-visible{border-color:#77852a;outline-offset:2px}
+.modebar button[aria-pressed="true"]{background:#edf2d8;border-color:#8da02b}
+.mode-help{font-size:12px;color:var(--muted);flex:1;min-width:200px}
+.upcoming{border:1px solid var(--line);border-left:4px solid var(--olive);padding:12px 15px;margin:13px 0 14px;background:#fcfcf8}
+.upcoming[hidden]{display:none}
+.upcoming h2{font-size:16px;line-height:1.3;margin:0 0 3px}
+.upcoming-intro{font-size:12px;color:var(--muted);margin:0}
+.upcoming details{margin-top:7px}
+.upcoming summary{font-size:13px;font-weight:700;color:#5a6b21;cursor:pointer;width:fit-content}
+.upcoming summary:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+.upcoming-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:10px;padding:10px 0;border-top:1px dotted var(--line)}
+.upcoming-row:first-child{margin-top:7px}
+.upcoming-name{font-size:13px;font-weight:700}
+.upcoming-date{font-size:11px;color:var(--muted)}
+.upcoming-prices{font-size:12px;line-height:1.6}
+.upcoming-prices span{display:block}
+.upcoming-source{font-size:11px;display:inline-block;margin-top:4px}
+@media(max-width:620px){.upcoming-row{grid-template-columns:1fr;gap:4px}.upcoming{padding:10px}.mode-help{min-width:0}}
 .directory{border:1px solid var(--line);background:white}
 .directory-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(136px,190px) 22px;gap:12px;padding:11px 16px;background:var(--cream);color:#596348;font-size:11px;letter-spacing:.9px;text-transform:uppercase;font-weight:700}
 .directory-head span:nth-child(2){text-align:right}
@@ -96,6 +116,13 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 </div>
 <p class="small muted" id="scan">Loading database…</p>
 </header>
+<section class="upcoming" id="upcoming" aria-labelledby="upcoming-title" hidden>
+<h2 id="upcoming-title">Upcoming postage changes</h2>
+<p class="upcoming-intro" id="upcoming-intro"></p>
+<details><summary id="upcoming-summary">Show scheduled tariff changes</summary>
+<div id="upcoming-list"></div>
+</details>
+</section>
 <div class="destination-note"><strong>Important: postage depends on the destination.</strong> The main rate is usually for a letter sent to Germany. If a postal operator has different destination zones, check the additional rates shown or expand the country. For example, a letter from Liechtenstein to China uses the <strong>Rest of World</strong> rate, not the Europe rate. A single listed rate does not necessarily mean worldwide postage is the same.</div>
 <div class="filters" role="search" aria-label="Filter postage database">
 <input type="search" id="search" aria-label="Search countries" placeholder="Search country or territory…">
@@ -106,6 +133,10 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 <option value="unverified">Unverified</option>
 <option value="alert">Source check alerts</option>
 </select>
+</div>
+<div class="modebar">
+<button type="button" id="polar-toggle" aria-pressed="false">❄ Polar &amp; remote territories</button>
+<span class="mode-help" id="polar-help">Explore Antarctic, Arctic-linked and remote island postal territories. Not all have separate polar-mail tariffs.</span>
 </div>
 <div class="legend">
 <span><span class="pill ok">SOURCE REVIEWED</span> manually inspected official source</span>
@@ -124,11 +155,14 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 (function(){
 'use strict';
 var $=function(id){return document.getElementById(id)};
-var db=[],groups=[],expanded=new Set();
+var db=[],groups=[],expanded=new Set(),polarMode=false;
 function el(tag,cls,content){var node=document.createElement(tag);if(cls)node.className=cls;if(content!==undefined)node.textContent=content;return node}
 function norm(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
 function groupName(record){return String(record.country||'').split(' – ')[0]}
 function flag(record){return record.flag||'🌐'}
+function isPolarRelated(g){
+return g.region==='Islands & Polar'||g.name==='Iceland'||g.name==='Norway';
+}
 function hasAlert(r){return ['review','unavailable'].indexOf((r.check||{}).state)>=0}
 function displayStatus(rows){
 if(rows.some(hasAlert))return ['REVIEW NEEDED','warn'];
@@ -161,6 +195,46 @@ if(activeStandard(r))return activeStandard(r);
 var economy=activeEconomy(r),priority=activePriority(r);
 if(economy&&priority)return 'Eco '+economy+' / Prio '+priority;
 return economy||priority||'Rate unavailable'
+}
+function scheduleChanges(r){
+var parts=[];
+if(r.scheduled_standard&&r.standard)parts.push({name:'Letter',old:r.standard,next:r.scheduled_standard});
+if(r.scheduled_economy&&r.economy)parts.push({name:'Economy',old:r.economy,next:r.scheduled_economy});
+if(r.scheduled_priority&&r.priority)parts.push({name:'Priority',old:r.priority,next:r.scheduled_priority});
+return parts
+}
+function friendlyDate(iso){
+var d=new Date(iso+'T12:00:00Z');
+return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})
+}
+function renderUpcoming(){
+var future=db.filter(function(r){
+return r.status==='verified' && hasScheduled(r) && r.scheduled_from>localDate() &&
+ !!r.scheduled_source_url && scheduleChanges(r).length>0
+}).sort(function(a,b){return a.scheduled_from.localeCompare(b.scheduled_from)||a.country.localeCompare(b.country,'en')});
+var panel=$('upcoming');
+panel.hidden=!future.length;
+if(!future.length)return;
+var places=Array.from(new Set(future.map(groupName)));
+var dates=Array.from(new Set(future.map(function(r){return r.scheduled_from})));
+var placeText=places.length===1?places[0]:(places.length===2?places.join(' & '):places.slice(0,2).join(', ')+' + '+(places.length-2)+' more');
+$('upcoming-intro').textContent=(dates.length===1?'Effective '+friendlyDate(dates[0]):dates.length+' announced effective dates')+
+ ' · '+placeText+'. Officially published rates; current prices remain in force until their effective dates.';
+$('upcoming-summary').textContent='View '+future.length+' scheduled zone '+(future.length===1?'change':'changes')+' & official sources';
+var list=$('upcoming-list');list.replaceChildren();
+var frag=document.createDocumentFragment();
+future.forEach(function(r){
+ var row=el('div','upcoming-row'),left=el('div',''),right=el('div','upcoming-prices');
+ left.appendChild(el('div','upcoming-name',r.flag+' '+r.country));
+ left.appendChild(el('div','upcoming-date','From '+friendlyDate(r.scheduled_from)));
+ scheduleChanges(r).forEach(function(part){right.appendChild(el('span','',part.name+': '+part.old+' → '+part.next))});
+ if(/^https?:\/\//i.test(r.scheduled_source_url)){
+  var link=el('a','upcoming-source','Official announcement ↗');
+  link.href=r.scheduled_source_url;link.target='_blank';link.rel='noopener noreferrer';right.appendChild(link)
+ }
+ row.appendChild(left);row.appendChild(right);frag.appendChild(row)
+});
+list.appendChild(frag)
 }
 function mainPrice(g){
 var prefs=preferred(g);
@@ -293,6 +367,7 @@ item.appendChild(button);item.appendChild(body);return item
 function draw(){
 var query=norm($('search').value),region=$('region').value,status=$('status').value;
 var shown=groups.filter(function(g){
+ if(polarMode&&!isPolarRelated(g))return false;
  if(region&&region!==g.region)return false;
  if(status&&!(status==='alert'?g.rates.some(hasAlert):g.rates.some(function(r){return r.status===status})))return false;
  if(query&&!g.rates.some(function(r){return norm(g.name+' '+g.region+' '+r.country+' '+r.notes).indexOf(query)>=0}))return false;
@@ -303,7 +378,7 @@ var fragment=document.createDocumentFragment();
 shown.forEach(function(g){fragment.appendChild(renderGroup(g))});
 if(!shown.length)fragment.appendChild(el('p','empty','No matching countries or territories.'));
 list.appendChild(fragment);
-$('shown').textContent='Showing '+shown.length+' of '+groups.length+' countries and territories · '+db.length+' individual postage entries in the database.'
+$('shown').textContent=(polarMode?'Polar & remote mode · ':'')+'Showing '+shown.length+' of '+groups.length+' countries and territories · '+db.length+' individual postage entries in the database.'
 }
 function init(data){
 db=Array.isArray(data.rates)?data.rates:[];
@@ -314,9 +389,18 @@ $('tariffs').textContent=db.length;
 $('verified').textContent=db.filter(function(r){return r.status==='verified'}).length;
 $('alerts').textContent=db.filter(hasAlert).length;
 $('scan').textContent='Last edited: '+(data.updated_at||'unknown')+' · Last automated source scan: '+(data.last_scan_at||'not yet run');
+renderUpcoming();
+$('polar-help').textContent=groups.filter(isPolarRelated).length+' polar-linked and remote territories available · These are ordinary postal tariffs, not necessarily special expedition-mail rates.';
 draw()
 }
 ['search','region','status'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',draw)});
+$('polar-toggle').addEventListener('click',function(){
+polarMode=!polarMode;
+if(polarMode){$('search').value='';$('region').value='';$('status').value=''}
+this.setAttribute('aria-pressed',String(polarMode));
+this.textContent=polarMode?'✓ Polar & remote · Show all':'❄ Polar & remote territories';
+draw()
+});
 fetch('./rates.json',{cache:'no-store'}).then(function(response){if(!response.ok)throw Error('HTTP '+response.status);return response.json()}).then(init).catch(function(err){
 var list=$('country-list');list.replaceChildren();list.appendChild(el('p','empty','Database could not be loaded: '+err.message));$('scan').textContent='Database unavailable'
 });
