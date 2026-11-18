@@ -150,8 +150,11 @@ if(g.name==='Andorra')return g.rates;
 var europe=g.rates.find(function(r){return / – (?:UK & )?Europe\b/i.test(r.country)});
 return [europe||g.rates[0]]
 }
+function localDate(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function scheduledActive(r){return !!(r.scheduled_standard&&r.scheduled_from&&localDate()>=r.scheduled_from)}
+function activeStandard(r){return scheduledActive(r)?r.scheduled_standard:r.standard}
 function quote(r){
-if(r.standard)return r.standard;
+if(activeStandard(r))return activeStandard(r);
 if(r.economy&&r.priority)return 'Eco '+r.economy+' / Prio '+r.priority;
 return r.economy||r.priority||'Rate unavailable'
 }
@@ -174,6 +177,7 @@ else if(/\bPRIORITY\b/i.test(r.notes||''))parts.push('Priority');
 if(r.weight_g)parts.push('up to '+r.weight_g+' g');
 else if(g.name==='Norway')parts.push('small-letter format');
 if(g.name==='Germany')parts.unshift('Worldwide');
+if(r.scheduled_standard)parts.push(scheduledActive(r)?'2027 tariff in effect':'From 2027: '+r.scheduled_standard);
 return parts.join(' · ')||'International letter'
 }
 function addSource(parent,r){
@@ -201,7 +205,16 @@ rates.forEach(function(r){
  if(r.check&&r.check.checked_at)left.appendChild(el('div','zone-meta','Source scan: '+r.check.checked_at));
  if(hasAlert(r)&&r.check.detail)left.appendChild(el('div','zone-meta','Attention: '+r.check.detail));
  addSource(left,r);
- if(r.standard)right.appendChild(el('span','','Letter · '+r.standard));
+ if(r.scheduled_standard && r.scheduled_source_url && /^https?:\/\//i.test(r.scheduled_source_url)){
+  var futureLink=el('a','zone-source','Official '+r.scheduled_from.slice(0,4)+' tariff ↗');
+  futureLink.href=r.scheduled_source_url;futureLink.target='_blank';futureLink.rel='noopener noreferrer';
+  left.appendChild(el('div','zone-meta','Scheduled tariff effective '+r.scheduled_from));
+  left.appendChild(el('div',''));left.lastChild.appendChild(futureLink);
+ }
+ if(activeStandard(r))right.appendChild(el('span','','Letter · '+activeStandard(r)));
+ if(r.scheduled_standard){
+  right.appendChild(el('span','zone-meta',scheduledActive(r)?'Previous (2026): '+r.standard:'From '+r.scheduled_from+': '+r.scheduled_standard));
+ }
  if(r.economy)right.appendChild(el('span','','Economy · '+r.economy));
  if(r.priority)right.appendChild(el('span','','Priority · '+r.priority));
  if(!r.standard&&!r.economy&&!r.priority)right.appendChild(el('span','blank','—'));
@@ -222,7 +235,8 @@ return 'Other destination'
 function twoZonePreview(g){return g.rates.length===2 && (g.name==='Andorra'||g.rates.every(function(r){return / – (?:UK & )?Europe\b| – Rest of World/i.test(r.country)}))}
 function accessibleSummary(g){
  if(twoZonePreview(g))return preferred(g).concat(g.rates.filter(function(r){return preferred(g).indexOf(r)===-1})).map(function(r){return destLabel(r,g)+': '+quote(r)}).join('; ');
- return (g.name==='Germany'?'All destinations: ':'To Germany: ')+mainPrice(g)+(g.rates.length>1?'; '+(g.rates.length-1)+' other postal zones available':'')
+ var lead=preferred(g)[0];
+ return (g.name==='Germany'?'All destinations: ':'To Germany: ')+mainPrice(g)+(g.rates.length>1?'; '+(g.rates.length-1)+' other postal zones available':'')+(lead.scheduled_standard&&!scheduledActive(lead)?'; from '+lead.scheduled_from+': '+lead.scheduled_standard:'')
 }
 function renderGroup(g){
 var item=el('section','entry');
