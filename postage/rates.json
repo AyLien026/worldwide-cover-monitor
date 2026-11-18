@@ -1689,6 +1689,26 @@
         "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
+    },
+    {
+      "id": "russia",
+      "country": "Russia",
+      "flag": "🇷🇺",
+      "region": "Europe & Asia",
+      "standard": null,
+      "economy": "140 RUB",
+      "priority": "160 RUB",
+      "weight_g": 20,
+      "notes": "Current Russian Post international ordinary, unregistered letter tariff for Germany and all countries except Belarus and Kazakhstan: 140 RUB non-priority / 160 RUB priority, up to 20 g, effective 1 September 2026. Prices are quoted for postage paid by stamps (without VAT). The 135 RUB ARGE Polarphilatelie listing from June 2026 is no longer current for this route. Russian Post officially lists tariff order no. 231-p of 13 August 2026, effective 1 September 2026, at the official tariffs index. Exact numerical amounts corroborated by 2026 Postmania (18 September) and Postcrossing community, but the original official PDF could not be directly retrieved for independent verification. Special 110/135 RUB tariffs apply to Belarus/Kazakhstan, not Germany. Check route availability separately: https://info.pochta.ru/support/no-mail-exchange. Reference: https://postmania.ru/post-tariffs",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://info.pochta.ru/support/post-rules/tariffs",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official tariff regulation exists but original amount table could not be independently reviewed; amounts are corroborated by current nonofficial sources."
+      }
     }
   ],
   "last_scan_at": "2026-11-18"
