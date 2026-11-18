@@ -673,18 +673,19 @@
       "country": "Faroe Islands",
       "flag": "🇫🇴",
       "region": "Islands & Polar",
-      "standard": "35 DKK",
+      "standard": "37 DKK",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 100,
+      "notes": "Posta (Faroe Islands) official 'Prísir fyri brøv og pakkar' effective 1 January 2026, page 1: 'Brøv til útheimin' ordinary documents-only international letter 0–100 g costs 37 DKK, independent of destination (incl. Germany); 101–250 g costs 74 DKK. Letter dimensions max 23 × 33 × 1 cm. The separate 'Brævpakkar' (letter packets, including goods) category costs 84 DKK at 0–100 g or 97 DKK at 101–500 g and must NOT be confused with the document letter tariff. Page 2 gives indicative international delivery 3–15 working days and no tracking for ordinary letters. Supersedes previous collector-supplied 35 DKK figure.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://dkxtfyil83pr6.cloudfront.net/media/nvebry3e/postgj%C3%B8ld-010126.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official Posta tariff PDF manually reviewed (pages 1 and 2); automated HTML text-token watcher does not extract PDF. Official 2026 tariff announcement: https://www.posta.fo/fo/business/help-information/news/prisbroytingar-fra-1-januar-2026"
       }
     },
     {
