@@ -5,22 +5,43 @@
   "disclaimer": "Indicative information; do not frank without confirming the current official tariff. Source watcher checks price text, not tariff applicability.",
   "rates": [
     {
-      "id": "aland",
-      "country": "Åland Islands",
+      "id": "aland-europe",
+      "country": "Åland Islands – Europe",
       "flag": "🇦🇽",
       "region": "Europe",
       "standard": null,
-      "economy": "3.60 EUR",
-      "priority": "4.20 EUR",
-      "weight_g": null,
-      "notes": "Collector-supplied Economy/Priority figures; weight and destination unknown.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "economy": "3.80 EUR",
+      "priority": "4.50 EUR",
+      "weight_g": 20,
+      "notes": "Åland Post 2026 ordinary international letter or postcard up to 20 g, sent to Nordic countries and Europe, including Germany; Economy 3.80 EUR and Priority 4.50 EUR. Official 'Postavgifter ... Brevförsändelser' tariff effective 3 August 2026, page 1, first table 'Brevförsändelser försedda med frimärke eller portoetikett'. Special bulky-letter surcharges and registered/express services not included. Tariff refers to letters posted in Åland, not mainland Finland.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://cdn.sanity.io/files/eke1y92r/production/9a9d208903c422f0fcd3aa07f02424c4d0974c81.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official 2026 Åland Post tariff PDF manually reviewed; automatic token scanning cannot parse PDF."
+      }
+    },
+    {
+      "id": "aland-world",
+      "country": "Åland Islands – Rest of World",
+      "flag": "🇦🇽",
+      "region": "Europe",
+      "standard": null,
+      "economy": "3.80 EUR",
+      "priority": "4.70 EUR",
+      "weight_g": 20,
+      "notes": "Åland Post 2026 ordinary international letter or postcard up to 20 g, sent to other world destinations, including China; Economy 3.80 EUR and Priority 4.70 EUR. Official 'Postavgifter ... Brevförsändelser' tariff effective 3 August 2026, page 1, first table 'Brevförsändelser försedda med frimärke eller portoetikett'. Special bulky-letter surcharges and registered/express services not included. Tariff refers to letters posted in Åland, not mainland Finland.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-18",
+      "source_url": "https://cdn.sanity.io/files/eke1y92r/production/9a9d208903c422f0fcd3aa07f02424c4d0974c81.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official 2026 Åland Post tariff PDF manually reviewed; automatic token scanning cannot parse PDF."
       }
     },
     {
