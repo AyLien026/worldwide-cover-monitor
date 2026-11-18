@@ -180,7 +180,7 @@ container.id='rates-'+g.rates[0].id;
 container.hidden=!expanded.has(g.name);
 container.appendChild(el('p','details-intro','All recorded postal services and destination zones. Rates are indicative; use the linked operator’s current tariff before mailing.'));
 var rates=g.rates.slice().sort(function(a,b){
- var best=preferred(g);return best.indexOf(b)-best.indexOf(a)
+ var best=preferred(g),ai=best.indexOf(a),bi=best.indexOf(b);return (ai<0?999:ai)-(bi<0?999:bi)
 });
 rates.forEach(function(r){
  var zone=el('div','zone');
