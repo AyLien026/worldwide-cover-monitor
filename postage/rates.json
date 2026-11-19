@@ -1514,18 +1514,19 @@
       "country": "South Africa",
       "flag": "🇿🇦",
       "region": "Africa",
-      "standard": "14.90 ZAR",
+      "standard": "16.80 ZAR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 50,
+      "notes": "OFFICIAL 2026/27 South African Post Office international letter-post tariff effective 1 April 2026 to 31 March 2027: small AIRMAlL letter to Germany (Rest of World), maximum 50 g, maximum size 120 x 235 mm, thickness max 5 mm: 16.80 ZAR. Surface-mail small letter to Rest of World: 14.20 ZAR, subject to route availability; airmail postcard: 14.35 ZAR. The earlier collector-supplied 14.90 ZAR was unsupported. Official SAPO tariff booklet p. 17 and ICASA Government Gazette No. 54181, 20 February 2026, p. 12. Check service suspensions before mailing.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.postoffice.co.za/Questions/Postalrates.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official 2026/27 South African Post Office tariff booklet and ICASA government gazette manually verified; PDF text monitoring not configured."
       }
     },
     {
@@ -2805,15 +2806,15 @@
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "Outgoing ordinary international letter to Germany up to 20 g: older legal schedules published 4.80 MYR and later references 5.80 MYR, with possible fuel or international surcharges. A current official 2026 all-in final price was not confirmed. Keep out of public rate directory until an official current tariff and service are confirmed.",
+      "notes": "International ordinary AIRMAIL letter to Germany (Zone 3 / 'Other Countries'), up to 20 g: older official Malaysian Postal Services (Rates of Postage) Regulations 2020 gave 4.80 MYR; a commercial postal-services retailer subsequently published 5.80 MYR BASE RATE plus a stated 60% Zone 3 fuel surcharge (indicative 9.28 MYR total IF both amounts still apply). A sender reported paying 8.20 MYR for an envelope to Germany in April 2025. These conflicting sources do NOT prove the final November 2026 counter rate. Pos Malaysia's official current international airmail webpage does not expose a confirmable tariff table to this review. Do NOT publish 5.80 MYR or approximately 6 MYR as an all-in, verified 2026 postage value; request a current official quote before showing publicly.",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": "https://www.pos.com.my/",
+      "source_url": "https://www.pos.com.my/send/mail/international/air-mail",
       "watch_token": null,
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "Current official ordinary-letter tariff Germany not yet established."
+        "detail": "Unconfirmed November 2026 final fare: historical 4.80 MYR legal base, commercial 5.80 MYR + 60% surcharge, personal 2025 report of 8.20 MYR. Verify official all-in rate before publishing."
       }
     },
     {
