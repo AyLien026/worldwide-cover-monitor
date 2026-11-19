@@ -210,7 +210,7 @@ function activePriority(r){return scheduledActive(r)&&r.scheduled_priority?r.sch
 function quote(r){
 if(activeStandard(r))return activeStandard(r);
 var economy=activeEconomy(r),priority=activePriority(r);
-if(economy&&priority)return 'Eco '+economy+' / Prio '+priority;
+if(economy&&priority)return (r.economy_label||'Eco')+' '+economy+' / '+(r.priority_label||'Prio')+' '+priority;
 return economy||priority||'—'
 }
 function scheduleChanges(r){
@@ -273,8 +273,8 @@ return quote(prefs[0])
 function shortMeta(g){
 if(g.name==='Andorra')return 'Spanish / French postal operators';
 var r=preferred(g)[0], parts=[];
-if(r.economy)parts.push(r.priority?'Economy / Priority':'Economy');
-else if(r.priority)parts.push('Priority');
+if(r.economy)parts.push(r.priority?(r.economy_label||'Economy')+' / '+(r.priority_label||'Priority'):(r.economy_label||'Economy'));
+else if(r.priority)parts.push(r.priority_label||'Priority');
 else if(/\bPRIORITY\b/i.test(r.notes||''))parts.push('Priority');
 if(r.weight_g)parts.push('up to '+r.weight_g+' g');
 else if(g.name==='Norway')parts.push('small-letter format');
@@ -317,8 +317,8 @@ rates.forEach(function(r){
  if(r.scheduled_standard){
   right.appendChild(el('span','zone-meta',scheduledActive(r)?'Previous (2026): '+r.standard:(r.scheduled_status==='pending_approval'?'Proposed from ':'From ')+r.scheduled_from+': '+r.scheduled_standard));
  }
- if(activeEconomy(r))right.appendChild(el('span','','Economy · '+activeEconomy(r)));
- if(activePriority(r))right.appendChild(el('span','','Priority · '+activePriority(r)));
+ if(activeEconomy(r))right.appendChild(el('span','',(r.economy_label||'Economy')+' · '+activeEconomy(r)));
+ if(activePriority(r))right.appendChild(el('span','',(r.priority_label||'Priority')+' · '+activePriority(r)));
  if(r.scheduled_economy||r.scheduled_priority){
   var changes=(r.scheduled_economy?'Eco '+(scheduledActive(r)?r.economy:r.scheduled_economy):'')+
               (r.scheduled_economy&&r.scheduled_priority?' / ':'')+
