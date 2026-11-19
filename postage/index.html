@@ -219,8 +219,9 @@ return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',
 }
 function renderUpcoming(){
 var future=db.filter(function(r){
-return r.status==='verified' && hasScheduled(r) && (r.scheduled_from>localDate() || r.scheduled_status==='pending_approval') &&
- !!r.scheduled_source_url && scheduleChanges(r).length>0
+return (r.status==='verified' || (r.scheduled_status==='reported' && !!r.scheduled_notice)) && !!r.scheduled_from &&
+ (r.scheduled_from>localDate() || r.scheduled_status==='pending_approval') && !!r.scheduled_source_url &&
+ (scheduleChanges(r).length>0 || !!r.scheduled_notice)
 }).sort(function(a,b){return a.scheduled_from.localeCompare(b.scheduled_from)||a.country.localeCompare(b.country,'en')});
 var panel=$('upcoming');
 panel.hidden=!future.length;
@@ -229,20 +230,23 @@ var places=Array.from(new Set(future.map(groupName)));
 var dates=Array.from(new Set(future.map(function(r){return r.scheduled_from})));
 var placeText=places.length===1?places[0]:(places.length===2?places.join(' & '):places.slice(0,2).join(', ')+' + '+(places.length-2)+' more');
 var pending=future.filter(function(r){return r.scheduled_status==='pending_approval'});
+var reported=future.filter(function(r){return r.scheduled_status==='reported'});
 $('upcoming-intro').textContent=(dates.length===1?'Announced for '+friendlyDate(dates[0]):dates.length+' announced effective dates')+
- ' · '+placeText+'. Prices are based on official announcements.'+
+ ' · '+placeText+'. Official announcements and clearly labelled third-party reports are shown separately.'+
  (pending.length?' '+pending.length+' change'+(pending.length===1?'':'s')+' still require'+(pending.length===1?'s':'')+' final regulatory approval.':'')+
+ (reported.length?' '+reported.length+' reported change'+(reported.length===1?'':'s')+' not yet confirmed by an official tariff notice.':'')+
  ' Existing rates stay in force until the applicable change takes effect.';
-$('upcoming-summary').textContent='View '+future.length+' scheduled zone '+(future.length===1?'change':'changes')+' & official sources';
+$('upcoming-summary').textContent='View '+future.length+' announced or reported '+(future.length===1?'change':'changes')+' & sources';
 var list=$('upcoming-list');list.replaceChildren();
 var frag=document.createDocumentFragment();
 future.forEach(function(r){
  var row=el('div','upcoming-row'),left=el('div',''),right=el('div','upcoming-prices');
  left.appendChild(el('div','upcoming-name',r.flag+' '+r.country));
- left.appendChild(el('div','upcoming-date',(r.scheduled_status==='pending_approval'?'Planned for ':'From ')+friendlyDate(r.scheduled_from)+(r.scheduled_status==='pending_approval'?' · Approval pending':'')));
+ left.appendChild(el('div','upcoming-date',(r.scheduled_status==='pending_approval'?'Planned for ':r.scheduled_status==='reported'?'Reported for ':'From ')+friendlyDate(r.scheduled_from)+(r.scheduled_status==='pending_approval'?' · Approval pending':r.scheduled_status==='reported'?' · Unconfirmed':'')));
  scheduleChanges(r).forEach(function(part){right.appendChild(el('span','',part.name+': '+part.old+' → '+part.next))});
+ if(r.scheduled_notice)right.appendChild(el('span','',r.scheduled_notice));
  if(/^https?:\/\//i.test(r.scheduled_source_url)){
-  var link=el('a','upcoming-source','Official announcement ↗');
+  var link=el('a','upcoming-source',r.scheduled_source_label||'Official announcement ↗');
   link.href=r.scheduled_source_url;link.target='_blank';link.rel='noopener noreferrer';right.appendChild(link)
  }
  row.appendChild(left);row.appendChild(right);frag.appendChild(row)
