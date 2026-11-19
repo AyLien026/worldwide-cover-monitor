@@ -77,19 +77,19 @@ Das Quellenarchiv ist das technische Projekt; die zusätzlich in ChatGPT eingeri
 
 The main Pages deployment now includes three connected public views:
 
-- **Country Explorer:** \`https://aylien026.github.io/worldwide-cover-monitor/countries/\` — search countries and postal territories, inspect source-reviewed and unverified postal rates, see destination zones and announced changes, open official postal tariff sources, and search the public Worldwide Covers blog for related covers.
-- **Postage Rates:** \`https://aylien026.github.io/worldwide-cover-monitor/postage/\` — detailed international postage directory.
-- **Philatelic Bulletin Monitor:** \`https://aylien026.github.io/worldwide-cover-monitor/\` — publicly sourced philatelic bulletin archive.
+- **Country Explorer:** `https://aylien026.github.io/worldwide-cover-monitor/countries/` — search countries and postal territories, inspect source-reviewed and unverified postal rates, see destination zones and announced changes, open official postal tariff sources, and search the public Worldwide Covers blog for related covers.
+- **Postage Rates:** `https://aylien026.github.io/worldwide-cover-monitor/postage/` — detailed international postage directory.
+- **Philatelic Bulletin Monitor:** `https://aylien026.github.io/worldwide-cover-monitor/` — publicly sourced philatelic bulletin archive.
 
-The Explorer reads the **same** \`postage/rates.json\` as the postage directory. It does not maintain a second copy of tariffs. The deployment workflow copies \`countries/index.html\` to GitHub Pages and includes \`countries/**\` in its push triggers. The optional "Related monitor entries" section reads \`data/items.json\`, but only shows entries associated with the country of the publishing source; a bulletin link does **not** prove a collector can request a specific postmark.
+The Explorer reads the **same** `postage/rates.json` as the postage directory. It does not maintain a second copy of tariffs. The deployment workflow copies `countries/index.html` to GitHub Pages and includes `countries/**` in its push triggers. The optional "Related monitor entries" section reads `data/items.json`, but only shows entries associated with the country of the publishing source; a bulletin link does **not** prove a collector can request a specific postmark.
 
-**Visible data policy:** Unpriced research records remain in \`postage/rates.json\`, but are excluded from both public country lists. A numeric tariff can still be marked *Unverified*; neither a detected number nor a previously source-reviewed tariff should be treated as an unquestionable current counter price. There is no public listing of confidential addresses or private philatelic working-group information.
+**Visible data policy:** Unpriced research records remain in `postage/rates.json`, but are excluded from both public country lists. A numeric tariff can still be marked *Unverified*; neither a detected number nor a previously source-reviewed tariff should be treated as an unquestionable current counter price. There is no public listing of confidential addresses or private philatelic working-group information.
 
 ### Blogger embedding
 
 A Blogger page can embed the Explorer using the HTML view:
 
-\`\`\`html
+```html
 <div style="width:100%;max-width:1200px;margin:0 auto;">
   <iframe
     src="https://aylien026.github.io/worldwide-cover-monitor/countries/"
@@ -99,8 +99,8 @@ A Blogger page can embed the Explorer using the HTML view:
     referrerpolicy="strict-origin-when-cross-origin">
   </iframe>
 </div>
-\`\`\`
+```
 
 The Explorer automatically hides its introductory hero when embedded in an iframe to avoid duplicating the host Blogger page heading. Blogger does not automatically create a navigation/menu entry: it must be added in the blog's **Pages / Layout** controls. The iframe has a fixed minimum height because Blogger and GitHub Pages are different origins and cannot safely auto-resize one another without an additional integration.
 
-Direct URL to a country: \`/countries/?country=Japan\` (country names in query parameters are URL-encoded). The blog cover link opens a **search** on Worldwide Covers; it does not assert a matching existing article. Official source links can change over time.
+Direct URL to a country: `/countries/?country=Japan` (country names in query parameters are URL-encoded). The blog cover link opens a **search** on Worldwide Covers; it does not assert a matching existing article. Official source links can change over time.
