@@ -227,18 +227,19 @@
       "country": "Ascension Island",
       "flag": "🇦🇨",
       "region": "Islands & Polar",
-      "standard": "0.50 GBP",
+      "standard": null,
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "weight_g": 20,
+      "notes": "Ascension official Post Office (Rates of Charge) Order 2014, Part 2 'Air Mail (All Destinations)' provides ordinary outbound letters up to 10 g 0.55 GBP and over 10–20 g 0.65 GBP. It also lists surface letters to destinations other than St Helena up to 20 g at 0.35 GBP. However this is a 2014 legal tariff and an independently confirmed November 2026 Ascension Post Office tariff table is not available. Previously shown collector figure 0.50 GBP had no service/weight proof; the 0.65 GBP historical statutory price is retained only as a note and not published as current. Operator https://www.ascension.gov.ac/postal-service/post-office .",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://www.sainthelena.gov.sh/documents/post-office-asc-ordinance/",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Current November 2026 outbound ordinary-letter franking not conclusively confirmed; tariff remains a research record."
       }
     },
     {
@@ -1424,15 +1425,16 @@
       "standard": "1.25 GBP",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "South Georgia & South Sandwich Islands official Postal Services (Amendment) Ordinance 2024 No. 3 (in force from 1 July 2024), Schedule 'Air Mail Rates', ordinary international letter first 20 g 1.25 GBP, each additional 10 g 0.30 GBP. Surface mail first 20 g is 0.80 GBP; postcards 1.25 GBP by air / 0.70 GBP surface. Statutory rate sourced from 2024 amendment; official SGSSI gazettes reviewed for potential later change on 19 November 2026 without locating superseding letter rate. Limited postal access from Grytviken should be considered; do not treat as daily universal mail collection.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://laws.gov.gs/wp-content/uploads/2024/11/2024-03-Postal-Services-Amendment-Ordinance-2024.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Published tariff on an official government/operator page reviewed manually; automatic token monitoring not configured."
       }
     },
     {
@@ -1567,14 +1569,15 @@
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "notes": "Tristan da Cunha Post Office 'Postage Rates 2026', effective 1 May 2026: ordinary international AIRMAIL LETTER over 10 g up to 20 g costs 0.75 GBP; first 10 g costs 0.65 GBP; 21–30 g costs 1.10 GBP. Surface ordinary letters up to 20 g cost 0.55 GBP; airmail postcards 1.00 GBP. These are postage charges from Tristan, not mail to Tristan; registration is additional 3.50 GBP.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.tristandc.com/po/postage-rates-2026.php",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Published tariff on an official government/operator page reviewed manually; automatic token monitoring not configured."
       }
     },
     {
@@ -2389,7 +2392,7 @@
       "economy": null,
       "priority": null,
       "weight_g": null,
-      "notes": "Official Postal (Amendment) Regulations effective 2 February 2026 specify 0.82 KYD (CI$; US$1.00) worldwide airmail POSTCARD rate, but NOT a rate for a standard letter to Germany. Do not use postcard price as letter postage.",
+      "notes": "Cayman Islands Postal (Amendment) Regulations 2026 (effective 2 February 2026) publicly confirm a worldwide airmail POSTCARD rate of 0.82 KYD; they do not establish a normal outbound 20 g Germany LETTER rate. Separate official advisory states CIPS suspended acceptance of postal items CONTAINING GOODS destined for European Union countries from 1 July 2026; this does not establish a blanket suspension of ordinary document letters. Source: https://gov.ky/w/cips-to-temporarily-suspend-acceptance-of-postal-items-containing-goods-to-the-eu . The international letter price remains unpublished in this research, therefore no rate is displayed.",
       "status": "unverified",
       "manual_verified_at": null,
       "source_url": "https://gov.ky/w/government-advances-postal-regulations",
@@ -2489,7 +2492,7 @@
       "economy": null,
       "priority": null,
       "weight_g": null,
-      "notes": "Barbados Postal Service operates an official international postage calculator (displaying rates valid 18 November 2026) but expressly warns the calculator's rates are not confirmed without a post-office check. Standard international letter to Germany not extracted as an official fixed quote.",
+      "notes": "Barbados Postal Service's official international postage calculator shows price data 'valid as of 13 September 2026', but ordinary sealed letter to Germany at the requested minimum weight still could not be directly extracted. Operator explicitly treats calculator output as indicative and advises counter confirmation; do not treat a parcel or postcard price as letter postage. Refer https://bps.gov.bb/calculate-international-postage/.",
       "status": "unverified",
       "manual_verified_at": null,
       "source_url": "https://bps.gov.bb/calculate-international-postage/",
@@ -3049,6 +3052,66 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "Ordinary international letter rate to Germany not confirmed from a current authoritative tariff; leave unpublished until resolved."
+      }
+    },
+    {
+      "id": "saint-helena",
+      "country": "Saint Helena",
+      "flag": "🇸🇭",
+      "region": "Islands & Polar",
+      "standard": "0.80 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "St Helena government consolidated Post Office Ordinance (July 2026) reproduces Post Office (Rates of Charge) Order 2013, Part II AIR MAIL, to all destinations incl. Germany: letters up to 10 g cost 0.60 GBP and 10–20 g cost 0.80 GBP; over 20–40 g 1.15 GBP. Official St Helena Post Office 'Postage Rates 2020' leaflet agrees with this amount (https://www.sainthelena.gov.sh/documents/postage-rates-2020/). Surface mail 20 g 0.40 GBP, distinct slower service. 2026 legal consolidation supports continuing statutory rate, although counter acceptance and route availability should be confirmed.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.sainthelena.gov.sh/documents/20260701_Post-Office-Ordinance_CONSOLIDATED.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Published tariff on an official government/operator page reviewed manually; automatic token monitoring not configured."
+      }
+    },
+    {
+      "id": "pitcairn-islands",
+      "country": "Pitcairn Islands",
+      "flag": "🇵🇳",
+      "region": "Oceania",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Pitcairn's post office is operational and outbound international mail is normally routed through New Zealand, with intermittent sea transport. No source directly published by the Pitcairn postal operator or government was found specifying a current 2026 ordinary international 20 g letter tariff to Germany. Do not copy inbound Royal Mail/New Zealand/USPS prices or shipping fees charged by the stamp shop; these are not the island's outbound letter tariff.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.visitpitcairn.pn/local-services-activities",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Current November 2026 outbound ordinary-letter franking not conclusively confirmed; tariff remains a research record."
+      }
+    },
+    {
+      "id": "bermuda",
+      "country": "Bermuda – Europe (Zone 2)",
+      "flag": "🇧🇲",
+      "region": "Americas",
+      "standard": "1.35 BMD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "Bermuda Post Office official international letter prices: sealed outbound AIRMAIL letter up to 50 g to Zone 2, which includes Germany / Europe, 1.35 BMD; each additional 50 g 0.90 BMD. Published operator tariff agrees with consolidated Bermuda Post Office Regulations 1933 Schedule as amended (effective 1 July 2015), https://www.bermudalaws.bm/Laws/Consolidated%20Law/1933/Post%20Office%20Regulations%201933 (Europe mapped to Zone 2). The operator online postcode calculator was independently checked by a rate-comparison service on 15 November 2026; current published price still 1.35 BMD. Airmail letter, not surface or parcel postage.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.bermudapost.bm/postal-services/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Published tariff on an official government/operator page reviewed manually; automatic token monitoring not configured."
       }
     }
   ],
