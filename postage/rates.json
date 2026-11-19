@@ -2844,6 +2844,210 @@
         "checked_at": null,
         "detail": "Official product confirmed; current tariff not extracted."
       }
+    },
+    {
+      "id": "singapore",
+      "country": "Singapore",
+      "flag": "🇸🇬",
+      "region": "Asia",
+      "standard": "1.55 SGD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "SingPost official 'Delivery Rates & Mailing Guidelines' edition V202601, page 3: outgoing International Airmail Basic Mail LETTER or printed paper up to 20 g, Zone 3 = Australia/Japan/NZ and the Rest of the World, including Germany: 1.55 SGD. Surface mail (where offered) to Germany costs 0.50 SGD for up to 20 g, a different service. Postcards 0.85 SGD (distinct class). Bulk rates are not the retail rate.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.singpost.com/dam/files/documents/2026-01/Delivery_Rates_and_Mailing_Guidelines_V202601_for_website.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 official tariff document/active postal operator rate page manually checked; not automatically price-scanned."
+      }
+    },
+    {
+      "id": "macau",
+      "country": "Macau",
+      "flag": "🇲🇴",
+      "region": "Asia",
+      "standard": "6.50 MOP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Macao Post active official 'Service Charge' correspondence tariff: Priority/AIRMAIL Zone II includes Germany. First 10 g 4.50 MOP + next 10 g or fraction 2.00 MOP = 6.50 MOP up to 20 g. Non-priority surface letter to Germany, Zone II, up to 20 g is 5.00 MOP. Operator's source page last updated 16 October 2023; underlying approval cited as Executive Order 81/2019. It remains published but has not been proven unchanged through a separately dated 2026 legal instrument.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ctt.gov.mo/macaupost/Contents/CorresPostage.aspx?lang=en-us",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 official tariff document/active postal operator rate page manually checked; not automatically price-scanned."
+      }
+    },
+    {
+      "id": "kenya",
+      "country": "Kenya",
+      "flag": "🇰🇪",
+      "region": "Africa",
+      "standard": "640 KES",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Posta Kenya official circular hosted under uploads/2026/02, 'Postage Rates (VAT Exempted)', Table 2 'International – Air Mail': LETTERS up to 20 g to 'Europe, Middle & Near East Zone' (Germany): 640.00 KES; 21–50 g 845 KES. Ordinary standard postcard to Europe is 190 KES. Economy/Surface Air Lifted international LETTER to Europe <=20 g 420 KES, distinct service. The source is official but the scanned document itself has no clear effective date on its cover.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://posta.co.ke/wp-content/uploads/2026/02/CIRCULAR-ON-REVIEW-OF-POSTAGE-AND-BOX-AND-BAG-RENTAL-RATES.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 official tariff document/active postal operator rate page manually checked; not automatically price-scanned."
+      }
+    },
+    {
+      "id": "nigeria",
+      "country": "Nigeria",
+      "flag": "🇳🇬",
+      "region": "Africa",
+      "standard": "13,400 NGN",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "NIPOST 2026 official 'International Ordinary Letters Rates' table, available on the operator's current Tariff page: GERMANY, ordinary international letter up to 20 g: NGN 13,400, and additional 20 g (or part) NGN 800. Distinguish this ordinary-service price from separate registered mail and EMS rates.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://nipost.gov.ng/wp-content/uploads/2026/02/INTL-ORDINARY-LETTERS-RATES.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 official tariff document/active postal operator rate page manually checked; not automatically price-scanned."
+      }
+    },
+    {
+      "id": "mauritius",
+      "country": "Mauritius",
+      "flag": "🇲🇺",
+      "region": "Africa",
+      "standard": null,
+      "economy": "43 MUR",
+      "priority": "70 MUR",
+      "weight_g": 20,
+      "notes": "Mauritius Post official 'Postal Charges effective as from 8th April 2026' page 1: Zone 2 includes EUROPE/Germany, International AIRMAIL. Operator formally calls the two services 1st Class and 2nd Class (the directory's Priority/Economy labels are approximate): 1st Class first 5 g Rs 28, each additional 10 g or fraction Rs 21; 20 g = 28 + 2×21 = 70 MUR. 2nd Class first 10 g Rs 26, each additional 20 g or fraction Rs 17; 20 g = 43 MUR. Official aerogramme to all zones Rs 18; registered fee separate Rs 100. 2026 schedule explicitly confirmed by Mauritius Post notice dated 8 April 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.mauritiuspost.mu/app/uploads/2026/04/Tariff-2026.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 official tariff document/active postal operator rate page manually checked; not automatically price-scanned."
+      }
+    },
+    {
+      "id": "french-polynesia",
+      "country": "French Polynesia – International",
+      "flag": "🇵🇫",
+      "region": "Oceania",
+      "standard": "300 XPF",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Fare Rata official tariffs in effect 1 January 2026, page 1: 'International' ordinary letter/postcard up to 20 g from French Polynesia to Germany: 300 XPF; up to 100 g 650 XPF. France, DROM/COM are separately priced at 230 XPF up to 20 g. Official Fare Rata 2027 announced schedule raises the International ordinary 20 g rate to 325 XPF from 1 January 2027 (2027 sheet 'International – Prioritaire'), so keep the current rate until then.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.farerata.pf/uploads/medias/6924e02dd8b38505265378.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 official tariff document/active postal operator rate page manually checked; not automatically price-scanned."
+      },
+      "scheduled_from": "2027-01-01",
+      "scheduled_standard": "325 XPF",
+      "scheduled_source_url": "https://www.farerata.pf/uploads/medias/6aea3adc025ce457233666.pdf",
+      "scheduled_status": "announced"
+    },
+    {
+      "id": "thailand",
+      "country": "Thailand",
+      "flag": "🇹🇭",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Thailand Post official calculator and International Letter-Post Service tariffs exist; a public announcement effective April 2025 updates international letter services and registered-mail changes effective January 2026. An ordinary unregistered 20 g Airmail letter-to-Germany amount could not be extracted reliably from the operator calculator; do not confuse parcel or registered mail tariffs with ordinary postage.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://international.thailandpost.com/find-rates/?lang=en",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Ordinary international letter rate to Germany not confirmed from a current authoritative tariff; leave unpublished until resolved."
+      }
+    },
+    {
+      "id": "philippines",
+      "country": "Philippines",
+      "flag": "🇵🇭",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "PHLPost official postal-rate page offers a calculator/table with separate Ordinary Mail service; the current ordinary international 0–20 g Germany total could not be confirmed through that official interface (it also lists older 2023 tariffs). An unrelated commercial 'phlpost-rates.com' site quotes 46 PHP for 0–20g, but it is NOT the postal operator's official domain and should not be treated as a verified November 2026 final price. In November 2026 a revised PHLPost order addressed selected mail services, not proof for this ordinary rate.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://phlpost.gov.ph/postal-rates/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Ordinary international letter rate to Germany not confirmed from a current authoritative tariff; leave unpublished until resolved."
+      }
+    },
+    {
+      "id": "fiji",
+      "country": "Fiji",
+      "flag": "🇫🇯",
+      "region": "Oceania",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Post Fiji official site confirms international Airmail letter products, but the current international ordinary letter-to-Germany tariff (up to 20 g) was not found in a public operator price schedule. Official FAQ has an unspecified 0.96 FJD rate for a different postal product; it MUST NOT be inferred as the Europe standard letter rate. Community reports about postcards likewise are not a reliable substitute for operator confirmation.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.postfiji.com.fj/PostFiji/service",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Ordinary international letter rate to Germany not confirmed from a current authoritative tariff; leave unpublished until resolved."
+      }
+    },
+    {
+      "id": "vanuatu",
+      "country": "Vanuatu",
+      "flag": "🇻🇺",
+      "region": "Oceania",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Vanuatu Post official tariff image 'Postage rates for international letter and small packet – effective 10 Oct 2024' shows Zone 4 Europe, North/South America and rest of world. Its visible Zone 4 LETTER schedule begins at 21–50 g = 580 VUV, 51–100 g = 800 VUV, but the crucial 0–20 g row is absent from the current image; do not invent a 20 g charge or present 580 VUV as the first weight step. Operator's standard letters service is confirmed; request updated complete tariff image to fill the gap. Official source image: https://www.vanuatupost.vu/images/stories/rates/Register-Letter2024Final2.jpg",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.vanuatupost.vu/index.php/services/postal-services/postage-rate",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Ordinary international letter rate to Germany not confirmed from a current authoritative tariff; leave unpublished until resolved."
+      }
     }
   ],
   "last_scan_at": "2026-11-18"
