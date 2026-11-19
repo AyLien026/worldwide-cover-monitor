@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Country Explorer · Worldwide Covers</title>
+<meta name="description" content="Explore international letter postage by country, official postal sources, announced tariff changes, and worldwide philatelic cover resources.">
+<style>
+:root{--olive:#aab123;--dark:#626e16;--cream:#f9f7f0;--ink:#273025;--soft:#64705f;--line:#e4e5d9;--paper:#fff;--pale:#f5f7e9}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:#586b0c;text-underline-offset:3px}
+button,input,select{font:inherit}button{cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--dark);outline-offset:3px}
+.wrap{max-width:1190px;margin:0 auto;padding:18px 20px 40px}
+.eyebrow{color:#758915;font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:800}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.navlinks{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}
+.navlinks a[aria-current]{font-weight:800;text-decoration:none;color:#394a02}
+.hero{background:var(--cream);border:1px solid #ede8d8;border-left:5px solid var(--olive);padding:20px 24px;margin-bottom:16px}
+h1{font:500 clamp(26px,3vw,39px)/1.18 Georgia,serif;margin:6px 0 9px}
+.hero p{margin:0;color:#5a6254;max-width:780px}
+.metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.metric{background:#fff;border:1px solid var(--line);padding:8px 13px;min-width:125px}
+.metric b{font-size:21px;font-variant-numeric:tabular-nums;display:block}
+.metric small{color:var(--soft);display:block}
+.info{font-size:12px;color:var(--soft);margin:10px 0 15px}
+.layout{display:grid;grid-template-columns:minmax(265px,360px) minmax(0,1fr);gap:19px;align-items:start}
+.sidebar{border:1px solid var(--line);background:#fff}
+.controls{padding:14px;background:var(--cream);border-bottom:1px solid var(--line);display:grid;gap:9px}
+.controls input,.controls select{border:1px solid #cdd2c7;background:#fff;color:var(--ink);padding:10px;width:100%;min-width:0;border-radius:4px}
+.controls label{font-size:12px;font-weight:700;color:#4d5b3f}
+.controls .check{display:flex;align-items:center;gap:8px;font-weight:500}
+.controls .check input{width:auto;accent-color:var(--dark)}
+.countline{padding:8px 14px;color:var(--soft);font-size:11px;border-bottom:1px solid var(--line)}
+.countrylist{max-height:710px;overflow:auto}
+.country{display:flex;align-items:center;gap:9px;text-align:left;width:100%;padding:10px 13px;background:#fff;border:0;border-bottom:1px solid #f0f0eb;color:var(--ink)}
+.country:hover{background:var(--pale)}
+.country.active{background:var(--pale);box-shadow:inset 4px 0 var(--olive);font-weight:700}
+.country .flag{font-size:23px;line-height:1.2}
+.country .countrytxt{min-width:0;flex:1}
+.country .name{display:block;font-size:13px}
+.country .sub{display:block;color:var(--soft);font-size:11px;font-weight:400}
+.country .arrow{color:var(--dark);font-size:19px}
+.empty{padding:18px;color:var(--soft)}
+.detail{border:1px solid var(--line);background:#fff;min-height:500px;padding:23px 25px}
+.countryhead{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.countryflag{font-size:41px;line-height:1.1}
+h2{font:500 clamp(26px,3vw,35px)/1.15 Georgia,serif;margin:0 0 5px}
+.subline{color:var(--soft);font-size:12px}
+.pill{font-size:10px;padding:3px 7px;border-radius:3px;font-weight:800;letter-spacing:.4px;white-space:nowrap;background:#eee;color:#515a50}
+.pill.ok{color:#4d6018;background:#ebf1d8}
+.pill.unverified{background:#f8efda;color:#84621b}
+.summary{font-size:13px;color:var(--soft);margin:16px 0}
+.sectiontitle{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#718616;margin:23px 0 9px}
+.rates{display:grid;gap:9px}
+.rate{border:1px solid var(--line);border-left:4px solid var(--olive);padding:13px 14px;background:#fff}
+.rate-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ratezone{font-weight:800;font-size:14px}
+.ratesub{color:var(--soft);font-size:12px;margin-top:2px}
+.price{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums}
+.breakdown{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
+.breakdown span{padding:4px 7px;background:var(--cream);border:1px solid var(--line);font-size:12px}
+.sourceblock{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:12px}
+.ratenotes{font-size:12px;color:#5b6458;line-height:1.6;margin-top:11px}
+details summary{cursor:pointer;color:#596d12;font-size:12px;font-weight:700}
+.detail p{overflow-wrap:anywhere}
+.notice{background:var(--cream);border-left:4px solid var(--olive);padding:11px 14px;font-size:13px;margin:13px 0}
+.notice.warn{border-left-color:#ac8737}
+.notice strong{display:block;margin-bottom:2px}
+.collect{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.collect-card{border:1px solid var(--line);padding:15px 15px 12px}
+.collect-card strong{display:block;margin-bottom:5px}
+.collect-card p{color:var(--soft);font-size:12px;line-height:1.55;margin:5px 0 12px}
+.collect-card a{font-size:13px}
+.updates{display:grid;gap:10px}
+.update{border-bottom:1px dotted var(--line);padding:7px 0 12px}
+.update strong{font-size:13px;display:block}
+.update span{font-size:11px;color:var(--soft)}
+footer{margin-top:21px;padding:14px;background:var(--cream);font-size:12px;color:#5b6359;border:1px solid var(--line)}
+[hidden]{display:none!important}
+@media(max-width:790px){.layout{grid-template-columns:1fr}.countrylist{max-height:325px}.detail{padding:18px;min-height:300px}}
+@media(max-width:520px){.wrap{padding:9px 9px 28px}.hero{padding:15px}.metrics{gap:6px}.metric{flex:1;min-width:94px;padding:6px 8px}.metric b{font-size:19px}.navlinks{gap:9px}.collect{grid-template-columns:1fr}.detail{padding:14px}}
+/* Blogger embeds already supply a page heading. Keep the interface without duplicating the introduction. */
+html.embedded .hero{display:none}
+</style>
+<script>if(window.self!==window.top){document.documentElement.classList.add('embedded')}</script>
+</head>
+<body>
+<main class="wrap">
+<nav aria-label="Worldwide Covers sections">
+ <div class="eyebrow">Worldwide Covers · Philatelic reference</div>
+ <div class="navlinks"><a href="./" aria-current="page">Country Explorer</a><a href="../postage/">Postage Rates</a><a href="../">Bulletin Monitor</a><a href="https://www.worldwidecovers.com/" target="_blank" rel="noopener noreferrer">The Blog</a></div>
+</nav>
+<header class="hero">
+ <div class="eyebrow">Postal reference + cover collecting</div>
+ <h1>Country Explorer</h1>
+ <p>Find international letter postage from countries and postal territories, compare destination zones, check original sources, and explore related philatelic information. Rates are references, not guaranteed counter quotes.</p>
+ <div class="metrics">
+  <div class="metric"><b id="metricCountries">–</b><small>Countries &amp; territories</small></div>
+  <div class="metric"><b id="metricRates">–</b><small>Published rate entries</small></div>
+  <div class="metric"><b id="metricVerified">–</b><small>Source-reviewed rates</small></div>
+ </div>
+</header>
+<div id="updated" class="info" role="status">Loading the postage reference…</div>
+<div class="layout">
+ <aside class="sidebar" aria-label="Browse countries">
+  <div class="controls">
+   <label for="search">Find a country or postal territory</label>
+   <input id="search" type="search" placeholder="e.g. Japan, Mauritius, Azores" autocomplete="off">
+   <label for="region">Region</label>
+   <select id="region"><option value="">All regions</option></select>
+   <label class="check"><input id="verifiedOnly" type="checkbox"> Source-reviewed rates only</label>
+  </div>
+  <div class="countline" id="countline" aria-live="polite">Loading…</div>
+  <div class="countrylist" id="countrylist" aria-label="Countries and territories"></div>
+ </aside>
+ <article class="detail" id="detail" aria-live="polite">
+  <p class="empty">Select a country to explore its postage rates, sources and collecting references.</p>
+ </article>
+</div>
+<footer>
+ <strong>Important:</strong> Ordinary international document/letter postage is the focus. Destination, weight, format, shipping availability, emergency surcharges and currency may affect the correct frankable amount. “Source reviewed” records a documented examination of a source, not a guarantee of current validity. Public cover-search links are independent of postal tariff verification. No private contact lists are published.
+</footer>
+</main>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+var all=[],countries=[],selectedName='',bulletins=[],newsLoaded=false,now=new Date();
+function node(tag,className,text){var x=document.createElement(tag);if(className)x.className=className;if(text!==undefined)x.textContent=text;return x}
+function norm(x){return String(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function nameOf(r){return String(r.country||'').split(' – ')[0]}
+function present(r){return [r.standard,r.economy,r.priority].some(function(x){return x!==null&&x!==undefined&&String(x).trim()!==''})}
+function validUrl(x){return /^https?:\/\/[^\s]+$/i.test(x||'')}
+function link(label,url){var a=node('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a}
+function localDay(){return now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')}
+function future(r){return !!r.scheduled_from && r.scheduled_from>localDay() && !!(r.scheduled_standard||r.scheduled_economy||r.scheduled_priority||r.scheduled_notice)}
+function active(r,key){var scheduled='scheduled_'+key;return r.scheduled_from && r.scheduled_from<=localDay() && r.scheduled_status!=='pending_approval' && r.scheduled_status!=='reported' && r[scheduled]?r[scheduled]:r[key]}
+function fmtDate(s){if(!s)return 'Not recorded';var d=new Date(s+'T12:00:00Z');return isNaN(d.getTime())?s:d.toLocaleDateString('en-GB',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'})}
+function zoneTitle(r,g){
+ if(r.country===g.name)return 'To Germany · International letter';
+ var tail=r.country.slice(g.name.length).replace(/^\s*–\s*/,'');
+ return tail||'International letter'
+}
+function preferred(g){return g.rates.find(function(r){return / – (?:UK & )?Europe\b/i.test(r.country)})||g.rates.find(function(r){return !(/Rest of World|Other zones|Neighbour/i.test(r.country))})||g.rates[0]}
+function rateText(r){return active(r,'standard')||active(r,'economy')||active(r,'priority')||''}
+function badge(rows){if(rows.every(function(r){return r.status==='verified'}))return ['SOURCE REVIEWED','ok'];if(rows.some(function(r){return r.status==='verified'}))return ['PARTLY REVIEWED','unverified'];return ['UNVERIFIED','unverified']}
+function buildCountries(){
+ var m=new Map();
+ all.filter(present).forEach(function(r){
+  var n=nameOf(r);
+  if(!m.has(n))m.set(n,{name:n,flag:r.flag||'🌐',region:r.region||'Other',rates:[]});
+  m.get(n).rates.push(r)
+ });
+ countries=Array.from(m.values()).sort(function(a,b){return a.name.localeCompare(b.name,'en',{sensitivity:'base'})})
+}
+function summary(g){var r=preferred(g),q=rateText(r);return q?String(q)+(r.weight_g?' · '+r.weight_g+' g':''):'Check details'}
+function filters(){
+ var q=norm($('search').value),r=$('region').value,v=$('verifiedOnly').checked;
+ return countries.filter(function(g){
+  if(r&&g.region!==r)return false;
+  if(v&&!g.rates.some(function(x){return x.status==='verified'}))return false;
+  if(q&&!g.rates.some(function(x){return norm(g.name+' '+x.country+' '+x.notes).includes(q)}))return false;
+  return true
+ })
+}
+function selectCountry(name,updateUrl){
+ selectedName=name;
+ if(updateUrl){
+  var u=new URL(location.href);
+  if(name)u.searchParams.set('country',name);else u.searchParams.delete('country');
+  history.replaceState(null,'',u.pathname+u.search+u.hash)
+ }
+ draw()
+}
+function draw(){
+ var filtered=filters(),list=$('countrylist');list.replaceChildren();
+ $('countline').textContent=filtered.length+' of '+countries.length+' countries and territories';
+ if(!filtered.length){list.appendChild(node('p','empty','No matching countries. Try another search.'));$('detail').replaceChildren(node('p','empty','No matching country.'));return}
+ if(!filtered.some(function(g){return g.name===selectedName}))selectedName=filtered[0].name;
+ var frag=document.createDocumentFragment();
+ filtered.forEach(function(g){
+  var b=node('button','country'+(g.name===selectedName?' active':''));b.type='button';b.setAttribute('aria-pressed',String(g.name===selectedName));
+  var f=node('span','flag',g.flag);f.setAttribute('aria-hidden','true');
+  var txt=node('span','countrytxt');txt.append(node('span','name',g.name),node('span','sub',summary(g)));
+  b.append(f,txt,node('span','arrow','›'));b.addEventListener('click',function(){selectCountry(g.name,true)});
+  frag.appendChild(b)
+ });
+ list.appendChild(frag);
+ showDetail(countries.find(function(x){return x.name===selectedName}))
+}
+function showDetail(g){
+ var d=$('detail');d.replaceChildren();if(!g)return;
+ var header=node('div','countryhead'),flag=node('span','countryflag',g.flag);flag.setAttribute('aria-hidden','true');
+ var intro=node('div',''),h=node('h2','',g.name),sub=node('div','subline',g.region+' · '+g.rates.length+' recorded rate '+(g.rates.length===1?'entry':'entries'));
+ intro.append(h,sub);var ba=badge(g.rates);intro.appendChild(node('span','pill '+ba[1],ba[0]));header.append(flag,intro);d.appendChild(header);
+ d.appendChild(node('p','summary','Reference tariffs generally apply to mail posted in '+g.name+' and addressed to Germany, unless a destination zone is stated separately. Always check the exact destination and service.'));
+ d.appendChild(node('div','sectiontitle','International postage'));
+ var box=node('div','rates');
+ var ordered=g.rates.slice().sort(function(a,b){return (a===preferred(g)?-1:0)-(b===preferred(g)?-1:0)});
+ ordered.forEach(function(r){
+  var card=node('section','rate'),top=node('div','rate-top'),left=node('div',''),title=node('div','ratezone',zoneTitle(r,g)),sub=node('div','ratesub',(r.weight_g?'Up to '+r.weight_g+' g':'Weight not confirmed')+' · '+(r.status==='verified'?'Source reviewed':'Unverified price'));
+  left.append(title,sub);top.append(left,node('div','price',rateText(r)));card.appendChild(top);
+  if(r.economy||r.priority){
+   var br=node('div','breakdown');
+   if(active(r,'economy'))br.appendChild(node('span','',(r.economy_label||'Economy')+': '+active(r,'economy')));
+   if(active(r,'priority'))br.appendChild(node('span','',(r.priority_label||'Priority')+': '+active(r,'priority')));
+   card.appendChild(br)
+  }
+  if(future(r)){
+   var next=r.scheduled_standard||r.scheduled_economy||r.scheduled_priority||r.scheduled_notice;
+   var n=node('div','notice'+(r.scheduled_status==='reported'?' warn':'')),date=node('strong','',r.scheduled_status==='reported'?'Reported tariff development':'Announced tariff change');
+   n.append(date,node('span','',fmtDate(r.scheduled_from)+': '+next+(r.scheduled_status==='pending_approval'?' · Pending approval':r.scheduled_status==='reported'?' · Not officially confirmed':'')));
+   if(validUrl(r.scheduled_source_url)){n.append(document.createTextNode(' · '),link(r.scheduled_status==='reported'?'Report source':'Announcement source',r.scheduled_source_url))}
+   card.appendChild(n)
+  }
+  if(r.notes){var det=node('details','ratenotes'),sum=node('summary','','Tariff conditions & research notes');det.append(sum,node('p','',r.notes));card.appendChild(det)}
+  var links=node('div','sourceblock');
+  if(validUrl(r.source_url))links.appendChild(link(r.status==='verified'?'Official tariff source':'Source / further verification',r.source_url));
+  links.appendChild(node('span','',r.manual_verified_at?'Reviewed '+fmtDate(r.manual_verified_at):'Not independently verified'));
+  card.appendChild(links);box.appendChild(card)
+ });
+ d.appendChild(box);
+ d.appendChild(node('div','sectiontitle','Explore covers and philatelic information'));
+ var collecting=node('div','collect');
+ var blog=node('div','collect-card');blog.append(node('strong','','Covers on Worldwide Covers'),node('p','','Find articles and real postal covers mentioning this country. This opens a blog search and does not imply that a matching post already exists.'));
+ blog.appendChild(link('Search the blog for '+g.name,'https://www.worldwidecovers.com/search?q='+encodeURIComponent(g.name)));collecting.appendChild(blog);
+ var source=node('div','collect-card');source.append(node('strong','','Postal administration & bulletins'),node('p','','Follow the official tariff references above, or explore public philatelic announcements. Direct cover requests are possible only where the operator explicitly offers them.'));
+ source.appendChild(link('Open Philatelic Bulletin Monitor','../'));collecting.appendChild(source);
+ d.appendChild(collecting);
+ var relevant=countryNews(g);
+ d.appendChild(node('div','sectiontitle','Related monitor entries'));
+ var news=node('div','updates');
+ if(!newsLoaded)news.appendChild(node('p','summary','Loading the bulletin archive…'));
+ else if(!relevant.length)news.appendChild(node('p','summary','No country-tagged bulletin entries currently in the archive. Use the bulletin monitor for global announcements.'));
+ else relevant.slice(0,4).forEach(function(x){
+  var row=node('div','update');row.appendChild(node('strong','',x.title||'Philatelic bulletin'));
+  if(x.published)row.appendChild(node('span','',fmtDate(x.published)));
+  if(validUrl(x.url))row.append(document.createTextNode(' · '),link('Original notice',x.url));
+  news.appendChild(row)
+ });
+ d.appendChild(news);
+ var warn=node('div','notice warn');warn.appendChild(node('strong','','Verification and collecting notice'));warn.appendChild(node('span','','Prices may depend on destination, shape, additional surcharges and service availability. Private collector contacts and restricted association information are not reproduced.'));d.appendChild(warn)
+}
+var sourceCountry={
+'deutsche-post-stempel':'DE','usps-postal-bulletin':'US','royal-mail-postmarks':'GB',
+'swiss-philanews':'CH','swiss-lupe':'CH','austria-sonderpostaemter':'AT','austria-philatelietage':'AT',
+'auspost-stamp-bulletin':'AU','aland-cancellations':'AX','canada-details':'CA','canadian-stamp-news':'CA',
+'new-zealand-collectables':'NZ','ireland-stamp-programme':'IE','sweden-stamp-programme':'SE'};
+function countryCode(flag){
+ var points=Array.from(flag||'');if(points.length!==2)return '';
+ var a=points.map(function(x){return x.codePointAt(0)-127397});
+ return a.every(function(n){return n>=65&&n<=90})?String.fromCharCode(a[0],a[1]):''
+}
+function countryNews(g){
+ var c=countryCode(g.flag);if(!c)return [];
+ return bulletins.filter(function(i){
+  var tagged=String(i.country||sourceCountry[i.source_id]||'').toUpperCase();
+  return tagged===c
+ }).sort(function(a,b){return String(b.published||b.first_seen||'').localeCompare(String(a.published||a.first_seen||''))})
+}
+function init(data){
+ all=Array.isArray(data.rates)?data.rates:[];
+ buildCountries();
+ $('metricCountries').textContent=countries.length;
+ $('metricRates').textContent=all.filter(present).length;
+ $('metricVerified').textContent=all.filter(function(r){return present(r)&&r.status==='verified'}).length;
+ $('updated').textContent='Database last edited: '+(data.updated_at||'unknown')+' · A postal operator may change tariffs between source reviews.';
+ Array.from(new Set(countries.map(function(x){return x.region}))).sort().forEach(function(r){var op=node('option','',r);op.value=r;$('region').appendChild(op)});
+ var requested=new URLSearchParams(location.search).get('country');
+ selectedName=countries.some(function(g){return g.name===requested})?requested:(countries.some(function(g){return g.name==='Japan'})?'Japan':countries[0]&&countries[0].name||'');
+ draw();
+ fetch('../data/items.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(function(data){bulletins=Array.isArray(data)?data:[];newsLoaded=true;showDetail(countries.find(function(x){return x.name===selectedName}))}).catch(function(){newsLoaded=true;showDetail(countries.find(function(x){return x.name===selectedName}))})
+}
+['search','region'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',draw)});
+$('verifiedOnly').addEventListener('change',draw);
+window.addEventListener('popstate',function(){var requested=new URLSearchParams(location.search).get('country');if(requested&&countries.some(function(g){return g.name===requested}))selectedName=requested;draw()});
+fetch('../postage/rates.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(init).catch(function(err){$('updated').textContent='Could not load postage data ('+err.message+').';$('countrylist').appendChild(node('p','empty','Postage database is currently unavailable.'))})
+})();
+</script>
+</body>
+</html>
