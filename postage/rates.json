@@ -1,6 +1,6 @@
 {
   "title": "Worldwide Covers – International Postage Rates",
-  "updated_at": "2026-11-18",
+  "updated_at": "2026-11-19",
   "purpose": "International standard letters from the listed origin to Germany, except entries explicitly labeled for Europe or the rest of the world. Germany's rate is worldwide.",
   "disclaimer": "Indicative information; do not frank without confirming the current official tariff. Source watcher checks price text, not tariff applicability.",
   "rates": [
@@ -987,15 +987,16 @@
       "standard": "1.91 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "MaltaPost official 'Foreign Letter / Newspaper Postage Rates' (linked from its current Postage Rates page) lists Zone A1 (European countries, including Germany): 1.91 EUR for an international letter up to 20 g; up to 30 g is also 1.91 EUR. Other zones also list 1.91 EUR for up to 20 g. Operator's PDF remains linked in November 2026 but shows no clearly identifiable effective date; the source was initially indexed circa 2024, so a later superseding price sheet cannot be conclusively ruled out. Do not confuse with domestic 0.45 EUR. Re-check for newly issued MaltaPost tariff notices.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.maltapost.com/file.aspx?f=73908",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Current operator-linked PDF rate table manually checked, though source publication/effective date is not stated. PDF not scanned automatically."
       }
     },
     {
@@ -1306,18 +1307,19 @@
       "country": "Portugal",
       "flag": "🇵🇹",
       "region": "Europe",
-      "standard": "0.95 EUR",
+      "standard": "1.30 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Official CTT 2026 base retail tariff (Preços 2026, tariff catalogue p. 12) for ordinary international Correio Normal 'Normalizado (só documentos)' up to 20 g to Europe including Germany: 1.30 EUR. Non-standard-format 20 g documentary mail costs 2.20 EUR; 20 g postal packets with goods cost 2.65 EUR. 0.95 EUR previously listed was unverified and is not the correct 2026 outgoing normal international rate. See https://www.ctt.pt/application/themes/pdfs/tarifario_2026_MSV4_16_01.pdf and the live operator page.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ctt.pt/particulares/enviar/para-o-estrangeiro/correio-normal",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official CTT 2026 rates manually reviewed in published catalog and official live service page; no PDF text monitoring is configured."
       }
     },
     {
@@ -1891,6 +1893,46 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "Official tariff regulation exists but original amount table could not be independently reviewed; amounts are corroborated by current nonofficial sources."
+      }
+    },
+    {
+      "id": "greece",
+      "country": "Greece",
+      "flag": "🇬🇷",
+      "region": "Europe",
+      "standard": "1.20 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "UNVERIFIED 2026 indication ONLY. PostCompare.eu lists ELTA 'Διεθνής επιστολή' ordinary international letter to Europe including Germany at 1.20 EUR up to 20 g (their 2026-08-10 update). No matching current primary-source ELTA foreign-letter price table was accessible to cross-verify. The ELTA e-stamp website quotes 2.20 EUR for DOMESTIC priority letters only and explicitly forbids e-stamps for international letters. Do not treat the Greek 1.20 EUR as a confirmed ELTA franking amount. Verify current international priority/economy product with ELTA before use.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.postcompare.eu/en/operator/elta-gr/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Third-party estimate; cannot authenticate against a current official ELTA outgoing international rate."
+      }
+    },
+    {
+      "id": "turkey",
+      "country": "Turkey",
+      "flag": "🇹🇷",
+      "region": "Europe",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "TARIFF NOT YET VERIFIED AS A FRANKABLE TURKISH-LIRA AMOUNT. A PTT official 2026 destination tariff PDF lists 20 g ordinary international document letter to Germany ('ALMANYA') at 1.58 SDR for both surface/non-priority and air/priority; these are Special Drawing Rights, not Turkish lira and must NOT be interpreted as TRY. Other 2026 publications show differing amounts (1.72/1.74 SDR), so a possible newer tariff revision needs checking (PTT tariffs webpage lists a 1 Oct 2026 update). The payable TRY amount is determined using PTT's applicable conversion rate at acceptance; no reliably current rate was established. Official reference: https://pttwebdosya.ptt.gov.tr/api/file/getFile?FileName=1719a8b5-5772-4acf-aa77-bc774ac16792%2AYurt_Disi_ucret_Tarifeleri_2026.pdf. PTT tariffs index https://www.ptt.gov.tr/tarifeler and official postage calculator https://www.ptt.gov.tr/gonderi-ucreti-hesaplama.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.ptt.gov.tr/tarifeler",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Latest official destination-specific SDR rate and same-day TRY conversion still need verification; no publicly usable definite letter postage entered."
       }
     }
   ],
