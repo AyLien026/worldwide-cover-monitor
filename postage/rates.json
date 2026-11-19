@@ -564,18 +564,19 @@
       "country": "China",
       "flag": "🇨🇳",
       "region": "Asia",
-      "standard": "6 CNY",
+      "standard": "6.00 CNY",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "China Post official international airmail LETTER tariff, Zone/Group 3 (Europe, including Germany): 6.00 CNY up to 20 g; each additional 10 g or fraction costs 1.80 CNY. Excludes registration and other services. Official page still displays this amount at the 2026-11-19 review, but no recent effective date is supplied; verify before posting.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://iframe.chinapost.com.cn/en/report/2404/4743-1.htm",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official China Post airmail rate table reviewed; tariff effective date not given."
       }
     },
     {
@@ -798,18 +799,19 @@
       "country": "India",
       "flag": "🇮🇳",
       "region": "Asia",
-      "standard": "30 INR",
+      "standard": "36 INR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 10,
+      "notes": "India Post official online international LETTER calculator for a 10 g letter from PIN 110001 to Germany: 30 INR basic postage + 3 INR CGST + 3 INR SGST = 36 INR total as displayed in November 2026. The previously unverified 30 INR was the PRE-TAX basic rate, not the final displayed price. This entry is for 10 g, not a 20 g letter; actual tax treatment/booking at local counter must be confirmed.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.indiapost.gov.in/calculate-postage?ACK=0&COD=0&POD=false&REG=0&fromPincode=110001&product=letter&tab=international&toCountry=DE&weight=10",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Current official India Post calculator result, destination Germany, 10 g; query parameters affect total."
       }
     },
     {
@@ -879,15 +881,15 @@
       "economy": null,
       "priority": null,
       "weight_g": 25,
-      "notes": "Air letter to Europe, Zone 3, up to 25g. Postcards 100 JPY are a different class.",
+      "notes": "Japan Post official Zone 3 (Europe including Germany) standard-sized international AIRMAIL letter up to 25 g: 140 JPY; up to 50 g: 220 JPY. International airmail postcards are 100 JPY each, a different postal category. Not domestic postage.",
       "status": "verified",
-      "manual_verified_at": "2026-11-17",
+      "manual_verified_at": "2026-11-19",
       "source_url": "https://www.post.japanpost.jp/send/oversea/charge/list-normal/zone3_en.html",
-      "watch_token": "140",
+      "watch_token": null,
       "check": {
-        "state": "seen",
-        "checked_at": "2026-11-18",
-        "detail": "Listed number found on official page (not full tariff confirmation)."
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official rate table manually reviewed; automated scanning not configured."
       }
     },
     {
@@ -895,18 +897,19 @@
       "country": "South Korea",
       "flag": "🇰🇷",
       "region": "Asia",
-      "standard": "700 KRW",
+      "standard": "780 KRW",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Korea Post official international airmail letter (항공서장/서장), Zone 3 (Europe including Germany), up to 20 g: 780 KRW; up to 10 g: 700 KRW; up to 30 g: 1,010 KRW. The source also lists a separate air surcharge row; applicability to the ordinary paid letter should be checked with Korea Post before final franking.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://ems.epost.go.kr/front.EmsDeliveryDelivery072.postal",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official Korea Post international letter tariff table reviewed; separate surcharge line should be clarified."
       }
     },
     {
@@ -2751,6 +2754,86 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "taiwan",
+      "country": "Taiwan – Europe",
+      "flag": "🇹🇼",
+      "region": "Asia",
+      "standard": "31 TWD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Chunghwa Post published INTERNATIONAL AIRMAIL LETTER BASE RATE to Europe including Germany: 17 TWD for the first 10 g plus 14 TWD for the next 10 g = 31 TWD at 20 g. The operator additionally lists a possible emergency air-freight surcharge by destination and chargeable weight (Germany 75 TWD/kg on reviewed page, which would round to +2 TWD for a 20 g letter if applicable). Therefore 31 TWD is BASE POSTAGE, not necessarily the full 2026 counter price; confirm current monthly surcharge.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.post.gov.tw/post/APP/a_mail/index.jsp?ID=12202",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official published base tariff verified, total payable may include currently applicable emergency surcharge."
+      }
+    },
+    {
+      "id": "indonesia",
+      "country": "Indonesia",
+      "flag": "🇮🇩",
+      "region": "Asia",
+      "standard": "9,000 IDR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Provisional ordinary international letter price to Germany up to 20 g, 9,000 IDR, attributed to the tariff schedule attached to Ministerial Decision 222/2022 on Universal Postal Service Rates (Indonesian government legal portal lists it as IN FORCE in 2026). The exact Germany row has not been independently confirmed in the official annex and current Pos Indonesia customer price (including surcharges) remains unconfirmed. Not a verified final 2026 tariff.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://jdih.komdigi.go.id/produk_hukum/view/id/803/t/keputusan%2Bmenteri%2Bkomunikasi%2Bdan%2Binformatika%2Bnomor%2B222%2Btahun%2B2022",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official regulation is in force; precise country rate and surcharges require direct confirmation."
+      }
+    },
+    {
+      "id": "malaysia",
+      "country": "Malaysia",
+      "flag": "🇲🇾",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Outgoing ordinary international letter to Germany up to 20 g: older legal schedules published 4.80 MYR and later references 5.80 MYR, with possible fuel or international surcharges. A current official 2026 all-in final price was not confirmed. Keep out of public rate directory until an official current tariff and service are confirmed.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.pos.com.my/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Current official ordinary-letter tariff Germany not yet established."
+      }
+    },
+    {
+      "id": "vietnam",
+      "country": "Vietnam",
+      "flag": "🇻🇳",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Vietnam Post describes untracked international ordinary letter/document service and links to a separate tariff decision. Previously quoted 19,000 VND was a historical regulatory MAXIMUM for an international zone, not an independently verified actual Germany postage in 2026. Current 20 g postage remains open; hide until officially confirmed.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://ipostal.vnpost.vn/bai-viet/dich-vu/dich-vu-chuyen-phat-tiet-kiem/tai-lieu-1/tai-lieu-thuong/tai-lieu-thuong",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official product confirmed; current tariff not extracted."
       }
     }
   ],
