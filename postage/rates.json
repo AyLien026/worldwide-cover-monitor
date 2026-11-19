@@ -358,21 +358,22 @@
     },
     {
       "id": "azores",
-      "country": "Azores",
+      "country": "Azores – Europe",
       "flag": "🇵🇹",
       "region": "Islands & Polar",
-      "standard": "0.95 EUR",
+      "standard": "1.30 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Autonomous Region of Portugal (Açores), served by CTT. Normalised international documents-only letter up to 20 g to Germany/Europe under the published national CTT 2026 price schedule. No separate Azorean international letter price found; region-specific confirmation remains desirable.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ctt.pt/particulares/enviar/para-o-estrangeiro/correio-normal",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
       }
     },
     {
@@ -384,14 +385,15 @@
       "economy": null,
       "priority": null,
       "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "notes": "Existing collector-supplied 0.80 BSD figure is unverified as an ordinary international letter to Germany. Bahamas Postal Service's official rate book contains old schedules and does not itself demonstrate a valid November 2026 price. Confirm weight, service and destination before using.",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://cdn.bahamas.gov.bs/tenant/tenantpostalservice/documents/All%20Documents/PostalRateBook-3-20240426071002.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Historical published rate book; 2026 tariff unconfirmed."
       }
     },
     {
@@ -416,22 +418,27 @@
     },
     {
       "id": "belgium",
-      "country": "Belgium",
+      "country": "Belgium – Europe",
       "flag": "🇧🇪",
       "region": "Europe",
       "standard": "3.07 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 50,
+      "notes": "bpost 2026 standardised international letter 0–50 g to Germany/Europe, single Europe stamp; five-stamp sheet price is lower per item. Official bpost announcement confirms an increase to 3.36 EUR on 1 January 2027. Do not use this Europe-zone tariff for worldwide destinations.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.bpost.be/de/tarife-privat",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
-      }
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      },
+      "scheduled_from": "2027-01-01",
+      "scheduled_standard": "3.36 EUR",
+      "scheduled_source_url": "https://press.bnode.com/bpost-past-zijn-tarieven-aan-voor-2027",
+      "scheduled_status": "announced"
     },
     {
       "id": "brazil",
@@ -1306,14 +1313,14 @@
     },
     {
       "id": "portugal",
-      "country": "Portugal",
+      "country": "Portugal – Europe",
       "flag": "🇵🇹",
       "region": "Europe",
       "standard": "1.30 EUR",
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "Official CTT 2026 base retail tariff (Preços 2026, tariff catalogue p. 12) for ordinary international Correio Normal 'Normalizado (só documentos)' up to 20 g to Europe including Germany: 1.30 EUR. Non-standard-format 20 g documentary mail costs 2.20 EUR; 20 g postal packets with goods cost 2.65 EUR. 0.95 EUR previously listed was unverified and is not the correct 2026 outgoing normal international rate. See https://www.ctt.pt/application/themes/pdfs/tarifario_2026_MSV4_16_01.pdf and the live operator page.",
+      "notes": "Official CTT 2026 Correio Normal: standardised international letter (documents only), up to 20 g to Europe including Germany. Non-standard letters and merchandise are priced differently. CTT's published 2026 price list and service page confirm 1.30 EUR.",
       "status": "verified",
       "manual_verified_at": "2026-11-19",
       "source_url": "https://www.ctt.pt/particulares/enviar/para-o-estrangeiro/correio-normal",
@@ -1321,7 +1328,7 @@
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "Official CTT 2026 rates manually reviewed in published catalog and official live service page; no PDF text monitoring is configured."
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
       }
     },
     {
@@ -2075,6 +2082,675 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "Current officially linked priority postage tariff PDF manually reviewed; no printed effective date, so supersession cannot be ruled out from the document alone."
+      }
+    },
+    {
+      "id": "belgium-world",
+      "country": "Belgium – Rest of World",
+      "flag": "🇧🇪",
+      "region": "Europe",
+      "standard": "3.29 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "bpost 2026 standardised international letter 0–50 g to non-European destinations, single World stamp; five-stamp sheet price is lower per item. Official bpost announcement confirms increase to 3.58 EUR on 1 January 2027.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.bpost.be/de/tarife-privat",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      },
+      "scheduled_from": "2027-01-01",
+      "scheduled_standard": "3.58 EUR",
+      "scheduled_source_url": "https://press.bnode.com/bpost-past-zijn-tarieven-aan-voor-2027",
+      "scheduled_status": "announced"
+    },
+    {
+      "id": "portugal-world",
+      "country": "Portugal – Rest of World",
+      "flag": "🇵🇹",
+      "region": "Europe",
+      "standard": "1.45 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Official CTT 2026 Correio Normal: standardised international letter (documents only), up to 20 g to destinations outside Europe, including the separate USA bracket; the 20 g standard-document rate is also 1.45 EUR for USA, though other weights/formats differ. Special postal arrangements for some Lusophone destinations may differ.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ctt.pt/particulares/enviar/para-o-estrangeiro/correio-normal",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "azores-world",
+      "country": "Azores – Rest of World",
+      "flag": "🇵🇹",
+      "region": "Islands & Polar",
+      "standard": "1.45 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Azores (Açores), Portugal. CTT national 2026 normalised international letter up to 20 g for Rest of World (same standard 20 g documents rate for USA). No independently published Azorean international tariff located.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ctt.pt/particulares/enviar/para-o-estrangeiro/correio-normal",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "madeira",
+      "country": "Madeira – Europe",
+      "flag": "🇵🇹",
+      "region": "Islands & Polar",
+      "standard": "1.30 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Autonomous Region of Madeira (including Porto Santo), served by Portugal's CTT. National CTT 2026 standardised international documents-only letter up to 20 g to Germany/Europe. No separate Madeira international tariff found.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ctt.pt/particulares/enviar/para-o-estrangeiro/correio-normal",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "madeira-world",
+      "country": "Madeira – Rest of World",
+      "flag": "🇵🇹",
+      "region": "Islands & Polar",
+      "standard": "1.45 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Madeira and Porto Santo, Portugal: CTT 2026 national standardised international documents-only letter up to 20 g to Rest of World (including USA for this format/weight). No Madeira-specific rate schedule found.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ctt.pt/particulares/enviar/para-o-estrangeiro/correio-normal",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "dominica",
+      "country": "Dominica – Europe",
+      "flag": "🇩🇲",
+      "region": "Americas",
+      "standard": "0.90 XCD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 14,
+      "notes": "Dominica General Post Office official letter rates: 0.90 XCD for first half ounce (about 14.17 g) to Europe (also North/South America, Canada and Cuba); 0.55 XCD for every additional half ounce. No tariff effective date printed on the official page. 20 g would cross into the second half-ounce step.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://gpo.ictu.gov.dm/index.php?Itemid=118&id=5&option=com_content&view=article",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "dominica-caribbean",
+      "country": "Dominica – Caribbean",
+      "flag": "🇩🇲",
+      "region": "Americas",
+      "standard": "0.65 XCD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 14,
+      "notes": "Dominica General Post Office: ordinary letter to Caribbean excluding Cuba, 0.65 XCD for first half ounce (~14.17 g), plus 0.30 XCD for each additional half ounce. Official page does not state effective date.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://gpo.ictu.gov.dm/index.php?Itemid=118&id=5&option=com_content&view=article",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "dominica-asia-africa",
+      "country": "Dominica – Asia & Africa",
+      "flag": "🇩🇲",
+      "region": "Americas",
+      "standard": "1.20 XCD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 14,
+      "notes": "Dominica General Post Office: ordinary letter to Asia, Africa and Far East 1.20 XCD per first half ounce (~14.17 g), plus 0.80 XCD per additional half ounce. Official tariff page gives no effective date.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://gpo.ictu.gov.dm/index.php?Itemid=118&id=5&option=com_content&view=article",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "anguilla",
+      "country": "Anguilla – Europe (Zone 3)",
+      "flag": "🇦🇮",
+      "region": "Americas",
+      "standard": "1.90 XCD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 10,
+      "notes": "Anguilla Postal Service Zone 3: sealed international letter to Germany and most of Europe 1.90 XCD per tariff step described as '0.50 oz OR 10g' (inconsistent weight equivalence; check at post office). Greece and Cyprus are listed in Zone 4, not Zone 3. Not a 20 g price.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.aps.ai/services/10/letterpost",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "anguilla-caribbean",
+      "country": "Anguilla – Caribbean (Zone 1)",
+      "flag": "🇦🇮",
+      "region": "Americas",
+      "standard": "1.00 XCD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 10,
+      "notes": "Anguilla Postal Service: sealed letter to Zone 1 Caribbean 1.00 XCD per rate step (site describes 0.50 oz OR 10 g inconsistently); postcards 0.50 XCD. Confirm weight interpretation at counter.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.aps.ai/services/10/letterpost",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "anguilla-americas",
+      "country": "Anguilla – Americas (Zone 2)",
+      "flag": "🇦🇮",
+      "region": "Americas",
+      "standard": "1.50 XCD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 10,
+      "notes": "Anguilla Postal Service: sealed letter to Zone 2 (USA, Canada, other Western Hemisphere outside Caribbean Zone 1) 1.50 XCD per rate step (0.50 oz OR 10 g on source); postcards 0.75 XCD.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.aps.ai/services/10/letterpost",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "anguilla-zone4",
+      "country": "Anguilla – Zone 4 (incl. Greece)",
+      "flag": "🇦🇮",
+      "region": "Americas",
+      "standard": "2.50 XCD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 10,
+      "notes": "Anguilla Postal Service: sealed letter to Zone 4 (including Greece, Cyprus, Russia, Asia, Africa, Australia and New Zealand) 2.50 XCD per stated step ('0.50 oz OR 10g'); postcards 1.25 XCD. This is NOT the Germany rate.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.aps.ai/services/10/letterpost",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
+      }
+    },
+    {
+      "id": "saint-vincent",
+      "country": "Saint Vincent and the Grenadines",
+      "flag": "🇻🇨",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Official SVG Postal Corporation website still displays a letter/card tariff of 5.75 XCD to Europe, South America and Asia effective 3 March 2020; weight and continued validity in November 2026 were not confirmed, so no current standard rate is asserted.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://svgpost.gov.vc/svgpost/index.php/rates/letters",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "aruba",
+      "country": "Aruba",
+      "flag": "🇦🇼",
+      "region": "Americas",
+      "standard": "2.20 AWG",
+      "economy": null,
+      "priority": null,
+      "weight_g": 10,
+      "notes": "Post Aruba published international airmail letters/packets (all destinations outside former Netherlands Antilles): 2.20 AWG for the first 10 g, +1.00 AWG for each additional 10 g (20 g indicative 3.20 AWG). Official older rate page has no effective date; newer Post Aruba website uses an interactive calculator. Current applicability must be reconfirmed.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://postaruba.com/letter-and-small-parcel-post-service/rates-letters/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Published official rate with unspecified effective date; newer rate calculator requires manual reconciliation."
+      }
+    },
+    {
+      "id": "cayman-islands",
+      "country": "Cayman Islands",
+      "flag": "🇰🇾",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Official Postal (Amendment) Regulations effective 2 February 2026 specify 0.82 KYD (CI$; US$1.00) worldwide airmail POSTCARD rate, but NOT a rate for a standard letter to Germany. Do not use postcard price as letter postage.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://gov.ky/w/government-advances-postal-regulations",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "saint-lucia",
+      "country": "Saint Lucia",
+      "flag": "🇱🇨",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Historical official Gazette dated 5 August 2013 sets Zone C Europe letters at 1.60 XCD for the first 14 g and each additional 14 g. This does not establish the current 2026 postage; a newer tariff must be confirmed before use.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://npc.govt.lc/files/documents/gazettes/2013/8/Gazette_August_5_2013.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "antigua-barbuda",
+      "country": "Antigua and Barbuda",
+      "flag": "🇦🇬",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "No current official ordinary international letter tariff from Antigua and Barbuda to Germany confirmed during review on 19 November 2026. Separate postal administration; do not substitute rates quoted for inbound foreign mail.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "st-kitts-nevis",
+      "country": "Saint Kitts and Nevis",
+      "flag": "🇰🇳",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "St Kitts Postal Services links an official airmail tariff schedule effective 1 January 1998. It is too old to certify a current standard-letter price; manual confirmation with postal operator required.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://post.kn/rates/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "grenada",
+      "country": "Grenada",
+      "flag": "🇬🇩",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Grenada Postal Corporation publishes ordinary international mail details and a rate lookup, but the lookup is not a verified German 20 g letter quote. Confirm an outgoing standard letter rate with GPC.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://grenadapostal.com/ordinary-mail/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "barbados",
+      "country": "Barbados",
+      "flag": "🇧🇧",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Barbados Postal Service operates an official international postage calculator (displaying rates valid 18 November 2026) but expressly warns the calculator's rates are not confirmed without a post-office check. Standard international letter to Germany not extracted as an official fixed quote.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://bps.gov.bb/calculate-international-postage/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "british-virgin-islands",
+      "country": "British Virgin Islands",
+      "flag": "🇻🇬",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "British Virgin Islands Postal Services is a separate operator; the government service page is available, but a current ordinary letter tariff from the BVI to Germany has not been verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.gov.vg/virgin-islands-postal-services",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "montserrat",
+      "country": "Montserrat",
+      "flag": "🇲🇸",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Montserrat Postal Service is operated by the Government of Montserrat. A current outgoing standard letter rate to Germany was not verified; avoid relying on old Post Office Act schedules.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.gov.ms/government/ministries/ministry-of-finance-economic-management/montserrat-postal-service/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "turks-caicos",
+      "country": "Turks and Caicos Islands",
+      "flag": "🇹🇨",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "International postcard prices are quoted by tourism/reference websites, but no current operator-confirmed outgoing normal letter rate to Germany was established. Do not infer the Germany letter rate from inbound USPS postage.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "curacao",
+      "country": "Curaçao",
+      "flag": "🇨🇼",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Cpost International provides an outgoing letter calculator. On 22 October 2026 local press reported approximately 5.6% increase in regulated postal tariffs effective 1 December 2026; exact letter rates to Germany and an official tariff announcement could not be independently confirmed. This reported rise is shown separately as provisional information.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.cpostinternational.com/sending/letter-mail/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      },
+      "scheduled_from": "2026-12-01",
+      "scheduled_notice": "Reported increase of around 5.6% in regulated mail tariffs. Exact Germany letter rate unconfirmed.",
+      "scheduled_status": "reported",
+      "scheduled_source_url": "https://www.curacaochronicle.com/post/local/cpost-international-to-increase-postal-rates-by-nearly-6-percent-starting-december-1",
+      "scheduled_source_label": "Local media report (not official)"
+    },
+    {
+      "id": "sint-maarten",
+      "country": "Sint Maarten (Dutch side)",
+      "flag": "🇸🇽",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Postal Services Sint Maarten (PSS) is a separate designated postal operator. No verified current ordinary letter postage rate from the Dutch side of Sint Maarten to Germany was found.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "jamaica",
+      "country": "Jamaica",
+      "flag": "🇯🇲",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "Jamaica Post publishes an official overseas-postage rate directory, but the ordinary letter rate to Germany was not verified. Important service alert: Jamaica Information Service reported 1 July 2026 suspension of all outgoing mail to EU destinations until further notice; no reliable restoration announcement found by 19 November 2026. Verify service availability before sending.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://apps.jamaicapost.gov.jm/postage-rates/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "trinidad-tobago",
+      "country": "Trinidad and Tobago",
+      "flag": "🇹🇹",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "TTPost publishes an international rate-sheet entry, but the content was not available as a confirmed ordinary 20 g letter rate to Germany. Verify with TTPost.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://ttpost.net/tools-and-tips/international-rate-sheet/international-rates/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "guadeloupe",
+      "country": "Guadeloupe",
+      "flag": "🇬🇵",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "French overseas department served within La Poste's network, not an independent sovereign postal administration. Outgoing mail from Guadeloupe to Germany may follow French overseas-specific tariffs; do not copy metropolitan France's standard rate without official confirmation.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "martinique",
+      "country": "Martinique",
+      "flag": "🇲🇶",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "French overseas department served by La Poste, not an independent sovereign postal administration. Official outbound overseas-to-Germany letter tariff not checked; do not assume the mainland France rate.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "saint-martin-french",
+      "country": "Saint Martin (French side)",
+      "flag": "🇲🇫",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "French overseas collectivity served by La Poste (distinct from Dutch Sint Maarten/PSS). The ordinary letter rate for outgoing mail to Germany was not independently verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "saint-barthelemy",
+      "country": "Saint Barthélemy",
+      "flag": "🇧🇱",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "French overseas collectivity served within the La Poste network; not a separate sovereign postal administration. The outgoing ordinary letter rate to Germany must be checked against applicable French overseas rules.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "puerto-rico",
+      "country": "Puerto Rico",
+      "flag": "🇵🇷",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "U.S. territory served by USPS; mail from Puerto Rico to Germany uses USPS international services rather than a separate Puerto Rican postal operator. The exact 2026 stamped international letter price not independently checked.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
+      }
+    },
+    {
+      "id": "us-virgin-islands",
+      "country": "U.S. Virgin Islands",
+      "flag": "🇻🇮",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": null,
+      "notes": "U.S. territory served by USPS; mail to Germany uses USPS international tariff rules. Distinguish from British Virgin Islands' separate postal administration; 2026 letter price not independently checked.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
       }
     }
   ],
