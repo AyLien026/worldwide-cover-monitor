@@ -1042,18 +1042,19 @@
       "country": "Monaco",
       "flag": "🇲🇨",
       "region": "Europe",
-      "standard": "2.10 EUR",
+      "standard": "2.25 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "La Poste Monaco official public international rates PDF 'Pour vos envois à l'international 2026', January 2026 (second page), ordinary 'Lettre internationale', Europe AND worldwide, up to 20 g 2.25 EUR. The earlier 2.10 EUR entry was unverified and outdated. The same chart specifies 100 g at 4.85 EUR and 250 g at 11.65 EUR. Do not confuse the international letter with domestic/Monaco-France letters or with 7.20 EUR registered service.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.lapostemonaco.mc/2026_tarifpf.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official Monaco January 2026 overseas tariff PDF checked manually, p. 2. Automated HTML checker does not parse PDF prices."
       }
     },
     {
@@ -1993,6 +1994,86 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "Official 2026 postal-tariff PDF manually reviewed and crosschecked against live stamp face-value explanation https://www.posta.si/zasebno/znamke-in-filatelija; PDF not automatically scanned."
+      }
+    },
+    {
+      "id": "gibraltar",
+      "country": "Gibraltar",
+      "flag": "🇬🇮",
+      "region": "Europe",
+      "standard": "1.00 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Royal Gibraltar Post Office (RGPO) currently sells an 'Air Mail to EU' £1.00 stamp and expressly describes it as the 'Standard Postage rate to EU for letters/postcards of 20 grams or under' on its own retail webpage; Germany is an EU destination. The RGPO historical official tariff page confirms £1.00 from 1 June 2020 and 2025 Post&Go philatelic catalogues still show the same service. This price was confirmed as displayed on the operator's live postage-sales page 19 Nov 2026, but the operator has NOT published a separately dated full 2026 tariff table through the pages inspected. Recheck if a newer formal notice appears. No registered mail or rest-of-world rates included.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://post.gi/product/air-mail-to-eu-70p-sheet-of-10-stamps/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Price and applicability explicitly stated on operator's live sales page. The only separate full tariff notice found was dated 2020, not 2026."
+      }
+    },
+    {
+      "id": "isle-of-man",
+      "country": "Isle of Man",
+      "flag": "🇮🇲",
+      "region": "Europe",
+      "standard": "2.63 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "Isle of Man Post Office official 4-page 'Letter and Parcel Price Guide' effective 23 August 2026, p. 3: International Services, DOCUMENTS, Letter up to 100 g, Standard to EU (Germany) £2.63, also £2.63 to the rest of the world. Optional Tracked & Signed for documents to EU costs £9.66 and is NOT the ordinary postage price. Maximum letter dimensions 240 × 165 × 5 mm. Current public international-mail webpage also confirms £2.63. No separate 20 g lower rate.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.iompost.com/uploads/6209_IOMPO_Price_Guide_4pp_A5_2026_Update_AUG_26_AW_3bd65aa579.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official revised Aug 23 2026 PDF p. 3 checked manually plus current operator website. PDF rate changes not monitored automatically."
+      }
+    },
+    {
+      "id": "sark",
+      "country": "Sark",
+      "flag": "🇬🇬",
+      "region": "Europe",
+      "standard": "2.96 GBP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 100,
+      "notes": "PROVISIONAL TRANSFER OF GUERNSEY RATE, NOT A SARK-SPECIFIC VERIFIED RATE. Guernsey Post expressly states that Sark operates under Guernsey postal administration and Sark issued its first official postage stamps in Aug–Sep 2025. Guernsey Post's official 2026 'Sending Letters' tariff (1 April 2026) shows ordinary standard Europe Letter up to 100 g at £2.96. The same rate likely applies to ordinary Sark-origin letters to Germany under the shared postal network; however, no source explicitly confirmed this precise tariff for a letter lodged on Sark and franked with Sark stamps. Confirm with Guernsey Post's philatelic bureau or Sark Post Office before preparing a stamped collector cover. Sark and Alderney have distinct stamp issues but are not independent tariff systems.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.guernseypost.com/letters",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official Guernsey tariff and official Sark stamp/jurisdiction announcement reviewed. Sark-origin applicability of Europe 100g price is inferred; no station-specific rate table verified."
+      }
+    },
+    {
+      "id": "vatican-city",
+      "country": "Vatican City",
+      "flag": "🇻🇦",
+      "region": "Europe",
+      "standard": "1.35 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Vatican City official Poste e Filatelia 'Posta Prioritaria: tariffe' PDF, outbound international ordinary PRIORITY letter in 'Formato normalizzato' up to 20 g, destination 'Europa – Bacino Mediterraneo' (includes Germany): 1.35 EUR. This is the classic stamped priority service used for regular philatelic covers; it must NOT be confused with 'PostaFacile' (a different product whose 2025 table quotes 1.10 EUR for Europe) or with domestic Italy/Vatican priority 1.30 EUR. The primary rate PDF is still linked from the operator's live 'Posta Prioritaria' product page as of 19 Nov 2026 but contains no printed effective date, so recheck periodically for newer tariffs.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://postevaticane.va/images/pdf/posta-prioritaria/posta-prioritaria---zone-tariffarie.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Current officially linked priority postage tariff PDF manually reviewed; no printed effective date, so supersession cannot be ruled out from the document alone."
       }
     }
   ],
