@@ -2943,7 +2943,9 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "2026 official tariff document/active postal operator rate page manually checked; not automatically price-scanned."
-      }
+      },
+      "economy_label": "2nd Class",
+      "priority_label": "1st Class"
     },
     {
       "id": "french-polynesia",
