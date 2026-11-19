@@ -704,15 +704,16 @@
       "standard": null,
       "economy": "3.00 EUR",
       "priority": "3.35 EUR",
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Posti official tariff announcement, effective 2 June 2026. Ordinary international stamped letter or postcard up to 20 g to Germany: Economy 3.00 EUR, Priority 3.35 EUR. This is international franking, not domestic letter postage.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.posti.fi/en/latest-news-at-posti/prices_stamps_20260430",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current 2026 operator tariff manually reviewed; source is not automatically checked for price changes."
       }
     },
     {
@@ -861,15 +862,16 @@
       "standard": "1.35 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Poste Italiane official Postamail Internazionale, Zone 1 (Europe/Mediterranean, including Germany), ordinary unregistered NORMALISED letter up to 20 g: 1.35 EUR (tariff code B Zona 1). Compact/nonstandard formats cost more; 50 g compact letter 3.30 EUR. Official retail tariff page checked 19 November 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.poste.it/lettera/postamail-internazionale",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current 2026 operator tariff manually reviewed; source is not automatically checked for price changes."
       }
     },
     {
@@ -1153,18 +1155,19 @@
       "country": "Netherlands",
       "flag": "🇳🇱",
       "region": "Europe",
-      "standard": "2.00 EUR",
+      "standard": "2.11 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "PostNL official retail tariff booklet 'Tarieven en diensten', effective 12 July 2026, page 7 ('Basistarieven buitenland', 'Brieven en kaarten'): ordinary INTERNATIONAL letter or postcard up to 20 g, 2.11 EUR, all destinations including Germany. Up to 50 g is 4.22 EUR. Earlier collector 2.00 EUR was outdated.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.postnl.nl/api/assets/blt43aa441bfc1e29f2/blt5e65605bca8690e0/tarievenboekje-12-juli-2026.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current 2026 operator tariff manually reviewed; source is not automatically checked for price changes."
       }
     },
     {
@@ -1381,15 +1384,16 @@
       "standard": "44 SEK",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 50,
+      "notes": "PostNord Sweden official retail international ordinary letter tariff, effective 1 January 2026: one utrikesfrimärke, 44 SEK, up to 50 g to Germany or other international destinations. Domestic stamp costs only 22 SEK and is not sufficient alone.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.postnord.se/privat/priser-och-villkor/portotabeller/portotabell-brev",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current 2026 operator tariff manually reviewed; source is not automatically checked for price changes."
       }
     },
     {
@@ -1400,15 +1404,16 @@
       "standard": "1.90 CHF",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Swiss Post official 'Dokumente International' PRIORITY standard letter (max 25 × 17.6 cm; thickness ≤5 mm) to Germany/Europe, 1–20 g: 1.90 CHF; 21–50 g: 3.10 CHF. Source's 2026 international documents schedule lists European zone; registered and PRIORITY Plus services cost extra.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.post.ch/de/briefe-versenden/dokumente-ausland/dokumente-international",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current 2026 operator tariff manually reviewed; source is not automatically checked for price changes."
       }
     },
     {
@@ -1438,15 +1443,16 @@
       "standard": "3.20 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 50,
+      "notes": "Slovenská pošta official international universal postal service tariff 'Listová zásielka', valid from 1 January 2026, printed page IV.L/3: ordinary unregistered List to Europe including Germany up to 50 g: 3.20 EUR, VAT exempt. This is the Europe zone, not the lower separate Czech Republic tariff of 2.50 EUR or Rest of World rate 3.60 EUR.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.posta.sk/files/693fdc93578bb5d18da18bad/cennik-medzinarodneho-styku-od-1.-1.-2026.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current 2026 operator tariff manually reviewed; source is not automatically checked for price changes."
       }
     },
     {
@@ -1576,18 +1582,19 @@
       "country": "Czechia",
       "flag": "🇨🇿",
       "region": "Europe",
-      "standard": "39 CZK",
+      "standard": "48 CZK",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 50,
+      "notes": "Česká pošta official retail tariff 'Ceník poštovních služeb', effective 1 April 2026, printed page 34/60: international 'Obyčejná zásilka' to EU European destinations including Germany, up to 50 g, base price 48 CZK (priority transport). Payment by postal stamps/cash. Earlier unverified 39 CZK was not valid for this 2026 weight/zone/service. Special payment discounts may exist.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.ceskaposta.cz/documents/d/guest/cenik_01_04_2026_final_cistopis-pdf?download=true",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current 2026 operator tariff manually reviewed; source is not automatically checked for price changes."
       }
     },
     {
@@ -1657,14 +1664,15 @@
       "economy": null,
       "priority": null,
       "weight_g": null,
-      "notes": "Collector reports 0.64 EUR + 0.02 EUR mandatory surcharge; verify applicability.",
+      "notes": "UNVERIFIED current international letter to Germany. Existing collector figure 0.66 EUR (said to be 0.64 EUR plus 0.02 EUR mandatory refugee stamp) lacks a 2026 official price confirmation; may represent an older tariff or another service. Cyprus Post current Letter Mail page links to an official PDF first issued 2014, revised June 2018; that historical document cannot establish 2026 franking. Use the current official postal rate calculator for confirmation before treating this amount as valid.",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://www.cypruspost.post/en/epistoliko-taxidromeio-genika",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Operator web page links a tariff PDF revised in 2018; no current Germany 2026 quote independently extracted."
       }
     },
     {
@@ -1917,7 +1925,7 @@
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "UNVERIFIED 2026 indication ONLY. PostCompare.eu lists ELTA 'Διεθνής επιστολή' ordinary international letter to Europe including Germany at 1.20 EUR up to 20 g (their 2026-08-10 update). No matching current primary-source ELTA foreign-letter price table was accessible to cross-verify. The ELTA e-stamp website quotes 2.20 EUR for DOMESTIC priority letters only and explicitly forbids e-stamps for international letters. Do not treat the Greek 1.20 EUR as a confirmed ELTA franking amount. Verify current international priority/economy product with ELTA before use.",
+      "notes": "NOT VERIFIED for international letters to Germany as of 19 Nov 2026. Secondary PostCompare.eu lists 1.20 EUR for an ordinary 20 g international letter (site updated 10 August 2026), but a matching contemporary primary-source ELTA tariff table was not available. ELTA e-Stamp 2.20 EUR quoted elsewhere applies only to DOMESTIC PRIORITY letters, not international franking. Keep 1.20 EUR as an unverified indicative amount until ELTA confirms Europe rate.",
       "status": "unverified",
       "manual_verified_at": null,
       "source_url": "https://www.postcompare.eu/en/operator/elta-gr/",
@@ -1925,7 +1933,7 @@
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "Third-party estimate; cannot authenticate against a current official ELTA outgoing international rate."
+        "detail": "Current ELTA Germany-zone tariff not confirmed by operator; 1.20 EUR from third-party source only."
       }
     },
     {
