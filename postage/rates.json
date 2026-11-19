@@ -1934,6 +1934,66 @@
         "checked_at": null,
         "detail": "Latest official destination-specific SDR rate and same-day TRY conversion still need verification; no publicly usable definite letter postage entered."
       }
+    },
+    {
+      "id": "croatia",
+      "country": "Croatia",
+      "flag": "🇭🇷",
+      "region": "Europe",
+      "standard": null,
+      "economy": "1.70 EUR",
+      "priority": "2.20 EUR",
+      "weight_g": 50,
+      "notes": "Hrvatska pošta official 'Cjenik poštanskih usluga u međunarodnom prometu', effective 1 August 2026, page 1, Universal Service, 2.1.1 PISMO (ordinary international letter) up to 50 g: 1.70 EUR; 2.1.2 PRIORITETNO PISMO (priority international letter) up to 50 g: 2.20 EUR. Rates apply to Germany without a separate letter destination zone. No additional services; this is NOT the 1.70 EUR priority postcard or the 5.40 EUR registered-letter price. Both Economy and Priority shown because the postal operator offers both.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.posta.hr/UserDocsImages/hp/dokumenti/cjenici/2026/Cjenik_postanskih_usluga_u_medjunarodnom_prometu_1-8-26_2.pdf?vel=618471",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official 2026 Croatian Post international tariff PDF, page 1 manually verified. PDF is not parsed by the automated HTML token checker."
+      }
+    },
+    {
+      "id": "luxembourg",
+      "country": "Luxembourg",
+      "flag": "🇱🇺",
+      "region": "Europe",
+      "standard": "1.70 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "Official POST Luxembourg online postal tariffs, International/Europe, letter format XS up to 50 g, 1.70 EUR for Zones 1–3; destination Germany is explicitly Zone 1. Standard-format XS: length 140–235 mm, height 90–162 mm, thickness under 5 mm; square format is classified as S and is more expensive. No tracking/registered services. Price manually checked on 19 November 2026; no specific tariff commencement date is published on the live page.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.post.lu/de/particuliers/colis-courrier/prix",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official current live tariff page checked manually for Europe Zone 1 (Germany), 1.70 EUR up to 50g. Source is HTML, but simple number matching alone is not validation."
+      }
+    },
+    {
+      "id": "slovenia",
+      "country": "Slovenia",
+      "flag": "🇸🇮",
+      "region": "Europe",
+      "standard": "1.96 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Pošta Slovenije official 2026 international price-list extract ('Izvleček cenika poštnih storitev v mednarodnem poštnem prometu'), effective 1 January 2026, page 1: Standardno pismo (international standard-format letter, up to 20 g, stamp category C) 1.96 EUR worldwide, including Germany. IMPORTANT separate product: Navadno pismo (ordinary non-standard letter up to 50 g, stamp category D) is 2.21 EUR; postcard is also 2.21 EUR. Do not substitute 2.21 for compliant standard-format letter; review cover dimensions before franking.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.posta.si/zasebno-site/Documents/Ceniki/Izvlecek-cenika-mednarodni-promet_2026.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official 2026 postal-tariff PDF manually reviewed and crosschecked against live stamp face-value explanation https://www.posta.si/zasebno/znamke-in-filatelija; PDF not automatically scanned."
+      }
     }
   ],
   "last_scan_at": "2026-11-18"
