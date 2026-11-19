@@ -810,18 +810,19 @@
       "country": "Ireland",
       "flag": "🇮🇪",
       "region": "Europe",
-      "standard": "2.20 EUR",
+      "standard": "3.50 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 100,
+      "notes": "An Post official 'Standard Post' 2026 retail tariff, effective 3 February 2026, International Standard Post Zone 2, letter/postcard up to 100 g to Germany: 3.50 EUR. An Post's official 12 January 2026 press release explicitly names Germany, France and Britain as destinations in the new 'Europe and Britain' 3.50 EUR category; Rest of World is 3.95 EUR for the same basic letter. Prior 2.20 EUR was superseded by the 2026 increase. Different from the 1.85 EUR Irish domestic letter tariff and the 4.50 EUR international Digital Stamp product, which is not the stamp-adhesive Standard Post rate.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-19",
+      "source_url": "https://www.anpost.com/Post-Parcels/Sending/Postal-Rates/Standard-Post",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official current An Post international Standard Post table and 12 Jan 2026 rate-change announcement manually crosschecked. Source is HTML; numeric token presence alone does not independently prove category."
       }
     },
     {
