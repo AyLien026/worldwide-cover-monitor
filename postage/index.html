@@ -180,6 +180,13 @@ if(rows.every(function(r){return r.status==='verified'}))return ['SOURCE REVIEWE
 if(rows.some(function(r){return r.status==='verified'}))return ['PARTLY REVIEWED','partial'];
 return ['UNVERIFIED','']
 }
+// Hide records without a currently displayable tariff, but keep them in rates.json
+// for research, source monitoring, and the separate upcoming-changes section.
+function hasDisplayableRate(r){
+ return [activeStandard(r),activeEconomy(r),activePriority(r)].some(function(value){
+  return value!==null&&value!==undefined&&String(value).trim()!==''
+ });
+}
 function groupRates(rows){
 var map=new Map();
 rows.forEach(function(record){
@@ -204,7 +211,7 @@ function quote(r){
 if(activeStandard(r))return activeStandard(r);
 var economy=activeEconomy(r),priority=activePriority(r);
 if(economy&&priority)return 'Eco '+economy+' / Prio '+priority;
-return economy||priority||'Rate unavailable'
+return economy||priority||'—'
 }
 function scheduleChanges(r){
 var parts=[];
@@ -395,16 +402,17 @@ var fragment=document.createDocumentFragment();
 shown.forEach(function(g){fragment.appendChild(renderGroup(g))});
 if(!shown.length)fragment.appendChild(el('p','empty','No matching countries or territories.'));
 list.appendChild(fragment);
-$('shown').textContent=(polarMode?'Polar & remote mode · ':'')+'Showing '+shown.length+' of '+groups.length+' countries and territories · '+db.length+' individual postage entries in the database.'
+$('shown').textContent=(polarMode?'Polar & remote mode · ':'')+'Showing '+shown.length+' of '+groups.length+' countries and territories · '+groups.reduce(function(total,g){return total+g.rates.length},0)+' published postage entries.'
 }
 function init(data){
 db=Array.isArray(data.rates)?data.rates:[];
-groups=groupRates(db);
+var published=db.filter(hasDisplayableRate);
+groups=groupRates(published);
 Array.from(new Set(groups.map(function(g){return g.region}))).sort().forEach(function(x){var opt=el('option','',x);opt.value=x;$('region').appendChild(opt)});
 $('total').textContent=groups.length;
-$('tariffs').textContent=db.length;
-$('verified').textContent=db.filter(function(r){return r.status==='verified'}).length;
-$('alerts').textContent=db.filter(hasAlert).length;
+$('tariffs').textContent=published.length;
+$('verified').textContent=published.filter(function(r){return r.status==='verified'}).length;
+$('alerts').textContent=published.filter(hasAlert).length;
 $('scan').textContent='Last edited: '+(data.updated_at||'unknown')+' · Last automated source scan: '+(data.last_scan_at||'not yet run');
 renderUpcoming();
 $('polar-help').textContent=groups.filter(isPolarRelated).length+' polar-linked and remote territories available · These are ordinary postal tariffs, not necessarily special expedition-mail rates.';
