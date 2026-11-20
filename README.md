@@ -104,3 +104,39 @@ A Blogger page can embed the Explorer using the HTML view:
 The Explorer automatically hides its introductory hero when embedded in an iframe to avoid duplicating the host Blogger page heading. Blogger does not automatically create a navigation/menu entry: it must be added in the blog's **Pages / Layout** controls. The iframe has a fixed minimum height because Blogger and GitHub Pages are different origins and cannot safely auto-resize one another without an additional integration.
 
 Direct URL to a country: `/countries/?country=Japan` (country names in query parameters are URL-encoded). The blog cover link opens a **search** on Worldwide Covers; it does not assert a matching existing article. Official source links can change over time.
+
+
+## Polar Philately Atlas — experimental replacement for the Blogger polar page
+
+Prototype URL: https://aylien026.github.io/worldwide-cover-monitor/polar/
+
+This page is **a preview**, not a direct replacement of https://www.worldwidecovers.com/p/polarphilately.html. Nothing in Blogger is modified automatically.
+
+### Contents
+
+- Interactive, dependency-free schematic polar projections for Antarctica, the Arctic and the subantarctic islands, with approximate Natural Earth country outlines.
+- 25 curated research stations in `polar/stations.json`; latitude/longitude, status, operator, official station site, and descriptions.
+- Station search, operating-pattern and national operator filters; TAAF and AAT shortcuts. A territory shortcut operates within the selected geographic region.
+- Official site links plus public Worldwide Covers **search links**. The presence of a link is not evidence that a cover from that station exists or that a postal service accepts private collectors' mail.
+- Optional temperature lookup from Open-Meteo, **explicitly labelled a numerical weather-model estimate, not an on-site live measurement**. Browser/network limitations can prevent readings; a station's official meteorological observations are preferable when available.
+- `polar/land.json` contains a simplified, attributed subset of Natural Earth geographic outlines sourced from `johan/world.geo.json`. These are approximations, not navigational boundaries.
+
+Update individual stations in `polar/stations.json` only. GitHub Actions deploys `polar/**` changes automatically (alongside the regular postage and bulletin site). The map requires no commercial mapping key or API token.
+
+### Blogger: embedding the prototype
+
+Create or edit the Blogger page in its HTML editor and insert the iframe below in place of the existing maps after testing. The iframe will show its own station filters but hide its introductory hero in embedded mode:
+
+```html
+<div style="width:100%;max-width:1200px;margin:0 auto">
+  <iframe src="https://aylien026.github.io/worldwide-cover-monitor/polar/"
+    title="Worldwide Covers Polar Philately Atlas"
+    style="display:block;width:100%;height:1600px;border:0;background:#fff"
+    loading="lazy">
+  </iframe>
+</div>
+```
+
+Because the blog and GitHub Pages are separate origins, an iframe cannot automatically resize itself without a paired parent-page script. On phones, a taller iframe may be necessary; the direct standalone Atlas page is responsive.
+
+Keep a backup of the original Blogger HTML before replacing the maps. This is an initial selective catalogue, not a complete worldwide COMNAP inventory. Status, climate observations, postmark eligibility and mail facilities require periodic source verification.
