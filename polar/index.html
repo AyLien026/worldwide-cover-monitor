@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Philately Atlas · Worldwide Covers</title>
+<meta name="description" content="Explore Arctic, Antarctic and subantarctic research stations on interactive polar maps, with official sources and links to philatelic covers.">
+<meta name="color-scheme" content="light">
+<style>
+:root{--olive:#aab123;--olive-dark:#62721d;--ink:#25332e;--muted:#67756f;--line:#dce6e6;--cream:#f9f7f0;--ice:#eaf5f9;--teal:#2b7083;--gold:#b88b36;--pale:#f3f7f1}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{color:#526d16;text-underline-offset:3px}button,input,select{font:inherit}button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #5c7518;outline-offset:2px}
+.shell{max-width:1200px;margin:0 auto;padding:18px 15px 35px}
+.kicker{color:#75851b;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.hero{padding:24px 25px 22px;background:var(--cream);border:1px solid #e7e5d9;border-left:5px solid var(--olive);margin-bottom:17px}
+h1{font:500 clamp(28px,4vw,43px)/1.15 Georgia,"Times New Roman",serif;margin:7px 0 11px}
+.hero p{max-width:790px;margin:0;color:#55635c;font-size:14px}
+.hero-meta{display:flex;gap:9px 20px;align-items:center;flex-wrap:wrap;margin-top:15px;color:#5c6a62;font-size:12px}
+.h-metric{font-weight:800;font-variant-numeric:tabular-nums;color:#374b3c}
+.controls{border:1px solid var(--line);padding:14px 16px;display:grid;gap:13px;background:#fff;margin-bottom:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:7px}
+.tab{border:1px solid #bcd0d0;padding:9px 16px;border-radius:5px;background:#f5faf9;color:#45616b;font-weight:750}
+.tab[aria-pressed="true"]{background:#e9f4e4;border-color:#a5b96d;color:#425616;box-shadow:inset 0 -3px var(--olive)}
+.inputs{display:grid;grid-template-columns:minmax(190px,2fr) minmax(150px,1fr) minmax(142px,1fr);gap:9px}
+.field{display:grid;gap:4px}.field label{font-size:11px;font-weight:800;color:#62716a}
+.field input,.field select{height:41px;padding:8px 10px;min-width:0;width:100%;background:#fff;border:1px solid #cdd7d6;color:#22342b;border-radius:4px}
+.quick{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.quick button{border:1px solid #d8dfcb;background:#f8faf3;padding:5px 9px;border-radius:4px;color:#4b6025}
+.quick button[aria-pressed="true"]{background:#e8f0ce;border-color:#98ad51;font-weight:800}
+.workspace{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr);align-items:start;gap:15px}
+.mapcol{background:#fff;border:1px solid var(--line);padding:12px 15px 10px;min-width:0}
+.map-title{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.map-title strong{font:500 21px Georgia,serif}.map-title span{font-size:12px;color:var(--muted)}
+.map{width:100%;height:auto;display:block;max-height:630px}
+.map [role="button"]{cursor:pointer}
+.map [role="button"]:focus-visible{outline:none;stroke:#1e4753;stroke-width:4}
+.map-graticule{stroke:#bfd9df;stroke-width:1;fill:none}
+.map-land{fill:#fdfefc;stroke:#a9bfc2;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.map-pin{stroke:#fff;stroke-width:2.8}
+.map-pin.year-round{fill:var(--teal)}.map-pin.seasonal{fill:var(--gold)}
+.map-pin.active{stroke:#263e47;stroke-width:4}
+.map-note{font-size:12px;color:#6a7775;margin:2px 5px 8px;line-height:1.5}
+.legend{display:flex;gap:13px;flex-wrap:wrap;margin:0 5px 9px;font-size:12px;color:#60716f}
+.legend span{display:flex;align-items:center;gap:6px}.dot{width:11px;height:11px;border-radius:50%;display:inline-block}.dot.perm{background:var(--teal)}.dot.seasonal{background:var(--gold)}
+.side{display:grid;gap:14px;min-width:0}
+.panel{border:1px solid var(--line);padding:17px 18px;background:#fff}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.panel-head h2{margin:0;font:500 21px Georgia,serif}
+.count{color:var(--muted);font-size:11px}
+.station-head{display:flex;gap:10px;align-items:flex-start}
+.station-flag{font-size:30px;line-height:1.1}
+.station-name{font:500 24px/1.2 Georgia,serif;margin:0 0 6px}
+.station-operator{font-size:12px;color:var(--muted)}
+.pill{font-size:10px;font-weight:800;padding:3px 8px;border-radius:3px;letter-spacing:.4px;display:inline-block;margin-top:8px}
+.pill.year-round{background:#dbeeea;color:#235967}.pill.seasonal{background:#f5ecd8;color:#8a6121}
+.statnote{color:#55645e;font-size:13px;margin:12px 0 8px}
+.fact{display:grid;grid-template-columns:110px minmax(0,1fr);gap:5px;padding:6px 0;border-top:1px dotted var(--line);font-size:12px}
+.fact span:first-child{color:#74817c}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.actions a,.actions button{border:1px solid #ccd9bd;background:#f6faee;color:#47621d;border-radius:4px;font-size:12px;font-weight:750;padding:8px 10px;text-decoration:none}
+.actions a:hover,.actions button:hover{background:#e8f0d7}
+.section-title{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:#708619;font-weight:800;margin:16px 0 6px}
+.caution{border-left:3px solid #c8a04e;padding:8px 11px;background:#fcf8ee;font-size:12px;color:#6a6253}
+.temp{margin:9px 0;border:1px solid #e1e7e4;padding:10px;font-size:12px;color:#55645f}
+.temp strong{color:#253e39}.temp button{border:0;background:none;text-decoration:underline;color:#597319;font-weight:750;padding:0}
+.stationlist{max-height:385px;overflow:auto;display:grid;gap:5px}
+.stationbutton{width:100%;background:#fff;border:1px solid #edf0e9;display:flex;gap:10px;align-items:center;padding:9px 10px;text-align:left;border-radius:5px;color:var(--ink)}
+.stationbutton:hover{background:#f7faf5}.stationbutton.active{background:#f0f6e8;border-color:#a5bc6e}
+.st-name{display:block;font-size:13px;font-weight:750}.st-sub{display:block;font-size:11px;color:var(--muted)}.status-circle{width:9px;height:9px;border-radius:50%;flex:none;background:var(--teal)}.status-circle.seasonal{background:var(--gold)}
+.noresults{font-size:13px;color:var(--muted);margin:9px 0}
+.about{background:var(--cream);border:1px solid #e6e5d7;padding:14px 17px;margin-top:14px;font-size:12px;color:#5a675c}
+.about strong{font-size:13px;color:#3f4c39}.about p{margin:6px 0}
+.footer{font-size:11px;color:#788580;margin-top:12px}
+[hidden]{display:none!important}
+@media(max-width:860px){.workspace{grid-template-columns:1fr}.mapcol{max-width:760px;width:100%;margin:auto}.side{grid-template-columns:1fr 1fr}.stationlist{max-height:480px}}
+@media(max-width:650px){.shell{padding:7px}.hero{padding:15px}.controls{padding:10px}.inputs{grid-template-columns:1fr}.side{grid-template-columns:1fr}.mapcol{padding:7px}.panel{padding:13px}.tab{flex:1;padding:9px 5px;font-size:12px}.fact{grid-template-columns:95px minmax(0,1fr)}}
+html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
+</style>
+<script>if(window.self!==window.top)document.documentElement.classList.add('embedded')</script>
+</head>
+<body>
+<main class="shell">
+<header class="hero">
+ <div class="kicker">Worldwide Covers · Polar research & postal history</div>
+ <h1>Polar Philately Atlas</h1>
+ <p>Explore research stations in Antarctica, the Arctic and the subantarctic islands. Find official station information, discover relevant covers and learn which postal questions still need verification.</p>
+ <div class="hero-meta"><span><b class="h-metric" id="stations-total">–</b> curated stations</span><span>Official scientific sources</span><span>Sources reviewed: November 2026</span></div>
+</header>
+<section class="controls" aria-label="Atlas filters">
+ <div class="tabs" role="group" aria-label="Select polar region">
+  <button type="button" class="tab" data-view="antarctic" aria-pressed="true">🐧 Antarctica</button>
+  <button type="button" class="tab" data-view="arctic" aria-pressed="false">❄ Arctic</button>
+  <button type="button" class="tab" data-view="subantarctic" aria-pressed="false">🌊 Subantarctic</button>
+ </div>
+ <div class="inputs">
+  <div class="field"><label for="search">Find a research station</label><input type="search" id="search" placeholder="Station, institute, island..." autocomplete="off"></div>
+  <div class="field"><label for="status-filter">Station operation</label><select id="status-filter"><option value="">All operating patterns</option><option value="year-round">Year-round</option><option value="seasonal">Seasonal</option></select></div>
+  <div class="field"><label for="operator-filter">Country / operator</label><select id="operator-filter"><option value="">All operators</option></select></div>
+ </div>
+ <div class="quick"><span>Territories:</span><button id="quick-taaf" type="button" aria-pressed="false">🇫🇷 TAAF</button><button id="quick-aat" type="button" aria-pressed="false">🇦🇺 AAT</button><span id="filter-note">Select a marker or a station from the list.</span></div>
+</section>
+<div class="workspace">
+ <section class="mapcol" aria-label="Interactive polar station projection">
+  <div class="map-title"><strong id="map-heading">Antarctica</strong><span id="map-count">Loading stations…</span></div>
+  <svg id="polar-map" class="map" viewBox="0 0 560 560" role="img" aria-label="Schematic polar projection with selectable research stations">
+   <title>Polar research station locations</title>
+   <circle cx="280" cy="280" r="235" fill="#eaf5f9" stroke="#9ebac1" stroke-width="1.5"></circle>
+  </svg>
+  <div class="legend"><span><i class="dot perm"></i> Year-round</span><span><i class="dot seasonal"></i> Seasonal</span></div>
+  <p class="map-note">Polar projection with approximate Natural Earth coastlines. Station positions are indicative, not navigational. Closely spaced markers may be offset for selection.</p>
+ </section>
+ <div class="side">
+  <section class="panel" aria-labelledby="detail-title">
+   <div class="panel-head"><h2 id="detail-title">Station details</h2><span class="count">Official sources</span></div>
+   <div id="details" aria-live="polite"><p class="noresults">Loading station catalogue…</p></div>
+  </section>
+  <section class="panel" aria-label="Station list">
+   <div class="panel-head"><h2>Explore stations</h2><span class="count" id="list-count">–</span></div>
+   <div id="station-list" class="stationlist"></div>
+  </section>
+ </div>
+</div>
+<section class="about">
+ <strong>What makes a station philatelically interesting?</strong>
+ <p>Station postmarks, expedition cachets and official mail routes can document scientific history. But a research station is not necessarily a public post office, and its official website is not an invitation to send unsolicited mail. Each entry links to the station operator and searches publicly available Worldwide Covers articles; it does not claim a cover or an authorised mail-in service exists.</p>
+ <p><a href="https://www.worldwidecovers.com/search/label/%2APolar-Philately" target="_blank" rel="noopener noreferrer">Browse the Polar Philately collection on Worldwide Covers</a></p>
+</section>
+<div class="footer" id="update-line">Station data is a curated starting selection, not a complete Antarctic station census. Attribution: <a href="https://github.com/johan/world.geo.json" target="_blank" rel="noopener noreferrer">Natural Earth map outlines</a>; original station information from linked research institutions.</div>
+</main>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+var S=null,L=null,view='antarctic',selected=null,territory='',filtered=[],initializing=true;
+var meta={antarctic:{title:'Antarctica',pole:-1,min:56,rings:[60,70,80]},arctic:{title:'Arctic',pole:1,min:61,rings:[65,70,80]},subantarctic:{title:'Subantarctic islands',pole:-1,min:32,rings:[40,50,60,70]}};
+var NS='http://www.w3.org/2000/svg';
+function el(tag,className,text){var n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n}
+function svg(tag,attrs){var n=document.createElementNS(NS,tag);Object.keys(attrs||{}).forEach(function(k){n.setAttribute(k,attrs[k])});return n}
+function norm(t){return String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function txt(t){return document.createTextNode(String(t))}
+function link(text,url){var a=el('a','',text);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a}
+function project(lat,lon,m){var radius=235*(90-Math.abs(lat))/(90-m.min),a=lon*Math.PI/180;return [280+radius*Math.sin(a),280-radius*Math.cos(a)]}
+function polarPolygon(ring,m){if(!ring.length)return '';var points=ring.map(function(p){return project(p[1],p[0],m)});return points.map(function(p,i){return (i?'L':'M')+p[0].toFixed(2)+','+p[1].toFixed(2)}).join(' ')+' Z'}
+function landPath(code,m){
+ if(!L||!Array.isArray(L.countries))return '';
+ var c=L.countries.find(function(x){return x.id===code});if(!c)return '';
+ return c.rings.map(function(r){return polarPolygon(r,m)}).join(' ')
+}
+function padAngle(deg){return deg*Math.PI/180}
+function renderMap(){
+ var m=meta[view],out=$('polar-map');out.replaceChildren();
+ out.appendChild(svg('title',{})).textContent=m.title+' station positions';
+ var defs=svg('defs'),clip=svg('clipPath',{id:'polar-clipping'});
+ clip.appendChild(svg('circle',{cx:280,cy:280,r:235}));defs.appendChild(clip);out.appendChild(defs);
+ out.appendChild(svg('circle',{cx:280,cy:280,r:235,fill:'#e8f4f8',stroke:'#a8c5ca','stroke-width':1.5}));
+ var land=svg('g',{'clip-path':'url(#polar-clipping)'});
+ var codes=m.pole===-1?['ATA']:['GRL','CAN','RUS','NOR','ISL','SWE','FIN','USA'];
+ codes.forEach(function(code){var d=landPath(code,m);if(d){var p=svg('path',{d:d,class:'map-land'});land.appendChild(p)}});
+ out.appendChild(land);
+ var grid=svg('g',{'clip-path':'url(#polar-clipping)'});
+ m.rings.forEach(function(l){
+  var r=235*(90-l)/(90-m.min);if(r>235||r<0)return;
+  grid.appendChild(svg('circle',{cx:280,cy:280,r:r,class:'map-graticule'}));
+  var label=svg('text',{x:283,y:(280-r+12).toFixed(1),'font-size':12,fill:'#557a83'});label.textContent=l+'°'+(m.pole>0?'N':'S');grid.appendChild(label)
+ });
+ [0,45,90,135,180,225,270,315].forEach(function(lon){
+  var a=padAngle(lon),x=280+235*Math.sin(a),y=280-235*Math.cos(a);
+  grid.appendChild(svg('line',{x1:280,y1:280,x2:x.toFixed(2),y2:y.toFixed(2),class:'map-graticule'}));
+ });
+ out.appendChild(grid);
+ var markers=svg('g',{});
+ filtered.forEach(function(s){
+  var base=project(s.lat,s.lon,m),offset=markerOffset(s.id);
+  var x=base[0]+offset[0],y=base[1]+offset[1];
+  if(offset[0]||offset[1])markers.appendChild(svg('line',{x1:base[0],y1:base[1],x2:x,y2:y,stroke:'#7595a0','stroke-dasharray':'3 3','stroke-width':'1.5'}));
+  var selectedPin=s.id===selected,group=svg('g',{role:'button',tabindex:'0','aria-label':s.name+'; '+s.status.replace('-',' '),'aria-pressed':String(selectedPin)});
+  if(selectedPin)group.appendChild(svg('circle',{cx:x,cy:y,r:14,fill:'none',stroke:'#506b24','stroke-width':3}));
+  var pin=svg('circle',{cx:x,cy:y,r:selectedPin?8.5:7,class:'map-pin '+s.status+(selectedPin?' active':'')});
+  var title=svg('title',{});title.textContent=s.name+' – '+s.area;pin.appendChild(title);group.appendChild(pin);
+  group.addEventListener('click',function(){choose(s.id,true)});
+  group.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(s.id,true)}});
+  markers.appendChild(group)
+ });
+ out.appendChild(markers);
+ var cross=svg('circle',{cx:280,cy:280,r:2.8,fill:'#95b5be'});out.appendChild(cross);
+ $('map-heading').textContent=m.title;$('map-count').textContent=filtered.length+' plotted stations'
+}
+function markerOffset(id){var offsets={'mcmurdo':[-10,7],'scott-base':[11,-7],'king-edward':[12,-8],'bird-island':[-11,8]};return offsets[id]||[0,0]}
+function searchData(){
+ var q=norm($('search').value),status=$('status-filter').value,op=$('operator-filter').value;
+ return S.stations.filter(function(s){
+  if(s.region!==view)return false;
+  if(territory&&s.territory!==territory)return false;
+  if(status&&s.status!==status)return false;
+  if(op&&s.flag!==op)return false;
+  return !q||norm([s.name,s.operator,s.area,s.info,s.territory||''].join(' ')).includes(q)
+ })
+}
+function writeUrl(){
+ var u=new URL(location.href);u.searchParams.set('region',view);
+ if(selected)u.searchParams.set('station',selected);else u.searchParams.delete('station');
+ history.replaceState(null,'',u.pathname+u.search+u.hash)
+}
+function choose(id,write){selected=id;renderMap();renderList();renderDetails();if(write)writeUrl()}
+function setView(v,reset){if(!meta[v])return;view=v;if(reset){selected=null;territory='';$('search').value='';$('status-filter').value='';$('operator-filter').value=''}refresh()};
+function refresh(){
+ if(!S)return;filtered=searchData();
+ if(!filtered.some(function(s){return s.id===selected}))selected=filtered[0]?filtered[0].id:null;
+ document.querySelectorAll('[data-view]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.view===view))});
+ ['TAAF','AAT'].forEach(function(t){$('quick-'+t.toLowerCase()).setAttribute('aria-pressed',String(territory===t))});
+ renderMap();renderList();renderDetails();if(!initializing)writeUrl()
+}
+function renderList(){
+ var list=$('station-list');list.replaceChildren();$('list-count').textContent=filtered.length+' stations';
+ if(!filtered.length){list.appendChild(el('p','noresults','No stations match these filters.'));return}
+ filtered.forEach(function(s){
+  var b=el('button','stationbutton'+(s.id===selected?' active':''));b.type='button';b.setAttribute('aria-pressed',String(s.id===selected));
+  b.appendChild(el('span','status-circle '+s.status));
+  var content=el('span','');content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+(s.status==='year-round'?'Year-round':'Seasonal')));
+  b.appendChild(content);b.addEventListener('click',function(){choose(s.id,true)});
+  list.appendChild(b)
+ })
+}
+function fact(parent,k,v){var r=el('div','fact');r.append(el('span','',k),el('span','',v));parent.appendChild(r)}
+function renderDetails(){
+ var target=$('details');target.replaceChildren();
+ if(!selected){target.appendChild(el('p','noresults','No matching station selected.'));return}
+ var s=filtered.find(function(v){return v.id===selected});if(!s)return;
+ var head=el('div','station-head'),icon=el('span','station-flag',s.flag),intro=el('div','');
+ intro.append(el('h3','station-name',s.name),el('div','station-operator',s.operator));
+ intro.appendChild(el('span','pill '+s.status,s.status==='year-round'?'YEAR-ROUND':'SEASONAL'));head.append(icon,intro);target.appendChild(head);
+ target.appendChild(el('p','statnote',s.info));
+ fact(target,'Location',s.area);
+ fact(target,'Coordinates',Math.abs(s.lat).toFixed(3)+'°'+(s.lat<0?'S':'N')+' · '+Math.abs(s.lon).toFixed(3)+'°'+(s.lon<0?'W':'E'));
+ if(s.territory)fact(target,'Territory',s.territory==='TAAF'?'TAAF · French Southern and Antarctic Lands':'AAT · Australian Antarctic Territory');
+ var actions=el('div','actions');
+ if(/^https:\/\//.test(s.url))actions.appendChild(link('Official station website ↗',s.url));
+ if(s.webcam)actions.appendChild(link('Official webcam ↗',s.webcam));
+ target.appendChild(actions);
+ target.appendChild(el('div','section-title','Philately & covers'));
+ var blog=el('div','actions');
+ blog.appendChild(link('Search covers on Worldwide Covers ↗','https://www.worldwidecovers.com/search?q='+encodeURIComponent(s.search||s.name)));
+ if(s.territory)blog.appendChild(link('Postage reference ↗','../countries/?country='+encodeURIComponent(s.territory==='TAAF'?'French Southern and Antarctic Lands (TAAF)':'Australian Antarctic Territory')));
+ target.appendChild(blog);
+ target.appendChild(el('div','caution','Research station ≠ public post office. Specific postmark availability, address permissions and mail-in conditions are not confirmed here.'));
+ var weather=el('div','temp');weather.appendChild(el('strong','','Temperature at coordinates · '));
+ var btn=el('button','','Get model estimate');btn.type='button';btn.addEventListener('click',function(){
+  btn.disabled=true;btn.textContent='Checking…';
+  var url='https://api.open-meteo.com/v1/forecast?latitude='+encodeURIComponent(s.lat)+'&longitude='+encodeURIComponent(s.lon)+'&current=temperature_2m&timezone=UTC';
+  fetch(url).then(function(r){if(!r.ok)throw Error('Weather service unavailable');return r.json()}).then(function(d){
+   if(selected!==s.id)return;
+   var c=d.current;
+   if(!c||!Number.isFinite(c.temperature_2m))throw Error('No model data');
+   weather.replaceChildren();
+   weather.appendChild(el('strong','',c.temperature_2m+' °C'));
+   weather.appendChild(txt(' · '+(c.time||'recent')+' UTC · Open-Meteo model estimate, NOT an on-site observation.'))
+  }).catch(function(){if(selected===s.id){btn.disabled=false;btn.textContent='Unavailable · retry'}})
+ });
+ weather.appendChild(btn);target.appendChild(weather)
+}
+function init(){
+ $('stations-total').textContent=S.stations.length;
+ var opts=new Map();
+ S.stations.forEach(function(s){if(!opts.has(s.flag))opts.set(s.flag,s.operator.split(' · ')[0])});
+ Array.from(opts.entries()).sort(function(a,b){return a[1].localeCompare(b[1])}).forEach(function(k){var o=el('option','',k[0]+' '+k[1]);o.value=k[0];$('operator-filter').appendChild(o)});
+ var params=new URLSearchParams(location.search),v=params.get('region'),id=params.get('station');
+ if(v&&meta[v])view=v;else if(id){var found=S.stations.find(function(s){return s.id===id});if(found)view=found.region}
+ if(id&&S.stations.some(function(s){return s.id===id&&s.region===view}))selected=id;
+ initializing=false;refresh();
+ $('update-line').appendChild(txt(' · Catalogue updated '+S.updated));
+}
+document.querySelectorAll('[data-view]').forEach(function(btn){btn.addEventListener('click',function(){setView(btn.dataset.view,true)})});
+['search','status-filter','operator-filter'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',refresh)});
+['TAAF','AAT'].forEach(function(t){$('quick-'+t.toLowerCase()).addEventListener('click',function(){
+ if(t==='AAT')view='antarctic';
+ else if(view==='arctic')view='subantarctic';
+ territory=territory===t?'':t;selected=null;refresh()
+})});
+window.addEventListener('popstate',function(){var p=new URLSearchParams(location.search),v=p.get('region');if(meta[v])view=v;selected=p.get('station')||null;refresh()});
+Promise.all([
+ fetch('stations.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Station HTTP '+r.status);return r.json()}),
+ fetch('land.json',{cache:'force-cache'}).then(function(r){if(!r.ok)throw Error('Land HTTP '+r.status);return r.json()}).catch(function(){return {countries:[]}})
+]).then(function(results){
+ S=results[0];L=results[1];if(!Array.isArray(S.stations))throw Error('Station list invalid');init();
+}).catch(function(err){
+ $('map-count').textContent='Catalogue unavailable';
+ $('details').replaceChildren(el('p','noresults','Could not load the polar station data: '+err.message));
+ $('station-list').replaceChildren(el('p','noresults','Please check back later.'))
+})
+})();
+</script>
+</body>
+</html>
