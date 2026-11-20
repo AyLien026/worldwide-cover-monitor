@@ -8,6 +8,7 @@ on:
     paths:
       - 'postage/**'
       - 'countries/**'
+      - 'polar/**'
       - 'data/items.js'
       - 'data/sources.js'
       - 'index.html'
@@ -59,6 +60,8 @@ jobs:
           cp postage/index.html postage/rates.json site/postage/
           mkdir -p site/countries
           cp countries/index.html site/countries/index.html
+          mkdir -p site/polar
+          cp polar/index.html polar/stations.json polar/land.json site/polar/
           cp data/items.js data/items.json data/sources.js site/data/
 
       - uses: actions/upload-pages-artifact@v4
