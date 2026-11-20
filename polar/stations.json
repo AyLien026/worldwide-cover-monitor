@@ -31,7 +31,8 @@
         "title": "Postal operations not assessed",
         "description": "A research station is not automatically a public postal facility. Distinguish expedition or station cachets from a postal cancellation; no mail-in or postmark service is verified here."
       },
-      "kind": "research-station"
+      "kind": "research-station",
+      "webcam_note": "AWI displays time-stamped still images; inspect the update time before interpreting the picture as current."
     },
     {
       "id": "rothera",
@@ -62,7 +63,8 @@
       "kind": "research-station",
       "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
       "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
-      "coordinate_reference_date": "Unspecified / station locations may have changed"
+      "coordinate_reference_date": "Unspecified / station locations may have changed",
+      "webcam_note": "General BAS webcam directory; the presence of a dedicated camera for this particular site is not confirmed."
     },
     {
       "id": "halley",
@@ -90,7 +92,8 @@
         "level": "not-assessed",
         "title": "Philatelic record not yet documented",
         "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
-      }
+      },
+      "webcam_note": "General BAS webcam directory; the presence of a dedicated camera for this particular site is not confirmed."
     },
     {
       "id": "signy",
@@ -411,7 +414,7 @@
       "webcam": "https://nyalesundresearch.no/maps-and-webcams/",
       "webcam_type": "official-area-camera-list",
       "webcam_review": "2026-11-20",
-      "webcam_note": "Cameras show Ny-Ålesund / Zeppelin Observatory area, not necessarily an AWIPEV building or its view.",
+      "webcam_note": "Ny-Ålesund/Zeppelin Observatory regional cameras. Not a camera pointed specifically at AWIPEV.",
       "kind": "research-station",
       "postal": {
         "level": "not-assessed",
@@ -660,7 +663,8 @@
       "kind": "research-station",
       "coordinate_source": "https://www.bas.ac.uk/polar-operations/sites-and-facilities/facility/king-edward-point/",
       "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
-      "coordinate_reference_date": "Not established"
+      "coordinate_reference_date": "Not established",
+      "webcam_note": "General BAS webcam directory; the presence of a dedicated camera for this particular site is not confirmed."
     },
     {
       "id": "bird-island",
@@ -679,7 +683,6 @@
       "webcam": "https://www.bas.ac.uk/data/our-data/images/webcams/bird-island-webcam/",
       "webcam_type": "official-page",
       "webcam_review": "2026-11-20",
-      "embedded_webcam_url": "https://legacy.bas.ac.uk/images/webcams/bi/index.php",
       "webcam_kind": "periodic still-image refresh, not streaming video",
       "postal": {
         "level": "not-assessed",
@@ -689,7 +692,8 @@
       "kind": "research-station",
       "coordinate_source": "https://www.bas.ac.uk/polar-operations/sites-and-facilities/facility/bird-island/",
       "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
-      "coordinate_reference_date": "Not established"
+      "coordinate_reference_date": "Not established",
+      "webcam_note": "Direct in-page framing disabled because the legacy camera archive may show older images. Use the operator's webcam page and check its timestamp."
     },
     {
       "id": "esperanza",
