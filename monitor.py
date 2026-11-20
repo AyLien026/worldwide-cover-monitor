@@ -146,6 +146,89 @@ class OfficialLinkScanner(HTMLParser):
             self.current = None
 
 
+
+class OfficialNewsRowScanner(HTMLParser):
+    """Keep each official news-table row together, avoiding adjacent-story title leakage."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.rows = []
+        self.current = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "tr":
+            self.current = {"text": [], "urls": []}
+        elif tag == "a" and self.current is not None:
+            href = dict(attrs).get("href", "")
+            if href:
+                self.current["urls"].append(href)
+
+    def handle_data(self, data):
+        if self.current is not None and data.strip():
+            self.current["text"].append(data.strip())
+
+    def handle_endtag(self, tag):
+        if tag == "tr" and self.current is not None:
+            self.rows.append(self.current)
+            self.current = None
+
+
+def parse_official_pdf_links(page, source):
+    """Track new explicitly named official PDF bulletins without claiming to read the PDF."""
+    scanner = OfficialLinkScanner()
+    scanner.feed(page)
+    pattern = re.compile(source["url_pattern"], re.I)
+    items, seen = [], set()
+    for entry in scanner.links:
+        url = normalize_url(urllib.parse.urljoin(source["url"], unescape(entry["href"])))
+        if not url or url in seen or not pattern.search(url):
+            continue
+        if not re.search(r"\.pdf(?:$|\?)", url, re.I):
+            continue
+        filename = urllib.parse.unquote(urllib.parse.urlsplit(url).path.rsplit("/", 1)[-1])
+        title = re.sub(r"[_\-.]+", " ", filename.removesuffix(".pdf")).strip()
+        item = make_item(source, title, url, source.get("summary", "Official PDF bulletin; open it for cancellation dates and requirements."))
+        if item:
+            items.append(item)
+            seen.add(url)
+            if len(items) >= source.get("max_entries", 4):
+                break
+    if not items:
+        raise ValueError("No matching official bulletin PDF links: page structure or filename changed")
+    return items
+
+
+def parse_official_news_table(page, source):
+    """Find dated special-handstamp articles in a single official HTML news table."""
+    scanner = OfficialNewsRowScanner()
+    scanner.feed(page)
+    pattern = re.compile(source["row_pattern"], re.I)
+    items, seen = [], set()
+    for row in scanner.rows:
+        row_text = re.sub(r"\s+", " ", " ".join(row["text"])).strip()
+        if not pattern.search(row_text):
+            continue
+        date_match = re.search(r"\b(\d{1,2})/(\d{1,2})/(20\d{2})\b", row_text)
+        if source.get("min_year") and (not date_match or int(date_match.group(3)) < int(source["min_year"])):
+            continue
+        title = row_text[:date_match.start()].strip() if date_match else row_text
+        title = re.sub(r"\bGo to Article\b", "", title, flags=re.I).strip(" -|")
+        for href in row["urls"]:
+            url = normalize_url(urllib.parse.urljoin(source["url"], unescape(href)))
+            if not url or url in seen or not re.search(r"/news-details\?id=\d+", url, re.I):
+                continue
+            published = ("News published: " + date_match.group(0)) if date_match else ""
+            item = make_item(source, title, url, source.get("summary", "Official special-handstamp notice; verify the use date in the linked article."), published)
+            if item:
+                items.append(item)
+                seen.add(url)
+            break
+        if len(items) >= source.get("max_entries", 8):
+            break
+    if not items:
+        raise ValueError("No matching special-handstamp rows found: news table structure or topic may have changed")
+    return items
+
+
 def parse_official_bulletins(page, source):
     """Erfasst einzelne Bulletins/PDFs einer offiziellen Veröffentlichungsseite.
 
@@ -255,7 +338,7 @@ def parse_deutschepost_page(page, source):
 
 
 def is_relevant(item, source, keywords):
-    if source["kind"] in ("edition_page", "official_bulletins", "usps_issues"):
+    if source["kind"] in ("edition_page", "official_bulletins", "official_pdf_links", "official_news_table", "usps_issues"):
         return True
     haystack = (item["title"] + " " + item["summary"]).casefold()
     return any(word.casefold() in haystack for word in keywords)
@@ -290,7 +373,7 @@ def write_js(items):
 
 
 def write_sources_js(sources):
-    catalog = [{k: s.get(k) for k in ("id", "name", "category", "url", "enabled", "note") if k in s} for s in sources]
+    catalog = [{k: s.get(k) for k in ("id", "name", "country", "category", "url", "enabled", "note") if k in s} for s in sources]
     SOURCE_JS.write_text("window.WCM_SOURCES = " + json.dumps(catalog, ensure_ascii=False).replace("\u2028", "\\u2028").replace("\u2029", "\\u2029") + ";\n", encoding="utf-8")
 
 
@@ -332,6 +415,10 @@ def run(config_path, offline_fixture=None):
                 raw = Path(offline_fixture).read_bytes() if offline_fixture and s["kind"] == "rss" else fetch(s["url"])
                 if s["kind"] == "rss":
                     parsed = parse_feed(raw, s)
+                elif s["kind"] == "official_pdf_links":
+                    parsed = parse_official_pdf_links(raw.decode("utf-8", "replace"), s)
+                elif s["kind"] == "official_news_table":
+                    parsed = parse_official_news_table(raw.decode("utf-8", "replace"), s)
                 elif s["kind"] == "official_bulletins":
                     parsed = parse_official_bulletins(raw.decode("utf-8", "replace"), s)
                     if s.get("track_pdf_changes"):
