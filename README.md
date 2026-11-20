@@ -165,3 +165,22 @@ Keep a backup of the original Blogger HTML before replacing the maps. This is an
 - The list has **no separate inner scrollbar**. It shows 12 entries initially at medium/desktop sizes and 6 at phone sizes, with a **Show more** control for incremental expansion. When a map selection is not among the first results, that selected item is temporarily pinned to the visible list while the item count remains bounded.
 - Postal evidence is placed before a collapsible **Location, coordinates & official sources** section. The recorded location evidence is preserved, but no longer pushes postal information below the fold.
 - Existing Blogger layout and theme (including its sidebar) were not changed. The iframe uses the width made available by Blogger. A fixed-height iframe can still produce inner scrolling on exceptionally long expanded lists or on narrow phones; reducing the separate list scrollbar does not automatically resize the parent iframe.
+
+
+## Euro-area philatelic source expansion (20 November 2026)
+
+**Country scope:** The 21 EU euro-area members after Bulgaria's accession on 1 January 2026. Membership was checked against the ECB and each country was checked for a record in `postage/rates.json`. The 21-country list intentionally excludes euro-using non-members (Monaco, Andorra, Vatican, San Marino), special overseas postal administrations, and Åland as a separate operator; these may remain in the general catalogue independently.
+
+**Source catalogue:** `sources.json` now contains a primary philatelic bulletin, cancellation catalogue, or official postal programme for all 21 countries. The data is mirrored into `data/sources.js` with ISO country codes, so the public Monitor displays national flags and the country filter. Some official operators primarily publish general stamp-issue notices and do **not** have a confirmed special-postmark bulletin. Such sources are explicitly marked `reference_page` and `enabled:false`.
+
+**Four newly configured automatic importers:**
+- **Slovenia** — Pošta Slovenije official trilingual `Bulletin <number>` PDF listings, via existing `official_bulletins` adapter.
+- **France** — Philaposte/Le Carré d'Encre `Philinfo` PDF files, via new `official_pdf_links` adapter matching official PDF URL filenames, not plain page words.
+- **Luxembourg** — POST Philately `PhilatéLux` PDFs, same URL-based adapter.
+- **Malta** — MaltaPost's dated news-table entries for individual **Special Handstamps**, via `official_news_table` adapter. This parser keeps news-table rows isolated so a special-handstamp title cannot be copied onto an adjacent non-philatelic article. The item's publication date is not the cancellation's date of use: always consult the linked article.
+
+Other particularly important **reference-only** sources currently include Croatia's official postmark database (`pregled-zigova`), Lithuania's official stamp and cancellation plan and `Ekspresinformacija` bulletins, Correos Spain's `matasellos` database, ELTA Greece's special-issue and commemorative-cancellation pages, CTT Portugal's issue and first-day-cancellation calendar, and bpost/Bephila Philanews. They should be promoted to automatic monitoring only after a tested import path is available. **Reference only** does not mean an official postmark programme is absent.
+
+In addition to the source directory, seven individual official records were manually added to `data/items.json` and `data/items.js` as `source_reviewed` archive examples (Malta, Slovenia, France, Latvia, Greece, Spain, Lithuania). Historical 2026 records are archival examples; a "news publication" date, "stamp issue" date, and "postmark usage" date must not be conflated. The manually inserted items use the normal URL-based 20-digit SHA256 IDs so later automatic imports should deduplicate them.
+
+**Operating limits:** New importers are configured but no successful full GitHub Actions live collection was observed during this edit. They run with the next regular monitor execution, subject to access restrictions, changing site structure and the existing per-source error log in `data/state.json`. New regression tests in `tests/test_euro_sources.py` are executed by the GitHub Pages workflow. Even for enabled sources, the monitor currently detects issues and notices, **not all individual cancellations buried inside PDFs**. Individual cancellation date/place/deadline extraction requires a later separate stage and human verification.
