@@ -328,10 +328,10 @@ function renderDetails(){
  target.appendChild(el('div','caution','Research station ≠ public post office. Specific postmark availability, address permissions and mail-in conditions are not confirmed here.'));
  var weather=el('div','temp');
  weather.appendChild(el('strong','','Current temperature · model estimate'));
- var model=weatherById.get(s.id),value=el('span','temp-value',model?model.temp.toFixed(1)+' °C':weatherState[view]==='unavailable'?'Unavailable':'Loading…');
+ var model=weatherById.get(s.id),value=el('span','temp-value',model?model.temp.toFixed(1)+' °C':weatherState[view]==='unavailable'||weatherState[view]==='loaded'?'Unavailable':'Loading…');
  weather.appendChild(value);
  var subtitle=model?('Model timestamp: '+weatherTime(model.time)+' · Not an observed reading at the station'):
-  'Automatically requested from Open-Meteo; some polar sites are outside model coverage.';
+  'Open-Meteo model temperature is not available for this station (or the request is still being processed).';
  weather.appendChild(el('span','temp-sub',subtitle));
  weather.appendChild(el('div','temp-sub','Model grid and elevation may differ from the actual station, especially on high Antarctic ice.'));
  target.appendChild(weather);
@@ -339,7 +339,7 @@ function renderDetails(){
   target.appendChild(el('div','section-title','Official station webcam'));
   var cam=el('div','webcam');
   cam.appendChild(el('strong','','Webcam / latest images'));
-  cam.appendChild(el('p','','Images depend on local daylight, communications and the operator. An official webcam page is not necessarily a continuous live stream.'));
+  cam.appendChild(el('p','','Images depend on daylight and communications. Embedded views use the operator’s periodically updated still images, not guaranteed continuous live video.'));
   if(s.embedded_webcam_url){
    var iframe=el('iframe','');
    iframe.src=s.embedded_webcam_url;iframe.loading='lazy';iframe.title='Official webcam view for '+s.name;iframe.referrerPolicy='strict-origin-when-cross-origin';
@@ -368,6 +368,7 @@ document.querySelectorAll('[data-view]').forEach(function(btn){btn.addEventListe
  else if(view==='arctic')view='subantarctic';
  territory=territory===t?'':t;selected=null;refresh()
 })});
+setInterval(function(){if(S)ensureWeather(view)},15*60*1000);
 window.addEventListener('popstate',function(){var p=new URLSearchParams(location.search),v=p.get('region');if(meta[v])view=v;selected=p.get('station')||null;refresh()});
 Promise.all([
  fetch('stations.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Station HTTP '+r.status);return r.json()}),
