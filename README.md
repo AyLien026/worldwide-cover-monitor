@@ -114,11 +114,11 @@ This page is **a preview**, not a direct replacement of https://www.worldwidecov
 
 ### Contents
 
-- Interactive, dependency-free schematic polar projections for Antarctica, the Arctic and the subantarctic islands, with approximate Natural Earth country outlines.
-- 25 curated research stations in `polar/stations.json`; latitude/longitude, status, operator, official station site, and descriptions.
-- Station search, operating-pattern and national operator filters; TAAF and AAT shortcuts. A territory shortcut operates within the selected geographic region.
+- Interactive, dependency-free polar stereographic projections for Antarctica, the Arctic and the subantarctic islands, with approximate Natural Earth country outlines.
+- 58 curated research and philatelic sites in `polar/stations.json`; approximate and dated coordinates, activity, operator, official station/postal sources and documented postal-history evidence where available.
+- Site search, operating-pattern and national operator filters; a source-documented postal-information filter; TAAF and AAT shortcuts. A territory shortcut operates within the selected geographic region.
 - Official site links plus public Worldwide Covers **search links**. The presence of a link is not evidence that a cover from that station exists or that a postal service accepts private collectors' mail.
-- Optional temperature lookup from Open-Meteo, **explicitly labelled a numerical weather-model estimate, not an on-site live measurement**. Browser/network limitations can prevent readings; a station's official meteorological observations are preferable when available.
+- Automatic, batched temperature lookup from Open-Meteo, **explicitly labelled a numerical weather-model estimate, not an on-site live measurement**. Browser/network limitations can prevent readings; a station's official meteorological observations are preferable when available.
 - `polar/land.json` contains a simplified, attributed subset of Natural Earth geographic outlines sourced from `johan/world.geo.json`. These are approximations, not navigational boundaries.
 
 Update individual stations in `polar/stations.json` only. GitHub Actions deploys `polar/**` changes automatically (alongside the regular postage and bulletin site). The map requires no commercial mapping key or API token.
@@ -143,9 +143,18 @@ Keep a backup of the original Blogger HTML before replacing the maps. This is an
 
 ### Polar Atlas V2 (20 November 2026)
 
-- The public `polar/` preview now shows **55 curated station records**: 36 Antarctic, 11 Arctic and 8 subantarctic. Thirty records were added in this version. Coordinates are approximate, not a complete or automatically synced COMNAP inventory.
+- The public `polar/` preview was expanded to 55 research stations (36 Antarctic, 11 Arctic and 8 subantarctic) in Version 2. Coordinates are approximate, not a complete or automatically synced COMNAP inventory.
 - Cartography was upgraded from linear polar distance to **spherical polar stereographic projection**, with southern hemisphere Natural Earth coastlines, geographic labels and marker collision offsets. Not suitable for navigation.
 - **Automatic model temperatures:** Each region requests `current=temperature_2m` from Open-Meteo in batches of at most 12 locations. These are weather-model grid estimates, not station thermometer readings. Current values populate the list and station cards automatically, including data timestamps. Open pages refresh active-region results at approximately 15-minute intervals. No reading is displayed where model coverage is unavailable.
-- **Official webcams:** Operator webcam pages are linked for selected stations. Two (Neumayer III and Bird Island) offer experimental in-page iframe views of official still-image camera pages. These are not video streams, and cross-origin frame restrictions or outages can prevent their display. A direct operator link always remains.
+- **Official webcams:** Operator webcam pages are linked for selected stations. Neumayer III retains an experimental in-page iframe view of official still-image camera pages; Bird Island is linked externally because legacy embedded images may be stale. These are not video streams, and cross-origin frame restrictions or outages can prevent their display. A direct operator link always remains.
 - COMNAP and national polar programme source references serve as background context, not evidence a research station accepts unsolicited collector mail.
 - The existing Blogger polarphilately page is unchanged. After review, replace its old embedded maps with the GitHub `polar/` preview as documented above.
+
+### Polar Atlas V2: source-critical postal-history improvements (20 November 2026)
+
+- The catalogue now contains **58 entries**: 55 research stations and **3 separate postal-history sites** — Port Lockroy (seasonal Penguin Post Office), Grytviken (historic and functioning South Georgia postal location), and Ny-Ålesund (historic post-office building and separately documented modern postal handling).
+- The detailed site panel distinguishes documented postal operations from mere research-station existence. It separately lists available sources, postal administrations, cancellation vs. souvenir-cachet caveats, and cautions against inferring permission for unsolicited collector mail. The postal-only filter is an editorial *evidence* filter, not a claim that all other sites have no postal history.
+- Coordinate provenance is visible per site: source, date and uncertainty. Neumayer III uses a time-stamped AWI coordinate report from November 2026; Halley VI is displayed approximately at the midpoint of the BAS 12 August 2026 **map bounding box** (not an exact station point); Amundsen–Scott uses an old COMNAP station-area coordinate **near** the geographic South Pole, not an exact 90° S point.
+- Flags distinguish operators and are not a legal statement of sovereignty. Operators, postal administrations and national territorial or philatelic designations may differ.
+- The AWIPEV camera now links the **Ny-Ålesund regional webcam directory**, with a caveat that its camera is not necessarily aimed at AWIPEV. Bird Island's potentially stale inline iframe has been disabled. Current imagery and the operator's embedding policy remain matters to verify.
+- The existing Blogger page at https://www.worldwidecovers.com/p/polarphilately.html has **not** been replaced by this GitHub update. Embed the reviewed atlas via the supplied iframe **only after testing**, preserving the old Blogger page content in a backup.
