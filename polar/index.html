@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Polar Philately Atlas V2 · Worldwide Covers</title>
+<title>Polar Philately Atlas · Polar Postal History | Worldwide Covers</title>
 <meta name="description" content="Explore Arctic, Antarctic and subantarctic research stations on interactive polar maps, with official sources and links to philatelic covers.">
 <meta name="color-scheme" content="light">
 <style>
@@ -41,11 +41,11 @@ h1{font:500 clamp(28px,4vw,43px)/1.15 Georgia,"Times New Roman",serif;margin:7px
 .map-label{font-size:12px;fill:#466877;font-weight:700;paint-order:stroke;stroke:#eef7f8;stroke-width:3px;stroke-linejoin:round;pointer-events:none}
 .map-ocean{fill:#e5f2f7}
 .map-pin{stroke:#fff;stroke-width:2.8}
-.map-pin.year-round{fill:var(--teal)}.map-pin.seasonal{fill:var(--gold)}
+.map-pin.year-round{fill:var(--teal)}.map-pin.seasonal{fill:var(--gold)}.map-pin.postal-site{fill:#7c9323;stroke:#fff}
 .map-pin.active{stroke:#263e47;stroke-width:4}
 .map-note{font-size:12px;color:#6a7775;margin:2px 5px 8px;line-height:1.5}
 .legend{display:flex;gap:13px;flex-wrap:wrap;margin:0 5px 9px;font-size:12px;color:#60716f}
-.legend span{display:flex;align-items:center;gap:6px}.dot{width:11px;height:11px;border-radius:50%;display:inline-block}.dot.perm{background:var(--teal)}.dot.seasonal{background:var(--gold)}
+.legend span{display:flex;align-items:center;gap:6px}.dot{width:11px;height:11px;border-radius:50%;display:inline-block}.dot.perm{background:var(--teal)}.dot.seasonal{background:var(--gold)}.dot.postal{background:#7c9323;border-radius:2px}
 .side{display:grid;gap:14px;min-width:0}
 .panel{border:1px solid var(--line);padding:17px 18px;background:#fff}
 .panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
@@ -56,7 +56,12 @@ h1{font:500 clamp(28px,4vw,43px)/1.15 Georgia,"Times New Roman",serif;margin:7px
 .station-name{font:500 24px/1.2 Georgia,serif;margin:0 0 6px}
 .station-operator{font-size:12px;color:var(--muted)}
 .pill{font-size:10px;font-weight:800;padding:3px 8px;border-radius:3px;letter-spacing:.4px;display:inline-block;margin-top:8px}
-.pill.year-round{background:#dbeeea;color:#235967}.pill.seasonal{background:#f5ecd8;color:#8a6121}
+.pill.year-round{background:#dbeeea;color:#235967}.pill.seasonal{background:#f5ecd8;color:#8a6121}.pill.postal-site{background:#eaf0db;color:#516719}
+.postal-evidence{border:1px solid #d9e3c5;border-left:4px solid #9aaa4a;background:#f8faf2;padding:13px;margin:9px 0}
+.postal-evidence strong{display:block;font-size:13px;margin-bottom:5px}
+.postal-evidence p{font-size:12px;color:#50604f;margin:6px 0}
+.postal-evidence small{font-size:11px;color:#657164;display:block;margin-top:5px}
+.source-date{display:block;font-size:11px;color:#65726a;margin:8px 0;overflow-wrap:anywhere}
 .statnote{color:#55645e;font-size:13px;margin:12px 0 8px}
 .fact{display:grid;grid-template-columns:110px minmax(0,1fr);gap:5px;padding:6px 0;border-top:1px dotted var(--line);font-size:12px}
 .fact span:first-child{color:#74817c}
@@ -78,7 +83,7 @@ h1{font:500 clamp(28px,4vw,43px)/1.15 Georgia,"Times New Roman",serif;margin:7px
 .stationlist{max-height:385px;overflow:auto;display:grid;gap:5px}
 .stationbutton{width:100%;background:#fff;border:1px solid #edf0e9;display:flex;gap:10px;align-items:center;padding:9px 10px;text-align:left;border-radius:5px;color:var(--ink)}
 .stationbutton:hover{background:#f7faf5}.stationbutton.active{background:#f0f6e8;border-color:#a5bc6e}
-.st-name{display:block;font-size:13px;font-weight:750}.st-sub{display:block;font-size:11px;color:var(--muted)}.status-circle{width:9px;height:9px;border-radius:50%;flex:none;background:var(--teal)}.status-circle.seasonal{background:var(--gold)}
+.st-name{display:block;font-size:13px;font-weight:750}.st-sub{display:block;font-size:11px;color:var(--muted)}.status-circle{width:9px;height:9px;border-radius:50%;flex:none;background:var(--teal)}.status-circle.seasonal{background:var(--gold)}.status-circle.postal-site{background:#839c2a;border-radius:2px}
 .noresults{font-size:13px;color:var(--muted);margin:9px 0}
 .about{background:var(--cream);border:1px solid #e6e5d7;padding:14px 17px;margin-top:14px;font-size:12px;color:#5a675c}
 .about strong{font-size:13px;color:#3f4c39}.about p{margin:6px 0}
@@ -95,7 +100,7 @@ html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
 <header class="hero">
  <div class="kicker">Worldwide Covers · Polar research & postal history</div>
  <h1>Polar Philately Atlas</h1>
- <p>Explore research stations in Antarctica, the Arctic and the subantarctic islands on geographic polar maps. Compare weather-model temperatures, discover official webcams, and find research and philatelic sources.</p>
+ <p>Explore polar research stations and post offices, with documented postal operations, postmarks, cachets, historic mail routes and sources. Coordinates and weather are annotated separately.</p>
  <div class="hero-meta"><span><b class="h-metric" id="stations-total">–</b> curated stations</span><span>Official scientific sources</span><span>Weather estimates load automatically</span></div>
 </header>
 <section class="controls" aria-label="Atlas filters">
@@ -105,11 +110,11 @@ html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
   <button type="button" class="tab" data-view="subantarctic" aria-pressed="false">🌊 Subantarctic</button>
  </div>
  <div class="inputs">
-  <div class="field"><label for="search">Find a research station</label><input type="search" id="search" placeholder="Station, institute, island..." autocomplete="off"></div>
+  <div class="field"><label for="search">Find a station, post office or region</label><input type="search" id="search" placeholder="Station, postmark, place..." autocomplete="off"></div>
   <div class="field"><label for="status-filter">Station operation</label><select id="status-filter"><option value="">All operating patterns</option><option value="year-round">Year-round</option><option value="seasonal">Seasonal</option></select></div>
   <div class="field"><label for="operator-filter">Country / operator</label><select id="operator-filter"><option value="">All operators</option></select></div>
  </div>
- <div class="quick"><span>Territories:</span><button id="quick-taaf" type="button" aria-pressed="false">🇫🇷 TAAF</button><button id="quick-aat" type="button" aria-pressed="false">🇦🇺 AAT</button><span id="filter-note">Select a marker or a station from the list.</span></div>
+ <div class="quick"><span>Postal history:</span><button id="postal-only" type="button" aria-pressed="false">✉ Documented postal information</button><span>Territories:</span><button id="quick-taaf" type="button" aria-pressed="false">🇫🇷 TAAF</button><button id="quick-aat" type="button" aria-pressed="false">🇦🇺 AAT</button><span id="filter-note">Postal sites are shown with olive-green squares.</span></div>
 </section>
 <div class="workspace">
  <section class="mapcol" aria-label="Interactive polar station projection">
@@ -118,26 +123,26 @@ html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
    <title>Polar research station locations</title>
    <circle cx="280" cy="280" r="235" fill="#eaf5f9" stroke="#9ebac1" stroke-width="1.5"></circle>
   </svg>
-  <div class="legend"><span><i class="dot perm"></i> Year-round</span><span><i class="dot seasonal"></i> Seasonal</span><span>Temperatures: automatic model estimates, not station observations</span></div>
+  <div class="legend"><span><i class="dot perm"></i> Year-round research</span><span><i class="dot seasonal"></i> Seasonal research</span><span><i class="dot postal"></i> Postal / heritage site</span><span>Temperatures are model estimates, not station observations</span></div>
   <p class="map-note">Polar stereographic projection, with Natural Earth coastlines and place labels. Coordinates are approximate. Close markers are offset for selection; the map is not suitable for navigation.</p>
  </section>
  <div class="side">
   <section class="panel" aria-labelledby="detail-title">
-   <div class="panel-head"><h2 id="detail-title">Station details</h2><span class="count">Official sources</span></div>
+   <div class="panel-head"><h2 id="detail-title">Site &amp; postal history</h2><span class="count">Source-reviewed</span></div>
    <div id="details" aria-live="polite"><p class="noresults">Loading station catalogue…</p></div>
   </section>
   <section class="panel" aria-label="Station list">
-   <div class="panel-head"><h2>Explore stations</h2><span class="count" id="list-count">–</span></div>
+   <div class="panel-head"><h2>Explore places</h2><span class="count" id="list-count">–</span></div>
    <div id="station-list" class="stationlist"></div>
   </section>
  </div>
 </div>
 <section class="about">
- <strong>What makes a station philatelically interesting?</strong>
- <p>Station postmarks, expedition cachets and official mail routes can document scientific history. But a research station is not necessarily a public post office, and its official website is not an invitation to send unsolicited mail. Each entry links to the station operator and searches publicly available Worldwide Covers articles; it does not claim a cover or an authorised mail-in service exists. Temperature requests are sent directly from the visitor’s browser to Open-Meteo. Embedded webcam views may connect to the station operator’s server, where normal web-request information such as the visitor’s IP address is processed.</p>
+ <strong>Postal history is more than a station location</strong>
+ <p>An official postal cancellation invalidates postage, while an expedition or souvenir cachet normally does not. A cachet alone is not evidence of postal entry at a mapped site. Entries without source-reviewed postal details are marked not assessed; this does not prove that no polar mail exists. An institute website is not an invitation to send unsolicited mail. Temperature requests are sent directly from the visitor’s browser to Open-Meteo. Embedded webcam views may connect to the station operator’s server, where normal web-request information such as the visitor’s IP address is processed.</p>
  <p><a href="https://www.worldwidecovers.com/search/label/%2APolar-Philately" target="_blank" rel="noopener noreferrer">Browse the Polar Philately collection on Worldwide Covers</a></p>
 </section>
-<div class="footer" id="update-line">Station data is a curated 55-site selection, not a complete COMNAP census. Attribution: <a href="https://github.com/johan/world.geo.json" target="_blank" rel="noopener noreferrer">Natural Earth map outlines</a>; original station information from linked research institutions.</div>
+<div class="footer" id="update-line">Site data is a curated, non-exhaustive register of research and postal-history locations; coordinates are approximate or dated. Attribution: <a href="https://github.com/johan/world.geo.json" target="_blank" rel="noopener noreferrer">Natural Earth map outlines</a>; original station information from linked research institutions.</div>
 </main>
 <script>
 (function(){
