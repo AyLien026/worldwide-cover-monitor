@@ -7,7 +7,8 @@
       "url": "https://shop.deutschepost.de/sammeln/philatelie/philatelie-service/stempel-und-informationen",
       "category": "Sonderstempel",
       "enabled": true,
-      "priority": "hoch"
+      "priority": "hoch",
+      "country": "DE"
     },
     {
       "id": "usps-postal-bulletin",
@@ -61,7 +62,8 @@
       "category": "Sonderstempel",
       "enabled": true,
       "priority": "hoch",
-      "summary": "Offizielle PDF-Übersicht zu Sonderpostämtern und Sonderstempeln; Stempelwünsche rechtzeitig einreichen."
+      "summary": "Offizielle PDF-Übersicht zu Sonderpostämtern und Sonderstempeln; Stempelwünsche rechtzeitig einreichen.",
+      "country": "AT"
     },
     {
       "id": "austria-philatelietage",
@@ -75,7 +77,8 @@
       "category": "Philatelie",
       "enabled": true,
       "priority": "normal",
-      "summary": "Offizielle Termine für Philatelietage; Stempelangebot bei der Post überprüfen."
+      "summary": "Offizielle Termine für Philatelietage; Stempelangebot bei der Post überprüfen.",
+      "country": "AT"
     },
     {
       "id": "auspost-stamp-bulletin",
@@ -141,7 +144,8 @@
       "category": "Philatelie",
       "enabled": false,
       "priority": "normal",
-      "note": "Offizielles Jahresprogramm, aber kein eindeutig versioniertes Bulletin; noch nicht automatisch auswertbar."
+      "note": "Offizielles Jahresprogramm, aber kein eindeutig versioniertes Bulletin; noch nicht automatisch auswertbar.",
+      "country": "IE"
     },
     {
       "id": "sweden-stamp-programme",
@@ -180,6 +184,209 @@
       "enabled": false,
       "priority": "normal",
       "note": "Nur nach erfolgreicher RSS-Validierung aktivieren. Forschungsnachrichten sind keine bestätigten Stempelmöglichkeiten."
+    },
+    {
+      "id": "belgium-bephila",
+      "name": "Belgium · bpost/Bephila · Philanews",
+      "kind": "reference_page",
+      "url": "https://www.bephila.be/nl/",
+      "category": "Philatelie",
+      "enabled": false,
+      "priority": "normal",
+      "note": "bpost's Bephila collector programme and Philanews magazines include advance sales and first-day cancellations. Research reference; bulletin extraction requires separate validation.",
+      "country": "BE"
+    },
+    {
+      "id": "bulgaria-philately",
+      "name": "Bulgaria · Bulgarian Posts · Philatelic news",
+      "kind": "reference_page",
+      "url": "https://www.bgpost.bg/news/news",
+      "category": "Sonderstempel",
+      "enabled": false,
+      "note": "Official news posts include stamp-launch events and special postal handstamps; general news page needs a topic-sensitive parser.",
+      "country": "BG"
+    },
+    {
+      "id": "croatia-cancellations",
+      "name": "Croatia · Hrvatska pošta · Special cancellations",
+      "kind": "reference_page",
+      "url": "https://www.posta.hr/pregled-zigova",
+      "category": "Sonderstempel",
+      "enabled": false,
+      "priority": "hoch",
+      "note": "Dedicated official Croatian postmark catalogue (Prigodni žigovi), searchable by year; dynamic/filter-dependent structure needs a reliable importer.",
+      "country": "HR"
+    },
+    {
+      "id": "cyprus-philatelic-news",
+      "name": "Cyprus · Cyprus Post · Stamp issues & FDCs",
+      "kind": "reference_page",
+      "url": "https://www.cypruspost.post/en/news-all/1",
+      "category": "Philatelie",
+      "enabled": false,
+      "note": "Official Cyprus Post announcements document stamp programmes and first-day covers; individual posts are not always special-cancellation announcements.",
+      "country": "CY"
+    },
+    {
+      "id": "estonia-omniva-news",
+      "name": "Estonia · Omniva · Philatelic news",
+      "kind": "reference_page",
+      "url": "https://www.omniva.ee/uudised/",
+      "category": "Philatelie",
+      "enabled": false,
+      "note": "Official news stories on stamp issues, first-day covers and sometimes exceptional handstamps; philatelic selection needed.",
+      "country": "EE"
+    },
+    {
+      "id": "finland-posti-stamps",
+      "name": "Finland · Posti · Stamp issues & cancellations",
+      "kind": "reference_page",
+      "url": "https://shop.posti.fi/en/category/philatelic-items",
+      "category": "Philatelie",
+      "enabled": false,
+      "note": "Posti's official philatelic catalogue; single stamp releases and special cancellations require different handling.",
+      "country": "FI"
+    },
+    {
+      "id": "france-philinfo",
+      "name": "France · Philaposte · Philinfo",
+      "kind": "official_pdf_links",
+      "url": "https://www.lecarredencre.fr/philinfos/",
+      "url_pattern": "(?:\\d{2}-\\d{2}-)?Philinfo[^/?]*\\.pdf(?:$|\\?)",
+      "max_entries": 4,
+      "category": "Sonderstempel",
+      "enabled": true,
+      "priority": "hoch",
+      "summary": "Official Philinfo magazine with first-day cancellations, temporary postal offices and postal administration information; read the PDF for dates and conditions.",
+      "note": "Automatic detection targets Philinfo PDF filenames only; it does NOT extract individual special-handstamp events. PDF link availability and site HTML may change.",
+      "country": "FR"
+    },
+    {
+      "id": "greece-special-cancellations",
+      "name": "Greece · ELTA · Special cancellations",
+      "kind": "reference_page",
+      "url": "https://philotelismos.gr/eidikes-ekdoseis/eidikes-ekdoseis-2026",
+      "category": "Sonderstempel",
+      "enabled": false,
+      "priority": "hoch",
+      "note": "Official ELTA philatelic portal includes individual commemorative handstamps and mail-in request periods; year-specific listing will need updating for 2027.",
+      "country": "GR"
+    },
+    {
+      "id": "italy-poste-filatelia",
+      "name": "Italy · Poste Italiane · Filatelia",
+      "kind": "reference_page",
+      "url": "https://filatelia.poste.it/",
+      "category": "Philatelie",
+      "enabled": false,
+      "note": "Official Poste Italiane philatelic store and news mention annulli speciali; a complete and reliably current dedicated cancellation feed was not verified.",
+      "country": "IT"
+    },
+    {
+      "id": "latvia-philatelic-news",
+      "name": "Latvia · Latvijas Pasts · Philatelic news",
+      "kind": "reference_page",
+      "url": "https://pasts.lv/jaunumi/filatelija",
+      "category": "Sonderstempel",
+      "enabled": false,
+      "note": "Official announcements frequently contain first-day handstamp date and location; structured per-article parsing not yet tested.",
+      "country": "LV"
+    },
+    {
+      "id": "lithuania-cancellation-plan",
+      "name": "Lithuania · Lietuvos paštas · Cancellation & stamp plan",
+      "kind": "reference_page",
+      "url": "https://www.post.lt/lt/pasto-zenklu-leidybos-ir-antspaudavimu-planai",
+      "category": "Sonderstempel",
+      "enabled": false,
+      "priority": "hoch",
+      "note": "Official planned stamp issues and cancellation schedule; supplement with Ekspresinformacija PDF bulletins. No importer yet.",
+      "country": "LT"
+    },
+    {
+      "id": "luxembourg-philatelux",
+      "name": "Luxembourg · POST Philately · PhilatéLux",
+      "kind": "official_pdf_links",
+      "url": "https://www.postphilately.lu/en-US/Page/Philatelux",
+      "url_pattern": "Philatelux[_-]20\\d{2}[_-]\\d{2}[^/?]*\\.pdf(?:$|\\?)",
+      "max_entries": 4,
+      "category": "Philatelie",
+      "enabled": true,
+      "priority": "normal",
+      "summary": "Official PhilatéLux collector magazine with issues and special cancellation information; open each PDF for exact dates and postmark conditions.",
+      "note": "Automatic PDF-link detection only, not a complete special-cancellation or eligibility parser. This English magazine can have variant filenames.",
+      "country": "LU"
+    },
+    {
+      "id": "malta-special-handstamps",
+      "name": "Malta · MaltaPost · Special handstamps",
+      "kind": "official_news_table",
+      "url": "https://www.maltapost.com/news?l=1",
+      "row_pattern": "(?:Special\\s+Hand\\s*stamp|Special\\s+Hand\\s*Stamp)",
+      "min_year": 2026,
+      "max_entries": 8,
+      "category": "Sonderstempel",
+      "enabled": true,
+      "priority": "hoch",
+      "summary": "Official MaltaPost special-handstamp announcement. Verify the cancellation-use date, location and philatelic order procedure in the linked original article.",
+      "note": "New-item detection is from the dated official news table; page publication date is NOT necessarily the special-handstamp usage date.",
+      "country": "MT"
+    },
+    {
+      "id": "netherlands-first-day",
+      "name": "Netherlands · PostNL · First-day covers",
+      "kind": "reference_page",
+      "url": "https://shop.postnl.nl/webshop/collect-club/eerstedagenveloppen",
+      "category": "Philatelie",
+      "enabled": false,
+      "note": "Official PostNL first-day-cover catalogue; not a comprehensive source for independent commemorative handstamps.",
+      "country": "NL"
+    },
+    {
+      "id": "portugal-issue-plan",
+      "name": "Portugal · CTT · Philatelic issue plan",
+      "kind": "reference_page",
+      "url": "https://www.ctt.pt/particulares/filatelia/plano-emissoes/",
+      "category": "Philatelie",
+      "enabled": false,
+      "note": "Official stamp issue plan identifies some first-day cancellation offices; the monthly release page is a supplemental reference.",
+      "country": "PT"
+    },
+    {
+      "id": "slovakia-pofis",
+      "name": "Slovakia · Slovenská pošta · POFIS",
+      "kind": "reference_page",
+      "url": "https://www.posta.sk/filatelia-pofis",
+      "category": "Philatelie",
+      "enabled": false,
+      "note": "Official POFIS philatelic programme includes first-day covers and special postmarks; individual issue-page parsing not yet validated.",
+      "country": "SK"
+    },
+    {
+      "id": "slovenia-bulletins",
+      "name": "Slovenia · Pošta Slovenije · Philatelic Bulletin",
+      "kind": "official_bulletins",
+      "url": "https://en.posta.si/home/stamps/bulletins",
+      "title_pattern": "Bulletin\\s+\\d{2,3}",
+      "pdf_only": true,
+      "max_entries": 3,
+      "category": "Philatelie",
+      "enabled": true,
+      "priority": "normal",
+      "summary": "Official tri-lingual philatelic Bulletin. Contains current stamp issues and postmark illustrations; no individual cancellation extraction.",
+      "note": "Official 5x/year issue archive; detection by PDF bulletin number and link. Individual postmarks are not parsed.",
+      "country": "SI"
+    },
+    {
+      "id": "spain-matasellos",
+      "name": "Spain · Correos · Official postmark catalogue",
+      "kind": "reference_page",
+      "url": "https://www.correos.es/es/es/particulares/filatelia/productos-filatelicos/matasellos",
+      "category": "Sonderstempel",
+      "enabled": false,
+      "priority": "hoch",
+      "note": "Official Correos distinguishes commemorative, special, operative, presentation and first-day cancellations; dynamic catalogue requires its own importer.",
+      "country": "ES"
     }
   ],
   "filters": {
@@ -234,5 +441,10 @@
       "stamp bulletin",
       "ross dependency"
     ]
+  },
+  "eurozone_research": {
+    "updated": "2026-11-20",
+    "scope": "21 EU euro-area members in postage/rates.json; overseas territories and non-euro-area EUR users are intentionally outside this 21-country inventory",
+    "membership_source": "https://www.ecb.europa.eu/euro/intro/html/index.en.html"
   }
 }
