@@ -140,3 +140,12 @@ Create or edit the Blogger page in its HTML editor and insert the iframe below i
 Because the blog and GitHub Pages are separate origins, an iframe cannot automatically resize itself without a paired parent-page script. On phones, a taller iframe may be necessary; the direct standalone Atlas page is responsive.
 
 Keep a backup of the original Blogger HTML before replacing the maps. This is an initial selective catalogue, not a complete worldwide COMNAP inventory. Status, climate observations, postmark eligibility and mail facilities require periodic source verification.
+
+### Polar Atlas V2 (20 November 2026)
+
+- The public `polar/` preview now shows **55 curated station records**: 36 Antarctic, 11 Arctic and 8 subantarctic. Thirty records were added in this version. Coordinates are approximate, not a complete or automatically synced COMNAP inventory.
+- Cartography was upgraded from linear polar distance to **spherical polar stereographic projection**, with southern hemisphere Natural Earth coastlines, geographic labels and marker collision offsets. Not suitable for navigation.
+- **Automatic model temperatures:** Each region requests `current=temperature_2m` from Open-Meteo in batches of at most 12 locations. These are weather-model grid estimates, not station thermometer readings. Current values populate the list and station cards automatically, including data timestamps. Open pages refresh active-region results at approximately 15-minute intervals. No reading is displayed where model coverage is unavailable.
+- **Official webcams:** Operator webcam pages are linked for selected stations. Two (Neumayer III and Bird Island) offer experimental in-page iframe views of official still-image camera pages. These are not video streams, and cross-origin frame restrictions or outages can prevent their display. A direct operator link always remains.
+- COMNAP and national polar programme source references serve as background context, not evidence a research station accepts unsolicited collector mail.
+- The existing Blogger polarphilately page is unchanged. After review, replace its old embedded maps with the GitHub `polar/` preview as documented above.
