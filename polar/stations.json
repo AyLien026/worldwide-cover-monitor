@@ -17,9 +17,11 @@
       "info": "Germany’s year-round Antarctic research station on the Ekström Ice Shelf.",
       "url": "https://www.awi.de/en/fleet-stations/stations/neumayer-station-iii.html",
       "search": "Neumayer",
-      "webcam": "https://www.awi.de/en/fleet-stations/stations/neumayer-station-iii.html",
+      "webcam": "https://www.awi.de/NM_WebCam/pictoflastW.html",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "embedded_webcam_url": "https://www.awi.de/NM_WebCam/pictoflastW.html",
+      "webcam_kind": "time-lapse/still image series, not streaming video"
     },
     {
       "id": "rothera",
@@ -418,7 +420,9 @@
       "search": "Bird Island",
       "webcam": "https://www.bas.ac.uk/data/our-data/images/webcams/bird-island-webcam/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "embedded_webcam_url": "https://legacy.bas.ac.uk/images/webcams/bi/index.php",
+      "webcam_kind": "periodic still-image refresh, not streaming video"
     },
     {
       "id": "esperanza",
