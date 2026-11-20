@@ -149,7 +149,7 @@ html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
 'use strict';
 var $=function(id){return document.getElementById(id)};
 var weatherById=new Map(),weatherState={},weatherLoading=new Set(),weatherChecked={},weatherTTL=15*60*1000;
-var S=null,L=null,view='antarctic',selected=null,territory='',filtered=[],initializing=true;
+var S=null,L=null,view='antarctic',selected=null,territory='',postalOnly=false,filtered=[],initializing=true;
 var meta={antarctic:{title:'Antarctica',pole:-1,min:56,rings:[60,70,80]},arctic:{title:'Arctic',pole:1,min:61,rings:[65,70,80]},subantarctic:{title:'Subantarctic islands',pole:-1,min:32,rings:[40,50,60,70]}};
 var NS='http://www.w3.org/2000/svg';
 function el(tag,className,text){var n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n}
@@ -232,7 +232,7 @@ function renderMap(){
   if(offset[0]||offset[1])markers.appendChild(svg('line',{x1:base[0],y1:base[1],x2:x,y2:y,stroke:'#7595a0','stroke-dasharray':'3 3','stroke-width':'1.5'}));
   var selectedPin=s.id===selected,group=svg('g',{role:'button',tabindex:'0','aria-label':s.name+'; '+s.status.replace('-',' '),'aria-pressed':String(selectedPin)});
   if(selectedPin)group.appendChild(svg('circle',{cx:x,cy:y,r:14,fill:'none',stroke:'#506b24','stroke-width':3}));
-  var pin=svg('circle',{cx:x,cy:y,r:selectedPin?8.5:7,class:'map-pin '+s.status+(selectedPin?' active':'')});
+  var pin=s.kind==='postal-site' ? svg('rect',{x:x-(selectedPin?8:7),y:y-(selectedPin?8:7),width:selectedPin?16:14,height:selectedPin?16:14,rx:2,class:'map-pin postal-site'+(selectedPin?' active':'')}) : svg('circle',{cx:x,cy:y,r:selectedPin?8.5:7,class:'map-pin '+s.status+(selectedPin?' active':'')});
   var title=svg('title',{});title.textContent=s.name+' – '+s.area;pin.appendChild(title);group.appendChild(pin);
   group.addEventListener('click',function(){choose(s.id,true)});
   group.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(s.id,true)}});
@@ -248,9 +248,10 @@ function searchData(){
  return S.stations.filter(function(s){
   if(s.region!==view)return false;
   if(territory&&s.territory!==territory)return false;
+  if(postalOnly&&(!s.postal||s.postal.level==='not-assessed'))return false;
   if(status&&s.status!==status)return false;
   if(op&&s.flag!==op)return false;
-  return !q||norm([s.name,s.operator,s.area,s.info,s.territory||''].join(' ')).includes(q)
+  return !q||norm([s.name,s.operator,s.area,s.info,s.territory||'',s.postal&&s.postal.description||'',(s.alternate_names||[]).join(' ')].join(' ')).includes(q)
  })
 }
 function writeUrl(){
@@ -265,6 +266,7 @@ function refresh(){
  if(!filtered.some(function(s){return s.id===selected}))selected=filtered[0]?filtered[0].id:null;
  document.querySelectorAll('[data-view]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.view===view))});
  ['TAAF','AAT'].forEach(function(t){$('quick-'+t.toLowerCase()).setAttribute('aria-pressed',String(territory===t))});
+ $('postal-only').setAttribute('aria-pressed',String(postalOnly));
  renderMap();renderList();renderDetails();ensureWeather(view);if(!initializing)writeUrl()
 }
 function weatherText(id){
@@ -297,12 +299,12 @@ function ensureWeather(region){
 }
 
 function renderList(){
- var list=$('station-list');list.replaceChildren();$('list-count').textContent=filtered.length+' stations';
+ var list=$('station-list');list.replaceChildren();$('list-count').textContent=filtered.length+' places';
  if(!filtered.length){list.appendChild(el('p','noresults','No stations match these filters.'));return}
  filtered.forEach(function(s){
   var b=el('button','stationbutton'+(s.id===selected?' active':''));b.type='button';b.setAttribute('aria-pressed',String(s.id===selected));
-  b.appendChild(el('span','status-circle '+s.status));
-  var content=el('span','');content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+(s.status==='year-round'?'Year-round':'Seasonal')));
+  b.appendChild(el('span','status-circle '+(s.kind==='postal-site'?'postal-site':s.status)));
+  var content=el('span','');content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+(s.kind==='postal-site'?'Postal / heritage location':(s.status==='year-round'?'Year-round':'Seasonal'))));
   b.appendChild(content);
   var temperature=el('span','list-temp',weatherText(s.id));temperature.title='Automatic weather model estimate (not an observed station thermometer)';b.appendChild(temperature);
   b.addEventListener('click',function(){choose(s.id,true)});
@@ -368,6 +370,7 @@ function init(){
 }
 document.querySelectorAll('[data-view]').forEach(function(btn){btn.addEventListener('click',function(){setView(btn.dataset.view,true)})});
 ['search','status-filter','operator-filter'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',refresh)});
+$('postal-only').addEventListener('click',function(){postalOnly=!postalOnly;selected=null;refresh()});
 ['TAAF','AAT'].forEach(function(t){$('quick-'+t.toLowerCase()).addEventListener('click',function(){
  if(t==='AAT')view='antarctic';
  else if(view==='arctic')view='subantarctic';
