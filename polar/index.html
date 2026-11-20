@@ -153,7 +153,8 @@ html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
 'use strict';
 var $=function(id){return document.getElementById(id)};
 var weatherById=new Map(),weatherState={},weatherLoading=new Set(),weatherChecked={},weatherTTL=15*60*1000;
-var S=null,L=null,view='antarctic',selected=null,territory='',postalOnly=false,filtered=[],initializing=true;
+var S=null,L=null,view='antarctic',selected=null,territory='',postalOnly=false,filtered=[],initializing=true,listLimit=12;
+function pageSize(){return window.innerWidth<=620?6:12}
 var meta={antarctic:{title:'Antarctica',pole:-1,min:56,rings:[60,70,80]},arctic:{title:'Arctic',pole:1,min:61,rings:[65,70,80]},subantarctic:{title:'Subantarctic islands',pole:-1,min:32,rings:[40,50,60,70]}};
 var NS='http://www.w3.org/2000/svg';
 function el(tag,className,text){var n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n}
@@ -264,7 +265,7 @@ function writeUrl(){
  history.replaceState(null,'',u.pathname+u.search+u.hash)
 }
 function choose(id,write){selected=id;renderMap();renderList();renderDetails();if(write)writeUrl()}
-function setView(v,reset){if(!meta[v])return;view=v;if(reset){selected=null;territory='';$('search').value='';$('status-filter').value='';$('operator-filter').value=''}refresh()};
+function setView(v,reset){if(!meta[v])return;view=v;listLimit=pageSize();if(reset){selected=null;territory='';$('search').value='';$('status-filter').value='';$('operator-filter').value=''}refresh()};
 function refresh(){
  if(!S)return;filtered=searchData();
  if(!filtered.some(function(s){return s.id===selected}))selected=filtered[0]?filtered[0].id:null;
@@ -303,17 +304,32 @@ function ensureWeather(region){
 }
 
 function renderList(){
- var list=$('station-list');list.replaceChildren();$('list-count').textContent=filtered.length+' places';
- if(!filtered.length){list.appendChild(el('p','noresults','No stations match these filters.'));return}
- filtered.forEach(function(s){
+ var list=$('station-list'),actions=$('list-actions');list.replaceChildren();actions.replaceChildren();
+ var count=Math.min(filtered.length,listLimit);
+ $('list-count').textContent=count+' of '+filtered.length+' places';
+ if(!filtered.length){list.appendChild(el('p','noresults','No places match these filters.'));return}
+ var chosen=filtered.find(function(s){return s.id===selected});
+ var records=filtered.slice(0,count);
+ var pinned=!!chosen&&!records.some(function(s){return s.id===selected});
+ if(pinned)records=[chosen].concat(records.slice(0,count-1));
+ records.forEach(function(s){
   var b=el('button','stationbutton'+(s.id===selected?' active':''));b.type='button';b.setAttribute('aria-pressed',String(s.id===selected));
   b.appendChild(el('span','status-circle '+(s.kind==='postal-site'?'postal-site':s.status)));
-  var content=el('span','');content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+(s.kind==='postal-site'?'Postal / heritage location':(s.status==='year-round'?'Year-round':'Seasonal'))));
+  var content=el('span','');
+  content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+(s.kind==='postal-site'?'Postal / heritage location':(s.status==='year-round'?'Year-round':'Seasonal'))));
   b.appendChild(content);
-  var temperature=el('span','list-temp',weatherText(s.id));temperature.title='Automatic weather model estimate (not an observed station thermometer)';b.appendChild(temperature);
+  var temperature=el('span','list-temp',weatherText(s.id));temperature.title='Automatic weather model estimate (not an observed station thermometer)';
+  b.appendChild(temperature);
   b.addEventListener('click',function(){choose(s.id,true)});
   list.appendChild(b)
- })
+ });
+ if(count<filtered.length){
+  var more=el('button','','Show '+Math.min(pageSize(),filtered.length-count)+' more places');
+  more.type='button';
+  more.addEventListener('click',function(){listLimit=Math.min(filtered.length,listLimit+pageSize());renderList()});
+  actions.appendChild(more);
+  actions.appendChild(el('small','',count+' of '+filtered.length+' shown'+(pinned?' · selected location pinned first':'')))
+ }
 }
 function fact(parent,k,v){var r=el('div','fact');r.append(el('span','',k),el('span','',v));parent.appendChild(r)}
 function renderDetails(){
@@ -390,16 +406,16 @@ function init(){
  var params=new URLSearchParams(location.search),v=params.get('region'),id=params.get('station');
  if(v&&meta[v])view=v;else if(id){var found=S.stations.find(function(s){return s.id===id});if(found)view=found.region}
  if(id&&S.stations.some(function(s){return s.id===id&&s.region===view}))selected=id;
- initializing=false;refresh();
+ listLimit=pageSize();initializing=false;refresh();
  $('update-line').appendChild(txt(' · Catalogue updated '+S.updated));
 }
 document.querySelectorAll('[data-view]').forEach(function(btn){btn.addEventListener('click',function(){setView(btn.dataset.view,true)})});
-['search','status-filter','operator-filter'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',refresh)});
-$('postal-only').addEventListener('click',function(){postalOnly=!postalOnly;selected=null;refresh()});
+['search','status-filter','operator-filter'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',function(){listLimit=pageSize();refresh()})});
+$('postal-only').addEventListener('click',function(){postalOnly=!postalOnly;selected=null;listLimit=pageSize();refresh()});
 ['TAAF','AAT'].forEach(function(t){$('quick-'+t.toLowerCase()).addEventListener('click',function(){
  if(t==='AAT')view='antarctic';
  else if(view==='arctic')view='subantarctic';
- territory=territory===t?'':t;selected=null;refresh()
+ territory=territory===t?'':t;selected=null;listLimit=pageSize();refresh()
 })});
 setInterval(function(){if(S)ensureWeather(view)},15*60*1000);
 window.addEventListener('popstate',function(){var p=new URLSearchParams(location.search),v=p.get('region');if(meta[v])view=v;selected=p.get('station')||null;refresh()});
