@@ -48,16 +48,16 @@
 <main class="container">
   <div class="stats">
     <div class="stat"><strong id="countAll">0</strong><span>Collected updates</span></div>
-    <div class="stat"><strong id="countSaved">0</strong><span>Bookmarked</span></div>
+    <div class="stat"><strong id="countSaved">0</strong><span>Saved for later</span></div>
     <div class="stat"><strong id="countSources">0</strong><span>Sources in archive</span></div>
   </div>
   <div class="toolbar">
     <input type="search" id="q" placeholder="Search postmarks, post offices, places, stations..." aria-label="Search updates">
     <select id="country" aria-label="Select country or postal territory"><option value="">All countries</option></select>
     <select id="category" aria-label="Select category"><option value="">All categories</option></select>
-    <select id="view" aria-label="Select view"><option value="all">All updates</option><option value="saved">Bookmarked only</option><option value="unread">Unread only</option></select>
+    <select id="view" aria-label="Select view"><option value="all">All updates</option><option value="saved">Saved for later</option></select>
   </div>
-  <p class="help" id="status">Updates are loaded from the monitor archive. Bookmarks and read markers are stored only in this browser.</p>
+  <p class="help" id="status">Updates are loaded from the monitor archive. Your saved items are private to this browser and are not synchronized across devices.</p>
   <section id="results" class="list" aria-live="polite"></section>
   <section class="sources"><h2>Sources and bulletins</h2><p class="help">Official postal administrations, specialist news feeds and additional reference sources. Only sources with a configured parser are monitored automatically. “Reference” means no automated importer is available yet.</p><div class="source-grid" id="sourceList"></div></section>
   <div class="info"><strong>Important:</strong> An automatically detected announcement does not confirm that a postmark or mail-in service is available. Always check dates, addresses and submission deadlines with the original source. Do not publish personal addresses or access credentials in this public archive.</div>
@@ -150,10 +150,10 @@
 
   function update(){
     var val=$('q').value.toLocaleLowerCase('en').trim(),cat=$('category').value,mode=$('view').value,country=$('country').value;
-    var filtered=items.filter(function(i){var x=db[i.id]||{};return(!country||countryFor(i)===country)&&(!cat||i.category===cat)&&(!val||[i.title,titleLabel(i.title),i.summary,summaryLabel(i),i.source,sourceLabel(i),i.category,categoryLabel(i.category)].join(' ').toLocaleLowerCase('en').includes(val))&&(mode==='all'||mode==='saved'&&x.saved||mode==='unread'&&!x.read)});
+    var filtered=items.filter(function(i){var x=db[i.id]||{};return(!country||countryFor(i)===country)&&(!cat||i.category===cat)&&(!val||[i.title,titleLabel(i.title),i.summary,summaryLabel(i),i.source,sourceLabel(i),i.category,categoryLabel(i.category)].join(' ').toLocaleLowerCase('en').includes(val))&&(mode==='all'||mode==='saved'&&x.saved)});
     $('countAll').textContent=items.length;$('countSources').textContent=new Set(items.map(function(i){return i.source_id||i.source})).size;
     $('countSaved').textContent=items.filter(function(i){return db[i.id]&&db[i.id].saved}).length;
-    $('status').textContent=filtered.length+' results · Bookmarks and read markers are stored in this browser only.';
+    $('status').textContent=filtered.length+' results · Saved items remain in this browser only (not shared or synchronized).';
     var out=$('results');out.replaceChildren();
     Array.prototype.forEach.call($('sourceList').children,function(node){node.hidden=!!country&&node.getAttribute('data-country')!==country});
     if(!items.length){var msg=e('div','empty');msg.append(e('strong','', 'No monitored updates have been stored yet.'),e('p','', 'Updates will appear after the first successful monitoring run. Run monitor.py or start the GitHub Actions workflow.'));out.append(msg);return}
@@ -163,8 +163,17 @@
       meta.append(tag,e('span','',sourceLabel(i)));if(i.published)meta.append(e('span','', '· '+date(i.published)));
       card.append(meta,e('h2','',titleLabel(i.title)),e('p','',summaryLabel(i)));
       var controls=e('div','controls'),link=e('a','', 'View original source');link.href=i.url;link.target='_blank';link.rel='noopener noreferrer';controls.append(link);
-      function action(caption,key){var b=e('button','',caption);b.type='button';b.setAttribute('aria-pressed',String(!!status[key]));b.addEventListener('click',function(){status[key]=!status[key];db[i.id]=status;save();update()});return b}
-      controls.append(action(status.saved?'★ Bookmarked':'☆ Bookmark','saved'),action(status.read?'✓ Read':'Mark as read','read'));
+      var saveButton=e('button','',status.saved?'★ Saved · remove':'☆ Save for later');
+      saveButton.type='button';
+      saveButton.setAttribute('aria-pressed',String(!!status.saved));
+      saveButton.setAttribute('aria-label',status.saved?'Remove this item from saved for later':'Save this item for later');
+      saveButton.addEventListener('click',function(){
+        status.saved=!status.saved;
+        db[i.id]=status;
+        save();
+        update();
+      });
+      controls.append(saveButton);
       card.append(controls);out.append(card)
     })
   }
