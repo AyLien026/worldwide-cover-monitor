@@ -158,3 +158,10 @@ Keep a backup of the original Blogger HTML before replacing the maps. This is an
 - Flags distinguish operators and are not a legal statement of sovereignty. Operators, postal administrations and national territorial or philatelic designations may differ.
 - The AWIPEV camera now links the **Ny-Ålesund regional webcam directory**, with a caveat that its camera is not necessarily aimed at AWIPEV. Bird Island's potentially stale inline iframe has been disabled. Current imagery and the operator's embedding policy remain matters to verify.
 - The existing Blogger page at https://www.worldwidecovers.com/p/polarphilately.html has **not** been replaced by this GitHub update. Embed the reviewed atlas via the supplied iframe **only after testing**, preserving the old Blogger page content in a backup.
+
+### Blogger-width layout revision (20 November 2026)
+
+- The station map and postal-history detail panel appear **side by side in a narrow Blogger embed** (where the inner iframe viewport is over 620 CSS pixels); the research/postal site list spans the full available width below them. On narrow phones the page stacks vertically.
+- The list has **no separate inner scrollbar**. It shows 12 entries initially at medium/desktop sizes and 6 at phone sizes, with a **Show more** control for incremental expansion. When a map selection is not among the first results, that selected item is temporarily pinned to the visible list while the item count remains bounded.
+- Postal evidence is placed before a collapsible **Location, coordinates & official sources** section. The recorded location evidence is preserved, but no longer pushes postal information below the fold.
+- Existing Blogger layout and theme (including its sidebar) were not changed. The iframe uses the width made available by Blogger. A fixed-height iframe can still produce inner scrolling on exceptionally long expanded lists or on narrow phones; reducing the separate list scrollbar does not automatically resize the parent iframe.
