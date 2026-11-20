@@ -1,14 +1,14 @@
 {
   "title": "Worldwide Covers Polar Philately Atlas",
   "updated": "2026-11-20",
-  "scope": "Curated 55-station atlas (coordinates approximate, not a complete COMNAP inventory; station operation labels are programme-level and may change seasonally).",
+  "scope": "Curated atlas of research stations and philatelically relevant postal sites; verify marked coordinates and philatelic status independently. Site names and flags indicate operators, not territorial sovereignty.",
   "stations": [
     {
       "id": "neumayer-iii",
       "name": "Neumayer Station III",
       "region": "antarctic",
-      "lat": -70.65,
-      "lon": -8.28,
+      "lat": -70.656,
+      "lon": -8.28628,
       "operator": "Germany · Alfred Wegener Institute",
       "flag": "🇩🇪",
       "status": "year-round",
@@ -21,7 +21,17 @@
       "webcam_type": "official-page",
       "webcam_review": "2026-11-20",
       "embedded_webcam_url": "https://www.awi.de/NM_WebCam/pictoflastW.html",
-      "webcam_kind": "time-lapse/still image series, not streaming video"
+      "webcam_kind": "time-lapse/still image series, not streaming video",
+      "coordinate_source": "https://www.awi.de/NM_WebCam/pictoflastW.html",
+      "coordinate_reference_date": "2026-11-18",
+      "coordinate_precision": "AWI webcam station-position report, recorded 70°39′21.6″ S / 8°17′10.6″ W; moving Ekström Ice Shelf",
+      "location_note": "This station drifts with shelf ice. Coordinates are a dated snapshot, not a fixed ground point.",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Postal operations not assessed",
+        "description": "A research station is not automatically a public postal facility. Distinguish expedition or station cachets from a postal cancellation; no mail-in or postmark service is verified here."
+      },
+      "kind": "research-station"
     },
     {
       "id": "rothera",
@@ -39,14 +49,27 @@
       "search": "Rothera",
       "webcam": "https://www.bas.ac.uk/data/our-data/images/webcams/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "postal": {
+        "level": "post-office",
+        "title": "Staff post office · confirmed",
+        "description": "British Antarctic Survey describes a post office at Rothera for its staff, with mail distribution and onward Antarctic logistics. Public unsolicited postal submissions are NOT assumed.",
+        "postal_system": "British Antarctic Territory",
+        "source_url": "https://www.bas.ac.uk/news/special-delivery-for-antarctica/",
+        "marks": "Cover date, postmark and actual transport route should be examined separately.",
+        "access": "Residents/staff postal service; not presented as a public walk-in post office."
+      },
+      "kind": "research-station",
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "halley",
       "name": "Halley VI Research Station",
       "region": "antarctic",
-      "lat": -75.58,
-      "lon": -25.5,
+      "lat": -75.558225,
+      "lon": -25.775112,
       "operator": "United Kingdom · British Antarctic Survey",
       "flag": "🇬🇧",
       "status": "seasonal",
@@ -57,7 +80,17 @@
       "search": "Halley",
       "webcam": "https://www.bas.ac.uk/data/our-data/images/webcams/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "coordinate_source": "https://data.bas.ac.uk/items/dfce9b7a-af3e-4573-a390-7a2a1271dd67/",
+      "coordinate_reference_date": "2026-08-12",
+      "coordinate_precision": "Centre of BAS 2026 site-map bounding box (-75.5743788…-75.5420716 S; -25.8547044…-25.6955195 W); NOT actual station GNSS position",
+      "location_note": "Indicative location ONLY. Moving Brunt Ice Shelf and periodic relocations; the marker represents the centre of the published August 2026 site-map extent, not the station's precise coordinates.",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      }
     },
     {
       "id": "signy",
@@ -72,7 +105,16 @@
       "territory": null,
       "info": "Seasonal research station with a long history of ecological fieldwork.",
       "url": "https://www.bas.ac.uk/polar-operations/sites-and-facilities/facility/signy/",
-      "search": "Signy"
+      "search": "Signy",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "mcmurdo",
@@ -90,14 +132,27 @@
       "search": "McMurdo",
       "webcam": "https://www.usap.gov/videoclipsandmaps/mcmwebcam.cfm",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "postal": {
+        "level": "documented-postal-activity",
+        "title": "U.S. Antarctic mail logistics · documented",
+        "description": "The U.S. Antarctic Program provides mail procedures for station participants and APO routing for these sites. Restrictions differ seasonally and by station. Philatelic return or special cancels should not be promised without an operator statement.",
+        "postal_system": "United States / APO routing",
+        "source_url": "https://www.usap.gov/usapgov/travelAndDeployment/documents/USAP-Participant-Guide-2024.pdf",
+        "marks": "APO cancellation, station cachet and transport annotations have separate evidentiary meanings.",
+        "access": "Not a blanket offer to obtain cancellations by post; check current USAP policy."
+      },
+      "kind": "research-station",
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "south-pole",
       "name": "Amundsen–Scott South Pole Station",
       "region": "antarctic",
-      "lat": -90,
-      "lon": 0,
+      "lat": -89.983333,
+      "lon": 142.266667,
       "operator": "United States · U.S. Antarctic Program",
       "flag": "🇺🇸",
       "status": "year-round",
@@ -108,7 +163,21 @@
       "search": "South Pole",
       "webcam": "https://www.usap.gov/videoclipsandmaps/spwebcam.cfm",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "coordinate_source": "https://github.com/PolarGeospatialCenter/comnap-antarctic-facilities/blob/master/dist/csv/COMNAP_Antarctic_Facilities_Master.csv",
+      "coordinate_reference_date": "2023-08-30",
+      "coordinate_precision": "Historic COMNAP site point; approximately 1.85 km from geographic South Pole; drifting ice affects position",
+      "location_note": "The station is near, NOT identical with, the geographic South Pole (90°S, where longitude is undefined). Its location shifts over time with the ice sheet.",
+      "postal": {
+        "level": "documented-postal-activity",
+        "title": "U.S. Antarctic mail logistics · documented",
+        "description": "The U.S. Antarctic Program provides mail procedures for station participants and APO routing for these sites. Restrictions differ seasonally and by station. Philatelic return or special cancels should not be promised without an operator statement.",
+        "postal_system": "United States / APO routing",
+        "source_url": "https://www.usap.gov/usapgov/travelAndDeployment/documents/USAP-Participant-Guide-2024.pdf",
+        "marks": "APO cancellation, station cachet and transport annotations have separate evidentiary meanings.",
+        "access": "Not a blanket offer to obtain cancellations by post; check current USAP policy."
+      },
+      "kind": "research-station"
     },
     {
       "id": "palmer",
@@ -126,7 +195,16 @@
       "search": "Palmer Station",
       "webcam": "https://www.usap.gov/videoclipsandmaps/palwebcam.cfm",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "scott-base",
@@ -144,7 +222,16 @@
       "search": "Scott Base",
       "webcam": "https://www.antarcticanz.govt.nz/scott-base/webcams-weather",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "casey",
@@ -162,7 +249,16 @@
       "search": "Casey Station",
       "webcam": "https://www.antarctica.gov.au/antarctic-operations/webcams/casey/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "davis",
@@ -180,7 +276,16 @@
       "search": "Davis Antarctica",
       "webcam": "https://www.antarctica.gov.au/antarctic-operations/webcams/davis/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "mawson",
@@ -198,7 +303,16 @@
       "search": "Mawson Station",
       "webcam": "https://www.antarctica.gov.au/antarctic-operations/webcams/mawson/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "dumont",
@@ -213,7 +327,20 @@
       "territory": "TAAF",
       "info": "French Antarctic research base in Adélie Land.",
       "url": "https://institut-polaire.fr/en/",
-      "search": "Dumont d’Urville"
+      "search": "Dumont d’Urville",
+      "postal": {
+        "level": "documented-postal-activity",
+        "title": "TAAF postal management · documented",
+        "description": "TAAF confirms postal officers on its districts and official outgoing postal cancellations; expedition and overwintering cachets are separate non-postal markings.",
+        "postal_system": "French Southern and Antarctic Lands (TAAF)",
+        "source_url": "https://taaf.fr/espace-philatelie/",
+        "marks": "Postal dated cancellation and expedition souvenir cachet are distinct; neither proves all details of mail carriage.",
+        "access": "Use TAAF's official current postal dispatch schedule; no unsolicited correspondence permission is implied."
+      },
+      "kind": "research-station",
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "concordia",
@@ -228,7 +355,16 @@
       "territory": null,
       "info": "A high-altitude inland research station jointly operated by French and Italian Antarctic programmes.",
       "url": "https://institut-polaire.fr/en/",
-      "search": "Concordia Antarctica"
+      "search": "Concordia Antarctica",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "showa",
@@ -243,7 +379,20 @@
       "territory": null,
       "info": "Japan’s long-running Antarctic scientific station.",
       "url": "https://www.nipr.ac.jp/english/",
-      "search": "Showa"
+      "search": "Showa",
+      "alternate_names": [
+        "Syowa Station",
+        "Showa Station"
+      ],
+      "coordinate_source": "https://github.com/PolarGeospatialCenter/comnap-antarctic-facilities/blob/master/dist/csv/COMNAP_Antarctic_Facilities_Master.csv",
+      "coordinate_reference_date": "COMNAP dataset last modified 2021",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey"
     },
     {
       "id": "awipev",
@@ -259,9 +408,19 @@
       "info": "Joint Franco-German Arctic research base in Ny-Ålesund.",
       "url": "https://www.awi.de/en/fleet-stations/stations/awipev-arctic-research-base.html",
       "search": "AWIPEV",
-      "webcam": "https://www.bas.ac.uk/data/our-data/images/webcams/",
-      "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam": "https://nyalesundresearch.no/maps-and-webcams/",
+      "webcam_type": "official-area-camera-list",
+      "webcam_review": "2026-11-20",
+      "webcam_note": "Cameras show Ny-Ålesund / Zeppelin Observatory area, not necessarily an AWIPEV building or its view.",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.awi.de/en/fleet-stations/stations/awipev-arctic-research-base.html",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "summit",
@@ -276,7 +435,16 @@
       "territory": null,
       "info": "High-elevation research facility on the Greenland Ice Sheet.",
       "url": "https://www.geosummit.org/",
-      "search": "Summit Greenland"
+      "search": "Summit Greenland",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.geosummit.org/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "zackenberg",
@@ -291,7 +459,16 @@
       "territory": null,
       "info": "High Arctic ecological monitoring site with seasonal operations.",
       "url": "https://g-e-m.dk/",
-      "search": "Zackenberg"
+      "search": "Zackenberg",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://g-e-m.dk/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "chars",
@@ -306,7 +483,16 @@
       "territory": null,
       "info": "Arctic research campus operated by Polar Knowledge Canada.",
       "url": "https://www.canada.ca/en/polar-knowledge/CHARScampus.html",
-      "search": "Cambridge Bay"
+      "search": "Cambridge Bay",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.canada.ca/en/polar-knowledge/CHARScampus.html",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "villum",
@@ -321,7 +507,17 @@
       "territory": null,
       "info": "Research infrastructure near Station Nord, with access dependent on field campaigns.",
       "url": "https://villumresearchstation.dk/",
-      "search": "Station Nord"
+      "search": "Station Nord",
+      "coordinate_source": "https://villumresearchstation.dk/",
+      "coordinate_reference_date": "coarse location only",
+      "coordinate_precision": "Co-located with Station Nord; distinct organization/facility, not a separate geographic point",
+      "location_note": "Station Nord and Villum occupy the same approximate site; two markers represent different institutions, not geographically separate settlements.",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      }
     },
     {
       "id": "port-aux-francais",
@@ -336,7 +532,20 @@
       "territory": "TAAF",
       "info": "Administrative and research base on Grande Terre, Kerguelen.",
       "url": "https://institut-polaire.fr/en/subantarctic-islands/subantarctic-islands/",
-      "search": "Kerguelen"
+      "search": "Kerguelen",
+      "postal": {
+        "level": "documented-postal-activity",
+        "title": "TAAF postal management · documented",
+        "description": "TAAF confirms postal officers on its districts and official outgoing postal cancellations; expedition and overwintering cachets are separate non-postal markings.",
+        "postal_system": "French Southern and Antarctic Lands (TAAF)",
+        "source_url": "https://taaf.fr/espace-philatelie/",
+        "marks": "Postal dated cancellation and expedition souvenir cachet are distinct; neither proves all details of mail carriage.",
+        "access": "Use TAAF's official current postal dispatch schedule; no unsolicited correspondence permission is implied."
+      },
+      "kind": "research-station",
+      "coordinate_source": "https://institut-polaire.fr/en/subantarctic-islands/subantarctic-islands/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "alfred-faure",
@@ -351,7 +560,20 @@
       "territory": "TAAF",
       "info": "French base on Île de la Possession in the Crozet archipelago.",
       "url": "https://institut-polaire.fr/en/subantarctic-islands/subantarctic-islands/",
-      "search": "Crozet"
+      "search": "Crozet",
+      "postal": {
+        "level": "documented-postal-activity",
+        "title": "TAAF postal management · documented",
+        "description": "TAAF confirms postal officers on its districts and official outgoing postal cancellations; expedition and overwintering cachets are separate non-postal markings.",
+        "postal_system": "French Southern and Antarctic Lands (TAAF)",
+        "source_url": "https://taaf.fr/espace-philatelie/",
+        "marks": "Postal dated cancellation and expedition souvenir cachet are distinct; neither proves all details of mail carriage.",
+        "access": "Use TAAF's official current postal dispatch schedule; no unsolicited correspondence permission is implied."
+      },
+      "kind": "research-station",
+      "coordinate_source": "https://institut-polaire.fr/en/subantarctic-islands/subantarctic-islands/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "martin-vivies",
@@ -366,7 +588,21 @@
       "territory": "TAAF",
       "info": "French subantarctic research base on Amsterdam Island.",
       "url": "https://institut-polaire.fr/en/subantarctic-islands/subantarctic-islands/",
-      "search": "Amsterdam Island"
+      "search": "Amsterdam Island",
+      "coordinate_source": "https://www.infoclimat.fr/observations-meteo/temps-reel/ile-d-amsterdam-martin-de-vivies/61996.html",
+      "coordinate_reference_date": "approximate; current station centre",
+      "coordinate_precision": "Approximate station position; different operator publications provide divergent coarse coordinates",
+      "location_note": "The site was evacuated after the January 2025 fire and subsequently resumed operations. Confirm dates for any historical postal attribution.",
+      "postal": {
+        "level": "documented-postal-activity",
+        "title": "TAAF postal management · documented",
+        "description": "TAAF appoints postal officers to its districts, with postal cancellations and separate expedition/cachet marks. Identify individual cachets independently from the official cancellation.",
+        "postal_system": "French Southern and Antarctic Lands (TAAF)",
+        "source_url": "https://taaf.fr/espace-philatelie/",
+        "marks": "A postal cancellation is not the same as an expedition souvenir cachet.",
+        "access": "Mail routes depend on TAAF official rotation calendars and local arrangements."
+      },
+      "kind": "research-station"
     },
     {
       "id": "macquarie",
@@ -384,7 +620,16 @@
       "search": "Macquarie Island",
       "webcam": "https://www.antarctica.gov.au/antarctic-operations/webcams/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.antarctica.gov.au/antarctic-operations/stations-and-field-locations/macquarie-island/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "king-edward",
@@ -402,7 +647,20 @@
       "search": "South Georgia",
       "webcam": "https://www.bas.ac.uk/data/our-data/images/webcams/",
       "webcam_type": "official-page",
-      "webcam_review": "2026-11-20"
+      "webcam_review": "2026-11-20",
+      "postal": {
+        "level": "documented-postal-activity",
+        "title": "South Georgia postal operations · nearby",
+        "description": "Government post officers work between King Edward Point and Grytviken. Grytviken's postal premises and King Edward Point's research station should not be conflated.",
+        "postal_system": "South Georgia & the South Sandwich Islands",
+        "source_url": "https://gov.gs/personnel/",
+        "marks": "Check the postmark's wording and origin rather than attributing all South Georgia mail to King Edward Point.",
+        "access": "Local staffing and transport-dependent."
+      },
+      "kind": "research-station",
+      "coordinate_source": "https://www.bas.ac.uk/polar-operations/sites-and-facilities/facility/king-edward-point/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "bird-island",
@@ -422,7 +680,16 @@
       "webcam_type": "official-page",
       "webcam_review": "2026-11-20",
       "embedded_webcam_url": "https://legacy.bas.ac.uk/images/webcams/bi/index.php",
-      "webcam_kind": "periodic still-image refresh, not streaming video"
+      "webcam_kind": "periodic still-image refresh, not streaming video",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Postal handling not independently established",
+        "description": "The research facility's existence and an operator webcam do not establish an on-site post office, an official Bird Island postal cancellation, or public cachet request service."
+      },
+      "kind": "research-station",
+      "coordinate_source": "https://www.bas.ac.uk/polar-operations/sites-and-facilities/facility/bird-island/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "esperanza",
@@ -439,7 +706,16 @@
       "url": "https://www.argentina.gob.ar/armada/antartida/bases-antarticas",
       "search": "Esperanza Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "marambio",
@@ -456,7 +732,16 @@
       "url": "https://www.argentina.gob.ar/armada/antartida/bases-antarticas",
       "search": "Marambio Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "orcadas",
@@ -473,7 +758,16 @@
       "url": "https://www.argentina.gob.ar/armada/antartida/bases-antarticas",
       "search": "Orcadas Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "belgrano-ii",
@@ -490,7 +784,16 @@
       "url": "https://www.argentina.gob.ar/armada/antartida/bases-antarticas",
       "search": "Belgrano II Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "carlini",
@@ -507,7 +810,16 @@
       "url": "https://www.argentina.gob.ar/armada/antartida/bases-antarticas",
       "search": "Carlini Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "san-martin",
@@ -524,7 +836,16 @@
       "url": "https://www.argentina.gob.ar/armada/antartida/bases-antarticas",
       "search": "San Martín Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "frei",
@@ -541,7 +862,17 @@
       "url": "https://www.inach.cl/",
       "search": "Eduardo Frei Montalva Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "coordinate_source": "https://github.com/PolarGeospatialCenter/comnap-antarctic-facilities/blob/master/dist/csv/COMNAP_Antarctic_Facilities_Master.csv",
+      "coordinate_precision": "Approximate Frei / Marsh aerodrome vicinity; needs precise station building coordinates",
+      "location_note": "The previous point is closest to the Rodolfo Marsh aerodrome; the Frei base itself is nearby but not identical.",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "escudero",
@@ -558,7 +889,16 @@
       "url": "https://www.inach.cl/",
       "search": "Professor Julio Escudero Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "coordinate_source": "https://github.com/PolarGeospatialCenter/comnap-antarctic-facilities/blob/master/dist/csv/COMNAP_Antarctic_Facilities_Master.csv",
+      "coordinate_precision": "Approximate King George Island station location; note dense cluster and neighbouring bases.",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "troll",
@@ -575,7 +915,16 @@
       "url": "https://npolar.no/en/troll/",
       "search": "Troll Research Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "princess-elisabeth",
@@ -592,7 +941,16 @@
       "url": "https://www.polarfoundation.org/",
       "search": "Princess Elisabeth Antarctica",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "sanae-iv",
@@ -609,7 +967,16 @@
       "url": "https://www.sanap.ac.za/",
       "search": "SANAE IV",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "vernadsky",
@@ -626,7 +993,16 @@
       "url": "https://uac.gov.ua/en/",
       "search": "Vernadsky Research Base",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "maitri",
@@ -643,7 +1019,16 @@
       "url": "https://pdc.ncpor.res.in/npdc/research-stations.action",
       "search": "Maitri Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "bharati",
@@ -660,7 +1045,16 @@
       "url": "https://pdc.ncpor.res.in/npdc/research-stations.action",
       "search": "Bharati Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "mario-zucchelli",
@@ -677,7 +1071,16 @@
       "url": "https://www.pnra.aq/",
       "search": "Mario Zucchelli Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "king-sejong",
@@ -694,7 +1097,16 @@
       "url": "https://www.kopri.re.kr/eng/",
       "search": "King Sejong Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "jang-bogo",
@@ -711,7 +1123,16 @@
       "url": "https://www.kopri.re.kr/eng/",
       "search": "Jang Bogo Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "great-wall",
@@ -728,7 +1149,16 @@
       "url": "https://pric.org.cn/",
       "search": "Great Wall Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "zhongshan",
@@ -745,7 +1175,16 @@
       "url": "https://pric.org.cn/",
       "search": "Zhongshan Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "vostok",
@@ -762,7 +1201,16 @@
       "url": "https://www.aari.ru/",
       "search": "Vostok Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "mirny",
@@ -779,7 +1227,16 @@
       "url": "https://www.aari.ru/",
       "search": "Mirny Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "progress",
@@ -796,7 +1253,16 @@
       "url": "https://www.aari.ru/",
       "search": "Progress Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.comnap.aq/antarctic-facilities-information",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Unspecified / station locations may have changed"
     },
     {
       "id": "alert",
@@ -813,7 +1279,16 @@
       "url": "https://www.canada.ca/en.html",
       "search": "Canadian Forces Station Alert",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.canada.ca/en.html",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "eureka",
@@ -830,7 +1305,16 @@
       "url": "https://weather.gc.ca/",
       "search": "Eureka Weather Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://weather.gc.ca/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "station-nord",
@@ -847,7 +1331,17 @@
       "url": "https://www.forsvaret.dk/en/",
       "search": "Station Nord",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "coordinate_source": "https://www.forsvaret.dk/en/",
+      "coordinate_reference_date": "coarse location only",
+      "coordinate_precision": "Co-located with Villum Research Station",
+      "location_note": "Station Nord supports research activities including the co-located Villum infrastructure.",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      }
     },
     {
       "id": "hornsund",
@@ -864,7 +1358,16 @@
       "url": "https://hornsund.igf.edu.pl/",
       "search": "Polish Polar Station Hornsund",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://hornsund.igf.edu.pl/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "barrow",
@@ -881,7 +1384,16 @@
       "url": "https://gml.noaa.gov/obop/brw/",
       "search": "Barrow Atmospheric Baseline Observatory",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://gml.noaa.gov/obop/brw/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "toolik",
@@ -898,7 +1410,16 @@
       "url": "https://toolik.alaska.edu/",
       "search": "Toolik Field Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://toolik.alaska.edu/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "marion",
@@ -915,7 +1436,16 @@
       "url": "https://www.sanap.ac.za/",
       "search": "Marion Island Research Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.sanap.ac.za/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
     },
     {
       "id": "gough",
@@ -932,7 +1462,100 @@
       "url": "https://www.sanap.ac.za/",
       "search": "Gough Island Meteorological Station",
       "coordinate_note": "Approximate station coordinate; not suitable for navigation",
-      "source_review": "2026-11-20"
+      "source_review": "2026-11-20",
+      "kind": "research-station",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Philatelic record not yet documented",
+        "description": "No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists."
+      },
+      "coordinate_source": "https://www.sanap.ac.za/",
+      "coordinate_precision": "Approximate mapping coordinate; not independently checked against a dated station survey",
+      "coordinate_reference_date": "Not established"
+    },
+    {
+      "id": "port-lockroy",
+      "name": "Port Lockroy · Penguin Post Office",
+      "kind": "postal-site",
+      "region": "antarctic",
+      "lat": -64.816667,
+      "lon": -63.5,
+      "operator": "United Kingdom · UK Antarctic Heritage Trust",
+      "flag": "🇬🇧",
+      "status": "seasonal",
+      "area": "Goudier Island · Antarctic Peninsula",
+      "territory": "BAT",
+      "info": "Historic British Base A (1944–1962); now the seasonal Penguin Post Office and Antarctic heritage museum. The post office is operated by UKAHT.",
+      "url": "https://ukaht.org/places/",
+      "search": "Port Lockroy",
+      "coordinate_source": "https://www.britishantarcticterritory.org.uk/heritage/port-lockroy/",
+      "coordinate_reference_date": "undated official approximate location",
+      "coordinate_precision": "Approximate Goudier Island site; coordinates rounded from 64°49′S, 63°30′W",
+      "postal": {
+        "level": "post-office",
+        "title": "Seasonal post office · confirmed",
+        "description": "British Antarctic Territory postage is hand-cancelled at Port Lockroy. UKAHT separately applies souvenir cachets. Official examples document mail carried by visiting vessels to Stanley, Falkland Islands, before onward transmission.",
+        "postal_system": "British Antarctic Territory",
+        "source_url": "https://ukaht.org/latest-news/from-the-freezer-to-the-furnace-a-postcards-journey/",
+        "marks": "Postal cancellation and additional station/cachet marks have different functions; do not confuse them.",
+        "access": "Seasonal public post office; do not presume remote mail-in requests are accepted."
+      }
+    },
+    {
+      "id": "grytviken-post-office",
+      "name": "Grytviken · Post Office",
+      "kind": "postal-site",
+      "region": "subantarctic",
+      "lat": -54.2811,
+      "lon": -36.5092,
+      "operator": "South Georgia & the South Sandwich Islands Government",
+      "flag": "🇬🇸",
+      "status": "seasonal",
+      "area": "Grytviken · South Georgia",
+      "territory": "SGSSI",
+      "info": "South Georgia's historic whaling settlement has an official post office and philatelic operations. The first South Georgia post office opened in 1909; staff also work at nearby King Edward Point.",
+      "url": "https://gov.gs/south-georgia-the-south-sandwich-islands-stamps/",
+      "search": "Grytviken",
+      "coordinate_source": "https://service.unece.org/trade/locode/gs.htm",
+      "coordinate_reference_date": "approximate settlement location",
+      "coordinate_precision": "Approximate town location, not an independently surveyed post-office doorway",
+      "postal": {
+        "level": "post-office",
+        "title": "Post office · confirmed, visitor access seasonal",
+        "description": "Official Government sources document the first post office in 1909, philatelic stamp issues and current post officers at Grytviken / King Edward Point. Not all historic stamps or cancellations are interchangeable with current postage.",
+        "postal_system": "South Georgia & the South Sandwich Islands",
+        "source_url": "https://gov.gs/south-georgia-the-south-sandwich-islands-stamps/",
+        "marks": "Confirm precise postmark type and date on each cover before attributing it.",
+        "access": "Postal access depends on seasonal staffing and local operational arrangements."
+      }
+    },
+    {
+      "id": "ny-alesund-post",
+      "name": "Ny-Ålesund · Postal history",
+      "kind": "postal-site",
+      "region": "arctic",
+      "lat": 78.923,
+      "lon": 11.923,
+      "operator": "Norway · Posten / Kings Bay",
+      "flag": "🇳🇴",
+      "status": "year-round",
+      "area": "Ny-Ålesund · Svalbard",
+      "territory": "NO",
+      "info": "Arctic research settlement with historic postal facilities. The old post office is now a heritage site; postal service has been handled at other local buildings, including the community shop.",
+      "url": "https://kingsbay.no/local-community/",
+      "search": "Ny-Ålesund",
+      "coordinate_source": "https://nyalesundresearch.no/maps-and-webcams/",
+      "coordinate_reference_date": "approximate settlement location",
+      "coordinate_precision": "Approximate research settlement centre; not a distinct postal counter coordinate",
+      "postal": {
+        "level": "postal-history",
+        "title": "Postal history documented · current counter details unverified",
+        "description": "Kings Bay documents the history of the original post office building; Norway Post lists Ny-Ålesund among datestamps available through philatelic services, including tools taken over from closed offices. The stamp of a historic building and its souvenirs must not be mistaken for a current postal cancellation.",
+        "postal_system": "Norway / Svalbard",
+        "source_url": "https://www.posten.no/en/stamps-collecting/special-cancellations/special-cancellations-with-adjustable-date",
+        "marks": "The old post office's souvenir markings are not necessarily postal cancelling devices.",
+        "access": "Do not assume the historic building currently operates as a full post office or accepts correspondence."
+      }
     }
   ]
 }
