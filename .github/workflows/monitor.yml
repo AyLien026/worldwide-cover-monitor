@@ -9,6 +9,7 @@ on:
       - 'postage/**'
       - 'countries/**'
       - 'polar/**'
+      - 'arge/**'
       - 'sources.json'
       - 'monitor.py'
       - 'tests/**'
@@ -68,6 +69,9 @@ jobs:
           cp countries/index.html site/countries/index.html
           mkdir -p site/polar
           cp polar/index.html polar/stations.json polar/land.json site/polar/
+          mkdir -p site/arge/portoliste site/arge/polar
+          cp arge/portoliste/index.html site/arge/portoliste/index.html
+          cp arge/polar/index.html site/arge/polar/index.html
           cp data/items.js data/items.json data/sources.js site/data/
 
       - uses: actions/upload-pages-artifact@v4
