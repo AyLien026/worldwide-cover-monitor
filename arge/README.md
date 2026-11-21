@@ -2,8 +2,8 @@
 
 Die ARGE-Ansichten sind **eigenständige Oberflächen**, aber keine separaten Datenbestände.
 
-- Atlas: \`/arge/polar/\` – nutzt direkt \`/polar/stations.json\` und \`/polar/land.json\` (derzeit 58 Stationen/Orte). Die ARGE-Oberfläche ist deutschsprachig, die redaktionellen Stationsbeschreibungen in der gemeinsamen Datenbank sind teilweise noch englisch.
-- Portoliste: \`/arge/portoliste/\` – liest bei jedem Seitenaufruf \`/postage/rates.json\` und wählt **exakt 33** vorab festgelegte Länder/Postgebiete anhand eindeutiger Tarif-IDs. Länder, die später in der internationalen Datenbank ergänzt werden, erscheinen **nicht** ohne Änderung dieser Whitelist.
+- Atlas: `/arge/polar/` – nutzt direkt `/polar/stations.json` und `/polar/land.json` (derzeit 58 Stationen/Orte). Die ARGE-Oberfläche ist deutschsprachig, die redaktionellen Stationsbeschreibungen in der gemeinsamen Datenbank sind teilweise noch englisch.
+- Portoliste: `/arge/portoliste/` – liest bei jedem Seitenaufruf `/postage/rates.json` und wählt **exakt 33** vorab festgelegte Länder/Postgebiete anhand eindeutiger Tarif-IDs. Länder, die später in der internationalen Datenbank ergänzt werden, erscheinen **nicht** ohne Änderung dieser Whitelist.
 - Alle Daten, Quellenlinks und Aktualisierungsinformationen sind öffentlich. **Keine internen ARGE-Adressen oder nur für Mitglieder bestimmten Beschaffungstipps ergänzen.**
 
 ## GitHub Pages (nach Merge und erfolgreichem Workflow)
@@ -12,39 +12,39 @@ Atlas: https://aylien026.github.io/worldwide-cover-monitor/arge/polar/
 
 Portoliste: https://aylien026.github.io/worldwide-cover-monitor/arge/portoliste/
 
-Der GitHub-Actions-Workflow \`.github/workflows/monitor.yml\` kopiert die beiden Seiten ins Pages-Artefakt. Änderungen unter \`arge/**\`, \`polar/**\` und \`postage/**\` lösen ein neues Deployment aus. Der vorhandene Monitor-Job überwacht **philatelistische Nachrichtenquellen**, nicht automatisch sämtliche Portotarife. Die Portoliste aktualisiert sich automatisch, **wenn die gemeinsame JSON-Datei aktualisiert und von Pages veröffentlicht wurde**. Das ist nicht gleichbedeutend mit einer automatischen Tarifvalidierung bei jeder Postverwaltung.
+Der GitHub-Actions-Workflow `.github/workflows/monitor.yml` kopiert die beiden Seiten ins Pages-Artefakt. Änderungen unter `arge/**`, `polar/**` und `postage/**` lösen ein neues Deployment aus. Der vorhandene Monitor-Job überwacht **philatelistische Nachrichtenquellen**, nicht automatisch sämtliche Portotarife. Die Portoliste aktualisiert sich automatisch, **wenn die gemeinsame JSON-Datei aktualisiert und von Pages veröffentlicht wurde**. Das ist nicht gleichbedeutend mit einer automatischen Tarifvalidierung bei jeder Postverwaltung.
 
 ## WordPress: Karte (bestehende Seite /karte/)
 
 Im WordPress-Editor einen Block *Individuelles HTML* verwenden. Vorher den alten Karten-Code auf dieser Seite sichern:
 
-\`\`\`html
+```html
 <div style="width:100%;max-width:1200px;margin:0 auto;">
   <iframe id="arge-atlas" title="Interaktiver Polar Atlas der ARGE Polarphilatelie"
     src="https://aylien026.github.io/worldwide-cover-monitor/arge/polar/"
     loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
     style="width:100%;display:block;min-height:1700px;border:0;background:white"></iframe>
 </div>
-\`\`\`
+```
 
 ## WordPress: Portoliste (bestehende Seite /portoliste/)
 
 Den bisherigen Tarif-Tabellenblock zunächst sichern, dann stattdessen:
 
-\`\`\`html
+```html
 <div style="width:100%;max-width:1200px;margin:0 auto;">
   <iframe id="arge-porto" title="Portoliste der ARGE Polarphilatelie"
     src="https://aylien026.github.io/worldwide-cover-monitor/arge/portoliste/"
     loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
     style="width:100%;display:block;min-height:2100px;border:0;background:white"></iframe>
 </div>
-\`\`\`
+```
 
 ### Optional: automatische iFrame-Höhe (falls WordPress Skripte erlaubt)
 
 Das Skript *einmalig* auf der jeweiligen WordPress-Seite im HTML-Block unter dem iFrame ergänzen. Nur Größenmeldungen vom eigenen GitHub-Pages-Ursprung werden verarbeitet:
 
-\`\`\`html
+```html
 <script>
 window.addEventListener('message', function(e) {
   if (e.origin !== 'https://aylien026.github.io' || !e.data) return;
@@ -55,7 +55,7 @@ window.addEventListener('message', function(e) {
   if (el && Number.isFinite(h) && h >= 250 && h <= 15000) el.style.height = h + 'px';
 });
 </script>
-\`\`\`
+```
 
 Falls WordPress das Skript entfernt, bleiben die iFrames mit fester Mindesthöhe funktionsfähig. Bei sehr langen geöffneten Details können dann interne Scrollbalken auftreten. Ein einzelner HTML-Block mit beiden iFrames ist nicht erforderlich: Atlas und Portoliste gehören auf ihre jeweils bestehende WordPress-Unterseite.
 
@@ -70,7 +70,7 @@ Falls WordPress das Skript entfernt, bleiben die iFrames mit fester Mindesthöhe
 
 ## Redaktioneller Ablauf
 
-1. Bei einem offiziellen Tarifwechsel den passenden Eintrag in \`postage/rates.json\` einschließlich Quelle, Zielregion, Gewicht, Datum und Prüfstatus ändern bzw. durch vorhandene kontrollierte Prozesse aktualisieren.
+1. Bei einem offiziellen Tarifwechsel den passenden Eintrag in `postage/rates.json` einschließlich Quelle, Zielregion, Gewicht, Datum und Prüfstatus ändern bzw. durch vorhandene kontrollierte Prozesse aktualisieren.
 2. Der bestehende Pages-Workflow veröffentlicht das JSON neu. Beim nächsten Aufruf laden beide Portolisten dieselben Daten.
-3. Stationsänderungen ausschließlich in \`polar/stations.json\` pflegen. Danach verwenden beide Atlas-Oberflächen denselben neuen Stationsstand.
-4. Größere Karten-UI-Änderungen müssen aktuell für **beide** HTML-Oberflächen (\`polar/index.html\` und \`arge/polar/index.html\`) gesondert geprüft werden. Die Daten sind zentral, die Oberflächentexte sind es nicht.
+3. Stationsänderungen ausschließlich in `polar/stations.json` pflegen. Danach verwenden beide Atlas-Oberflächen denselben neuen Stationsstand.
+4. Größere Karten-UI-Änderungen müssen aktuell für **beide** HTML-Oberflächen (`polar/index.html` und `arge/polar/index.html`) gesondert geprüft werden. Die Daten sind zentral, die Oberflächentexte sind es nicht.
