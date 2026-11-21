@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Atlas · Arbeitsgemeinschaft Polarphilatelie e.V.</title>
+<meta name="description" content="Interaktiver Polar-Atlas mit Forschungsstationen, Poststellen, Postgeschichte und Quellen.">
+<meta name="color-scheme" content="light">
+<style>
+:root{--olive:#aab123;--olive-dark:#62721d;--ink:#25332e;--muted:#67756f;--line:#dce6e6;--cream:#f9f7f0;--ice:#eaf5f9;--teal:#2b7083;--gold:#b88b36;--pale:#f3f7f1}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{color:#526d16;text-underline-offset:3px}button,input,select{font:inherit}button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #5c7518;outline-offset:2px}
+.shell{max-width:1200px;margin:0 auto;padding:18px 15px 35px}
+.kicker{color:#75851b;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.hero{padding:24px 25px 22px;background:var(--cream);border:1px solid #e7e5d9;border-left:5px solid var(--olive);margin-bottom:17px}
+h1{font:500 clamp(28px,4vw,43px)/1.15 Georgia,"Times New Roman",serif;margin:7px 0 11px}
+.hero p{max-width:790px;margin:0;color:#55635c;font-size:14px}
+.hero-meta{display:flex;gap:9px 20px;align-items:center;flex-wrap:wrap;margin-top:15px;color:#5c6a62;font-size:12px}
+.h-metric{font-weight:800;font-variant-numeric:tabular-nums;color:#374b3c}
+.controls{border:1px solid var(--line);padding:14px 16px;display:grid;gap:13px;background:#fff;margin-bottom:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:7px}
+.tab{border:1px solid #bcd0d0;padding:9px 16px;border-radius:5px;background:#f5faf9;color:#45616b;font-weight:750}
+.tab[aria-pressed="true"]{background:#e9f4e4;border-color:#a5b96d;color:#425616;box-shadow:inset 0 -3px var(--olive)}
+.inputs{display:grid;grid-template-columns:minmax(190px,2fr) minmax(150px,1fr) minmax(142px,1fr);gap:9px}
+.field{display:grid;gap:4px}.field label{font-size:11px;font-weight:800;color:#62716a}
+.field input,.field select{height:41px;padding:8px 10px;min-width:0;width:100%;background:#fff;border:1px solid #cdd7d6;color:#22342b;border-radius:4px}
+.quick{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.quick button{border:1px solid #d8dfcb;background:#f8faf3;padding:5px 9px;border-radius:4px;color:#4b6025}
+.quick button[aria-pressed="true"]{background:#e8f0ce;border-color:#98ad51;font-weight:800}
+.workspace{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);grid-template-areas:"map detail" "list list";align-items:start;gap:14px}.mapcol{grid-area:map}.side{display:contents}.side>.panel:first-child{grid-area:detail;min-width:0}.side>.panel:last-child{grid-area:list;min-width:0}
+.mapcol{background:#fff;border:1px solid var(--line);padding:12px 15px 10px;min-width:0}
+.map-title{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.map-title strong{font:500 21px Georgia,serif}.map-title span{font-size:12px;color:var(--muted)}
+.map{width:100%;height:auto;display:block;max-height:630px}
+.map [role="button"]{cursor:pointer}
+.map [role="button"]:focus-visible{outline:none;stroke:#1e4753;stroke-width:4}
+.map-graticule{stroke:#bfd9df;stroke-width:1;fill:none}
+.map-land{fill:#f3f7f2;stroke:#7cabb4;stroke-width:1.25;vector-effect:non-scaling-stroke}
+.map-relief{fill:#edf4ee;stroke:#d8e9e1;stroke-width:1;vector-effect:non-scaling-stroke}
+.map-label{font-size:12px;fill:#466877;font-weight:700;paint-order:stroke;stroke:#eef7f8;stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.map-ocean{fill:#e5f2f7}
+.map-pin{stroke:#fff;stroke-width:2.8}
+.map-pin.year-round{fill:var(--teal)}.map-pin.seasonal{fill:var(--gold)}.map-pin.postal-site{fill:#7c9323;stroke:#fff}
+.map-pin.active{stroke:#263e47;stroke-width:4}
+.map-note{font-size:12px;color:#6a7775;margin:2px 5px 8px;line-height:1.5}
+.legend{display:flex;gap:13px;flex-wrap:wrap;margin:0 5px 9px;font-size:12px;color:#60716f}
+.legend span{display:flex;align-items:center;gap:6px}.dot{width:11px;height:11px;border-radius:50%;display:inline-block}.dot.perm{background:var(--teal)}.dot.seasonal{background:var(--gold)}.dot.postal{background:#7c9323;border-radius:2px}
+
+.panel{border:1px solid var(--line);padding:17px 18px;background:#fff}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.panel-head h2{margin:0;font:500 21px Georgia,serif}
+.count{color:var(--muted);font-size:11px}
+.station-head{display:flex;gap:10px;align-items:flex-start}
+.station-flag{font-size:30px;line-height:1.1}
+.station-name{font:500 24px/1.2 Georgia,serif;margin:0 0 6px}
+.station-operator{font-size:12px;color:var(--muted)}
+.pill{font-size:10px;font-weight:800;padding:3px 8px;border-radius:3px;letter-spacing:.4px;display:inline-block;margin-top:8px}
+.pill.year-round{background:#dbeeea;color:#235967}.pill.seasonal{background:#f5ecd8;color:#8a6121}.pill.postal-site{background:#eaf0db;color:#516719}
+.postal-evidence{border:1px solid #d9e3c5;border-left:4px solid #9aaa4a;background:#f8faf2;padding:13px;margin:9px 0}
+.postal-evidence strong{display:block;font-size:13px;margin-bottom:5px}
+.postal-evidence p{font-size:12px;color:#50604f;margin:6px 0}
+.postal-evidence small{font-size:11px;color:#657164;display:block;margin-top:5px}
+.source-date{display:block;font-size:11px;color:#65726a;margin:8px 0;overflow-wrap:anywhere}
+.statnote{color:#55645e;font-size:13px;margin:12px 0 8px}
+.fact{display:grid;grid-template-columns:110px minmax(0,1fr);gap:5px;padding:6px 0;border-top:1px dotted var(--line);font-size:12px}
+.fact span:first-child{color:#74817c}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.actions a,.actions button{border:1px solid #ccd9bd;background:#f6faee;color:#47621d;border-radius:4px;font-size:12px;font-weight:750;padding:8px 10px;text-decoration:none}
+.actions a:hover,.actions button:hover{background:#e8f0d7}
+.section-title{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:#708619;font-weight:800;margin:16px 0 6px}
+.caution{border-left:3px solid #c8a04e;padding:8px 11px;background:#fcf8ee;font-size:12px;color:#6a6253}
+.temp{margin:9px 0;border:1px solid #d7e6ea;border-left:3px solid #6491a5;background:#f5fbfd;padding:11px;font-size:12px;color:#52676e}
+.temp-value{display:block;font-size:23px;font-weight:800;font-variant-numeric:tabular-nums;color:#205a6d;line-height:1.25;margin:3px 0}
+.temp-sub{display:block;color:#647779;font-size:11px}
+.list-temp{margin-left:auto;flex:none;color:#22627a;font-weight:750;font-variant-numeric:tabular-nums;font-size:12px}
+.webcam{border:1px solid #d5e3e8;background:#f8fbfc;padding:11px;margin:10px 0}
+.webcam iframe{width:100%;height:205px;border:1px solid #d6dfe2;background:white;display:block;margin:8px 0}
+.webcam p{font-size:11px;color:#64757a;margin:4px 0 8px}
+.webcam strong{font-size:12px}
+.webcam a{font-size:12px;font-weight:750}
+.temp strong{color:#253e39}.temp button{border:0;background:none;text-decoration:underline;color:#597319;font-weight:750;padding:0}
+.stationlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;overflow:visible;max-height:none}.list-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:11px}.list-actions button{background:#f7faf2;border:1px solid #b6c88a;color:#50671c;padding:8px 13px;border-radius:4px;font-weight:750;font-size:12px}.list-actions button:hover{background:#e7f2dc}.list-actions small{font-size:11px;color:var(--muted)}
+.stationbutton{width:100%;min-width:0;background:#fff;border:1px solid #edf0e9;display:flex;gap:9px;align-items:center;padding:9px 10px;text-align:left;border-radius:5px;color:var(--ink)}.stationbutton>span:nth-child(2){min-width:0;flex:1}.stationbutton .st-name{overflow-wrap:anywhere}
+.stationbutton:hover{background:#f7faf5}.stationbutton.active{background:#f0f6e8;border-color:#a5bc6e}
+.st-name{display:block;font-size:13px;font-weight:750}.st-sub{display:block;font-size:11px;color:var(--muted)}.status-circle{width:9px;height:9px;border-radius:50%;flex:none;background:var(--teal)}.status-circle.seasonal{background:var(--gold)}.status-circle.postal-site{background:#839c2a;border-radius:2px}
+.geo-details{margin:12px 0 5px;border:1px solid #dfe8e2;background:#fbfcfa}.geo-details summary{padding:9px 11px;cursor:pointer;font-size:12px;font-weight:800;color:#526e3b}.geo-details[open] summary{border-bottom:1px solid #dfe8e2}.geo-details .geo-body{padding:8px 11px 10px;overflow-wrap:anywhere}.geo-details .geo-body>a{font-size:12px}.geo-details .fact{grid-template-columns:92px minmax(0,1fr)}.noresults{font-size:13px;color:var(--muted);margin:9px 0}
+.about{background:var(--cream);border:1px solid #e6e5d7;padding:14px 17px;margin-top:14px;font-size:12px;color:#5a675c}
+.about strong{font-size:13px;color:#3f4c39}.about p{margin:6px 0}
+.footer{font-size:11px;color:#788580;margin-top:12px}
+[hidden]{display:none!important}
+@media(min-width:1020px){.workspace{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}.stationlist{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:860px){.shell{padding:10px}.mapcol{padding:9px}.panel{padding:12px}.station-name{font-size:20px}.map-title strong{font-size:18px}.map-title span{font-size:11px}.map-label{font-size:16px}.map-label:nth-child(even){display:none}.map-note{font-size:11px}.legend{font-size:11px}.panel-head h2{font-size:19px}.fact{grid-template-columns:90px minmax(0,1fr)}}
+@media(max-width:620px){.shell{padding:7px}.hero{padding:15px}.controls{padding:10px}.inputs{grid-template-columns:1fr}.workspace{grid-template-columns:minmax(0,1fr);grid-template-areas:"map" "detail" "list";gap:10px}.stationlist{grid-template-columns:1fr}.mapcol{padding:9px}.panel{padding:13px}.tab{flex:1;padding:9px 5px;font-size:12px}.fact{grid-template-columns:95px minmax(0,1fr)}}
+@media(min-width:621px) and (max-width:710px){.map-title{align-items:flex-start}.map-title span{display:block}.mapcol,.panel{padding:10px}.station-name{font-size:19px}}
+
+html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
+</style>
+<script>if(window.self!==window.top)document.documentElement.classList.add('embedded')</script>
+</head>
+<body>
+<main class="shell">
+<header class="hero">
+ <div class="kicker">ARGE Polarphilatelie · Forschungsstationen und Postgeschichte</div>
+ <h1>Polar Atlas</h1>
+ <p>Erkunden Sie Forschungsstationen und historische Poststandorte in der Antarktis, Arktis und Subantarktis – mit Postgeschichte, Quellen und Informationen zu den Koordinaten.</p>
+ <div class="hero-meta"><span><b class="h-metric" id="stations-total">–</b> erfasste Orte</span><span>Forschungs- und Poststandorte</span><span>Temperaturen aus Wettermodellen</span></div>
+</header>
+<section class="controls" aria-label="Atlasfilter">
+ <div class="tabs" role="group" aria-label="Polarregion wählen">
+  <button type="button" class="tab" data-view="antarctic" aria-pressed="true">🐧 Antarktis</button>
+  <button type="button" class="tab" data-view="arctic" aria-pressed="false">❄ Arktis</button>
+  <button type="button" class="tab" data-view="subantarctic" aria-pressed="false">🌊 Subantarktis</button>
+ </div>
+ <div class="inputs">
+  <div class="field"><label for="search">Station, Postamt oder Region suchen</label><input type="search" id="search" placeholder="Station, Stempel, Ort …" autocomplete="off"></div>
+  <div class="field"><label for="status-filter">Betriebsstatus</label><select id="status-filter"><option value="">Alle Betriebsformen</option><option value="year-round">Ganzjährig</option><option value="seasonal">Saisonal</option></select></div>
+  <div class="field"><label for="operator-filter">Land / Betreiber</label><select id="operator-filter"><option value="">Alle Betreiber</option></select></div>
+ </div>
+ <div class="quick"><span>Postgeschichte:</span><button id="postal-only" type="button" aria-pressed="false">✉ Dokumentierte postalische Hinweise</button><span>Gebiete:</span><button id="quick-taaf" type="button" aria-pressed="false">🇫🇷 TAAF</button><button id="quick-aat" type="button" aria-pressed="false">🇦🇺 AAT</button><span id="filter-note">Postalische Standorte sind als olivgrüne Quadrate markiert.</span></div>
+</section>
+<div class="workspace">
+ <section class="mapcol" aria-label="Interaktive Polarkarte">
+  <div class="map-title"><strong id="map-heading">Antarctica</strong><span id="map-count">Stationen werden geladen …</span></div>
+  <svg id="polar-map" class="map" viewBox="0 0 560 560" role="img" aria-label="Polarkarte mit auswählbaren Forschungsstationen">
+   <title>Standorte polarer Forschungsstationen</title>
+   <circle cx="280" cy="280" r="235" fill="#eaf5f9" stroke="#9ebac1" stroke-width="1.5"></circle>
+  </svg>
+  <div class="legend"><span><i class="dot perm"></i> Ganzjährig betriebene Station</span><span><i class="dot seasonal"></i> Saisonal betriebene Station</span><span><i class="dot postal"></i> Post- oder historischer Standort</span><span>Temperaturen sind Modellschätzungen, keine Stationsmessungen</span></div>
+  <p class="map-note">Polare stereografische Projektion mit Natural-Earth-Küstenlinien. Koordinaten sind Näherungswerte. Nahe beieinanderliegende Marker sind für die Auswahl verschoben. Nicht für die Navigation geeignet.</p>
+ </section>
+ <div class="side">
+  <section class="panel" aria-labelledby="detail-title">
+   <div class="panel-head"><h2 id="detail-title">Standort &amp; Postgeschichte</h2><span class="count">Belege &amp; Quellen</span></div>
+   <div id="details" aria-live="polite"><p class="noresults">Stationsverzeichnis wird geladen …</p></div>
+  </section>
+  <section class="panel" aria-label="Station list">
+   <div class="panel-head"><h2>Standorte entdecken</h2><span class="count" id="list-count">–</span></div>
+   <div id="station-list" class="stationlist"></div>
+   <div id="list-actions" class="list-actions"></div>
+  </section>
+ </div>
+</div>
+<section class="about">
+ <strong>Ein Standort ist noch kein postalischer Beleg</strong>
+ <p>Ein amtlicher Poststempel entwertet eine Frankatur; Expeditions- oder Erinnerungsstempel tun dies normalerweise nicht. Ein Cachet allein belegt keine postalische Einlieferung an einem Kartenstandort. „Nicht geprüft“ bedeutet nicht, dass es dort keine Polarpost gibt. Flaggen kennzeichnen Betreiber oder zuständige Postverwaltungen, keine unstrittigen Gebietsansprüche. Die Webseite einer Forschungsstation ist keine Aufforderung, unverlangt Sammlerpost zu senden. Modelltemperaturen werden im Browser von Open-Meteo geladen. Eingebundene Webcams können Verbindungen zu den Betreibern herstellen; dabei kann unter anderem die IP-Adresse übertragen werden.</p>
+ <p><a href="https://www.worldwidecovers.com/search/label/%2APolar-Philately" target="_blank" rel="noopener noreferrer">Belege zur Polarphilatelie bei Worldwide Covers ansehen</a></p>
+</section>
+<div class="footer" id="update-line">Die Daten sind eine kuratierte, nicht vollständige Sammlung; Koordinaten können ungefähr oder zeitabhängig sein. Kartengrundlage: <a href="https://github.com/johan/world.geo.json" target="_blank" rel="noopener noreferrer">Natural Earth</a>; weitere Quellen bei den jeweiligen Forschungsinstitutionen.</div>
+</main>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+var weatherById=new Map(),weatherState={},weatherLoading=new Set(),weatherChecked={},weatherTTL=15*60*1000;
+var S=null,L=null,view='antarctic',selected=null,territory='',postalOnly=false,filtered=[],initializing=true,listLimit=12;
+function pageSize(){return window.innerWidth<=620?6:12}
+var meta={antarctic:{title:'Antarktis',pole:-1,min:56,rings:[60,70,80]},arctic:{title:'Arktis',pole:1,min:61,rings:[65,70,80]},subantarctic:{title:'Subantarktische Inseln',pole:-1,min:32,rings:[40,50,60,70]}};
+var NS='http://www.w3.org/2000/svg';
+function el(tag,className,text){var n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n}
+function svg(tag,attrs){var n=document.createElementNS(NS,tag);Object.keys(attrs||{}).forEach(function(k){n.setAttribute(k,attrs[k])});return n}
+function norm(t){return String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function txt(t){return document.createTextNode(String(t))}
+function link(text,url){var a=el('a','',text);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a}
+// Spherical polar stereographic projection; scale selected independently for each region.
+function radiusAt(absLat,m){
+ var edge=Math.tan((90-m.min)*Math.PI/360);
+ return 235*Math.tan((90-Math.min(90,Math.abs(absLat)))*Math.PI/360)/edge
+}
+function project(lat,lon,m){
+ var radius=radiusAt(lat,m),a=lon*Math.PI/180,orient=m.pole===1?-1:1;
+ return [280+radius*Math.sin(a),280+orient*radius*Math.cos(a)]
+}
+function polarPolygon(ring,m){if(!ring.length)return '';var points=ring.map(function(p){return project(p[1],p[0],m)});return points.map(function(p,i){return (i?'L':'M')+p[0].toFixed(2)+','+p[1].toFixed(2)}).join(' ')+' Z'}
+function landPath(code,m){
+ if(!L||!Array.isArray(L.countries))return '';
+ var c=L.countries.find(function(x){return x.id===code});if(!c)return '';
+ return c.rings.map(function(r){return polarPolygon(r,m)}).join(' ')
+}
+function padAngle(deg){return deg*Math.PI/180}
+function renderMap(){
+ var m=meta[view],out=$('polar-map');out.replaceChildren();
+ out.appendChild(svg('title',{})).textContent=m.title+' Stationsstandorte';
+ var defs=svg('defs'),clip=svg('clipPath',{id:'polar-clipping'});
+ clip.appendChild(svg('circle',{cx:280,cy:280,r:235}));defs.appendChild(clip);out.appendChild(defs);
+ var back=svg('defs');
+ var gradient=svg('radialGradient',{id:'polar-sea-gradient',cx:'50%',cy:'50%',r:'75%'});
+ gradient.appendChild(svg('stop',{offset:'0%','stop-color':'#f9fdfd'}));
+ gradient.appendChild(svg('stop',{offset:'100%','stop-color':'#d9ebf3'}));
+ back.appendChild(gradient);out.appendChild(back);
+ out.appendChild(svg('circle',{cx:280,cy:280,r:235,fill:'url(#polar-sea-gradient)',stroke:'#92b3c2','stroke-width':1.5}));
+ var land=svg('g',{'clip-path':'url(#polar-clipping)'});
+ var codes=view==='antarctic'?['ATA']:view==='subantarctic'?['ATA','ARG','CHL','NZL','AUS','ZAF','FLK','ATF','URY']:['GRL','CAN','RUS','NOR','ISL','SWE','FIN','USA'];
+ codes.forEach(function(code){var d=landPath(code,m);if(d){var p=svg('path',{d:d,class:'map-land'});land.appendChild(p)}});
+ out.appendChild(land);
+ var grid=svg('g',{'clip-path':'url(#polar-clipping)'});
+ m.rings.forEach(function(l){
+  var r=radiusAt(l,m);if(r>235||r<0)return;
+  grid.appendChild(svg('circle',{cx:280,cy:280,r:r,class:'map-graticule'}));
+  var label=svg('text',{x:283,y:(280-r+12).toFixed(1),'font-size':12,fill:'#557a83'});label.textContent=l+'°'+(m.pole>0?'N':'S');grid.appendChild(label)
+ });
+ [0,45,90,135,180,225,270,315].forEach(function(lon){
+  var a=padAngle(lon),x=280+235*Math.sin(a),y=280-235*Math.cos(a);
+  grid.appendChild(svg('line',{x1:280,y1:280,x2:x.toFixed(2),y2:y.toFixed(2),class:'map-graticule'}));
+ });
+ out.appendChild(grid);
+ // Geographic place labels are distinct from the selection markers.
+ var geographicLabels={
+  antarctic:[['Antarctic Peninsula',-65,-65],['Weddell Sea',-71,-43],['Ross Sea',-72,172],['Dronning Maud Land',-76,16],['East Antarctica',-81,98]],
+  arctic:[['Greenland',74,-42],['Svalbard',79,17],['Canadian Arctic',77,-93],['Siberia',72,106],['Arctic Ocean',86,-23]],
+  subantarctic:[['South Georgia',-54,-36],['Falkland Islands',-51,-58],['Kerguelen',-49,70],['Crozet',-46,52],['Marion Island',-47,38],['Macquarie Island',-54,159]]
+ };
+ var labels=svg('g',{'clip-path':'url(#polar-clipping)'});
+ geographicLabels[view].forEach(function(entry){
+  var p=project(entry[1],entry[2],m);
+  var label=svg('text',{x:p[0].toFixed(1),y:p[1].toFixed(1),class:'map-label','text-anchor':'middle'});
+  label.textContent=entry[0];labels.appendChild(label)
+ });
+ out.appendChild(labels);
+ var markers=svg('g',{});
+ var occupied=[];
+ function labelOffset(pos){
+  var angles=[0,1,2,3,4,5,6,7,8,9,10,11];
+  for(var ring=0;ring<5;ring++)for(var k=0;k<angles.length;k++){
+   var angle=angles[k]*Math.PI/6,r=ring*12;
+   var px=pos[0]+r*Math.cos(angle),py=pos[1]+r*Math.sin(angle);
+   if(px<45||px>515||py<45||py>515)continue;
+   if(occupied.every(function(p){return (px-p[0])*(px-p[0])+(py-p[1])*(py-p[1])>=240})){
+    occupied.push([px,py]);return [px-pos[0],py-pos[1]]
+   }
+  }
+  occupied.push(pos);return [0,0]
+ }
+ filtered.forEach(function(s){
+  var base=project(s.lat,s.lon,m),offset=labelOffset(base);
+  var x=base[0]+offset[0],y=base[1]+offset[1];
+  if(offset[0]||offset[1])markers.appendChild(svg('line',{x1:base[0],y1:base[1],x2:x,y2:y,stroke:'#7595a0','stroke-dasharray':'3 3','stroke-width':'1.5'}));
+  var selectedPin=s.id===selected,group=svg('g',{role:'button',tabindex:'0','aria-label':s.name+'; '+s.status.replace('-',' '),'aria-pressed':String(selectedPin)});
+  if(selectedPin)group.appendChild(svg('circle',{cx:x,cy:y,r:14,fill:'none',stroke:'#506b24','stroke-width':3}));
+  var pin=s.kind==='postal-site' ? svg('rect',{x:x-(selectedPin?8:7),y:y-(selectedPin?8:7),width:selectedPin?16:14,height:selectedPin?16:14,rx:2,class:'map-pin postal-site'+(selectedPin?' active':'')}) : svg('circle',{cx:x,cy:y,r:selectedPin?8.5:7,class:'map-pin '+s.status+(selectedPin?' active':'')});
+  var title=svg('title',{});title.textContent=s.name+' – '+s.area;pin.appendChild(title);group.appendChild(pin);
+  group.addEventListener('click',function(){choose(s.id,true)});
+  group.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(s.id,true)}});
+  markers.appendChild(group)
+ });
+ out.appendChild(markers);
+ var cross=svg('circle',{cx:280,cy:280,r:2.8,fill:'#95b5be'});out.appendChild(cross);
+ $('map-heading').textContent=m.title;$('map-count').textContent=filtered.length+' plotted stations'
+}
+
+function searchData(){
+ var q=norm($('search').value),status=$('status-filter').value,op=$('operator-filter').value;
+ return S.stations.filter(function(s){
+  if(s.region!==view)return false;
+  if(territory&&s.territory!==territory)return false;
+  if(postalOnly&&(!s.postal||s.postal.level==='not-assessed'))return false;
+  if(status&&s.status!==status)return false;
+  if(op&&s.flag!==op)return false;
+  return !q||norm([s.name,s.operator,s.area,s.info,s.territory||'',s.postal&&s.postal.description||'',(s.alternate_names||[]).join(' ')].join(' ')).includes(q)
+ })
+}
+function writeUrl(){
+ var u=new URL(location.href);u.searchParams.set('region',view);
+ if(selected)u.searchParams.set('station',selected);else u.searchParams.delete('station');
+ history.replaceState(null,'',u.pathname+u.search+u.hash)
+}
+function choose(id,write){selected=id;renderMap();renderList();renderDetails();if(write)writeUrl()}
+function setView(v,reset){if(!meta[v])return;view=v;listLimit=pageSize();if(reset){selected=null;territory='';$('search').value='';$('status-filter').value='';$('operator-filter').value=''}refresh()};
+function refresh(){
+ if(!S)return;filtered=searchData();
+ if(!filtered.some(function(s){return s.id===selected}))selected=filtered[0]?filtered[0].id:null;
+ document.querySelectorAll('[data-view]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.view===view))});
+ ['TAAF','AAT'].forEach(function(t){$('quick-'+t.toLowerCase()).setAttribute('aria-pressed',String(territory===t))});
+ $('postal-only').setAttribute('aria-pressed',String(postalOnly));
+ renderMap();renderList();renderDetails();ensureWeather(view);if(!initializing)writeUrl()
+}
+function weatherText(id){
+ var w=weatherById.get(id);return w&&Number.isFinite(w.temp)?w.temp.toFixed(1)+' °C':'—'
+}
+function weatherTime(s){return s&&s.replace('T',' ')+' UTC'}
+function ensureWeather(region){
+ if(!S||weatherLoading.has(region))return;
+ if(weatherChecked[region]&&Date.now()-weatherChecked[region]<weatherTTL)return;
+ weatherLoading.add(region);weatherState[region]='loading';
+ var sts=S.stations.filter(function(s){return s.region===region&&s.lat!==-90});
+ var batches=[];for(var i=0;i<sts.length;i+=12)batches.push(sts.slice(i,i+12));
+ Promise.allSettled(batches.map(function(chunk){
+  var lat=chunk.map(function(s){return s.lat}).join(','),lon=chunk.map(function(s){return s.lon}).join(',');
+  var url='https://api.open-meteo.com/v1/forecast?latitude='+encodeURIComponent(lat)+'&longitude='+encodeURIComponent(lon)+'&current=temperature_2m&forecast_days=1&timezone=GMT';
+  return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Open-Meteo HTTP '+r.status);return r.json()}).then(function(d){
+   var arr=Array.isArray(d)?d:[d];
+   if(arr.length!==chunk.length)throw Error('API response size mismatch');
+   arr.forEach(function(v,i){
+    if(v.current&&Number.isFinite(v.current.temperature_2m)){
+     weatherById.set(chunk[i].id,{temp:v.current.temperature_2m,time:v.current.time||'',provider:'Open-Meteo'})
+    }
+   });return true
+  })
+ })).then(function(results){
+  weatherState[region]=results.some(function(r){return r.status==='fulfilled'})?'loaded':'unavailable';
+  weatherChecked[region]=Date.now();weatherLoading.delete(region);
+  if(view===region){renderList();renderDetails()}
+ })
+}
+
+function renderList(){
+ var list=$('station-list'),actions=$('list-actions');list.replaceChildren();actions.replaceChildren();
+ var count=Math.min(filtered.length,listLimit);
+ $('list-count').textContent=count+' von '+filtered.length+' places';
+ if(!filtered.length){list.appendChild(el('p','noresults','No places match these filters.'));return}
+ var chosen=filtered.find(function(s){return s.id===selected});
+ var records=filtered.slice(0,count);
+ var pinned=!!chosen&&!records.some(function(s){return s.id===selected});
+ if(pinned)records=[chosen].concat(records.slice(0,count-1));
+ records.forEach(function(s){
+  var b=el('button','stationbutton'+(s.id===selected?' active':''));b.type='button';b.setAttribute('aria-pressed',String(s.id===selected));
+  b.appendChild(el('span','status-circle '+(s.kind==='postal-site'?'postal-site':s.status)));
+  var content=el('span','');
+  content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+(s.kind==='postal-site'?'Postal / heritage location':(s.status==='year-round'?'Year-round':'Seasonal'))));
+  b.appendChild(content);
+  var temperature=el('span','list-temp',weatherText(s.id));temperature.title='Automatic weather model estimate (not an observed station thermometer)';
+  b.appendChild(temperature);
+  b.addEventListener('click',function(){choose(s.id,true)});
+  list.appendChild(b)
+ });
+ if(count<filtered.length){
+  var more=el('button','','Show '+Math.min(pageSize(),filtered.length-count)+' more places');
+  more.type='button';
+  more.addEventListener('click',function(){listLimit=Math.min(filtered.length,listLimit+pageSize());renderList()});
+  actions.appendChild(more);
+  actions.appendChild(el('small','',count+' von '+filtered.length+' shown'+(pinned?' · selected location pinned first':'')))
+ }
+}
+function fact(parent,k,v){var r=el('div','fact');r.append(el('span','',k),el('span','',v));parent.appendChild(r)}
+function renderDetails(){
+ var target=$('details');target.replaceChildren();
+ if(!selected){target.appendChild(el('p','noresults','Keine passende Station ausgewählt.'));return}
+ var s=filtered.find(function(v){return v.id===selected});if(!s)return;
+ var head=el('div','station-head'),icon=el('span','station-flag',s.flag),intro=el('div','');
+ intro.append(el('h3','station-name',s.name),el('div','station-operator',s.operator));
+ intro.appendChild(el('span','pill '+(s.kind==='postal-site'?'postal-site':s.status),s.kind==='postal-site'?'POST / HISTORISCH':(s.status==='year-round'?'GANZJÄHRIG':'SAISONAL')));head.append(icon,intro);target.appendChild(head);
+ target.appendChild(el('p','statnote',s.info));
+ target.appendChild(el('div','section-title','Postgeschichte und Stempel'));
+ var evidence=s.postal||{level:'not-assessed',title:'Not yet assessed',description:'No postal source reviewed'};
+ var panel=el('section','postal-evidence');
+ panel.appendChild(el('strong','',evidence.title||'Postal information'));
+ if(evidence.description)panel.appendChild(el('p','',evidence.description));
+ if(evidence.postal_system)panel.appendChild(el('small','','Postsystem: '+evidence.postal_system));
+ if(evidence.marks)panel.appendChild(el('small','','Stempel: '+evidence.marks));
+ if(evidence.access)panel.appendChild(el('small','','Sammlerzugang: '+evidence.access));
+ if(evidence.source_url&&evidence.source_url.startsWith('https://'))panel.appendChild(link('Postalische Quelle ↗',evidence.source_url));
+ target.appendChild(panel);
+ var geoDetails=el('details','geo-details');
+ var geoSummary=el('summary','','Standort, Koordinaten und amtliche Quellen');
+ geoDetails.appendChild(geoSummary);
+ var geoBody=el('div','geo-body');
+ fact(geoBody,'Standort',s.area);
+ fact(geoBody,'Kartenkoordinate','≈ '+Math.abs(s.lat).toFixed(3)+'°'+(s.lat<0?'S':'N')+' · '+Math.abs(s.lon).toFixed(3)+'°'+(s.lon<0?'W':'E'));
+ if(s.coordinate_precision)geoBody.appendChild(el('span','source-date','Koordinatenquelle: '+s.coordinate_precision));
+ if(s.coordinate_reference_date)geoBody.appendChild(el('span','source-date','Koordinatenstand: '+s.coordinate_reference_date));
+ if(s.location_note)geoBody.appendChild(el('div','caution',s.location_note));
+ if(s.coordinate_source&&s.coordinate_source.startsWith('https://'))geoBody.appendChild(link('Geografische Quelle ↗',s.coordinate_source));
+ if(s.territory)fact(geoBody,'Postgebiet',({TAAF:'French Southern and Antarctic Lands',AAT:'Australian Antarctic Territory',BAT:'British Antarctic Territory',SGSSI:'South Georgia & the South Sandwich Islands',NO:'Norway / Svalbard'})[s.territory]||s.territory);
+ var actions=el('div','actions');
+ if(/^https:\/\//.test(s.url))actions.appendChild(link('Official station website ↗',s.url));
+ if(s.webcam)actions.appendChild(link('Webcam / nearby camera ↗',s.webcam));
+ geoBody.appendChild(actions);
+
+ geoDetails.appendChild(geoBody);target.appendChild(geoDetails);
+ target.appendChild(el('div','section-title','Belege auf Worldwide Covers'));
+ var blog=el('div','actions');
+ blog.appendChild(link('Passende Belege suchen ↗','https://www.worldwidecovers.com/search?q='+encodeURIComponent(s.search||s.name)));
+ var targetPostal=({TAAF:'French Southern and Antarctic Lands (TAAF)',AAT:'Australian Antarctic Territory',BAT:'British Antarctic Territory',SGSSI:'South Georgia & South Sandwich Islands',NO:'Norway'})[s.territory];
+ if(targetPostal)blog.appendChild(link('Portoreferenz ↗','../../countries/?country='+encodeURIComponent(targetPostal)));
+ target.appendChild(blog);
+ var weather=el('div','temp');
+ weather.appendChild(el('strong','','Aktuelle Temperatur · Modellschätzung'));
+ var model=weatherById.get(s.id),value=el('span','temp-value',model?model.temp.toFixed(1)+' °C':weatherState[view]==='unavailable'||weatherState[view]==='loaded'?'Nicht verfügbar':'Wird geladen …');
+ weather.appendChild(value);
+ var subtitle=model?('Model timestamp: '+weatherTime(model.time)+' · Not an observed reading at the station'):
+  'Open-Meteo model temperature is not available for this station (or the request is still being processed).';
+ weather.appendChild(el('span','temp-sub',subtitle));
+ weather.appendChild(el('div','temp-sub','Model grid and elevation may differ from the actual station, especially on high Antarctic ice.'));
+ target.appendChild(weather);
+ if(s.webcam){
+  target.appendChild(el('div','section-title','Offizielle Stationswebcam'));
+  var cam=el('div','webcam');
+  cam.appendChild(el('strong','','Webcam / neueste Bilder'));
+  cam.appendChild(el('p','','Images depend on daylight and communications. Embedded views use the operator’s periodically updated still images, not guaranteed continuous live video.'));
+  if(s.webcam_note)cam.appendChild(el('p','',s.webcam_note));
+  if(s.embedded_webcam_url){
+   var iframe=el('iframe','');
+   iframe.src=s.embedded_webcam_url;iframe.loading='lazy';iframe.title='Official webcam view for '+s.name;iframe.referrerPolicy='strict-origin-when-cross-origin';
+   cam.appendChild(iframe);
+   cam.appendChild(el('p','','If the camera does not display, its operator may prevent external embedding. Use the official webcam link instead.'));
+  }
+  cam.appendChild(link('Offizielle Webcam öffnen ↗',s.webcam));
+  target.appendChild(cam)
+ }
+}
+function init(){
+ $('stations-total').textContent=S.stations.length;
+ var opts=new Map();
+ S.stations.forEach(function(s){if(!opts.has(s.flag))opts.set(s.flag,s.operator.split(' · ')[0])});
+ Array.from(opts.entries()).sort(function(a,b){return a[1].localeCompare(b[1])}).forEach(function(k){var o=el('option','',k[0]+' '+k[1]);o.value=k[0];$('operator-filter').appendChild(o)});
+ var params=new URLSearchParams(location.search),v=params.get('region'),id=params.get('station');
+ if(v&&meta[v])view=v;else if(id){var found=S.stations.find(function(s){return s.id===id});if(found)view=found.region}
+ if(id&&S.stations.some(function(s){return s.id===id&&s.region===view}))selected=id;
+ listLimit=pageSize();initializing=false;refresh();
+ $('update-line').appendChild(txt(' · Datenstand: '+S.updated));
+}
+document.querySelectorAll('[data-view]').forEach(function(btn){btn.addEventListener('click',function(){setView(btn.dataset.view,true)})});
+['search','status-filter','operator-filter'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',function(){listLimit=pageSize();refresh()})});
+$('postal-only').addEventListener('click',function(){postalOnly=!postalOnly;selected=null;listLimit=pageSize();refresh()});
+['TAAF','AAT'].forEach(function(t){$('quick-'+t.toLowerCase()).addEventListener('click',function(){
+ if(t==='AAT')view='antarctic';
+ else if(view==='arctic')view='subantarctic';
+ territory=territory===t?'':t;selected=null;listLimit=pageSize();refresh()
+})});
+setInterval(function(){if(S)ensureWeather(view)},15*60*1000);
+window.addEventListener('popstate',function(){var p=new URLSearchParams(location.search),v=p.get('region');if(meta[v])view=v;selected=p.get('station')||null;refresh()});
+Promise.all([
+ fetch('../../polar/stations.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Station HTTP '+r.status);return r.json()}),
+ fetch('../../polar/land.json',{cache:'force-cache'}).then(function(r){if(!r.ok)throw Error('Land HTTP '+r.status);return r.json()}).catch(function(){return {countries:[]}})
+]).then(function(results){
+ S=results[0];L=results[1];if(!Array.isArray(S.stations))throw Error('Station list invalid');init();
+}).catch(function(err){
+ $('map-count').textContent='Catalogue unavailable';
+ $('details').replaceChildren(el('p','noresults','Stationsdaten konnten nicht geladen werden: '+err.message));
+ $('station-list').replaceChildren(el('p','noresults','Bitte versuchen Sie es später erneut.'))
+})
+})();
+</script>
+<script>
+(function(){
+ function resize(){if(window.parent!==window)window.parent.postMessage({type:'ARGE_ATLAS_HEIGHT',height:Math.ceil(document.documentElement.scrollHeight)+16},'*')}
+ if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(document.body);
+ window.addEventListener('load',resize);
+})();
+</script>
+</body>
+</html>
