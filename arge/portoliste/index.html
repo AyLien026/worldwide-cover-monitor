@@ -7,70 +7,112 @@
 <title>Portoliste – ARGE Polarphilatelie</title>
 <meta name="description" content="Internationale Standardbrief-Portotarife für die 33 Länder und Postgebiete der ARGE-Polarphilatelie-Portoliste, aus der zentralen Worldwide-Covers-Datenbank.">
 <style>
-:root{--blue:#27718a;--ink:#27343c;--muted:#5b6c73;--line:#d9e4e9;--pale:#eff7fa;--ice:#eaf5f9;--olive:#6d8428;--green:#eaf1dd;--orange:#a36113}
+
+:root{--navy:#173d57;--blue:#236b8d;--blue-deep:#174e6c;--ice:#e9f5fb;--mist:#f5fafe;--ink:#243e50;--muted:#5d7483;--line:#d7e7f0;--amber:#8a6032}
 *{box-sizing:border-box}
-body{margin:0;background:#fff;color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-main{max-width:1160px;margin:auto;padding:16px 14px 32px}
-h1{font:500 clamp(28px,3.5vw,41px)/1.15 Georgia,serif;margin:7px 0 12px}
-h2{font:500 20px Georgia,serif;margin:0}
-a{color:#25687b;text-underline-offset:3px}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #265c79;outline-offset:2px}
-.hero{border:1px solid #cfdee5;border-left:5px solid var(--blue);background:var(--ice);padding:20px 22px;margin-bottom:15px}
-.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:#41768a}
-.hero p{margin:8px 0 0;max-width:810px;color:#4f6470}
-.notice{border:1px solid #e2e4d5;border-left:4px solid #a3ad50;padding:12px 15px;background:#fbfbf4;font-size:13px;color:#58634f;margin:13px 0}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;border:1px solid var(--line);padding:13px;margin:13px 0;background:#fff}
-.toolbar label{font-size:12px;font-weight:700;color:#4f6971}
-.toolbar .search{flex:2 1 230px}
-.toolbar .status{flex:1 1 175px}
-.toolbar input,.toolbar select{display:block;width:100%;padding:10px 11px;min-height:43px;margin-top:3px;font:inherit;border:1px solid #bfcfd5;background:#fff;color:var(--ink);border-radius:4px}
-.meta{font-size:12px;color:var(--muted);margin:8px 0 13px}
-.results{display:grid;gap:9px}
-.country{border:1px solid var(--line);border-radius:6px;background:#fff}
+html{color-scheme:light}
+body{margin:0;background:#fff;color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+main{max-width:1140px;margin:0 auto;padding:18px 16px 36px}
+h1{font-size:clamp(29px,3.5vw,40px);line-height:1.17;letter-spacing:-.8px;font-weight:750;margin:9px 0 12px;color:var(--navy)}
+h2{font-size:17px;font-weight:750;line-height:1.3;margin:0;color:var(--navy)}
+a{color:var(--blue-deep);text-underline-offset:3px}
+a:hover{color:#103e59}
+a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #68afce;outline-offset:2px}
+.hero{background:linear-gradient(112deg,#e9f5fb 0%,#f8fcff 72%,#fff 100%);border:1px solid #cfe3ee;border-left:5px solid #3488ad;border-radius:0 12px 12px 0;padding:24px 27px;margin-bottom:14px}
+.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:#397b9a}
+.hero p{margin:0;max-width:830px;color:#48687b;font-size:14px}
+.overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 14px}
+.overview-item{border:1px solid var(--line);border-radius:9px;padding:12px 15px;background:#fff;display:flex;align-items:center;gap:12px}
+.overview-item strong{color:var(--blue-deep);font-size:23px;line-height:1.1;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+.overview-item span{font-size:12px;line-height:1.35;color:var(--muted)}
+.notice{border:1px solid var(--line);background:var(--mist);border-radius:8px;padding:0 15px;margin:13px 0 16px}
+.notice summary{font-size:13px;color:var(--blue-deep);font-weight:700;cursor:pointer;padding:11px 0}
+.notice p{margin:0 0 13px;font-size:13px;color:#4e6676;line-height:1.6}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:end;background:#f6fbfe;border:1px solid var(--line);border-radius:10px;padding:15px;margin:14px 0 18px}
+.toolbar label{display:block;font-size:12px;font-weight:750;color:#496a7e}
+.toolbar .search{flex:2 1 245px}.toolbar .status{flex:1 1 200px}
+.toolbar input,.toolbar select{display:block;width:100%;padding:11px 12px;min-height:44px;margin-top:5px;font:inherit;font-size:14px;border:1px solid #bdd5e3;background:#fff;color:var(--ink);border-radius:6px}
+.toolbar input:focus,.toolbar select:focus{border-color:var(--blue)}
+.list-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap;margin:18px 0 9px}
+.meta{font-size:12px;color:var(--muted)}
+.directory-head{display:grid;grid-template-columns:34px minmax(0,1fr) minmax(135px,210px) 18px;gap:12px;padding:11px 17px;background:#eaf5fb;border:1px solid var(--line);border-radius:9px 9px 0 0;color:#476d83;font-size:11px;font-weight:800;letter-spacing:.7px;text-transform:uppercase}
+.directory-head span:nth-child(3){text-align:right}
+.results{border:1px solid var(--line);border-top:0;border-radius:0 0 9px 9px;overflow:hidden;background:#fff}
+.country{background:#fff;border-bottom:1px solid #e1ecf2}
+.country:last-child{border-bottom:0}
 .country[hidden]{display:none}
-.country summary{display:grid;grid-template-columns:30px minmax(0,1.1fr) minmax(145px,.9fr) 24px;gap:10px;align-items:center;min-height:74px;padding:12px 14px;cursor:pointer;list-style:none}
+.country summary{display:grid;grid-template-columns:34px minmax(0,1fr) minmax(135px,210px) 18px;gap:12px;align-items:center;min-height:70px;padding:11px 17px;cursor:pointer;list-style:none}
 .country summary::-webkit-details-marker{display:none}
-.country[open] summary,.country summary:hover{background:#f3f9fb}
+.country summary:hover,.country[open] summary{background:#f1f9fd}
 .flag{font-size:25px;line-height:1}
-.name{font-weight:750;font-size:15px}
-.sub{font-size:11px;color:var(--muted);margin-top:3px;display:block;font-weight:400}
-.price{text-align:right;font-variant-numeric:tabular-nums;font-weight:750;font-size:15px}
-.price small{font-size:11px;font-weight:400;color:var(--muted);display:block}
-.chevron{font-size:18px;color:#538298;justify-self:end}
+.name{font-weight:750;font-size:14px;color:var(--navy)}
+.sub{font-size:11px;color:var(--muted);margin-top:3px;display:block;font-weight:450}
+.price{text-align:right;font-variant-numeric:tabular-nums;line-height:1.35;min-width:0}
+.price .amount{display:block;font-weight:800;font-size:15px;color:#163f5c}
+.price .fare-line{display:block;font-size:12px;font-weight:700;color:#174b68;overflow-wrap:anywhere}
+.price .fare-key{font-weight:450;color:var(--muted)}
+.price .verification{font-size:11px;font-weight:450;color:var(--muted);display:block;margin-top:3px}
+.price .verification.verified{color:#2c7597}
+.price .verification.unverified{color:var(--amber)}
+.chevron{font-size:19px;color:#4d8eab;justify-self:end}
 .country[open] .chevron{transform:rotate(180deg)}
-.details{border-top:1px dashed var(--line);background:#fbfdfe;padding:14px 16px 17px 54px;font-size:13px}
-.details p{margin:7px 0;overflow-wrap:anywhere}
-.fares{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 9px}
-.fare{background:#eaf4f7;border:1px solid #d5e7ec;padding:8px 11px;min-width:125px}
-.fare small{display:block;color:#536d77}.fare strong{font-size:15px}
-.status-pill{font-weight:750;font-size:11px;padding:3px 7px;display:inline-block;border-radius:3px;background:var(--green);color:#48601f}
-.status-pill.unverified{background:#fff0db;color:#87521c}
-.status-pill.missing{background:#f1f1f1;color:#596168}
-.caution{color:#86521b}
-.noresults{border:1px dashed #bdced3;padding:24px;text-align:center;color:var(--muted)}
-.footer{border-top:1px solid var(--line);padding-top:12px;margin-top:18px;font-size:12px;color:var(--muted)}
+.details{border-top:1px solid var(--line);background:#f7fbfe;padding:16px 18px 18px 63px;font-size:13px}
+.details p{margin:8px 0;overflow-wrap:anywhere}
+.fares{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 12px}
+.fare{background:#fff;border:1px solid #cee4ef;border-radius:6px;padding:9px 12px;min-width:135px}
+.fare small{display:block;color:#55778a}.fare strong{font-size:15px;color:var(--navy)}
+.status-pill{font-weight:750;font-size:11px;padding:4px 8px;display:inline-block;border-radius:5px;background:#e3f2fa;color:#1d6589}
+.status-pill.unverified{background:#fff2e4;color:#855721}
+.status-pill.missing{background:#edf1f4;color:#5b6c79}
+.caution{color:#855d30}
+.noresults{padding:25px;text-align:center;color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding-top:15px;margin-top:20px;font-size:12px;color:var(--muted);line-height:1.7}
 [hidden]{display:none!important}
-html.embedded .hero{display:none}html.embedded main{padding-top:5px}
-@media(max-width:640px){
- main{padding:8px 6px 20px}.country summary{grid-template-columns:25px minmax(0,1fr) minmax(108px,.8fr) 15px;padding:10px 8px;gap:6px}
- .flag{font-size:20px}.name,.price{font-size:13px}.details{padding:12px}.toolbar{padding:10px}
+@media(max-width:690px){
+ main{padding:12px 9px 24px}
+ .hero{padding:19px 17px}
+ .overview{gap:7px}
+ .overview-item{display:block;padding:10px}
+ .overview-item strong{display:block;font-size:18px;margin-bottom:3px}
+ .directory-head{display:none}
+ .results{border-top:1px solid var(--line);border-radius:9px}
+ .country summary{grid-template-columns:25px minmax(0,1fr) minmax(110px,.8fr) 15px;padding:11px 9px;gap:7px}
+ .flag{font-size:21px}
+ .name{font-size:13px}
+ .price .amount{font-size:13px}
+ .price .fare-line{font-size:11px}
+ .details{padding:13px}
+}
+@media(max-width:390px){
+ .overview-item span{font-size:10px}
+ .country summary{grid-template-columns:24px minmax(0,1fr) 105px 13px}
+ .toolbar{padding:11px}
 }
 </style>
-<script>if(window.self!==window.top)document.documentElement.classList.add('embedded')</script>
+
 </head>
 <body>
 <main>
 <header class="hero">
  <div class="kicker">Arbeitsgemeinschaft Polarphilatelie e.V.</div>
  <h1>Internationale Portoliste</h1>
- <p>Standardbrief-Tarife aus 33 ausgewählten Ländern und Postgebieten nach Deutschland. Tarifangaben, Quellen und Prüfstatus stammen aus einer gemeinsamen, öffentlich zugänglichen Datensammlung.</p>
+ <p>Standardbriefporto aus 33 Ländern und Postgebieten nach Deutschland – mit Tarifangaben, Quellen und Angaben zum Prüfstand.</p>
 </header>
-<div class="notice"><strong>Wichtiger Hinweis:</strong> Diese Liste übernimmt Datenänderungen aus dem zentralen GitHub-Archiv beim nächsten Aufruf automatisch. Das bedeutet <strong>nicht</strong>, dass alle Tarife automatisch bei der Postverwaltung verifiziert werden. Besonders für antarktische Stationen sind Versandmöglichkeiten und Gebühren teils nur vorläufig erschlossen. Briefporto bedeutet nicht automatisch Postkartenporto; Luft- und Seepost werden nur unterschieden, wenn die Quelle das ausdrücklich belegt.</div>
+<section class="overview" aria-label="Portoliste im Überblick">
+ <div class="overview-item"><strong>33</strong><span>Länder und Postgebiete</span></div>
+ <div class="overview-item"><strong id="verified-count">–</strong><span>Tarife mit geprüfter Quelle</span></div>
+ <div class="overview-item"><strong id="data-date">–</strong><span>Datenbankstand</span></div>
+</section>
+<details class="notice">
+ <summary>Hinweise zur Aktualität und zu den Versandarten</summary>
+ <p>Die Tarife stammen aus einer gemeinsamen öffentlichen Datensammlung. Änderungen werden aus dem GitHub-Datenbestand übernommen, sobald sie dort veröffentlicht wurden. Nicht alle Preise sind bereits anhand amtlicher Quellen bestätigt. Besonders bei antarktischen Stationen können Versandmöglichkeiten und Tarife abweichen. Angaben für Briefe gelten nicht automatisch für Postkarten; Economy und Priority werden nicht ohne Quellenbeleg mit See- oder Luftpost gleichgesetzt.</p>
+</details>
 <section class="toolbar" aria-label="Portoliste durchsuchen">
  <label class="search" for="search">Land oder Postgebiet suchen<input type="search" id="search" placeholder="z. B. Grönland, BAT, Japan …" autocomplete="off"></label>
  <label class="status" for="status">Datenstatus<select id="status"><option value="">Alle 33 Länder und Gebiete</option><option value="verified">Quellengeprüft</option><option value="unverified">Noch nicht abschließend geprüft</option><option value="missing">Ohne Preisangabe</option></select></label>
 </section>
-<div class="meta" id="meta" aria-live="polite">Tarifdaten werden geladen …</div>
+<div class="list-head"><h2>Tarifübersicht</h2><div class="meta" id="meta" aria-live="polite">Tarifdaten werden geladen …</div></div>
+<div class="directory-head" aria-hidden="true"><span></span><span>Land oder Postgebiet</span><span>Porto nach Deutschland</span><span></span></div>
 <section class="results" id="results" aria-label="Länderliste"></section>
 <div class="footer">Die ARGE-Auswahl ist fest auf die 33 Länder und Postgebiete der bisherigen ARGE-Liste begrenzt; neu auf Worldwide Covers hinzugefügte Länder erscheinen hier nicht automatisch. Tarifdaten: <a href="../../postage/" target="_blank" rel="noopener noreferrer">Worldwide Covers – International Postage Rates</a>. Keine Gewähr für aktuelle Schalterpreise, Zustellung oder Annahme von Sammlerpost. Alle verlinkten Quellen sind öffentlich.</div>
 </main>
@@ -131,16 +173,26 @@ function render(){
  const q=$('search').value.trim().toLocaleLowerCase('de'),state=$('status').value;
  $('results').replaceChildren();
  let visible=0;
- for(const [name,flag,id] of countries){
+ for(const [name,flag,id] of [...countries].sort((a,b)=>a[0].localeCompare(b[0],'de'))){
   const r=catalogue.find(item=>item.id===id), prices=entriesFor(r);
   const classification=!r||prices.length===0?'missing':r.status==='verified'?'verified':'unverified';
   if(q&&!((name+' '+id+' '+(r?.country||'')).toLocaleLowerCase('de').includes(q)))continue;
   if(state&&classification!==state)continue;
   visible++;
   const card=node('details','country'),top=node('summary'),f=node('span','flag',flag),a=node('span'),price=node('span','price'),chev=node('span','chevron','⌄');
-  a.appendChild(node('span','name',name));a.appendChild(node('span','sub',r?'Tarifzone: '+r.country:'Kein Datensatz vorhanden'));
-  price.appendChild(node('span','',prices.length===1?prices[0][1]:prices.length? 'ab '+prices.map(p=>p[1]).join(' / '):'Keine Angabe'));
-  price.appendChild(node('small','',classification==='verified'?'Quellengeprüfter Stand':classification==='unverified'?'Vorläufig / unbestätigt':'Preis fehlt'));
+  a.appendChild(node('span','name',name));a.appendChild(node('span','sub',r?.weight_g?'Brief bis '+r.weight_g+' g':'Gewichtsangabe: siehe Details'));
+  if(prices.length===1){
+   price.appendChild(node('strong','amount',prices[0][1]));
+   price.appendChild(node('span','fare-line',prices[0][0]));
+  }else if(prices.length>1){
+   for(const [kind,amount] of prices){
+    const ln=node('span','fare-line');
+    ln.appendChild(node('span','fare-key',kind+': '));
+    ln.appendChild(node('span','',amount));
+    price.appendChild(ln);
+   }
+  }else price.appendChild(node('strong','amount','Keine Angabe'));
+  price.appendChild(node('small','verification '+classification,classification==='verified'?'Quelle geprüft':classification==='unverified'?'Prüfung offen':'Preis fehlt'));
   top.append(f,a,price,chev);
   const detail=node('div','details'), fares=node('div','fares');
   if(prices.length)for(const [label,value] of prices){const item=node('div','fare');item.appendChild(node('small','',label));item.appendChild(node('strong','',value));fares.appendChild(item)}
@@ -162,7 +214,10 @@ function render(){
   card.append(top,detail);$('results').appendChild(card);
  }
  if(!visible)$('results').appendChild(node('div','noresults','Keine Länder entsprechen der Suche.'));
- $('meta').textContent=visible+' von '+countries.length+' Ländern und Postgebieten · Datenbankstand: '+(dbDate||'nicht angegeben')+' · Ziel: Deutschland';
+ const checked=countries.filter(c=>{const r=catalogue.find(item=>item.id===c[2]);return r?.status==='verified'&&entriesFor(r).length>0}).length;
+ $('verified-count').textContent=checked;
+ $('data-date').textContent=dbDate&&/^\d{4}-\d{2}-\d{2}$/.test(dbDate)?dbDate.split('-').reverse().join('.'):dbDate||'–';
+ $('meta').textContent=visible+' von '+countries.length+' Einträgen angezeigt';
 }
 function announceHeight(){if(window.parent===window)return;window.parent.postMessage({type:'ARGE_POSTAGE_HEIGHT',height:Math.ceil(document.documentElement.scrollHeight)+16},'*')}
 if(typeof ResizeObserver!=='undefined'){new ResizeObserver(announceHeight).observe(document.body)}
