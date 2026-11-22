@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Portoliste – ARGE Polarphilatelie</title>
+<meta name="description" content="Internationale Standardbrief-Portotarife für die 33 Länder und Postgebiete der ARGE-Polarphilatelie-Portoliste, aus der zentralen Worldwide-Covers-Datenbank.">
+<style>
+:root{--blue:#27718a;--ink:#27343c;--muted:#5b6c73;--line:#d9e4e9;--pale:#eff7fa;--ice:#eaf5f9;--olive:#6d8428;--green:#eaf1dd;--orange:#a36113}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+main{max-width:1160px;margin:auto;padding:16px 14px 32px}
+h1{font:500 clamp(28px,3.5vw,41px)/1.15 Georgia,serif;margin:7px 0 12px}
+h2{font:500 20px Georgia,serif;margin:0}
+a{color:#25687b;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #265c79;outline-offset:2px}
+.hero{border:1px solid #cfdee5;border-left:5px solid var(--blue);background:var(--ice);padding:20px 22px;margin-bottom:15px}
+.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:#41768a}
+.hero p{margin:8px 0 0;max-width:810px;color:#4f6470}
+.notice{border:1px solid #e2e4d5;border-left:4px solid #a3ad50;padding:12px 15px;background:#fbfbf4;font-size:13px;color:#58634f;margin:13px 0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;border:1px solid var(--line);padding:13px;margin:13px 0;background:#fff}
+.toolbar label{font-size:12px;font-weight:700;color:#4f6971}
+.toolbar .search{flex:2 1 230px}
+.toolbar .status{flex:1 1 175px}
+.toolbar input,.toolbar select{display:block;width:100%;padding:10px 11px;min-height:43px;margin-top:3px;font:inherit;border:1px solid #bfcfd5;background:#fff;color:var(--ink);border-radius:4px}
+.meta{font-size:12px;color:var(--muted);margin:8px 0 13px}
+.results{display:grid;gap:9px}
+.country{border:1px solid var(--line);border-radius:6px;background:#fff}
+.country[hidden]{display:none}
+.country summary{display:grid;grid-template-columns:30px minmax(0,1.1fr) minmax(145px,.9fr) 24px;gap:10px;align-items:center;min-height:74px;padding:12px 14px;cursor:pointer;list-style:none}
+.country summary::-webkit-details-marker{display:none}
+.country[open] summary,.country summary:hover{background:#f3f9fb}
+.flag{font-size:25px;line-height:1}
+.name{font-weight:750;font-size:15px}
+.sub{font-size:11px;color:var(--muted);margin-top:3px;display:block;font-weight:400}
+.price{text-align:right;font-variant-numeric:tabular-nums;font-weight:750;font-size:15px}
+.price small{font-size:11px;font-weight:400;color:var(--muted);display:block}
+.chevron{font-size:18px;color:#538298;justify-self:end}
+.country[open] .chevron{transform:rotate(180deg)}
+.details{border-top:1px dashed var(--line);background:#fbfdfe;padding:14px 16px 17px 54px;font-size:13px}
+.details p{margin:7px 0;overflow-wrap:anywhere}
+.fares{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 9px}
+.fare{background:#eaf4f7;border:1px solid #d5e7ec;padding:8px 11px;min-width:125px}
+.fare small{display:block;color:#536d77}.fare strong{font-size:15px}
+.status-pill{font-weight:750;font-size:11px;padding:3px 7px;display:inline-block;border-radius:3px;background:var(--green);color:#48601f}
+.status-pill.unverified{background:#fff0db;color:#87521c}
+.status-pill.missing{background:#f1f1f1;color:#596168}
+.caution{color:#86521b}
+.noresults{border:1px dashed #bdced3;padding:24px;text-align:center;color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding-top:12px;margin-top:18px;font-size:12px;color:var(--muted)}
+[hidden]{display:none!important}
+html.embedded .hero{display:none}html.embedded main{padding-top:5px}
+@media(max-width:640px){
+ main{padding:8px 6px 20px}.country summary{grid-template-columns:25px minmax(0,1fr) minmax(108px,.8fr) 15px;padding:10px 8px;gap:6px}
+ .flag{font-size:20px}.name,.price{font-size:13px}.details{padding:12px}.toolbar{padding:10px}
+}
+</style>
+<script>if(window.self!==window.top)document.documentElement.classList.add('embedded')</script>
+</head>
+<body>
+<main>
+<header class="hero">
+ <div class="kicker">Arbeitsgemeinschaft Polarphilatelie e.V.</div>
+ <h1>Internationale Portoliste</h1>
+ <p>Standardbrief-Tarife aus 33 ausgewählten Ländern und Postgebieten nach Deutschland. Tarifangaben, Quellen und Prüfstatus stammen aus einer gemeinsamen, öffentlich zugänglichen Datensammlung.</p>
+</header>
+<div class="notice"><strong>Wichtiger Hinweis:</strong> Diese Liste übernimmt Datenänderungen aus dem zentralen GitHub-Archiv beim nächsten Aufruf automatisch. Das bedeutet <strong>nicht</strong>, dass alle Tarife automatisch bei der Postverwaltung verifiziert werden. Besonders für antarktische Stationen sind Versandmöglichkeiten und Gebühren teils nur vorläufig erschlossen. Briefporto bedeutet nicht automatisch Postkartenporto; Luft- und Seepost werden nur unterschieden, wenn die Quelle das ausdrücklich belegt.</div>
+<section class="toolbar" aria-label="Portoliste durchsuchen">
+ <label class="search" for="search">Land oder Postgebiet suchen<input type="search" id="search" placeholder="z. B. Grönland, BAT, Japan …" autocomplete="off"></label>
+ <label class="status" for="status">Datenstatus<select id="status"><option value="">Alle 33 Länder und Gebiete</option><option value="verified">Quellengeprüft</option><option value="unverified">Noch nicht abschließend geprüft</option><option value="missing">Ohne Preisangabe</option></select></label>
+</section>
+<div class="meta" id="meta" aria-live="polite">Tarifdaten werden geladen …</div>
+<section class="results" id="results" aria-label="Länderliste"></section>
+<div class="footer">Die ARGE-Auswahl ist fest auf die 33 Länder und Postgebiete der bisherigen ARGE-Liste begrenzt; neu auf Worldwide Covers hinzugefügte Länder erscheinen hier nicht automatisch. Tarifdaten: <a href="../../postage/" target="_blank" rel="noopener noreferrer">Worldwide Covers – International Postage Rates</a>. Keine Gewähr für aktuelle Schalterpreise, Zustellung oder Annahme von Sammlerpost. Alle verlinkten Quellen sind öffentlich.</div>
+</main>
+<script>
+(function(){
+'use strict';
+const countries=[
+ ['Argentinien','🇦🇷','argentina-europe'],
+ ['Australische Antarktisgebiete (AAT)','🇦🇺','aat'],
+ ['Britisches Antarktis-Territorium (BAT)','🇬🇧','bat'],
+ ['Brasilien','🇧🇷','brazil'],
+ ['Bulgarien','🇧🇬','bulgaria-eu'],
+ ['Chile (einschl. chilenische Antarktis)','🇨🇱','chile'],
+ ['China (VR)','🇨🇳','china'],
+ ['Ecuador','🇪🇨','ecuador'],
+ ['Falklandinseln','🇫🇰','falkland-islands'],
+ ['Färöer','🇫🇴','faroe-islands'],
+ ['Finnland','🇫🇮','finland'],
+ ['Französische Süd- und Antarktisgebiete (TAAF)','🇫🇷','taaf'],
+ ['Grönland','🇬🇱','greenland'],
+ ['Island','🇮🇸','iceland-europe'],
+ ['Italien','🇮🇹','italy'],
+ ['Japan','🇯🇵','japan'],
+ ['Kanada','🇨🇦','canada'],
+ ['Südkorea','🇰🇷','south-korea'],
+ ['Norwegen (einschl. Spitzbergen)','🇳🇴','norway-europe'],
+ ['Polen','🇵🇱','poland-europe'],
+ ['Portugal','🇵🇹','portugal'],
+ ['Ross Dependency (Neuseeland)','🇳🇿','ross-europe-world'],
+ ['Rumänien','🇷🇴','romania'],
+ ['Russland','🇷🇺','russia'],
+ ['Südafrika','🇿🇦','south-africa'],
+ ['Südgeorgien und Südliche Sandwichinseln','🇬🇸','south-georgia'],
+ ['Spanien','🇪🇸','spain-europe'],
+ ['Schweden','🇸🇪','sweden'],
+ ['Tschechien','🇨🇿','czechia'],
+ ['Tristan da Cunha','🇸🇭','tristan-da-cunha'],
+ ['Ukraine','🇺🇦','ukraine'],
+ ['Uruguay','🇺🇾','uruguay'],
+ ['USA','🇺🇸','united-states']
+];
+const $=id=>document.getElementById(id), node=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x;};
+const today=()=>{let d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const validURL=u=>typeof u==='string'&&/^https:\/\//i.test(u);
+let catalogue=[], dbDate='';
+function entriesFor(rate){
+ if(!rate)return [];
+ const n=[];
+ const scheduled=rate.scheduled_from && rate.scheduled_standard && today()>=rate.scheduled_from;
+ if(scheduled)n.push(['Standard',rate.scheduled_standard]);
+ else if(rate.standard)n.push(['Standard',rate.standard]);
+ if(rate.economy)n.push(['Economy',rate.economy]);
+ if(rate.priority)n.push(['Priority',rate.priority]);
+ return n;
+}
+function link(label,url){const a=node('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a}
+function render(){
+ const q=$('search').value.trim().toLocaleLowerCase('de'),state=$('status').value;
+ $('results').replaceChildren();
+ let visible=0;
+ for(const [name,flag,id] of countries){
+  const r=catalogue.find(item=>item.id===id), prices=entriesFor(r);
+  const classification=!r||prices.length===0?'missing':r.status==='verified'?'verified':'unverified';
+  if(q&&!((name+' '+id+' '+(r?.country||'')).toLocaleLowerCase('de').includes(q)))continue;
+  if(state&&classification!==state)continue;
+  visible++;
+  const card=node('details','country'),top=node('summary'),f=node('span','flag',flag),a=node('span'),price=node('span','price'),chev=node('span','chevron','⌄');
+  a.appendChild(node('span','name',name));a.appendChild(node('span','sub',r?'Tarifzone: '+r.country:'Kein Datensatz vorhanden'));
+  price.appendChild(node('span','',prices.length===1?prices[0][1]:prices.length? 'ab '+prices.map(p=>p[1]).join(' / '):'Keine Angabe'));
+  price.appendChild(node('small','',classification==='verified'?'Quellengeprüfter Stand':classification==='unverified'?'Vorläufig / unbestätigt':'Preis fehlt'));
+  top.append(f,a,price,chev);
+  const detail=node('div','details'), fares=node('div','fares');
+  if(prices.length)for(const [label,value] of prices){const item=node('div','fare');item.appendChild(node('small','',label));item.appendChild(node('strong','',value));fares.appendChild(item)}
+  detail.appendChild(fares);
+  const p=node('p');const badge=node('span','status-pill '+classification,classification==='verified'?'Quellengeprüft':classification==='unverified'?'Nicht abschließend verifiziert':'Keine belastbare Preisangabe');p.appendChild(badge);
+  if(r?.weight_g)p.appendChild(node('span','', ' · Gewichtsreferenz: bis '+r.weight_g+' g (siehe Hinweise zur tatsächlichen Tarifklasse)'));
+  detail.appendChild(p);
+  if(r?.notes)detail.appendChild(node('p','',r.notes));
+  if(id==='south-georgia')detail.appendChild(node('p','caution','Geografische Klarstellung: Die Südlichen Shetlandinseln gehören nicht zum Postgebiet Südgeorgien/Südliche Sandwichinseln. Die bisherige ARGE-Bezeichnung vermischt unterschiedliche Gebiete.'));
+  if(r?.manual_verified_at)detail.appendChild(node('p','', 'Zuletzt manuell geprüft: '+r.manual_verified_at));
+  if(r?.check?.checked_at)detail.appendChild(node('p','', 'Automatischer Quellenhinweis zuletzt geprüft: '+r.check.checked_at+' ('+(r.check.state||'–')+'). Ein Treffer bestätigt nicht die postalische Anwendbarkeit.'));
+  if(r?.scheduled_from && r?.scheduled_standard){
+   const future=today()<r.scheduled_from;
+   detail.appendChild(node('p','',future?'Angekündigter Standardtarif ab '+r.scheduled_from+': '+r.scheduled_standard:'Planmäßig seit '+r.scheduled_from+' geltender Standardtarif: '+r.scheduled_standard+' (Gültigkeit prüfen)'));
+   if(validURL(r.scheduled_source_url))detail.appendChild(link('Amtliche Ankündigung öffnen ↗',r.scheduled_source_url));
+  }
+  if(validURL(r?.source_url))detail.appendChild(node('p')).appendChild(link('Offizielle Tarifquelle / Referenz öffnen ↗',r.source_url));
+  else detail.appendChild(node('p','caution','Keine verlinkte amtliche Tarifquelle hinterlegt.'));
+  card.append(top,detail);$('results').appendChild(card);
+ }
+ if(!visible)$('results').appendChild(node('div','noresults','Keine Länder entsprechen der Suche.'));
+ $('meta').textContent=visible+' von '+countries.length+' Ländern und Postgebieten · Datenbankstand: '+(dbDate||'nicht angegeben')+' · Ziel: Deutschland';
+}
+function announceHeight(){if(window.parent===window)return;window.parent.postMessage({type:'ARGE_POSTAGE_HEIGHT',height:Math.ceil(document.documentElement.scrollHeight)+16},'*')}
+if(typeof ResizeObserver!=='undefined'){new ResizeObserver(announceHeight).observe(document.body)}
+$('search').addEventListener('input',render);$('status').addEventListener('change',render);
+fetch('../../postage/rates.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{
+ if(!Array.isArray(data.rates))throw Error('Ungültiges Datenformat');
+ catalogue=data.rates;dbDate=data.updated_at||'';render();
+}).catch(err=>{$('meta').textContent='Portodaten derzeit nicht verfügbar: '+err.message;$('results').replaceChildren(node('p','noresults','Bitte versuchen Sie es später erneut. Es werden keine veralteten Ersatzpreise angezeigt.'))});
+})();
+</script>
+</body>
+</html>
