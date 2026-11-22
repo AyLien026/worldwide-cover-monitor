@@ -95,6 +95,9 @@ h1{font:500 clamp(28px,4vw,43px)/1.15 Georgia,"Times New Roman",serif;margin:7px
 @media(min-width:621px) and (max-width:710px){.map-title{align-items:flex-start}.map-title span{display:block}.mapcol,.panel{padding:10px}.station-name{font-size:19px}}
 
 html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
+/* In ARGE polar-blue embeds, show the atlas header; olive Worldwide Covers embeds remain compact. */
+html.embedded[data-theme="polar"] .hero{display:block}
+html.embedded[data-theme="polar"] .shell{padding-top:10px}
 
 /* ARGE Polarphilatelie: cool polar-blue theme. Worldwide Covers stays olive. */
 html[data-theme="polar"]{--olive:#5b9bb4;--olive-dark:#1d526d;--ink:#203b4d;--muted:#5a7180;--line:#d4e5ed;--cream:#eff8fc;--ice:#e5f3fa;--teal:#246f90;--pale:#f3f9fc}
@@ -147,6 +150,8 @@ html[data-theme="polar"] .about strong{color:#254e65}
     document.addEventListener('DOMContentLoaded',function(){
       var note=document.getElementById('filter-note');
       if(note)note.textContent='Postal sites are shown with blue squares.';
+      var kicker=document.querySelector('.hero .kicker');
+      if(kicker)kicker.textContent='ARGE Polarphilatelie · Polar research & postal history';
     });
   }
 })();
