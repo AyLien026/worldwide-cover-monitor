@@ -95,8 +95,62 @@ h1{font:500 clamp(28px,4vw,43px)/1.15 Georgia,"Times New Roman",serif;margin:7px
 @media(min-width:621px) and (max-width:710px){.map-title{align-items:flex-start}.map-title span{display:block}.mapcol,.panel{padding:10px}.station-name{font-size:19px}}
 
 html.embedded .hero{display:none}html.embedded .shell{padding-top:5px}
+
+/* ARGE Polarphilatelie: cool polar-blue theme. Worldwide Covers stays olive. */
+html[data-theme="polar"]{--olive:#5b9bb4;--olive-dark:#1d526d;--ink:#203b4d;--muted:#5a7180;--line:#d4e5ed;--cream:#eff8fc;--ice:#e5f3fa;--teal:#246f90;--pale:#f3f9fc}
+html[data-theme="polar"] a{color:#216a8c}
+html[data-theme="polar"] button:focus-visible,html[data-theme="polar"] a:focus-visible,html[data-theme="polar"] input:focus-visible,html[data-theme="polar"] select:focus-visible{outline-color:#267d9e}
+html[data-theme="polar"] .kicker{color:#277393}
+html[data-theme="polar"] .hero{background:#edf7fb;border-color:#d4e8f1;border-left-color:#569db9}
+html[data-theme="polar"] .hero p,html[data-theme="polar"] .hero-meta{color:#4b6879}
+html[data-theme="polar"] .h-metric{color:#214e68}
+html[data-theme="polar"] .tab{background:#f3f9fc;border-color:#bbd7e4;color:#315f79}
+html[data-theme="polar"] .tab[aria-pressed="true"]{background:#e1f2fa;border-color:#78afc7;color:#174e70;box-shadow:inset 0 -3px #418ba9}
+html[data-theme="polar"] .field label{color:#476777}
+html[data-theme="polar"] .field input,html[data-theme="polar"] .field select{border-color:#c2d8e4;color:#203b4d}
+html[data-theme="polar"] .quick button{background:#f1f8fc;border-color:#c8dfe9;color:#276484}
+html[data-theme="polar"] .quick button[aria-pressed="true"]{background:#dceff8;border-color:#75a9c1;color:#174f70}
+html[data-theme="polar"] .map-land{fill:#f0f7fa;stroke:#83adbe}
+html[data-theme="polar"] .map-relief{fill:#eaf4f8;stroke:#d4e6ed}
+html[data-theme="polar"] .map-pin.postal-site{fill:#669fbb}
+html[data-theme="polar"] .dot.postal,html[data-theme="polar"] .status-circle.postal-site{background:#669fbb}
+html[data-theme="polar"] .map [role="button"]:focus-visible{stroke:#174e70}
+html[data-theme="polar"] .pill.postal-site{background:#dceefa;color:#215d7c}
+html[data-theme="polar"] .postal-evidence{background:#f0f8fd;border-color:#c6dfed;border-left-color:#5598b6}
+html[data-theme="polar"] .postal-evidence p,html[data-theme="polar"] .postal-evidence small{color:#48697c}
+html[data-theme="polar"] .actions a,html[data-theme="polar"] .actions button{background:#f0f8fc;border-color:#b8d5e4;color:#235c7c}
+html[data-theme="polar"] .actions a:hover,html[data-theme="polar"] .actions button:hover{background:#e0f0f8}
+html[data-theme="polar"] .section-title{color:#286f90}
+html[data-theme="polar"] .temp button{color:#246b8e}
+html[data-theme="polar"] .list-actions button{background:#f0f8fc;border-color:#a9ccdc;color:#245d7d}
+html[data-theme="polar"] .list-actions button:hover{background:#dceefa}
+html[data-theme="polar"] .stationbutton{border-color:#e4eef3}
+html[data-theme="polar"] .stationbutton:hover{background:#f3f9fc}
+html[data-theme="polar"] .stationbutton.active{background:#e4f3fb;border-color:#8bbbd0}
+html[data-theme="polar"] .geo-details{background:#f6fbfd;border-color:#d4e7ef}
+html[data-theme="polar"] .geo-details summary{color:#286581}
+html[data-theme="polar"] .geo-details[open] summary{border-bottom-color:#d4e7ef}
+html[data-theme="polar"] .about{background:#eff8fc;border-color:#d4e7ef;color:#4c6778}
+html[data-theme="polar"] .about strong{color:#254e65}
 </style>
-<script>if(window.self!==window.top)document.documentElement.classList.add('embedded')</script>
+<script>
+/* Keep Worldwide Covers olive; use polar blue when embedded on the ARGE WordPress site.
+   ?theme=polar explicitly enables it; ?theme=olive explicitly keeps the original palette. */
+(function(){
+  if(window.self!==window.top)document.documentElement.classList.add('embedded');
+  var theme=new URLSearchParams(location.search).get('theme');
+  var referringHost='';
+  try{referringHost=new URL(document.referrer).hostname.toLowerCase()}catch(e){}
+  var isArge=referringHost==='arge-polar-b1f6hnqi5t.live-website.com';
+  if(theme==='polar'||(!theme&&isArge)){
+    document.documentElement.dataset.theme='polar';
+    document.addEventListener('DOMContentLoaded',function(){
+      var note=document.getElementById('filter-note');
+      if(note)note.textContent='Postal sites are shown with blue squares.';
+    });
+  }
+})();
+</script>
 </head>
 <body>
 <main class="shell">
@@ -236,7 +290,7 @@ function renderMap(){
   var x=base[0]+offset[0],y=base[1]+offset[1];
   if(offset[0]||offset[1])markers.appendChild(svg('line',{x1:base[0],y1:base[1],x2:x,y2:y,stroke:'#7595a0','stroke-dasharray':'3 3','stroke-width':'1.5'}));
   var selectedPin=s.id===selected,group=svg('g',{role:'button',tabindex:'0','aria-label':s.name+'; '+s.status.replace('-',' '),'aria-pressed':String(selectedPin)});
-  if(selectedPin)group.appendChild(svg('circle',{cx:x,cy:y,r:14,fill:'none',stroke:'#506b24','stroke-width':3}));
+  if(selectedPin)group.appendChild(svg('circle',{cx:x,cy:y,r:14,fill:'none',stroke:document.documentElement.dataset.theme==='polar'?'#205b79':'#506b24','stroke-width':3}));
   var pin=s.kind==='postal-site' ? svg('rect',{x:x-(selectedPin?8:7),y:y-(selectedPin?8:7),width:selectedPin?16:14,height:selectedPin?16:14,rx:2,class:'map-pin postal-site'+(selectedPin?' active':'')}) : svg('circle',{cx:x,cy:y,r:selectedPin?8.5:7,class:'map-pin '+s.status+(selectedPin?' active':'')});
   var title=svg('title',{});title.textContent=s.name+' – '+s.area;pin.appendChild(title);group.appendChild(pin);
   group.addEventListener('click',function(){choose(s.id,true)});
