@@ -149,9 +149,9 @@ html[data-theme="polar"] .about strong{color:#254e65}
     document.documentElement.dataset.theme='polar';
     document.addEventListener('DOMContentLoaded',function(){
       var note=document.getElementById('filter-note');
-      if(note)note.textContent='Postal sites are shown with blue squares.';
+      if(note)note.textContent='Poststandorte sind mit blauen Quadraten markiert.';
       var kicker=document.querySelector('.hero .kicker');
-      if(kicker)kicker.textContent='ARGE Polarphilatelie · Polar research & postal history';
+      if(kicker)kicker.textContent='ARGE Polarphilatelie · Polarforschung und Postgeschichte';
     });
   }
 })();
@@ -211,12 +211,40 @@ html[data-theme="polar"] .about strong{color:#254e65}
 (function(){
 'use strict';
 var $=function(id){return document.getElementById(id)};
+/* German ARGE presentation. The Worldwide Covers version retains English data and labels. */
+var argeGerman=document.documentElement.dataset.theme==='polar';
+var dePhraseMap={"Worldwide Covers · Polar research & postal history":"ARGE Polarphilatelie · Polarforschung und Postgeschichte","Postal sites are shown with blue squares.":"Poststandorte sind mit blauen Quadraten markiert.","Polar Philately Atlas":"Atlas der Polarphilatelie","Explore polar research stations and post offices, with documented postal operations, postmarks, cachets, historic mail routes and sources. Coordinates and weather are annotated separately.":"Entdecken Sie Forschungsstationen und Poststandorte in den Polarregionen. Der Atlas unterscheidet nachgewiesene Postdienste, Poststempel und Cachets sowie historische Beförderungswege. Koordinaten und Wetterdaten sind gesondert gekennzeichnet.","curated sites":"erfasste Standorte","Research and postal-history locations":"Forschungsstandorte und Orte der Postgeschichte","Automatic weather-model estimates":"Automatische Wettermodell-Schätzungen","Atlas filters":"Atlasfilter","Select polar region":"Polarregion wählen","🐧 Antarctica":"🐧 Antarktis","❄ Arctic":"❄ Arktis","🌊 Subantarctic":"🌊 Subantarktis","Find a station, post office or region":"Station, Postamt oder Region suchen","Station, postmark, place...":"Station, Stempel, Ort …","Station operation":"Stationsbetrieb","All operating patterns":"Alle Betriebsarten","Year-round":"Ganzjährig","Seasonal":"Saisonal","Country / operator":"Land / Betreiber","All operators":"Alle Betreiber","Postal history:":"Postgeschichte:","✉ Documented postal information":"✉ Postinformationen nachgewiesen","Territories:":"Gebiete:","Postal sites are shown with olive-green squares.":"Poststandorte sind mit Quadraten markiert.","Antarctica":"Antarktis","Arctic":"Arktis","Subantarctic islands":"Subantarktische Inseln","Loading stations…":"Stationen werden geladen …","Interactive polar station projection":"Interaktive Karte polarer Forschungsstationen","Schematic polar projection with selectable research stations":"Schematische Polarkarte mit auswählbaren Forschungsstationen","Polar research station locations":"Standorte polarer Forschungsstationen","Year-round research":"Ganzjährige Forschung","Seasonal research":"Saisonale Forschung","Postal / heritage site":"Poststandort / historischer Ort","Temperatures are model estimates, not station observations":"Temperaturen sind Modellwerte, keine Messungen der Stationen","Polar stereographic projection, with Natural Earth coastlines and place labels. Coordinates are approximate. Close markers are offset for selection; the map is not suitable for navigation.":"Polare stereografische Projektion mit Küstenlinien und Ortsbezeichnungen nach Natural Earth. Koordinaten sind Näherungswerte; eng benachbarte Markierungen können zur Auswahl versetzt sein. Die Karte eignet sich nicht zur Navigation.","Site & postal history":"Standort und Postgeschichte","Evidence & sources":"Belege und Quellen","Loading station catalogue…":"Stationsverzeichnis wird geladen …","Station list":"Stationsliste","Explore places":"Standorte entdecken","Postal history is more than a station location":"Postgeschichte ist mehr als der Standort einer Station","An official postal cancellation invalidates postage, while an expedition or souvenir cachet normally does not. A cachet alone is not evidence of postal entry at a mapped site. Entries without source-reviewed postal details are marked not assessed; this does not prove that no polar mail exists. Flags indicate operators or associated postal administrations, not uncontested territorial sovereignty. An institute website is not an invitation to send unsolicited mail. Temperature requests are sent directly from the visitor’s browser to Open-Meteo. Embedded webcam views may connect to the station operator’s server, where normal web-request information such as the visitor’s IP address is processed.":"Ein amtlicher Poststempel entwertet eine Briefmarke; ein Expeditions- oder Erinnerungsstempel (Cachet) erfüllt diese Funktion in der Regel nicht. Ein Cachet allein belegt keine postalische Einlieferung am Kartenstandort. Als „nicht geprüft“ gekennzeichnete Einträge bedeuten nicht, dass keine Polarpost existiert. Flaggen kennzeichnen Betreiber oder zugehörige Postverwaltungen, keine unbestrittene territoriale Hoheit. Eine Institutswebsite ist keine Einladung zu unaufgefordert eingesandter Sammlerpost. Temperaturabfragen erfolgen direkt vom Browser bei Open-Meteo. Eingebettete Webcams können Verbindungen zu den Servern der Betreiber herstellen und dabei übliche Zugriffsdaten wie die IP-Adresse übertragen.","Browse the Polar Philately collection on Worldwide Covers":"Polarphilatelie-Belege bei Worldwide Covers ansehen","Site data is a curated, non-exhaustive register of research and postal-history locations; coordinates are approximate or dated. Attribution:":"Die Standortdaten bilden ein redaktionell zusammengestelltes, nicht vollständiges Verzeichnis; Koordinaten sind teils angenähert oder datiert. Kartengrundlage:","Natural Earth map outlines":"Natural-Earth-Küstenlinien","; original station information from linked research institutions.":"; ursprüngliche Stationsinformationen von den verlinkten Forschungseinrichtungen.","No places match these filters.":"Keine Standorte entsprechen diesen Filtern.","No matching station selected.":"Keine passende Station ausgewählt.","POSTAL / HERITAGE":"POST / HISTORISCH","YEAR-ROUND":"GANZJÄHRIG","SEASONAL":"SAISONAL","Postal / heritage location":"Poststandort / historischer Ort","Automatic weather model estimate (not an observed station thermometer)":"Automatischer Wettermodellwert (keine Messung der Station)","Postal history and cancellations":"Postgeschichte und Stempel","Not yet assessed":"Noch nicht geprüft","No postal source reviewed":"Keine postalische Quelle ausgewertet","Postal information":"Postalische Angaben","Location, coordinates & official sources":"Standort, Koordinaten und offizielle Quellen","Location":"Standort","Map position":"Kartenposition","Location method: ":"Methode der Ortsbestimmung: ","Location reference date: ":"Referenzdatum der Ortsangabe: ","Geographic source ↗":"Geografische Quelle ↗","Postal region":"Postgebiet","Official station website ↗":"Offizielle Stationswebsite ↗","Webcam / nearby camera ↗":"Webcam / Kamera in der Nähe ↗","Worldwide Covers collection":"Belege bei Worldwide Covers","Search related covers ↗":"Zugehörige Belege suchen ↗","Postage reference ↗":"Portoübersicht ↗","Current temperature · model estimate":"Aktuelle Temperatur · Modellschätzung","Unavailable":"Nicht verfügbar","Loading…":"Wird geladen …","Official station webcam":"Offizielle Stations-Webcam","Webcam / latest images":"Webcam / aktuelle Bilder","Images depend on daylight and communications. Embedded views use the operator’s periodically updated still images, not guaranteed continuous live video.":"Die Bilder hängen von Tageslicht und Datenverbindung ab. Eingebettete Ansichten zeigen vom Betreiber aktualisierte Einzelbilder und keinen garantierten Livestream.","If the camera does not display, its operator may prevent external embedding. Use the official webcam link instead.":"Falls die Kamera nicht angezeigt wird, kann der Betreiber die Einbettung verhindern. Nutzen Sie dann den offiziellen Webcam-Link.","Open official webcam ↗":"Offizielle Webcam öffnen ↗","Postal evidence · source ↗":"Postalischer Nachweis · Quelle ↗","Postal system: ":"Postsystem: ","Markings: ":"Stempel/Vermerke: ","Collector access: ":"Zugang für Sammler: ","French Southern and Antarctic Lands":"Französische Süd- und Antarktisgebiete","Australian Antarctic Territory":"Australisches Antarktis-Territorium","British Antarctic Territory":"Britisches Antarktis-Territorium","South Georgia & the South Sandwich Islands":"Südgeorgien und die Südlichen Sandwichinseln","Norway / Svalbard":"Norwegen / Spitzbergen","North":"Nord","South":"Süd","Model grid and elevation may differ from the actual station, especially on high Antarctic ice.":"Modellraster und Höhenlage können von der tatsächlichen Station abweichen, besonders auf dem hohen antarktischen Inlandeis.","Open-Meteo model temperature is not available for this station (or the request is still being processed).":"Für diese Station liegt derzeit kein Temperaturmodellwert von Open-Meteo vor (oder die Abfrage läuft noch).","Philatelic record not yet documented":"Philatelistische Angaben noch nicht dokumentiert","No independently reviewed postal service, datestamp, cachet or cover route has yet been entered for this site. This does NOT mean no such material exists.":"Für diesen Standort sind bislang weder Postdienst, Tagesstempel, Cachet noch Belegroute unabhängig geprüft und eingetragen worden. Das bedeutet ausdrücklich nicht, dass solche Belege nicht existieren.","Postal operations not assessed":"Postalische Nutzung nicht geprüft","A research station is not automatically a public postal facility. Distinguish expedition or station cachets from a postal cancellation; no mail-in or postmark service is verified here.":"Eine Forschungsstation ist nicht automatisch eine öffentliche Posteinrichtung. Expeditions- und Stationscachets sind von amtlichen Entwertungen zu unterscheiden. Ein Einsende- oder Stempelservice ist hier nicht nachgewiesen.","South Georgia":"Südgeorgien","Antarctic Peninsula":"Antarktische Halbinsel","Weddell Sea":"Weddellmeer","Ross Sea":"Rossmeer","Dronning Maud Land":"Königin-Maud-Land","East Antarctica":"Ostantarktis","Greenland":"Grönland","Svalbard":"Spitzbergen","Canadian Arctic":"Kanadische Arktis","Siberia":"Sibirien","Arctic Ocean":"Arktischer Ozean","Falkland Islands":"Falklandinseln","Marion Island":"Marioninsel","Macquarie Island":"Macquarieinsel","King George Island":"King-George-Insel","South Orkney Islands":"Südliche Orkneyinseln","Adelaide Island":"Adelaide-Insel","Ross Island":"Ross-Insel","Wilkes Land":"Wilkesland","Princess Elizabeth Land":"Prinzessin-Elisabeth-Land","Adélie Land":"Adélieland","Northeast Greenland":"Nordostgrönland","Greenland Ice Sheet":"Grönländischer Eisschild","Kerguelen Islands":"Kergueleninseln","Crozet Islands":"Crozetinseln","Amsterdam Island":"Amsterdaminsel","Geographic South Pole":"Geografischer Südpol","Ellesmere Island":"Ellesmere-Insel","Gough Island":"Goughinsel","Prince Edward Islands":"Prinz-Edward-Inseln","Queen Mary Land":"Königin-Mary-Land","East Antarctic Plateau":"Ostantarktisches Plateau","East Ongul Island":"Ost-Ongul-Insel"};
+var deInfoMap={"neumayer-iii":"Deutschlands ganzjährig besetzte Antarktis-Forschungsstation auf dem Ekström-Schelfeis.","rothera":"Wichtige Forschungs- und Logistikstation auf der Antarktischen Halbinsel.","halley":"Die wissenschaftliche Arbeit läuft über ferngesteuerte Instrumente weiter; die saisonale Besetzung hängt von den Betriebsbedingungen ab.","signy":"Saisonal betriebene Forschungsstation mit langer Tradition ökologischer Feldforschung.","mcmurdo":"Größte US-amerikanische Antarktisstation und bedeutender Logistikstützpunkt.","south-pole":"Ganzjährige Forschung am geografischen Südpol.","palmer":"Meeres- und Ökologieforschung auf der Antarktischen Halbinsel.","scott-base":"Neuseeländische Antarktis-Forschungsstation in der Nähe von McMurdo.","casey":"Ganzjährig betriebene australische Forschungsstation in der Ostantarktis.","davis":"Ganzjährig betriebene australische Station in den Vestfoldbergen.","mawson":"Australiens am längsten ohne Unterbrechung betriebene Antarktisstation.","dumont":"Französische Antarktis-Forschungsstation im Adélieland.","concordia":"Hochgelegene Forschungsstation im antarktischen Inland, gemeinsam von Frankreich und Italien betrieben.","showa":"Langjährig bestehende japanische Forschungsstation in der Antarktis.","awipev":"Gemeinsame deutsch-französische Arktis-Forschungsstation in Ny-Ålesund.","summit":"Forschungseinrichtung in großer Höhe auf dem grönländischen Eisschild.","zackenberg":"Hocharktischer Standort zur ökologischen Langzeitbeobachtung mit saisonalem Betrieb.","chars":"Arktischer Forschungscampus von Polar Knowledge Canada.","villum":"Forschungsinfrastruktur nahe Station Nord; der Zugang hängt von Feldkampagnen ab.","port-aux-francais":"Verwaltungs- und Forschungsstützpunkt auf Grande Terre, Kerguelen.","alfred-faure":"Französische Station auf der Île de la Possession im Crozet-Archipel.","martin-vivies":"Französische subantarktische Forschungsstation auf der Amsterdaminsel.","macquarie":"Australische subantarktische Station auf der Macquarieinsel.","king-edward":"Subantarktischer Forschungsstandort für Fischerei und Wissenschaft nahe Grytviken.","bird-island":"Langjährige Forschung zu Seevögeln und Meeressäugern.","esperanza":"Ganzjährig betriebene argentinische Station auf der Antarktischen Halbinsel.","marambio":"Argentinische Ganzjahresstation für Luftlogistik und Wissenschaft.","orcadas":"Historisch bedeutsame argentinische Ganzjahresstation, gegründet 1904.","belgrano-ii":"Argentinische Ganzjahresstation im östlichen Bereich des Weddellmeeres.","carlini":"Argentinischer Forschungsstützpunkt an der Potter Cove.","san-martin":"Argentinische Ganzjahresstation im Bereich der Antarktischen Halbinsel.","frei":"Chilenischer Logistik- und Forschungsstützpunkt nahe der chilenischen Antarktissiedlung.","escudero":"Chilenische Sommerforschungsstation neben der Frei-Station.","troll":"Ganzjährig betriebene norwegische Antarktis-Forschungsstation.","princess-elisabeth":"Belgische Antarktisstation, deren Betrieb auf geringe Umweltbelastung ausgelegt ist.","sanae-iv":"Ganzjährig betriebene südafrikanische Antarktis-Forschungsstation.","vernadsky":"Ukrainische Antarktis-Forschungsstation, ehemals Faraday-Station.","maitri":"Seit Langem bestehende indische Forschungsstation in der Antarktis.","bharati":"Ganzjährig betriebene indische Forschungseinrichtung in den Larsemann Hills.","mario-zucchelli":"Saisonal betriebene italienische Station an der Terra-Nova-Bucht.","king-sejong":"Südkoreanische Forschungsstation auf der Antarktischen Halbinsel.","jang-bogo":"Südkoreanische Forschungsstation im Gebiet des Rossmeeres.","great-wall":"Chinesische Antarktis-Forschungsstation auf der King-George-Insel.","zhongshan":"Chinesische Antarktis-Forschungsstation an der Küste Ostantarktikas.","vostok":"Hochgelegene russische Inlandsstation, bekannt für extreme Kälte.","mirny":"Russische Küstenforschungsstation in der Antarktis.","progress":"Ganzjährig betriebene russische Station in Ostantarktika.","alert":"Hocharktische Unterstützungs- und Wetterstation; kein gewöhnliches öffentliches Postamt.","eureka":"Hocharktischer Wetterbeobachtungs- und Forschungsstützpunkt.","station-nord":"Abgelegene militärische und logistische Station in Grönland, die wissenschaftliche Feldarbeit unterstützt.","hornsund":"Ganzjährig betriebene polnische Arktis-Forschungsstation.","barrow":"Arktisches Observatorium zur Überwachung der Atmosphäre (wissenschaftlicher Standort, kein Postamt).","toolik":"Arktische Feldstation für ökologische Forschung mit saisonalem Betrieb.","marion":"Südafrikanische subantarktische Forschungs- und Wetterstation.","gough":"Von Südafrika besetzte Wetter- und Forschungsstation auf der abgelegenen Goughinsel.","port-lockroy":"Historische britische Basis A (1944–1962), heute saisonales „Penguin Post Office“ und Antarktismuseum. Das Postamt wird vom UKAHT betrieben.","grytviken-post-office":"Der historische Walfangort Grytviken auf Südgeorgien besitzt ein offizielles Postamt und einen philatelistischen Dienst. Das erste Postamt wurde 1909 eröffnet; Personal arbeitet auch am nahegelegenen King Edward Point.","ny-alesund-post":"Arktische Forschungssiedlung mit historischer Postinfrastruktur. Das frühere Postgebäude ist heute ein historischer Ort; Postdienste wurden auch in anderen örtlichen Gebäuden, etwa dem Gemeinschaftsladen, angeboten."};
+function localText(value){return argeGerman && typeof value==='string' && Object.prototype.hasOwnProperty.call(dePhraseMap,value)?dePhraseMap[value]:value}
+function loc(en,de){return argeGerman?de:en}
+function localizeStatic(){
+ if(!argeGerman)return;
+ document.documentElement.lang='de';
+ document.title='Atlas der Polarphilatelie · Forschungsstationen und Postgeschichte';
+ var description=document.querySelector('meta[name="description"]');
+ if(description)description.content='Interaktiver Atlas zu Polarforschungsstationen, Postämtern und nachgewiesener Polarpost mit Quellen und geografischen Angaben.';
+ var walker=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT),node;
+ while((node=walker.nextNode())){var raw=node.nodeValue,trimmed=raw.trim();if(trimmed&&localText(trimmed)!==trimmed)node.nodeValue=raw.replace(trimmed,localText(trimmed))}
+ document.querySelectorAll('[aria-label],[placeholder]').forEach(function(element){
+  ['aria-label','placeholder'].forEach(function(attr){var value=element.getAttribute(attr);if(value&&localText(value)!==value)element.setAttribute(attr,localText(value))})
+ });
+}
+localizeStatic();
+function localizeStationData(){
+ if(!argeGerman)return;
+ S.stations.forEach(function(s){
+  s.info=deInfoMap[s.id]||localText(s.info);
+  ['operator','area','location_note','coordinate_precision','webcam_note'].forEach(function(key){if(s[key])s[key]=localText(s[key])});
+  if(s.postal)['title','description','postal_system','marks','access'].forEach(function(key){if(s.postal[key])s.postal[key]=localText(s.postal[key])});
+ });
+}
+
 var weatherById=new Map(),weatherState={},weatherLoading=new Set(),weatherChecked={},weatherTTL=15*60*1000;
 var S=null,L=null,view='antarctic',selected=null,territory='',postalOnly=false,filtered=[],initializing=true,listLimit=12;
 function pageSize(){return window.innerWidth<=620?6:12}
 var meta={antarctic:{title:'Antarctica',pole:-1,min:56,rings:[60,70,80]},arctic:{title:'Arctic',pole:1,min:61,rings:[65,70,80]},subantarctic:{title:'Subantarctic islands',pole:-1,min:32,rings:[40,50,60,70]}};
 var NS='http://www.w3.org/2000/svg';
-function el(tag,className,text){var n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n}
+function el(tag,className,text){var n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=localText(text);return n}
 function svg(tag,attrs){var n=document.createElementNS(NS,tag);Object.keys(attrs||{}).forEach(function(k){n.setAttribute(k,attrs[k])});return n}
 function norm(t){return String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
 function txt(t){return document.createTextNode(String(t))}
@@ -239,7 +267,7 @@ function landPath(code,m){
 function padAngle(deg){return deg*Math.PI/180}
 function renderMap(){
  var m=meta[view],out=$('polar-map');out.replaceChildren();
- out.appendChild(svg('title',{})).textContent=m.title+' station positions';
+ out.appendChild(svg('title',{})).textContent=localText(m.title)+loc(' station positions',' – Stationsstandorte');
  var defs=svg('defs'),clip=svg('clipPath',{id:'polar-clipping'});
  clip.appendChild(svg('circle',{cx:280,cy:280,r:235}));defs.appendChild(clip);out.appendChild(defs);
  var back=svg('defs');
@@ -273,7 +301,7 @@ function renderMap(){
  geographicLabels[view].forEach(function(entry){
   var p=project(entry[1],entry[2],m);
   var label=svg('text',{x:p[0].toFixed(1),y:p[1].toFixed(1),class:'map-label','text-anchor':'middle'});
-  label.textContent=entry[0];labels.appendChild(label)
+  label.textContent=localText(entry[0]);labels.appendChild(label)
  });
  out.appendChild(labels);
  var markers=svg('g',{});
@@ -294,7 +322,7 @@ function renderMap(){
   var base=project(s.lat,s.lon,m),offset=labelOffset(base);
   var x=base[0]+offset[0],y=base[1]+offset[1];
   if(offset[0]||offset[1])markers.appendChild(svg('line',{x1:base[0],y1:base[1],x2:x,y2:y,stroke:'#7595a0','stroke-dasharray':'3 3','stroke-width':'1.5'}));
-  var selectedPin=s.id===selected,group=svg('g',{role:'button',tabindex:'0','aria-label':s.name+'; '+s.status.replace('-',' '),'aria-pressed':String(selectedPin)});
+  var selectedPin=s.id===selected,group=svg('g',{role:'button',tabindex:'0','aria-label':s.name+'; '+(s.status==='year-round'?loc('year round','ganzjährig'):loc('seasonal','saisonal')),'aria-pressed':String(selectedPin)});
   if(selectedPin)group.appendChild(svg('circle',{cx:x,cy:y,r:14,fill:'none',stroke:document.documentElement.dataset.theme==='polar'?'#205b79':'#506b24','stroke-width':3}));
   var pin=s.kind==='postal-site' ? svg('rect',{x:x-(selectedPin?8:7),y:y-(selectedPin?8:7),width:selectedPin?16:14,height:selectedPin?16:14,rx:2,class:'map-pin postal-site'+(selectedPin?' active':'')}) : svg('circle',{cx:x,cy:y,r:selectedPin?8.5:7,class:'map-pin '+s.status+(selectedPin?' active':'')});
   var title=svg('title',{});title.textContent=s.name+' – '+s.area;pin.appendChild(title);group.appendChild(pin);
@@ -304,7 +332,7 @@ function renderMap(){
  });
  out.appendChild(markers);
  var cross=svg('circle',{cx:280,cy:280,r:2.8,fill:'#95b5be'});out.appendChild(cross);
- $('map-heading').textContent=m.title;$('map-count').textContent=filtered.length+' plotted stations'
+ $('map-heading').textContent=localText(m.title);$('map-count').textContent=loc(filtered.length+' plotted stations',filtered.length+' Stationen auf der Karte')
 }
 
 function searchData(){
@@ -365,7 +393,7 @@ function ensureWeather(region){
 function renderList(){
  var list=$('station-list'),actions=$('list-actions');list.replaceChildren();actions.replaceChildren();
  var count=Math.min(filtered.length,listLimit);
- $('list-count').textContent=count+' of '+filtered.length+' places';
+ $('list-count').textContent=loc(count+' of '+filtered.length+' places',count+' von '+filtered.length+' Standorten');
  if(!filtered.length){list.appendChild(el('p','noresults','No places match these filters.'));return}
  var chosen=filtered.find(function(s){return s.id===selected});
  var records=filtered.slice(0,count);
@@ -375,7 +403,7 @@ function renderList(){
   var b=el('button','stationbutton'+(s.id===selected?' active':''));b.type='button';b.setAttribute('aria-pressed',String(s.id===selected));
   b.appendChild(el('span','status-circle '+(s.kind==='postal-site'?'postal-site':s.status)));
   var content=el('span','');
-  content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+(s.kind==='postal-site'?'Postal / heritage location':(s.status==='year-round'?'Year-round':'Seasonal'))));
+  content.append(el('span','st-name',s.flag+' '+s.name),el('span','st-sub',s.area+' · '+localText(s.kind==='postal-site'?'Postal / heritage location':(s.status==='year-round'?'Year-round':'Seasonal'))));
   b.appendChild(content);
   var temperature=el('span','list-temp',weatherText(s.id));temperature.title='Automatic weather model estimate (not an observed station thermometer)';
   b.appendChild(temperature);
@@ -383,11 +411,11 @@ function renderList(){
   list.appendChild(b)
  });
  if(count<filtered.length){
-  var more=el('button','','Show '+Math.min(pageSize(),filtered.length-count)+' more places');
+  var more=el('button','',loc('Show '+Math.min(pageSize(),filtered.length-count)+' more places','Weitere '+Math.min(pageSize(),filtered.length-count)+' Standorte anzeigen'));
   more.type='button';
   more.addEventListener('click',function(){listLimit=Math.min(filtered.length,listLimit+pageSize());renderList()});
   actions.appendChild(more);
-  actions.appendChild(el('small','',count+' of '+filtered.length+' shown'+(pinned?' · selected location pinned first':'')))
+  actions.appendChild(el('small','',loc(count+' of '+filtered.length+' shown'+(pinned?' · selected location pinned first':''),count+' von '+filtered.length+' angezeigt'+(pinned?' · ausgewählter Standort zuerst':''))))
  }
 }
 function fact(parent,k,v){var r=el('div','fact');r.append(el('span','',k),el('span','',v));parent.appendChild(r)}
@@ -404,9 +432,9 @@ function renderDetails(){
  var panel=el('section','postal-evidence');
  panel.appendChild(el('strong','',evidence.title||'Postal information'));
  if(evidence.description)panel.appendChild(el('p','',evidence.description));
- if(evidence.postal_system)panel.appendChild(el('small','','Postal system: '+evidence.postal_system));
- if(evidence.marks)panel.appendChild(el('small','','Markings: '+evidence.marks));
- if(evidence.access)panel.appendChild(el('small','','Collector access: '+evidence.access));
+ if(evidence.postal_system)panel.appendChild(el('small','',loc('Postal system: ','Postsystem: ')+evidence.postal_system));
+ if(evidence.marks)panel.appendChild(el('small','',loc('Markings: ','Stempel/Vermerke: ')+evidence.marks));
+ if(evidence.access)panel.appendChild(el('small','',loc('Collector access: ','Zugang für Sammler: ')+evidence.access));
  if(evidence.source_url&&evidence.source_url.startsWith('https://'))panel.appendChild(link('Postal evidence · source ↗',evidence.source_url));
  target.appendChild(panel);
  var geoDetails=el('details','geo-details');
@@ -415,11 +443,11 @@ function renderDetails(){
  var geoBody=el('div','geo-body');
  fact(geoBody,'Location',s.area);
  fact(geoBody,'Map position','≈ '+Math.abs(s.lat).toFixed(3)+'°'+(s.lat<0?'S':'N')+' · '+Math.abs(s.lon).toFixed(3)+'°'+(s.lon<0?'W':'E'));
- if(s.coordinate_precision)geoBody.appendChild(el('span','source-date','Location method: '+s.coordinate_precision));
- if(s.coordinate_reference_date)geoBody.appendChild(el('span','source-date','Location reference date: '+s.coordinate_reference_date));
+ if(s.coordinate_precision)geoBody.appendChild(el('span','source-date',loc('Location method: ','Methode der Ortsbestimmung: ')+s.coordinate_precision));
+ if(s.coordinate_reference_date)geoBody.appendChild(el('span','source-date',loc('Location reference date: ','Referenzdatum der Ortsangabe: ')+s.coordinate_reference_date));
  if(s.location_note)geoBody.appendChild(el('div','caution',s.location_note));
  if(s.coordinate_source&&s.coordinate_source.startsWith('https://'))geoBody.appendChild(link('Geographic source ↗',s.coordinate_source));
- if(s.territory)fact(geoBody,'Postal region',({TAAF:'French Southern and Antarctic Lands',AAT:'Australian Antarctic Territory',BAT:'British Antarctic Territory',SGSSI:'South Georgia & the South Sandwich Islands',NO:'Norway / Svalbard'})[s.territory]||s.territory);
+ if(s.territory)fact(geoBody,'Postal region',localText(({TAAF:'French Southern and Antarctic Lands',AAT:'Australian Antarctic Territory',BAT:'British Antarctic Territory',SGSSI:'South Georgia & the South Sandwich Islands',NO:'Norway / Svalbard'})[s.territory]||s.territory));
  var actions=el('div','actions');
  if(/^https:\/\//.test(s.url))actions.appendChild(link('Official station website ↗',s.url));
  if(s.webcam)actions.appendChild(link('Webcam / nearby camera ↗',s.webcam));
@@ -434,9 +462,9 @@ function renderDetails(){
  target.appendChild(blog);
  var weather=el('div','temp');
  weather.appendChild(el('strong','','Current temperature · model estimate'));
- var model=weatherById.get(s.id),value=el('span','temp-value',model?model.temp.toFixed(1)+' °C':weatherState[view]==='unavailable'||weatherState[view]==='loaded'?'Unavailable':'Loading…');
+ var model=weatherById.get(s.id),value=el('span','temp-value',model?model.temp.toFixed(1)+' °C':weatherState[view]==='unavailable'||weatherState[view]==='loaded'?localText('Unavailable'):localText('Loading…'));
  weather.appendChild(value);
- var subtitle=model?('Model timestamp: '+weatherTime(model.time)+' · Not an observed reading at the station'):
+ var subtitle=model?loc('Model timestamp: '+weatherTime(model.time)+' · Not an observed reading at the station','Modellzeitpunkt: '+weatherTime(model.time)+' · keine Stationsmessung'):
   'Open-Meteo model temperature is not available for this station (or the request is still being processed).';
  weather.appendChild(el('span','temp-sub',subtitle));
  weather.appendChild(el('div','temp-sub','Model grid and elevation may differ from the actual station, especially on high Antarctic ice.'));
@@ -449,7 +477,7 @@ function renderDetails(){
   if(s.webcam_note)cam.appendChild(el('p','',s.webcam_note));
   if(s.embedded_webcam_url){
    var iframe=el('iframe','');
-   iframe.src=s.embedded_webcam_url;iframe.loading='lazy';iframe.title='Official webcam view for '+s.name;iframe.referrerPolicy='strict-origin-when-cross-origin';
+   iframe.src=s.embedded_webcam_url;iframe.loading='lazy';iframe.title=loc('Official webcam view for ','Offizielle Webcam-Ansicht für ')+s.name;iframe.referrerPolicy='strict-origin-when-cross-origin';
    cam.appendChild(iframe);
    cam.appendChild(el('p','','If the camera does not display, its operator may prevent external embedding. Use the official webcam link instead.'));
   }
@@ -466,7 +494,7 @@ function init(){
  if(v&&meta[v])view=v;else if(id){var found=S.stations.find(function(s){return s.id===id});if(found)view=found.region}
  if(id&&S.stations.some(function(s){return s.id===id&&s.region===view}))selected=id;
  listLimit=pageSize();initializing=false;refresh();
- $('update-line').appendChild(txt(' · Catalogue updated '+S.updated));
+ $('update-line').appendChild(txt(loc(' · Catalogue updated ',' · Stationsverzeichnis aktualisiert: ')+S.updated));
 }
 document.querySelectorAll('[data-view]').forEach(function(btn){btn.addEventListener('click',function(){setView(btn.dataset.view,true)})});
 ['search','status-filter','operator-filter'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',function(){listLimit=pageSize();refresh()})});
@@ -482,11 +510,11 @@ Promise.all([
  fetch('stations.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Station HTTP '+r.status);return r.json()}),
  fetch('land.json',{cache:'force-cache'}).then(function(r){if(!r.ok)throw Error('Land HTTP '+r.status);return r.json()}).catch(function(){return {countries:[]}})
 ]).then(function(results){
- S=results[0];L=results[1];if(!Array.isArray(S.stations))throw Error('Station list invalid');init();
+ S=results[0];L=results[1];if(!Array.isArray(S.stations))throw Error('Station list invalid');localizeStationData();init();
 }).catch(function(err){
- $('map-count').textContent='Catalogue unavailable';
- $('details').replaceChildren(el('p','noresults','Could not load the polar station data: '+err.message));
- $('station-list').replaceChildren(el('p','noresults','Please check back later.'))
+ $('map-count').textContent=loc('Catalogue unavailable','Stationsverzeichnis nicht verfügbar');
+ $('details').replaceChildren(el('p','noresults',loc('Could not load the polar station data: ','Die Stationsdaten konnten nicht geladen werden: ')+err.message));
+ $('station-list').replaceChildren(el('p','noresults',loc('Please check back later.','Bitte später erneut versuchen.')))
 })
 })();
 </script>
