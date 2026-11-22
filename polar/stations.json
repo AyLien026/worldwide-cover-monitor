@@ -1,6 +1,6 @@
 {
   "title": "Worldwide Covers Polar Philately Atlas",
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "scope": "Curated atlas of research stations and philatelically relevant postal sites; verify marked coordinates and philatelic status independently. Site names and flags indicate operators, not territorial sovereignty.",
   "stations": [
     {
@@ -1560,6 +1560,77 @@
         "marks": "The old post office's souvenir markings are not necessarily postal cancelling devices.",
         "access": "Do not assume the historic building currently operates as a full post office or accepts correspondence."
       }
+    },
+    {
+      "id": "jan-mayen-weather",
+      "name": "Jan Mayen Meteorological Station",
+      "region": "arctic",
+      "lat": 70.9333,
+      "lon": -8.6667,
+      "operator": "Norway · Norwegian Meteorological Institute",
+      "flag": "🇳🇴",
+      "status": "year-round",
+      "area": "Jan Mayen",
+      "territory": "NO",
+      "info": "Year-round Norwegian meteorological presence on the remote volcanic island of Jan Mayen. The mapped coordinate is approximate and represents the weather-station vicinity.",
+      "url": "https://npolar.no/en/themes/jan-mayen/",
+      "search": "Jan Mayen meteorological station",
+      "coordinate_source": "https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND%3AJNM00001001/detail",
+      "coordinate_precision": "Approximate meteorological station vicinity; not an independently surveyed building position",
+      "location_note": "The map point indicates the meteorological-station area, not the island's geographic centre.",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Postal operations not assessed",
+        "description": "A staffed weather station does not by itself establish an operating public post office or a service for collector requests. No official postal cancellation or mail-in service has been verified here."
+      },
+      "kind": "research-station"
+    },
+    {
+      "id": "bjornoya-meteo",
+      "name": "Bjørnøya Meteorological Station",
+      "region": "arctic",
+      "lat": 74.504,
+      "lon": 19.002,
+      "operator": "Norway · Norwegian Meteorological Institute",
+      "flag": "🇳🇴",
+      "status": "year-round",
+      "area": "Bjørnøya · Svalbard",
+      "territory": "NO",
+      "info": "Year-round staffed weather station on Bear Island (Bjørnøya), south of Spitsbergen in the Barents Sea.",
+      "url": "https://npolar.no/en/themes/bjornoya/",
+      "search": "Bjørnøya Bear Island weather station",
+      "coordinate_source": "https://data.actris.eu/facility/sflc",
+      "coordinate_precision": "Published station coordinate (74.504° N, 19.002° E) from the ACTRIS facility catalogue",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Postal operations not assessed",
+        "description": "The weather station is not automatically a public post office. An official Bjørnøya datestamp or a collector mail-in service has not been independently verified."
+      },
+      "kind": "research-station"
+    },
+    {
+      "id": "barentsburg-research",
+      "name": "Barentsburg · Research Community",
+      "region": "arctic",
+      "lat": 78.0667,
+      "lon": 14.2,
+      "operator": "Russia · Arctic and Antarctic Research Institute",
+      "flag": "🇷🇺",
+      "status": "year-round",
+      "area": "Barentsburg · Spitsbergen · Svalbard",
+      "territory": "NO",
+      "info": "Permanently inhabited Svalbard settlement that also hosts Russian research activity. Research visits and programmes can be seasonal; the point marks the settlement, not a specific laboratory.",
+      "url": "https://www.forskningsradet.no/en/svalbard-science-forum/research-communities/barentsburg/",
+      "search": "Barentsburg Svalbard research",
+      "coordinate_source": "https://service.unece.org/trade/locode/sj.htm",
+      "coordinate_precision": "Approximate settlement location based on UNECE UN/LOCODE 7804N 01412E, not a particular research building",
+      "location_note": "Barentsburg is a settlement and research hub, not a single research station. It is located on Norwegian-governed Svalbard.",
+      "postal": {
+        "level": "not-assessed",
+        "title": "Postal operations not assessed",
+        "description": "Russian research activity in Barentsburg does not demonstrate a current public post office, an official local cancellation, or availability of philatelic request services. Postal details require separate review."
+      },
+      "kind": "research-hub"
     }
   ]
 }
