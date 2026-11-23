@@ -181,8 +181,8 @@ if(rows.every(function(r){return r.status==='verified'}))return ['SOURCE REVIEWE
 if(rows.some(function(r){return r.status==='verified'}))return ['PARTLY REVIEWED','partial'];
 return ['UNVERIFIED','']
 }
-// Hide records without a currently displayable tariff, but keep them in rates.json
-// for research, source monitoring, and the separate upcoming-changes section.
+// Show priced rates and explicitly selected research records as pending.
+// Other unpriced research records stay in rates.json for monitoring.
 function hasDisplayableRate(r){
  return [activeStandard(r),activeEconomy(r),activePriority(r)].some(function(value){
   return value!==null&&value!==undefined&&String(value).trim()!==''
@@ -212,7 +212,7 @@ function quote(r){
 if(activeStandard(r))return activeStandard(r);
 var economy=activeEconomy(r),priority=activePriority(r);
 if(economy&&priority)return (r.economy_label||'Eco')+' '+economy+' / '+(r.priority_label||'Prio')+' '+priority;
-return economy||priority||'—'
+return economy||priority||(r.show_pending===true?'Rate pending':'—')
 }
 function scheduleChanges(r){
 var parts=[];
@@ -285,7 +285,7 @@ return parts.join(' · ')||'International letter'
 }
 function addSource(parent,r){
 if(r.source_url&&/^https?:\/\//i.test(r.source_url)){
- var a=el('a','zone-source','Official postal source ↗');
+ var a=el('a','zone-source','Tariff source / reference ↗');
  a.href=r.source_url;a.target='_blank';a.rel='noopener noreferrer';parent.appendChild(a);
 }else parent.appendChild(el('span','zone-meta','Official source not linked'))
 }
@@ -326,7 +326,7 @@ rates.forEach(function(r){
               (r.scheduled_priority?'Prio '+(scheduledActive(r)?r.priority:r.scheduled_priority):'');
   right.appendChild(el('span','zone-meta',(scheduledActive(r)?'Previous (2026): ':'From '+r.scheduled_from+': ')+changes));
  }
- if(!activeStandard(r)&&!activeEconomy(r)&&!activePriority(r))right.appendChild(el('span','blank','—'));
+ if(!activeStandard(r)&&!activeEconomy(r)&&!activePriority(r))right.appendChild(el('span','blank',r.show_pending===true?'Rate pending':'—'));
  if(r.weight_g)right.appendChild(el('div','zone-meta','up to '+r.weight_g+' g'));
  zone.appendChild(left);zone.appendChild(right);container.appendChild(zone)
 });
@@ -407,11 +407,11 @@ $('shown').textContent=(polarMode?'Polar & remote mode · ':'')+'Showing '+shown
 }
 function init(data){
 db=Array.isArray(data.rates)?data.rates:[];
-var published=db.filter(hasDisplayableRate);
+var published=db.filter(function(r){return hasDisplayableRate(r)||r.show_pending===true});
 groups=groupRates(published);
 Array.from(new Set(groups.map(function(g){return g.region}))).sort().forEach(function(x){var opt=el('option','',x);opt.value=x;$('region').appendChild(opt)});
 $('total').textContent=groups.length;
-$('tariffs').textContent=published.length;
+$('tariffs').textContent=published.filter(hasDisplayableRate).length;
 $('verified').textContent=published.filter(function(r){return r.status==='verified'}).length;
 $('alerts').textContent=published.filter(hasAlert).length;
 $('scan').textContent='Last edited: '+(data.updated_at||'unknown')+' · Last automated source scan: '+(data.last_scan_at||'not yet run');
