@@ -646,6 +646,27 @@
       }
     },
     {
+      "id": "bangladesh",
+      "country": "Bangladesh",
+      "flag": "🇧🇩",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Bangladesh Post runs an official international postage calculator with an AIR LETTER category, but a live quote for a 20 g letter to Germany could not be retrieved reliably. No amount published pending operator confirmation.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://ipsbd.bdpost.gov.bd/app_mail_rate/index.php",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official interactive calculator located, but current Germany air letter amount not accessible."
+      },
+      "show_pending": true
+    },
+    {
       "id": "barbados",
       "country": "Barbados",
       "flag": "🇧🇧",
@@ -1054,6 +1075,27 @@
       }
     },
     {
+      "id": "colombia",
+      "country": "Colombia",
+      "flag": "🇨🇴",
+      "region": "Americas",
+      "standard": "20000 COP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "4-72 'Correspondencia Prioritaria Normal Internacional' (untracked ordinary priority letter) 0-50 g, Germany = Zone 7, COP 20,000. Official 4-72 tariff PDF dated June 2025 quotes 20,000 for Zone 7; an independent source deriving November 2026 rates from 4-72 'Guía de consulta al usuario' version 36 confirms 20,000 to Germany. Weight band starts at 0-50 g, so this price also covers 20 g. Non-priority mail may have a different tariff.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.4-72.com.co/publicaciones/274/correspondencia-prioritaria-normal-internacional/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official 2025 tariff table and 2026 rate guide crosscheck agree on COP 20,000 for Germany."
+      },
+      "show_pending": true
+    },
+    {
       "id": "costa-rica",
       "country": "Costa Rica",
       "flag": "🇨🇷",
@@ -1256,6 +1298,27 @@
         "checked_at": null,
         "detail": "Official operator tariff manually reviewed; online figures alone are not a guarantee that the rate will remain unchanged."
       }
+    },
+    {
+      "id": "dominican-republic",
+      "country": "Dominican Republic",
+      "flag": "🇩🇴",
+      "region": "Americas",
+      "standard": "175 DOP",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "INPOSDOM 'Tarifario Ordinario Febrero 2026', Correo Ordinario international letter to Europe, 0-20 g, DOP 175, untracked. The official table separately gives 160 DOP for Americas and 200 DOP for Rest of World. Not the parcel or EMS service.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://inposdom.gob.do/wp-admin/admin-ajax.php?action=wpfd&juwpfisadmin=false&preview=1&task=file.download&token=&wpfd_category_id=37&wpfd_file_id=3342",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official INPOSDOM February 2026 ordinary mail tariff PDF checked."
+      },
+      "show_pending": true
     },
     {
       "id": "ecuador",
@@ -1588,6 +1651,28 @@
         "checked_at": null,
         "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
       }
+    },
+    {
+      "id": "guatemala",
+      "country": "Guatemala",
+      "flag": "🇬🇹",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": "34 GTQ",
+      "weight_g": 20,
+      "notes": "PROVISIONAL, NOT COMPARABLE WITH ORDINARY UNREGISTERED: Correos de Guatemala official June 2025 'Cartas y Tarjetas Postales', up to 20 g, 'Europa y Resto del Mundo' = Q 34.00. The same tariff explicitly states prices include INTERNATIONAL REGISTERED service for tracking. A separate unregistered rate for Germany and continued 2026 validity were not confirmed. Display as a bundled letter+registration service, NOT as bare ordinary postage.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://correos.gob.gt/wp-content/uploads/2025/06/Tarifario-Descargar.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official 2025 price includes registered international service; ordinary untracked tariff not separately confirmed."
+      },
+      "show_pending": true,
+      "priority_label": "Letter incl. registration"
     },
     {
       "id": "guernsey-europe",
@@ -2330,6 +2415,27 @@
       }
     },
     {
+      "id": "nepal",
+      "country": "Nepal",
+      "flag": "🇳🇵",
+      "region": "Asia",
+      "standard": "80 NPR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "PROVISIONAL HISTORICAL GOVERNMENT SCHEDULE: Nepal government English Gazette PDF shows proposed/updated foreign airmail LETTER up to 20 g, Third Zone, 80 NPR (previous 50 NPR); Germany is listed in Third Zone on Nepal Post's general-services page. The dated document is from 2022/2023 and newer 2026 confirmation could not be located. Nepal Post's older public general-services HTML still shows the former 50 NPR, so do not treat 80 NPR as verified current retail rate.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://giwmscdntwo.gov.np/media/pdf_upload/%E0%A4%B9%E0%A5%81%E0%A4%B2%E0%A4%BE%E0%A4%95%20%E0%A4%AE%E0%A4%B9%E0%A4%B8%E0%A5%81%E0%A4%B2%20english_6l4visf.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2022/2023 government document proposed 80 NPR in Zone 3, while old Nepal Post page shows 50; 2026 validity unconfirmed."
+      },
+      "show_pending": true
+    },
+    {
       "id": "netherlands",
       "country": "Netherlands",
       "flag": "🇳🇱",
@@ -2468,6 +2574,48 @@
         "checked_at": "2026-11-18",
         "detail": "Listed number found on official page (not full tariff confirmation)."
       }
+    },
+    {
+      "id": "oman",
+      "country": "Oman",
+      "flag": "🇴🇲",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Oman Post officially offers unregistered ordinary international letters. The price is dependent on country and weight and was not published as a static 0-20 g tariff for Germany; no numerical rate entered.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://website.omanpost.om/mailing-services",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official ordinary international letter service confirmed; 2026 Germany rate pending."
+      },
+      "show_pending": true
+    },
+    {
+      "id": "pakistan",
+      "country": "Pakistan",
+      "flag": "🇵🇰",
+      "region": "Asia",
+      "standard": "350 PKR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "PROVISIONAL 2026 REFERENCE: Pakistan Post international ordinary letter to Germany (Zone B), first 50 g = 350 PKR, according to two independent pages reporting a Pakistan Post tariff effective 12 March 2026. A still-hosted official 2024-25 PDF gives the DIFFERENT earlier Zone B rate of 500 PKR per 50 g, and an older Pakistan Post web table gives 45 PKR per 20 g. The newer 2026 official PDF could not be retrieved directly. Confirm at post office before franking. This is an international tariff, NOT the domestic 40 PKR rate effective October 2026.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://pakera.pk/pakistan-post-international-letter-rates-2026-zones-registered-rs-550/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 secondary sources show 350 PKR; official 2024-25 PDF conflicts; 2026 primary document not directly retrieved."
+      },
+      "show_pending": true
     },
     {
       "id": "panama",
@@ -2687,6 +2835,27 @@
         "checked_at": null,
         "detail": "International letter rate to Germany not confirmed; source may contain historical figures or an interactive calculator."
       }
+    },
+    {
+      "id": "qatar",
+      "country": "Qatar",
+      "flag": "🇶🇦",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Qatar Post Global Standard includes international letters (up to 1 kg), but official Explore Rates tool did not provide a public retrievable quote for an ordinary 0-20 g letter to Germany. Do not confuse courier, parcel and premium Global Express rates.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://qatarpost.qa/AllServices/GlobalStandard",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "International letter service confirmed; country-specific tariff pending."
+      },
+      "show_pending": true
     },
     {
       "id": "romania",
@@ -2949,6 +3118,27 @@
       }
     },
     {
+      "id": "saudi-arabia",
+      "country": "Saudi Arabia",
+      "flag": "🇸🇦",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Saudi Post / SPL official mail page specifies that international LETTER rates vary by weight, region and destination; the listed 9 SAR price for 20 g is DOMESTIC and must not be used for Germany. Operator's international calculator could not be queried to confirm the current German destination price.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://splonline.com.sa/en/mail/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Only a domestic 20g 9 SAR figure available on official page, not suitable for international."
+      },
+      "show_pending": true
+    },
+    {
       "id": "serbia",
       "country": "Serbia",
       "flag": "🇷🇸",
@@ -3169,6 +3359,27 @@
       }
     },
     {
+      "id": "sri-lanka",
+      "country": "Sri Lanka",
+      "flag": "🇱🇰",
+      "region": "Asia",
+      "standard": "150 LKR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "PROVISIONAL 2026 REFERENCE: Sri Lanka Post international AIR letter to Germany (Western Europe, Group E), 0-20 g = 150 LKR, according to postalcalculator.com/lk guide updated 1 November 2026. Sri Lanka Post's official tariff page still labels its foreign rates as effective 1 August 2022; the exact 2026 Group E rate could not be independently confirmed on the operator site. Postcards/aerogrammes and registered service have different charges. A November 2026 operator notice concerns restricted merchandise traffic to some EU states and does not by itself imply ordinary documentary letters are suspended.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://slpost.gov.lk/tariff/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "150 LKR from independent 2026 calculation; original operator foreign tariff link dated 2022."
+      },
+      "show_pending": true
+    },
+    {
       "id": "sweden",
       "country": "Sweden",
       "flag": "🇸🇪",
@@ -3386,6 +3597,27 @@
         "state": "not_configured",
         "checked_at": null
       }
+    },
+    {
+      "id": "united-arab-emirates",
+      "country": "United Arab Emirates",
+      "flag": "🇦🇪",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Emirates Post / EMX publishes International Ordinary (Untracked) letter guidelines and an interactive shipping calculator, but no verified tariff for an ordinary letter of up to 20 g to Germany was found. Do not substitute express document prices or domestic letter charges.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.emx.ae/guidelines-for-international-shipping",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official ordinary international mail product confirmed; Germany price not verified."
+      },
+      "show_pending": true
     },
     {
       "id": "united-kingdom",
