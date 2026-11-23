@@ -1348,18 +1348,19 @@
       "country": "Romania",
       "flag": "🇷🇴",
       "region": "Europe",
-      "standard": "10 RON",
+      "standard": "16.00 RON",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 100,
+      "notes": "Poșta Română ordinary unregistered PRIORITY international standard correspondence to Germany, up to 100 g: 16.00 RON (lei), current official universal-service rate from 1 March 2026. The older tariff effective 1 January 2026 was 14.00 RON and has been superseded; do not confuse with postcard price (10 RON) or small-packet services. Official March tariff PDF and operator's current pricing page checked 23 November 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.posta-romana.ro/cnpr-data/_editor/files/01.%20TARIFE%20UNIVERSALE%20INTERNE%20%C8%98I%20INTERNA%C8%9AIONALE_01.03.2026.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official 01.03.2026 tariff PDF and live international-letter rate checked manually; automatic PDF check not configured."
       }
     },
     {
@@ -3117,6 +3118,86 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "Published tariff on an official government/operator page reviewed manually; automatic token monitoring not configured."
+      }
+    },
+    {
+      "id": "kosovo",
+      "country": "Kosovo",
+      "flag": "🇽🇰",
+      "region": "Europe",
+      "standard": "1.30 EUR",
+      "economy": null,
+      "priority": "1.80 EUR",
+      "weight_g": 50,
+      "notes": "Posta e Kosovës latest official universal postal service tariff posted November 2026: ordinary unregistered international letter up to 50 g to Germany, Group II (European countries), land/SAL (combined transport) 1.30 EUR; air mail 1.80 EUR for the same 50 g tier. Universal rate, not special online-commerce rate (4.10 EUR up to 100 g). The separate postcard rate is 0.50 EUR. Verified 23 November 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://postakosoves.com/wp-content/uploads/2026/11/Cmimorja-per-Sherbimin-Universal-Postar.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official Kosovo Post universal-service 2026/11 tariff PDF manually checked; PDF not monitored automatically."
+      }
+    },
+    {
+      "id": "montenegro",
+      "country": "Montenegro",
+      "flag": "🇲🇪",
+      "region": "Europe",
+      "standard": "0.80 EUR",
+      "economy": null,
+      "priority": "0.95 EUR",
+      "weight_g": 20,
+      "notes": "Pošta Crne Gore ordinary unregistered international letter to Germany up to 20 g: base tariff 0.80 EUR. Optional air transport to European destinations outside Montenegro's neighbouring-country Zone I adds 0.15 EUR per 20 g, hence 0.95 EUR for an air-mail letter up to 20 g. This is the operator's published tariff as viewed on 23 November 2026; the website does not state a new 2026 effective date for these specific rows. No registered-mail surcharge included.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.postacg.me/usluge/pismonosne-usluge/inostranstvo/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official Pošta Crne Gore international-letter price table checked manually including Zone II air supplement; no automated date/change check configured."
+      }
+    },
+    {
+      "id": "north-macedonia",
+      "country": "North Macedonia",
+      "flag": "🇲🇰",
+      "region": "Europe",
+      "standard": "88 MKD",
+      "economy": null,
+      "priority": "98 MKD",
+      "weight_g": 20,
+      "notes": "North Macedonia Post approved universal-service international ordinary STANDARDISED letter rate effective 1 May 2026: 88 MKD (denars) up to 50 g, for European destinations including Germany (Zone II). Optional air-mail transport to Europe adds 5 MKD per 10 g, so 98 MKD for air-mail letter up to 20 g; air-mail up to 50 g would be 113 MKD. This record's 20 g weight refers to the directly comparable air-mail price; base 88 MKD applies through 50 g. Official Postal Agency Skopje approval 21 April 2026, published 2026/04 and effective 2026-05-01. Does not include registered service.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://ap.mk/sites/default/files/2026-04/%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%D1%82%D0%BE%20%D0%B7%D0%B0%20%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D1%9A%D0%B5%20%D0%BD%D0%B0%20%D1%86%D0%B5%D0%BD%D0%B8%D1%82%D0%B5%20%D0%BD%D0%B0%20%D0%90%D0%94%20%D0%9F%D0%BE%D1%88%D1%82%D0%B0_0.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official postal regulatory authority's 2026 tariff approval checked manually; automatic PDF tariff verification not configured."
+      }
+    },
+    {
+      "id": "albania",
+      "country": "Albania",
+      "flag": "🇦🇱",
+      "region": "Europe",
+      "standard": "130 ALL",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Posta Shqiptare official currently linked international letter tariff PDF: ordinary unregistered letter sent by AIR to Germany (Europe zone, not neighbouring states), up to 20 g, 130 Albanian lek (ALL). Operator announced revised domestic/international service tariffs effective 4 May 2026; the linked official tariff PDF is the published rate viewed 23 November 2026 but lacks an explicit effective date. For plain postcard the separately listed Europe rate is 90 ALL. The land-mail schedule is offered only to Kosovo and North Macedonia, therefore not applicable to Germany.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.postashqiptare.al/media/6a3a76428c9f0.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Operator-linked official international air letter tariff PDF manually checked after announced 2026-05-04 price revision; PDF effective date is not explicit."
       }
     }
   ],
