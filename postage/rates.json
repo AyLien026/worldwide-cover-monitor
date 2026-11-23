@@ -1553,11 +1553,11 @@
       "country": "Georgia",
       "flag": "🇬🇪",
       "region": "Europe & Asia",
-      "standard": null,
+      "standard": "9.00 GEL",
       "economy": null,
       "priority": null,
-      "weight_g": 20,
-      "notes": "CURRENT TARIFF NOT CONFIRMED: Georgian Post official online international letter calculator requires destination and weight selection. The ordinary letter / airmail 0-20 g postage to Germany could not be extracted reliably. Do not substitute domestic prices, parcel transport or price from Germany to Georgia.",
+      "weight_g": null,
+      "notes": "PROVISIONAL READER-SUPPLIED OFFICIAL CALCULATOR SCREENSHOT (23 Nov 2026): Georgian Post 'Letter' calculator displays 'Simple' 9.00 GEL and 'Registered Letter' 24.50 GEL, delivery estimate 3-5 working days, maximum permissible weight 2000 g. The screenshot is cropped and DOES NOT SHOW the selected destination or input weight, so it does NOT independently establish an exact 0-20 g ordinary letter rate to Germany. 9.00 GEL displayed provisionally, pending confirmation of Germany and selected 20 g. Max 2000 g is the maximum allowed for the service, NOT the weight of the quoted item. Registered amount is informational only and is NOT stored in the priority field.",
       "status": "unverified",
       "manual_verified_at": null,
       "source_url": "https://www.gpost.ge/postalservices/calculateinternationalservices?categoryId=3",
@@ -1565,7 +1565,7 @@
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "2026 Georgian Post international-letter calculator located; Germany 0-20 g quote not accessible."
+        "detail": "Official Georgian Post calculator screenshot supplied 2026-11-23 shows Simple 9 GEL, Registered 24.50 GEL; destination and selected weight are cropped out."
       },
       "show_pending": true
     },
