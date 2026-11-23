@@ -1,6 +1,6 @@
 {
   "title": "Worldwide Covers – International Postage Rates",
-  "updated_at": "2026-11-19",
+  "updated_at": "2026-11-23",
   "purpose": "International standard letters from the listed origin to Germany, except entries explicitly labeled for Europe or the rest of the world. Germany's rate is worldwide.",
   "disclaimer": "Indicative information; do not frank without confirming the current official tariff. Source watcher checks price text, not tariff applicability.",
   "rates": [
@@ -643,18 +643,19 @@
       "country": "Estonia",
       "flag": "🇪🇪",
       "region": "Europe",
-      "standard": "3.90 EUR",
+      "standard": "4.30 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 250,
+      "notes": "Omniva ordinary international standard letter to Germany, up to 250 g. New universal postal service tariff 4.30 EUR effective 1 October 2026 (previously 3.90 EUR). The operator's standard-letter category has a 250 g maximum; dimensional limits also apply. Official operator news release reviewed on 23 November 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.omniva.ee/en/news/new-postal-service-price-list-from-1-october/",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official Omniva announcement reviewed manually; automatic rate monitoring not yet configured."
       }
     },
     {
@@ -782,18 +783,19 @@
       "country": "Hong Kong",
       "flag": "🇭🇰",
       "region": "Asia",
-      "standard": "5.00 HKD",
+      "standard": "5.70 HKD",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Hongkong Post ordinary AIR MAIL small letter (P) up to 20 g to Germany, Zone 2: HKD 5.70 effective 13 April 2026 (previously HKD 5.40). Government-published official tariff annex page 5; Hongkong Post destination/zone chart confirms Germany (DE) in Zone 2. This is the air-mail rate, not the cheaper surface-mail option.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://gia.info.gov.hk/general/202603/23/P2026032300246_536830_1_1774236463607.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official 2026 government tariff PDF and Hongkong Post zone chart manually checked; automatic PDF rate scanning not configured."
       }
     },
     {
@@ -841,18 +843,19 @@
       "country": "Israel",
       "flag": "🇮🇱",
       "region": "Asia",
-      "standard": "7.40 ILS",
+      "standard": "13.10 ILS",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 100,
+      "notes": "Israel Post official 2026 tariff effective 1 January 2026: ordinary outgoing international AIR MAIL documents/letters/postcards up to 100 g, accepted at post office, 13.10 ILS for all six destination groups including Germany. Excludes merchandise, registered mail and surcharges. Official Israel Post tariff PDF, page 2, reviewed 23 November 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://cdn-mypostpublic.israelpost.co.il/media/media/1w2cc2jv/%D7%93%D7%A8%D7%9A-%D7%94%D7%90%D7%95%D7%95%D7%99%D7%A8.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official 2026 Israel Post tariff PDF manually reviewed; automatic PDF rate scanning not configured."
       }
     },
     {
