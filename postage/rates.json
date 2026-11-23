@@ -3199,6 +3199,186 @@
         "checked_at": null,
         "detail": "Operator-linked official international air letter tariff PDF manually checked after announced 2026-05-04 price revision; PDF effective date is not explicit."
       }
+    },
+    {
+      "id": "hungary",
+      "country": "Hungary",
+      "flag": "🇭🇺",
+      "region": "Europe",
+      "standard": "1,155 HUF",
+      "economy": null,
+      "priority": "1,440 HUF",
+      "weight_g": 50,
+      "notes": "Magyar Posta 2026 INTERNATIONAL POSTAL TARIFFS effective 1 May 2026, EU customs-area destinations including Germany. Ordinary non-priority standard letter/postcard up to 50 g, non-dutiable content: HUF 1,155. Priority alternative HUF 1,440, up to 50 g. Non-dutiable written correspondence, no registration. Do not confuse with Europe prepaid priority envelope HUF 1,465.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://posta.hu/static/internet/download/Lapdijszabas_20260501-Eng_ONLINE.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official Magyar Posta international tariff valid from 2026-05-01, page 2, reviewed by inspection of the PDF; no automated PDF watcher."
+      }
+    },
+    {
+      "id": "san-marino",
+      "country": "San Marino",
+      "flag": "🇸🇲",
+      "region": "Europe",
+      "standard": "1.35 EUR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Poste San Marino ordinary nonregistered international letter to Germany, Zona 1, small/standardized format (formato piccolo/normalizzato), 0–20 g: EUR 1.35. Italy domestic cross-border special row is different (EUR 1.30). Listed in Annex A to Delegated Decree no. 49 of 31 March 2025, linked from current operator's Ordinary Mail price page reviewed 23 November 2026. For larger/non-standard envelopes the rate increases.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.poste.sm/lettere/posta-ordinaria/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official postal operator tariff manually reviewed 23 November 2026; automated monitoring not configured."
+      }
+    },
+    {
+      "id": "belarus",
+      "country": "Belarus",
+      "flag": "🇧🇾",
+      "region": "Europe",
+      "standard": "3.30 BYN",
+      "economy": null,
+      "priority": "3.90 BYN",
+      "weight_g": 20,
+      "notes": "PROVISIONAL: 2026 independent Belarusian philatelic tariff digest (philately.by), citing Belpost order no. 1146 dated 17 December 2025, gives ordinary international UNREGISTERED non-priority written letter up to 20 g: 3.30 BYN for individuals incl. VAT; priority alternative: 3.90 BYN. Germany not listed among suspended letter destinations in an independent 2 November 2026 acceptance summary. The primary Belpost tariff sheet and Germany acceptance were NOT independently retrievable from Belpost, so this must not be marked as verified.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://philately.by/taxes_r.html",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 philatelic specialist table found, Belpost official primary price/route not independently checked. Further confirmation required."
+      }
+    },
+    {
+      "id": "serbia",
+      "country": "Serbia",
+      "flag": "🇷🇸",
+      "region": "Europe",
+      "standard": "160 RSD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Pošta Srbije ordinary nonregistered international letter ('PISMO'), up to 20 g, 160 Serbian dinars, pricing applicable from 1 January 2026, operator-issued price list for international letter-mail (MPS). No registered-letter add-on (registered up to 20 g is RSD 510). Ordinary price is not destination-zone dependent in the published table.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.posta.rs/DocumentViewer.aspx?Dokument=privreda-pismonosne-inostranstvo-pismo-01-01-2026-lat.pdf&IdDokument=1002739",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official postal operator tariff manually reviewed 23 November 2026; automated monitoring not configured."
+      }
+    },
+    {
+      "id": "bosnia-herzegovina-bh-posta",
+      "country": "Bosnia and Herzegovina – BH Pošta (Sarajevo)",
+      "flag": "🇧🇦",
+      "region": "Europe",
+      "standard": "2.00 BAM",
+      "economy": null,
+      "priority": "2.20 BAM",
+      "weight_g": 20,
+      "notes": "JP BH Pošta Sarajevo ordinary unregistered STANDARDISED international letter to Germany (Zone I = Europe) up to 20 g: base tariff 2.00 BAM/KM. Optional air transport to Zone I +0.20 BAM if expressly chosen; does not include registration. Main operator tariff of 1 May 2025, still valid for letters in Nov 2026: Board decision dated 16 November 2026 affected only domestic financial/cash-payment services and explicitly left all other categories unchanged. Bosnia has three universal-service postal operators and fees vary. HP Mostar and Pošte Srpske ordinary letters to Germany each carry mandatory SAL surcharge and cost 2.15 BAM.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.posta.ba/wp-content/uploads/2025/04/cjenovnik-maj-2025.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official BH Pošta main tariff, Europe zone and 2026-11-16 decision excluding letters reviewed; air supplement 0.20 BAM optional, no automated PDF watcher."
+      }
+    },
+    {
+      "id": "bosnia-herzegovina-poste-srpske",
+      "country": "Bosnia and Herzegovina – Pošte Srpske",
+      "flag": "🇧🇦",
+      "region": "Europe",
+      "standard": "2.15 BAM",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Pošte Srpske ordinary unregistered international letter to Germany (Europe) up to 20 g: base 2.00 BAM/KM + MANDATORY SAL air/surface airlift surcharge 0.15 BAM (50% of Europe's airmail supplement 0.30 BAM/20g), total 2.15 BAM. Official international tariff (Pošte Srpske) valid 1 January 2026; SAL exempt only for Serbia, Croatia, Montenegro, Slovenia. Priority air is different and not represented by the generic 'priority' slot.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.postesrpske.com/wp-content/uploads/2025/12/Izvod-iz-cjenovnika-Pismonosne-posiljke.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official postal operator tariff manually reviewed 23 November 2026; automated monitoring not configured."
+      }
+    },
+    {
+      "id": "bosnia-herzegovina-hp-mostar",
+      "country": "Bosnia and Herzegovina – HP Mostar",
+      "flag": "🇧🇦",
+      "region": "Europe",
+      "standard": "2.15 BAM",
+      "economy": null,
+      "priority": "2.25 BAM",
+      "weight_g": 20,
+      "notes": "Hrvatska pošta Mostar ordinary nonregistered international letter to Germany (Zone I Europe), up to 20 g: base 2.00 BAM/KM plus MANDATORY SAL transport surcharge 0.15 BAM per 20 g, total 2.15 BAM. Operator official international letter price list valid 1 January 2026; SAL exempt only for Croatia and Montenegro. Air-mail-specific surcharge to Zone I is 0.25 BAM in lieu of SAL, so airmail would cost 2.25 BAM. Not the registered rate.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.post.ba/media/files/Pismovne%20usluge_me%C4%91unarodni%20promet%20%286%29.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official postal operator tariff manually reviewed 23 November 2026; automated monitoring not configured."
+      }
+    },
+    {
+      "id": "moldova",
+      "country": "Moldova",
+      "flag": "🇲🇩",
+      "region": "Europe",
+      "standard": "12.00 MDL",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Poșta Moldovei approved universal-service (SPU) outgoing ordinary international priority letter/postcard up to 20 g to Germany, Zona A priority: 12.00 Moldovan lei (MDL), no registered service. 2026 tariff nomenclature approved Order 582 of 28 Nov 2025, annex 1 international letters table (rates carried over from regulatory decision no. 7 of 11 March 2024, effective 15 April 2024). The current operator nomenclature page was updated 30 October 2026; Germany is listed as a permitted destination on destination-access page updated 28 October 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://static-api.posta.md/api/v1/storage/23/03/2026/Nomenclator_SPU_2026_Anexa_1.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official 2026 SPU tariff PDF, Germany Zone A on following page, and 2026-10 operator destinations list manually checked; PDF watcher not configured."
+      }
+    },
+    {
+      "id": "azerbaijan",
+      "country": "Azerbaijan",
+      "flag": "🇦🇿",
+      "region": "Europe",
+      "standard": "1.00 AZN",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Azərpoçt/Republic of Azerbaijan Ministry of Digital Development and Transport approved official international ordinary letter-mail (unregistered small P-format letter) tariff: Zone II, all destinations other than Zone I, including Germany, 1.00 Azerbaijani manat (AZN) up to 20 g. Zone I is CIS, Georgia, Ukraine, Baltic states, Türkiye, Iran and Pakistan; Germany thus Zone II. Official decision 12 January 2024 No. 3-27/3-7-1/2024 remains published at Azerpost and is independently listed as current in a November 2026 country price guide. No later official 2026 amendment found; periodically recheck.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.azerpost.az/storage/pages/404/daxili-poct-gonderislerinin-azerbaycan-respublikasi-daxilinde-gonderilmesi-ucun-tarifler.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official 2024-approved international letter tariff still linked at Azerpost, 2026 secondary cross-check; recheck for operator amendments."
+      }
     }
   ],
   "last_scan_at": "2026-11-18"
