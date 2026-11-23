@@ -363,6 +363,27 @@
       }
     },
     {
+      "id": "armenia",
+      "country": "Armenia",
+      "flag": "🇦🇲",
+      "region": "Europe & Asia",
+      "standard": "1890 AMD",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "PROVISIONAL SECONDARY REFERENCE: An independent HayPost tariff aggregator (postalcalculator.com/am/international/germany, updated November 12, 2026) quotes AMD 1,890 for a simple 0-20 g letter from Armenia to Germany and AMD 3,190 registered. HayPost's official website confirms international mail offerings, but the numerical tariff could not be independently confirmed on an official accessible tariff table. Verify before franking.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.haypost.am/en/postal-services/international-delivery",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "1890 AMD from secondary 12 Nov 2026 price compilation; official HayPost site did not expose directly verifiable current amount."
+      },
+      "show_pending": true
+    },
+    {
       "id": "aruba",
       "country": "Aruba",
       "flag": "🇦🇼",
@@ -1528,6 +1549,27 @@
       "scheduled_source_url": "https://taaf.fr/content/uploads/2026/11/A-2026-94-fixant-tarifs-postaux-TAAF-au-1er-janv-2027.pdf"
     },
     {
+      "id": "georgia",
+      "country": "Georgia",
+      "flag": "🇬🇪",
+      "region": "Europe & Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "CURRENT TARIFF NOT CONFIRMED: Georgian Post official online international letter calculator requires destination and weight selection. The ordinary letter / airmail 0-20 g postage to Germany could not be extracted reliably. Do not substitute domestic prices, parcel transport or price from Germany to Georgia.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.gpost.ge/postalservices/calculateinternationalservices?categoryId=3",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 Georgian Post international-letter calculator located; Germany 0-20 g quote not accessible."
+      },
+      "show_pending": true
+    },
+    {
       "id": "germany",
       "country": "Germany",
       "flag": "🇩🇪",
@@ -1991,6 +2033,27 @@
         "checked_at": "2026-11-18",
         "detail": "Source could not be read (URLError); review manually."
       }
+    },
+    {
+      "id": "kazakhstan",
+      "country": "Kazakhstan",
+      "flag": "🇰🇿",
+      "region": "Europe & Asia",
+      "standard": "1500 KZT",
+      "economy": null,
+      "priority": null,
+      "weight_g": 50,
+      "notes": "QazPost official tariff schedule 2026, Section 1.6, 'Пересылка письменной корреспонденции за пределы Республики Казахстан', ordinary unregistered international LETTER up to 50 g: KZT 1,500 by AIR transport (standard tariff, private and business customers; VAT included). Surface/combined transport is KZT 1,300; registered air letter KZT 3,000. This is a 0-50 g price band, which also covers 20 g. Official QazPost announced new foreign/domestic letter tariffs effective 1 January 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://website-backend.prod.qazpost.kz/uploads/2026_tarify_na_pismennuyu_korrespondencziyu_3bddfdfefa.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "2026 official QazPost published PDF, Sec. 1.6, confirmed visually (air mail KZT 1,500 for up to 50 g)."
+      },
+      "show_pending": true
     },
     {
       "id": "kenya",
@@ -3678,6 +3741,27 @@
         "checked_at": null,
         "detail": "2026 official postal operator tariff manually reviewed; PDF/HTML source not automatically price-scanned."
       }
+    },
+    {
+      "id": "uzbekistan",
+      "country": "Uzbekistan",
+      "flag": "🇺🇿",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "CURRENT TARIFF NOT CONFIRMED: UzPost publishes tariff and international-mail information, and postal law specifies a standard 20 g international air letter, but the accessible 3,100 UZS 20 g figure on its public tariff page belongs to DOMESTIC service and must not be reused as international postage to Germany. No verified 2026 Germany 0-20 g simple international airmail tariff located.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://uz.post/ru/tariflar",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official tariff page accessible but international Germany 0-20 g price not verifiable; domestic 3100 UZS must not be used."
+      },
+      "show_pending": true
     },
     {
       "id": "vanuatu",
