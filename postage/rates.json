@@ -923,18 +923,19 @@
       "country": "Latvia",
       "flag": "🇱🇻",
       "region": "Europe",
-      "standard": "2.54 EUR",
+      "standard": "3.00 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Latvijas Pasts official International Shipments tariff, valid from 1 January 2026: ordinary untracked international letter containing documents up to 20 g to Germany (EEA), Economy (Ordinary) EUR 3.00. Not the tracked 'Standard' service (EUR 5.54). Official operator shipping-cost overview independently lists letters to Germany from EUR 3.00. Manually verified 23 November 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://pasts.lv/media/2608/download/PASTS_PARROB_TARIFI_UPP_EN.pdf?v=5",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official Latvijas Pasts 2026 international tariff PDF checked against Germany/Economy (Ordinary) 20g row; automatic PDF tariff scan not configured."
       }
     },
     {
@@ -982,18 +983,19 @@
       "country": "Lithuania",
       "flag": "🇱🇹",
       "region": "Europe",
-      "standard": "1.70 EUR",
+      "standard": "2.30 EUR",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Lietuvos paštas official universal international postal service tariffs effective 13 July 2026, section II 'Mažoji korespondencijos siunta', Germany ('Vokietija'): unregistered priority ordinary small correspondence up to 0.02 kg (20 g) EUR 2.30. Not registered (EUR 6.30). Official tariff PDF page 5 (zero-based PDF page 4) verified manually on 23 November 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.post.lt/sites/default/files/tarptautin%C4%97s%20siuntos/UPP%20kainodara%20nuo%202026.07.13.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Official Lietuvos paštas universal-service tariff PDF effective 2026-07-13; Germany up-to-20g unregistered priority rate manually reviewed."
       }
     },
     {
