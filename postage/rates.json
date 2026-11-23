@@ -382,11 +382,11 @@
       "country": "Bahamas",
       "flag": "🇧🇸",
       "region": "Americas",
-      "standard": "0.80 BSD",
+      "standard": "1.40 BSD",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Existing collector-supplied 0.80 BSD figure is unverified as an ordinary international letter to Germany. Bahamas Postal Service's official rate book contains old schedules and does not itself demonstrate a valid November 2026 price. Confirm weight, service and destination before using.",
+      "weight_g": 20,
+      "notes": "PROVISIONAL HISTORICAL TARIFF: Official Bahamas Post Office 'Postage Rates Book' effective 1 July 1999 still posted on the government website. AIRMAIL FIRST CLASS LETTERS to Europe: B$0.70 per HALF OUNCE (14.17 g) or part; for 20 g = 2 units = B$1.40. Not a 2026 rate confirmation; original collector-supplied B$0.80 was also unverified for Germany. Airmail aerogrammes/postcards use separate rates.",
       "status": "unverified",
       "manual_verified_at": null,
       "source_url": "https://cdn.bahamas.gov.bs/tenant/tenantpostalservice/documents/All%20Documents/PostalRateBook-3-20240426071002.pdf",
@@ -394,7 +394,7 @@
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "Historical published rate book; 2026 tariff unconfirmed."
+        "detail": "Reference amount only; final/current 2026 tariff to Germany not confirmed."
       }
     },
     {
@@ -546,18 +546,19 @@
       "country": "Chile",
       "flag": "🇨🇱",
       "region": "Americas",
-      "standard": "1000 CLP",
+      "standard": "520 CLP",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Correos de Chile: Carta Normal Internacional AÉREO, 0-20 g, Resto del Mundo (Germany), CLP 520, VAT exempt. Official resolution 66 dated 22 Sep 2025, published in Diario Oficial 1 Oct 2025, page 2. Do not confuse with lower terrestrial rates or America-specific airmail tariffs.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.diariooficial.interior.gob.cl/publicaciones/2025/10/01/44263/01/2704814.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "2026 official postal operator tariff manually reviewed; PDF/HTML source not automatically price-scanned."
       }
     },
     {
@@ -624,18 +625,19 @@
       "country": "Ecuador",
       "flag": "🇪🇨",
       "region": "Americas",
-      "standard": "3.30 USD",
+      "standard": "2.80 USD",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
+      "weight_g": 20,
+      "notes": "PROVISIONAL HISTORICAL TARIFF: Servicios Postales del Ecuador official published 'Tarifario SPU Ordinario Internacional Ventanilla', 0-20 g, Zone 4 (Germany), US$2.80 BEFORE VAT, posted in a 2023 website path. Current 2026 validity not confirmed. Galápagos Islands are part of Ecuador; no separately established Galápagos-to-Germany ordinary letter rate identified. Do not assume mainland tariff applies from Galápagos without checking there.",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://www.serviciopostal.gob.ec/wp-content/uploads/2023/01/Tarifa-SPU-Internacional.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "Reference amount only; final/current 2026 tariff to Germany not confirmed."
       }
     },
     {
@@ -1045,15 +1047,16 @@
       "standard": "13.50 MXN",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Correos de México official 'Tarifa Postal 2026, Régimen Internacional, Depósitos Individuales', CARTAS Y TARJETAS POSTALES, 0-20 g, Zone B = South America and Europe (Germany). Total MXN 13.50 including the informative 16% VAT calculation. Source PDF is titled 2026 and states 'Vigencia a partir del 18 de Abril de 2016' (historical effective date); verified from the currently published 2026 tariff sheet.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.correosdemexico.gob.mx/DATOSABIERTOS/Tarifas/Individuales/8_INTERNACIONAL_Cartas%2C_Impresos_y_Pequenos_Paquetes.pdf",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "2026 official postal operator tariff manually reviewed; PDF/HTML source not automatically price-scanned."
       }
     },
     {
@@ -1611,18 +1614,19 @@
       "country": "Uruguay",
       "flag": "🇺🇾",
       "region": "Americas",
-      "standard": "90 UYU",
+      "standard": "100 UYU",
       "economy": null,
       "priority": null,
-      "weight_g": null,
-      "notes": "Collector-supplied figure; exact destination, weight and service not verified.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
+      "weight_g": 20,
+      "notes": "Correo Uruguayo official retail tariff effective 1 Nov 2026, p. 5/16: Grupo 6 'Resto de Europa' (Germany), Carta Simple o impreso, up to 20 g: UYU 100. Group 5 Spain and Group 7 Rest of World happen to carry the same first-step rate. Official tariff says fuel surcharge included.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.correo.com.uy/documents/20182/2118550/Tarifario%2BVentanilla%2Bvigente%2Bdesde%2Bel%2B1%2Bde%2Bnoviembre%2Bde%2B%2B2026.pdf/71495f63-d3e2-4987-9abc-132bf4ab98c1",
       "watch_token": null,
       "check": {
         "state": "not_configured",
-        "checked_at": null
+        "checked_at": null,
+        "detail": "2026 official postal operator tariff manually reviewed; PDF/HTML source not automatically price-scanned."
       }
     },
     {
@@ -2985,11 +2989,11 @@
       "country": "Thailand",
       "flag": "🇹🇭",
       "region": "Asia",
-      "standard": null,
+      "standard": "56 THB",
       "economy": null,
       "priority": null,
       "weight_g": 20,
-      "notes": "Thailand Post official calculator and International Letter-Post Service tariffs exist; a public announcement effective April 2025 updates international letter services and registered-mail changes effective January 2026. An ordinary unregistered 20 g Airmail letter-to-Germany amount could not be extracted reliably from the operator calculator; do not confuse parcel or registered mail tariffs with ordinary postage.",
+      "notes": "PROVISIONAL, NOT OFFICIALLY CONFIRMED: 56 THB reported for 20 g international AIR letter to Germany in an independent Thailand postal-rate reference updated Sep 2026 (pattayafans.de/post.htm). Thailand Post offers an official rate calculator, but its 2026 Germany amount was not independently confirmed. Verify before franking.",
       "status": "unverified",
       "manual_verified_at": null,
       "source_url": "https://international.thailandpost.com/find-rates/?lang=en",
@@ -2997,7 +3001,7 @@
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "Ordinary international letter rate to Germany not confirmed from a current authoritative tariff; leave unpublished until resolved."
+        "detail": "Reference amount only; final/current 2026 tariff to Germany not confirmed."
       }
     },
     {
@@ -3378,6 +3382,106 @@
         "state": "not_configured",
         "checked_at": null,
         "detail": "Official 2024-approved international letter tariff still linked at Azerpost, 2026 secondary cross-check; recheck for operator amendments."
+      }
+    },
+    {
+      "id": "brunei",
+      "country": "Brunei",
+      "flag": "🇧🇳",
+      "region": "Asia",
+      "standard": "0.50 BND",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "PosBru official Economy international letter, 0-20 g, 'Other Countries' including Germany, BND 0.50. Not PosBru Express or a parcel rate. Operator tariff page consulted 23 Nov 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://www.posbru.com.bn/shipping/international-mail-sending/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official PosBru international mail tariff page; manually reviewed 2026-11-23."
+      }
+    },
+    {
+      "id": "costa-rica",
+      "country": "Costa Rica",
+      "flag": "🇨🇷",
+      "region": "Americas",
+      "standard": "1540 CRC",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correos de Costa Rica 'Correo Básico Internacional Prioritario', ordinary documents 0-20 g, Europe destination (Germany): CRC 1,540 BEFORE VAT. VAT, if charged, increases final counter price. Official live rate webpage checked 23 Nov 2026.",
+      "status": "verified",
+      "manual_verified_at": "2026-11-23",
+      "source_url": "https://correos.go.cr/correo-basico-internacional/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Official basic international priority service page; tariff shown excluding IVA."
+      }
+    },
+    {
+      "id": "cambodia",
+      "country": "Cambodia",
+      "flag": "🇰🇭",
+      "region": "Asia",
+      "standard": "2300 KHR",
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "PROVISIONAL 2025 REFERENCE: Cambodia Post official 'Price List & Estimated Delivery Days (2025)', destination DE Germany, Letter Post 20 g: KHR 2,300; additional 10 g: KHR 1,100; tracking costs extra. 2026 continuation not confirmed. Check current tariff before franking.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://tracking.cambodiapost.post/documents/pdf/2025_PRICE_LIST.pdf",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Only 2025 Cambodia Post tariff located; 2026 rate remains unverified."
+      }
+    },
+    {
+      "id": "laos",
+      "country": "Laos",
+      "flag": "🇱🇦",
+      "region": "Asia",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Lao Post offers international letter-post service, but ordinary 0-20 g airmail postage to Germany was not verified from an official current tariff. No rate displayed until confirmed.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.laopost.com.la/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Lao Post official service site located; tariff to Germany not published or not retrievable."
+      }
+    },
+    {
+      "id": "panama",
+      "country": "Panama",
+      "flag": "🇵🇦",
+      "region": "Americas",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "Correos Panamá announced resumption of international service to Europe in March 2026. The readily available official tariffs cover domestic services, international small packets or parcels; an ordinary 0-20 g airmail letter to Germany could not be verified. No rate displayed.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": "https://www.correospanama.gob.pa/",
+      "watch_token": null,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "Ordinary international letter rate unconfirmed; service to Europe resumed in 2026."
       }
     }
   ],
