@@ -3828,20 +3828,20 @@
       "country": "Svalbard (Spitsbergen)",
       "flag": "🇳🇴",
       "region": "Islands & Polar",
-      "standard": null,
+      "standard": "37 NOK",
       "economy": null,
       "priority": null,
-      "weight_g": 20,
-      "notes": "REFERENCE ONLY — Arctic Norwegian archipelago. Postal reference entry only. No separately verified international rate for mail originating on Svalbard; consult Posten Norway and local posting arrangements. See parent postal administration: Norway.",
+      "weight_g": null,
+      "notes": "ARCTIC POSTAL REFERENCE — Svalbard (Spitsbergen) is administered by Norway. 37 NOK is Posten Norge's 2026 'Lite' letter tariff to Europe (including Germany), effective 1 February 2026; 44 NOK is the Rest of World 'Lite' tariff. Max format 25 × 17.6 × 0.5 cm (size-based, not a 20 g weight class). These figures are verified for Norway generally, NOT separately confirmed by Posten as outbound international franking from Svalbard. Check local acceptance, routing and applicable franking before sending. Posten's Svalbard and Jan Mayen guidance explicitly confirms DOMESTIC rates for letters addressed TO the islands; this does not prove outbound international treatment: https://www.posten.no/sende/i-norge/svalbard.",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://www.posten.no/sende/i-norge/brev",
       "watch_token": null,
-      "show_pending": true,
+      "show_pending": false,
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "No territory-specific postage rate provided; reference-only listing."
+        "detail": "Norway's Europe Lite reference rate verified on official Posten page; origin-specific international tariff for this territory not independently established. No automated validation."
       }
     },
     {
@@ -3849,20 +3849,20 @@
       "country": "Jan Mayen",
       "flag": "🇳🇴",
       "region": "Islands & Polar",
-      "standard": null,
+      "standard": "37 NOK",
       "economy": null,
       "priority": null,
-      "weight_g": 20,
-      "notes": "REFERENCE ONLY — Remote Norwegian Arctic island. Postal reference only; no independently verified ordinary international letter tariff or regular public post office access. Confirm actual acceptance and routing with the responsible operator. See parent postal administration: Norway.",
+      "weight_g": null,
+      "notes": "ARCTIC POSTAL REFERENCE — Jan Mayen is a remote Norwegian island. 37 NOK is Posten Norge's 2026 'Lite' letter tariff to Europe (including Germany), effective 1 February 2026; 44 NOK is the Rest of World 'Lite' tariff. Max format 25 × 17.6 × 0.5 cm (size-based, not a 20 g weight class). These are Norway-wide reference prices, NOT a verified tariff for letters actually dispatched from Jan Mayen; public postal acceptance and routing are also not established. Posten's explicit DOMESTIC rate guidance concerns letters addressed TO Jan Mayen, not overseas departures: https://www.posten.no/sende/i-norge/svalbard.",
       "status": "unverified",
       "manual_verified_at": null,
-      "source_url": null,
+      "source_url": "https://www.posten.no/sende/i-norge/brev",
       "watch_token": null,
-      "show_pending": true,
+      "show_pending": false,
       "check": {
         "state": "not_configured",
         "checked_at": null,
-        "detail": "No territory-specific postage rate provided; reference-only listing."
+        "detail": "Norway's Europe Lite reference rate verified on official Posten page; origin-specific international tariff for this territory not independently established. No automated validation."
       }
     },
     {
@@ -3917,27 +3917,6 @@
       "priority": null,
       "weight_g": 20,
       "notes": "REFERENCE ONLY — Remote Australian subantarctic territory. Geographic reference only; no independently established regular public post service or distinct international tariff. See parent postal administration: Australia.",
-      "status": "unverified",
-      "manual_verified_at": null,
-      "source_url": null,
-      "watch_token": null,
-      "show_pending": true,
-      "check": {
-        "state": "not_configured",
-        "checked_at": null,
-        "detail": "No territory-specific postage rate provided; reference-only listing."
-      }
-    },
-    {
-      "id": "alaska-ref",
-      "country": "Alaska (United States)",
-      "flag": "🇺🇸",
-      "region": "Islands & Polar",
-      "standard": null,
-      "economy": null,
-      "priority": null,
-      "weight_g": 20,
-      "notes": "REFERENCE ONLY — Arctic region within the United States. The parent-country USPS entry covers US mailing generally; no Alaska-specific international tariff is asserted. Check USPS and local mailing access. See parent postal administration: United States.",
       "status": "unverified",
       "manual_verified_at": null,
       "source_url": null,
