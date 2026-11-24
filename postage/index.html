@@ -419,7 +419,7 @@ $('verified').textContent=published.filter(function(r){return r.status==='verifi
 $('alerts').textContent=published.filter(hasAlert).length;
 $('scan').textContent='Last edited: '+(data.updated_at||'unknown')+' · Last automated source scan: '+(data.last_scan_at||'not yet run');
 renderUpcoming();
-$('polar-help').textContent=groups.filter(isPolarRelated).length+' polar-linked and remote territories available · Categories reflect geography/philately; rates are not necessarily territory-specific.';
+$('polar-help').textContent=groups.filter(isPolarRelated).length+' polar-linked and remote territories available (Arctic, Antarctic/Subantarctic, other remote) · Category assignments do not imply special postage rates.';
 draw()
 }
 ['search','region','status','polar-category'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',draw)});
@@ -431,7 +431,7 @@ this.setAttribute('aria-pressed',String(polarMode));
 this.textContent=polarMode?'✓ Polar & remote · Show all':'❄ Polar & remote territories';
 draw()
 });
-fetch('./rates.json',{cache:'no-store'}).then(function(response){if(!response.ok)throw Error('HTTP '+response.status);return response.json()}).then(init).catch(function(err){
+fetch('./rates.json?v=polar-20261124b',{cache:'no-store'}).then(function(response){if(!response.ok)throw Error('HTTP '+response.status);return response.json()}).then(init).catch(function(err){
 var list=$('country-list');list.replaceChildren();list.appendChild(el('p','empty','Database could not be loaded: '+err.message));$('scan').textContent='Database unavailable'
 });
 })();
