@@ -267,6 +267,33 @@ def parse_official_bulletins(page, source):
     return results
 
 
+def parse_official_news_links(page, source):
+    """Read dated or thematic official press links; do not infer special-cancel availability."""
+    scanner = OfficialLinkScanner()
+    scanner.feed(page)
+    url_pattern = re.compile(source["url_pattern"], re.I)
+    title_pattern = re.compile(source.get("title_pattern", r".+"), re.I)
+    origin = urllib.parse.urlsplit(source["url"]).netloc
+    items, seen = [], set()
+    for link in scanner.links:
+        url = normalize_url(urllib.parse.urljoin(source["url"], unescape(link["href"])))
+        title = re.sub(r"\s+", " ", link["text"]).strip()
+        if (not url or url in seen or
+                urllib.parse.urlsplit(url).netloc != origin or
+                not url_pattern.search(url) or not title_pattern.search(title)):
+            continue
+        item = make_item(source, title, url, source.get(
+            "summary", "Official philatelic announcement; verify details and postmarks in the original."))
+        if item:
+            items.append(item)
+            seen.add(url)
+            if len(items) >= source.get("max_entries", 3):
+                break
+    if not items:
+        raise ValueError("No matching official news links; check page structure and patterns")
+    return items
+
+
 def pdf_digest(url, max_bytes=25_000_000):
     """PDF-Prüfsumme erkennt auch Änderungen unter einer konstanten Dokument-URL."""
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/pdf"})
@@ -338,7 +365,7 @@ def parse_deutschepost_page(page, source):
 
 
 def is_relevant(item, source, keywords):
-    if source["kind"] in ("edition_page", "official_bulletins", "official_pdf_links", "official_news_table", "usps_issues"):
+    if source["kind"] in ("edition_page", "official_bulletins", "official_pdf_links", "official_news_table", "official_news_links", "usps_issues"):
         return True
     haystack = (item["title"] + " " + item["summary"]).casefold()
     return any(word.casefold() in haystack for word in keywords)
@@ -419,6 +446,8 @@ def run(config_path, offline_fixture=None):
                     parsed = parse_official_pdf_links(raw.decode("utf-8", "replace"), s)
                 elif s["kind"] == "official_news_table":
                     parsed = parse_official_news_table(raw.decode("utf-8", "replace"), s)
+                elif s["kind"] == "official_news_links":
+                    parsed = parse_official_news_links(raw.decode("utf-8", "replace"), s)
                 elif s["kind"] == "official_bulletins":
                     parsed = parse_official_bulletins(raw.decode("utf-8", "replace"), s)
                     if s.get("track_pdf_changes"):
