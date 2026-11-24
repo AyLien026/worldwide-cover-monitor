@@ -137,7 +137,13 @@ html.embedded .hero>.eyebrow,html.embedded .hero>h1,html.embedded .hero>p:not(#s
 </div>
 <div class="modebar">
 <button type="button" id="polar-toggle" aria-pressed="false">❄ Polar &amp; remote territories</button>
-<span class="mode-help" id="polar-help">Selected Antarctic, Arctic-linked and remote postal territories. Some share national rates; no special expedition tariffs are implied.</span>
+<select id="polar-category" aria-label="Polar territory category" hidden>
+<option value="">All polar &amp; remote</option>
+<option value="arctic">Arctic &amp; Arctic-linked</option>
+<option value="antarctic">Antarctic &amp; Subantarctic</option>
+<option value="remote">Other remote territories</option>
+</select>
+<span class="mode-help" id="polar-help">Geographical and philatelic grouping, not a claim of distinct postage tariffs.</span>
 </div>
 <div class="legend">
 <span><span class="pill ok">SOURCE REVIEWED</span> manually inspected official source</span>
@@ -161,19 +167,16 @@ function el(tag,cls,content){var node=document.createElement(tag);if(cls)node.cl
 function norm(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
 function groupName(record){return String(record.country||'').split(' – ')[0]}
 function flag(record){return record.flag||'🌐'}
-// Deliberately curated: the broad "Islands & Polar" database region also
-// includes Channel Islands and the Azores, which are not polar-mail areas.
-var POLAR_REMOTE=new Set([
-'Australian Antarctic Territory','British Antarctic Territory',
-'French Southern and Antarctic Lands (TAAF)','Ross Dependency',
-'Falkland Islands','South Georgia & South Sandwich Islands',
-'Greenland','Faroe Islands','Iceland','Norway',
-'Saint Pierre and Miquelon','Ascension Island','Tristan da Cunha',
-'Saint Helena','Pitcairn Islands'
-]);
-function isPolarRelated(g){
-return POLAR_REMOTE.has(g.name)
+// Curated philatelic geography: classification is not evidence of a special rate.
+var POLAR_CATEGORIES={
+'arctic':new Set(['Greenland','Faroe Islands','Iceland','Norway','Finland','Sweden','Canada','Russia','Svalbard (Spitsbergen)','Jan Mayen','Alaska (United States)','Saint Pierre and Miquelon']),
+'antarctic':new Set(['Australian Antarctic Territory','British Antarctic Territory','French Southern and Antarctic Lands (TAAF)','Ross Dependency','Falkland Islands','South Georgia & South Sandwich Islands','Bouvet Island','Macquarie Island','Heard Island and McDonald Islands']),
+'remote':new Set(['Ascension Island','Tristan da Cunha','Saint Helena','Pitcairn Islands'])
+};
+function polarCategory(g){
+return Object.keys(POLAR_CATEGORIES).find(function(k){return POLAR_CATEGORIES[k].has(g.name)})||''
 }
+function isPolarRelated(g){return !!polarCategory(g)}
 function hasAlert(r){return ['review','unavailable'].indexOf((r.check||{}).state)>=0}
 function displayStatus(rows){
 if(rows.some(hasAlert))return ['REVIEW NEEDED','warn'];
@@ -392,7 +395,7 @@ item.appendChild(button);item.appendChild(body);return item
 function draw(){
 var query=norm($('search').value),region=$('region').value,status=$('status').value;
 var shown=groups.filter(function(g){
- if(polarMode&&!isPolarRelated(g))return false;
+ if(polarMode&&(!isPolarRelated(g)||($('polar-category').value&&polarCategory(g)!==$('polar-category').value)))return false;
  if(region&&region!==g.region)return false;
  if(status&&!(status==='alert'?g.rates.some(hasAlert):g.rates.some(function(r){return r.status===status})))return false;
  if(query&&!g.rates.some(function(r){return norm(g.name+' '+g.region+' '+r.country+' '+r.notes).indexOf(query)>=0}))return false;
@@ -416,13 +419,14 @@ $('verified').textContent=published.filter(function(r){return r.status==='verifi
 $('alerts').textContent=published.filter(hasAlert).length;
 $('scan').textContent='Last edited: '+(data.updated_at||'unknown')+' · Last automated source scan: '+(data.last_scan_at||'not yet run');
 renderUpcoming();
-$('polar-help').textContent=groups.filter(isPolarRelated).length+' polar-linked and remote territories available · These are ordinary postal tariffs, not necessarily special expedition-mail rates.';
+$('polar-help').textContent=groups.filter(isPolarRelated).length+' polar-linked and remote territories available · Categories reflect geography/philately; rates are not necessarily territory-specific.';
 draw()
 }
-['search','region','status'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',draw)});
+['search','region','status','polar-category'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',draw)});
 $('polar-toggle').addEventListener('click',function(){
 polarMode=!polarMode;
-if(polarMode){$('search').value='';$('region').value='';$('status').value=''}
+if(polarMode){$('search').value='';$('region').value='';$('status').value='';$('polar-category').value=''}
+$('polar-category').hidden=!polarMode;
 this.setAttribute('aria-pressed',String(polarMode));
 this.textContent=polarMode?'✓ Polar & remote · Show all':'❄ Polar & remote territories';
 draw()
