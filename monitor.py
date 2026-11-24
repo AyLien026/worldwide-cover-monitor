@@ -277,7 +277,7 @@ def parse_official_news_links(page, source):
     items, seen = [], set()
     for link in scanner.links:
         url = normalize_url(urllib.parse.urljoin(source["url"], unescape(link["href"])))
-        title = re.sub(r"\s+", " ", link["text"]).strip()
+        title = re.sub(r"(?:Read More|Continue Reading)\s*$", "", re.sub(r"\s+", " ", link["text"]).strip(), flags=re.I).strip()
         if (not url or url in seen or
                 urllib.parse.urlsplit(url).netloc != origin or
                 not url_pattern.search(url) or not title_pattern.search(title)):
