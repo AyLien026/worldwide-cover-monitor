@@ -3822,6 +3822,132 @@
         "checked_at": null,
         "detail": "Official product confirmed; current tariff not extracted."
       }
+    },
+    {
+      "id": "svalbard-ref",
+      "country": "Svalbard (Spitsbergen)",
+      "flag": "🇳🇴",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "REFERENCE ONLY — Arctic Norwegian archipelago. Postal reference entry only. No separately verified international rate for mail originating on Svalbard; consult Posten Norway and local posting arrangements. See parent postal administration: Norway.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "show_pending": true,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "No territory-specific postage rate provided; reference-only listing."
+      }
+    },
+    {
+      "id": "jan-mayen-ref",
+      "country": "Jan Mayen",
+      "flag": "🇳🇴",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "REFERENCE ONLY — Remote Norwegian Arctic island. Postal reference only; no independently verified ordinary international letter tariff or regular public post office access. Confirm actual acceptance and routing with the responsible operator. See parent postal administration: Norway.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "show_pending": true,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "No territory-specific postage rate provided; reference-only listing."
+      }
+    },
+    {
+      "id": "bouvet-ref",
+      "country": "Bouvet Island",
+      "flag": "🇳🇴",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "REFERENCE ONLY — Norwegian subantarctic island. Philatelic/geographic reference only; no routine ordinary international letter-post service or separate tariff has been established here. See parent postal administration: Norway.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "show_pending": true,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "No territory-specific postage rate provided; reference-only listing."
+      }
+    },
+    {
+      "id": "macquarie-ref",
+      "country": "Macquarie Island",
+      "flag": "🇦🇺",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "REFERENCE ONLY — Subantarctic Australian island. Geographic reference only; international letter posting arrangements and any applicable Australia Post rate at the station are not verified. See parent postal administration: Australia.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "show_pending": true,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "No territory-specific postage rate provided; reference-only listing."
+      }
+    },
+    {
+      "id": "heard-ref",
+      "country": "Heard Island and McDonald Islands",
+      "flag": "🇦🇺",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "REFERENCE ONLY — Remote Australian subantarctic territory. Geographic reference only; no independently established regular public post service or distinct international tariff. See parent postal administration: Australia.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "show_pending": true,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "No territory-specific postage rate provided; reference-only listing."
+      }
+    },
+    {
+      "id": "alaska-ref",
+      "country": "Alaska (United States)",
+      "flag": "🇺🇸",
+      "region": "Islands & Polar",
+      "standard": null,
+      "economy": null,
+      "priority": null,
+      "weight_g": 20,
+      "notes": "REFERENCE ONLY — Arctic region within the United States. The parent-country USPS entry covers US mailing generally; no Alaska-specific international tariff is asserted. Check USPS and local mailing access. See parent postal administration: United States.",
+      "status": "unverified",
+      "manual_verified_at": null,
+      "source_url": null,
+      "watch_token": null,
+      "show_pending": true,
+      "check": {
+        "state": "not_configured",
+        "checked_at": null,
+        "detail": "No territory-specific postage rate provided; reference-only listing."
+      }
     }
   ],
   "last_scan_at": "2026-11-18"
