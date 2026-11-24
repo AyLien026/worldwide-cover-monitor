@@ -32,14 +32,34 @@ class OfficialLinkSourcesTests(unittest.TestCase):
             "name": "Isle of Man Post Office – Stamp news",
             "url": "https://www.iompost.com/news",
             "url_pattern": r"^https://www\.iompost\.com/news/[^?#]+",
-            "title_pattern": r"stamp|stamps|philatel|collection|coins",
+            "title_pattern": r"\bstamps?\b|philatel|\bStamps\s*(?:&|and)\s*Coins\b",
             "max_entries": 3
         }
         html = """
           <a href="/news/new-post-office-hours">Opening Hours</a>
+          <a href="/news/parcel-collection">Improved parcel collection in Ramsey</a>
           <a href="/news/island-stamp-issue">New island stamp issue</a>
         """
         self.assertEqual(len(parse_official_news_links(html, source)), 1)
+
+    def test_guernsey_navigation_excluded(self):
+        source = {
+            "id": "guernsey-post-news",
+            "name": "Guernsey Post news",
+            "url": "https://www.guernseystamps.com/index.php?route=blog/posts",
+            "url_pattern": r"^https://www\.guernseystamps\.com/(?!index\.php|stamp-programmes(?:/|$)|new-issues(?:/|$)|guernsey-new-issues(?:/|$)|alderney-new-issues(?:/|$)|sark-new-issues(?:/|$))[^?#]+",
+            "title_pattern": r"\bstamps?\b|postage|philatel|Guernsey Post|Sark",
+            "max_entries": 3
+        }
+        html = """
+          <a href="/stamp-programmes">Stamp Programmes</a>
+          <a href="/new-issues/alderney-new-issues">Alderney New Issues</a>
+          <a href="/Stamps-commemorate-Great-War">Stamps commemorate Great War</a>
+          <a href="/Guernsey-Post-launches-Christmas-stamps">Guernsey Post launches Christmas stamps</a>
+        """
+        items = parse_official_news_links(html, source)
+        self.assertEqual(len(items), 2)
+        self.assertTrue(all("New Issues" not in i["title"] for i in items))
 
     def test_faroese_pdf_bulletin(self):
         source = {
