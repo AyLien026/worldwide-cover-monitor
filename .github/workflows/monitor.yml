@@ -45,11 +45,11 @@ jobs:
 
       # Data, site, or postage changes deploy the current archive without running the full bulletin scraper.
       - name: Quellen pruefen
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' || contains(github.event.head_commit.message, '[scan-now]')
         run: python monitor.py
 
       - name: Archiv aktualisieren
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' || contains(github.event.head_commit.message, '[scan-now]')
         run: |
           git config user.name "worldwide-covers-monitor[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
