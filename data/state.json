@@ -1,9 +1,10 @@
 {
-  "last_attempt": "2026-11-27T08:47:20+00:00",
+  "last_attempt": "2026-11-28T08:30:41+00:00",
   "active_sources": 19,
-  "new_items": 2,
+  "new_items": 0,
   "source_errors": {
     "usps-postal-bulletin": "HTTP Error 403: Forbidden",
+    "royal-mail-postmarks": "HTTP Error 403: Forbidden",
     "swiss-lupe": "Keine passenden Dokumentlinks gefunden; Seitenstruktur oder Selektor prüfen"
   }
 }
